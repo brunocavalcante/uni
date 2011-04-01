@@ -3,6 +3,7 @@ class Admin::CadeirasController < ApplicationController
   # GET /cadeiras.xml
   def index
     @cadeiras = Cadeira.all(:conditions => ['curso_id = ?', params[:curso_id]])
+    @curso = Curso.find(params[:curso_id])
 
     respond_to do |format|
       format.html # index.html.erb
