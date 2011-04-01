@@ -1,0 +1,18 @@
+<h1>Cursos</h1>
+
+<table>
+  <tr>
+    <th>Curso</th>
+    <th>Categoria</th>
+  </tr>
+<% @cursos.each do |curso| %>
+  <tr>
+    <td><%= link_to curso.nome, [:admin, curso] %></td>
+    <td><%= curso.categoria_curso.nome %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Curso', :action => 'new' %>

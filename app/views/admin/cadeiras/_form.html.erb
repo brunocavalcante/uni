@@ -1,0 +1,26 @@
+<%= form_for([:admin, @cadeira.curso, @cadeira]) do |f| %>
+  <% if @cadeira.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cadeira.errors.count, "error") %> prohibited this cadeira from being saved:</h2>
+
+      <ul>
+      <% @cadeira.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :creditos %><br />
+    <%= f.text_field :creditos %>
+  </div>
+  <%= f.hidden_field :curso_id %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

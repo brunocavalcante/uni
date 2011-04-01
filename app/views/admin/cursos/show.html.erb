@@ -1,0 +1,19 @@
+<h1><%= @curso.nome %></h1>
+<%= render :partial => 'menu', :locals => { :curso => @curso } %>
+<article>
+    <h2>Início</h2>
+    <p id="notice"><%= notice %></p>
+    
+    <p>
+      <b>Nome:</b>
+      <%= @curso.nome %>
+    </p>
+    
+    <p>
+      <b>Categoria curso:</b>
+      <%= @curso.categoria_curso.nome %>
+    </p>
+    
+    <%= link_to 'Edit', edit_admin_curso_path(@curso) %> |
+    <%= link_to 'Back', admin_cursos_path %>
+</article>

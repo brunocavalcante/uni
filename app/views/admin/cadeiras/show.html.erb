@@ -1,0 +1,25 @@
+<h1><%= @cadeira.curso.nome %></h1>
+<%= render :partial => 'admin/cursos/menu', :locals => { :curso => @cadeira.curso } %>
+<article>
+    <h2><%= @cadeira.nome %></h2>
+    <p id="notice"><%= notice %></p>
+    
+    <p>
+      <b>Nome:</b>
+      <%= @cadeira.nome %>
+    </p>
+    
+    <p>
+      <b>Creditos:</b>
+      <%= @cadeira.creditos %>
+    </p>
+    
+    <p>
+      <b>Curso:</b>
+      <%= @cadeira.curso.nome %>
+    </p>
+    
+    
+    <%= link_to 'Edit', edit_admin_curso_cadeira_path(@cadeira.curso, @cadeira) %> |
+    <%= link_to 'Back', admin_curso_cadeiras_path(@cadeira.curso) %>
+</article>

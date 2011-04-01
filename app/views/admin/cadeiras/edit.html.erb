@@ -1,0 +1,10 @@
+<h1><%= @cadeira.curso.nome %></h1>
+<%= render :partial => 'admin/cursos/menu', :locals => { :curso => @cadeira.curso } %>
+<article>
+    <h2>Editando Cadeira</h2>
+    
+    <%= render 'form' %>
+    
+    <%= link_to 'Show', [:admin, @cadeira.curso, @cadeira] %> |
+    <%= link_to 'Back', admin_curso_cadeiras_path %>
+</article>

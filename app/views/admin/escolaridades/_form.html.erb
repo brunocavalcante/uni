@@ -1,0 +1,21 @@
+<%= form_for([:admin, @escolaridade]) do |f| %>
+  <% if @escolaridade.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@escolaridade.errors.count, "error") %> prohibited this escolaridade from being saved:</h2>
+
+      <ul>
+      <% @escolaridade.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
