@@ -6,7 +6,7 @@
     <th>Categoria</th>
   </tr>
 <% @cursos.each do |curso| %>
-  <tr>
+  <tr class="<%= cycle("even", "odd") -%>">
     <td><%= link_to curso.nome, [:admin, curso] %></td>
     <td><%= curso.categoria_curso.nome %></td>
   </tr>

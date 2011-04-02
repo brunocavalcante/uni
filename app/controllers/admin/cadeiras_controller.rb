@@ -26,6 +26,7 @@ class Admin::CadeirasController < ApplicationController
   # GET /cadeiras/new.xml
   def new
     @cadeira = Cadeira.new
+    @curso = Curso.find(params[:curso_id])
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +37,7 @@ class Admin::CadeirasController < ApplicationController
   # GET /cadeiras/1/edit
   def edit
     @cadeira = Cadeira.find(params[:id])
+    @curso = Curso.find(params[:id])
   end
 
   # POST /cadeiras

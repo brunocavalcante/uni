@@ -5,6 +5,7 @@
     
     <%= render 'form' %>
     
-    <%= link_to 'Show', [:admin, @cadeira.curso, @cadeira] %> |
+    <%= link_to 'Show', [:admin, @cadeira.curso, @cadeira] %> | 
+    <%= link_to 'Excluir', [:admin, @cadeira.curso, @cadeira], :confirm => 'Tem certeza disso?', :method => :delete %> | 
     <%= link_to 'Back', admin_curso_cadeiras_path %>
 </article>

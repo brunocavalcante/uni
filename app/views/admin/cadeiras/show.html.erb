@@ -14,12 +14,6 @@
       <%= @cadeira.creditos %>
     </p>
     
-    <p>
-      <b>Curso:</b>
-      <%= @cadeira.curso.nome %>
-    </p>
-    
-    
     <%= link_to 'Edit', edit_admin_curso_cadeira_path(@cadeira.curso, @cadeira) %> |
     <%= link_to 'Back', admin_curso_cadeiras_path(@cadeira.curso) %>
 </article>
