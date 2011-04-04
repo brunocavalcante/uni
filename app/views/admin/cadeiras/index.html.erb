@@ -7,21 +7,17 @@
       <tr>
         <th>Nome</th>
         <th>Creditos</th>
-        <th></th>
-        <th></th>
       </tr>
     
     <% @cadeiras.each do |cadeira| %>
-      <tr>
+      <tr class="<%= cycle("even", "odd") -%>">
         <td><%= link_to cadeira.nome, [:admin, cadeira.curso, cadeira] %></td>
         <td><%= cadeira.creditos %></td>
-        <td><%= link_to 'Edit', edit_admin_curso_cadeira_path(cadeira.curso, cadeira) %></td>
-        <td><%= link_to 'Destroy', [:admin, cadeira.curso, cadeira], :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
     </table>
     
     <br />
     
-    <%= link_to 'Criar nova Cadeira', new_admin_curso_cadeira_path %>
+    <%= link_to 'Nova Cadeira', new_admin_curso_cadeira_path %>
 </article>
