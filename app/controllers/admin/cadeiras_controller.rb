@@ -44,10 +44,11 @@ class Admin::CadeirasController < ApplicationController
   # POST /cadeiras.xml
   def create
     @cadeira = Cadeira.new(params[:cadeira])
+    @cadeira.curso_id = params[:curso_id]
 
     respond_to do |format|
       if @cadeira.save
-        format.html { redirect_to([:admin, @cadeira], :notice => 'Cadeira was successfully created.') }
+        format.html { redirect_to([:admin, @cadeira.curso, @cadeira], :notice => 'Cadeira was successfully created.') }
         format.xml  { render :xml => @cadeira, :status => :created, :location => @cadeira }
       else
         format.html { render :action => "new" }
