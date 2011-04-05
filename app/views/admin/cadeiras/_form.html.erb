@@ -19,6 +19,13 @@
     <%= f.label :creditos %><br />
     <%= f.text_field :creditos %>
   </div>
+  <div class="field">
+      <%= f.label :cadeiras %>
+      <%= f.select :prerequisito_ids, 
+                   @curso.cadeiras.all.collect {|c| [c.nome, c.id]}.delete_if {|i| i[1] == @cadeira.id}, 
+                   { :selected => @cadeira.prerequisito_ids }, 
+                   :multiple => true %>
+  </div>
   <%= f.hidden_field :curso_id %>
   <div class="actions">
     <%= f.submit %>

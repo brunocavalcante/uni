@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110401124233) do
+ActiveRecord::Schema.define(:version => 20110405033445) do
 
   create_table "cadeiras", :force => true do |t|
     t.string   "nome"
@@ -224,6 +224,13 @@ ActiveRecord::Schema.define(:version => 20110401124233) do
     t.integer "umuser",                   :null => false
     t.integer "umserver",                 :null => false
     t.string  "umoptions", :limit => nil
+  end
+
+  create_table "prerequisitos", :force => true do |t|
+    t.integer  "cadeira_id"
+    t.integer  "requisito_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "professores", :force => true do |t|

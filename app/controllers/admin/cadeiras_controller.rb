@@ -37,7 +37,7 @@ class Admin::CadeirasController < ApplicationController
   # GET /cadeiras/1/edit
   def edit
     @cadeira = Cadeira.find(params[:id])
-    @curso = Curso.find(params[:id])
+    @curso = Curso.find(params[:curso_id])
   end
 
   # POST /cadeiras

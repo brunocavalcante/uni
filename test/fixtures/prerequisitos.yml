@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  cadeira_id: 1
+  requisito_id: 1
+
+two:
+  cadeira_id: 1
+  requisito_id: 1

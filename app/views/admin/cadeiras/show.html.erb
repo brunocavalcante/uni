@@ -14,6 +14,17 @@
       <%= @cadeira.creditos %>
     </p>
     
+    <% if @cadeira.prerequisitos && @cadeira.prerequisitos.length > 0 %>
+    <h3>Pré-requisitos</h3>
+    <ul>
+        <% for prerequisito in @cadeira.prerequisitos %>
+        <li>
+            <%= link_to prerequisito.nome, [:admin, @cadeira.curso, prerequisito] %>
+        </li>
+        <% end %>
+    <% end %>
+</ul>
+    
     <%= link_to 'Editar', edit_admin_curso_cadeira_path(@cadeira.curso, @cadeira) %> | 
     <%= link_to 'Excluir', [:admin, @cadeira.curso, @cadeira], :confirm => 'Tem certeza disso?', :method => :delete %> | 
     <%= link_to 'Back', admin_curso_cadeiras_path(@cadeira.curso) %>
