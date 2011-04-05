@@ -13,32 +13,62 @@ a:hover {
 }
 
 header {
-    margin: 2%;
+    margin: 1% 2% 1%;
 }
 
 header h1 {
     background: url('../images/logo-uni.png') no-repeat 0% 50%;
-    padding-left: 104px;
-    min-height: 80px;
+    padding: 0 0 0 64px;
+    min-height: 48px;
     position: relative;
+    margin: 0;
 }
 
 header h1 a {
-    line-height: 64px;
     text-decoration: none;
     color: #333333 !important;
 }
 
 header h1 span {
-    font-size: 0.5em;
+    font-size: small;
     font-weight: normal;
     display: block;
     position: absolute;
-    bottom: 0.5em;
+    bottom: 0em;
+}
+
+#main-nav {
+    float: left;
+    width: 100%;
+}
+
+#main-nav li.active, #main-nav a {
+    color: white;
+    text-decoration: none;
+    text-shadow: 1px 1px 0px #000;
+}
+
+#main-nav a:hover {
+    text-decoration: underline;
+}
+
+#main-nav {
+    background: #333;
 }
 
 #main-nav ul {
     margin: 0 2%;
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+    float: left;
+    width: 96%;
+}
+
+#main-nav ul li {
+    float: left;
+    padding: 0.5em 1.75em;
+    border-left: 1px solid #666;
 }
 
 #content {
@@ -50,7 +80,7 @@ header h1 span {
 #content h1, #content article h2 {
     border-bottom: 1px dotted #ccc;
     padding-bottom: 0.25em;
-    margin-top: 0;
+    margin: 0 0 2%;
 }
 
 #content article {
@@ -65,12 +95,35 @@ header h1 span {
     background: #EEE;
 }
 
+#content aside ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#content aside ul li {
+    border-bottom: 1px solid #DDD;
+    padding: 1em 1.5em 1em 2.5em;
+    background: url('../images/icons/bullet_black.png') no-repeat 1em 50%;
+}
+
+#breadcrumbs, #breadcrumbs a {
+    color: #666;
+    font-size: small;
+    text-decoration: none;
+}
+
 footer {
     padding-top: 0.5em;
-    border-top: 1px dotted #ccc;
+    border-top: 1px dotted #EEE;
     float: left;
     width: 96%;
     margin: 0 2% 2%;
+}
+
+footer, footer a, footer a:active, footer a:link {
+    color: #666 !important;
+    font-size: small;
 }
 
 header {
@@ -91,7 +144,7 @@ tr.even {
     background: #eee;
 }
 th, td {
-    padding: 0.5em 0.75em
+    padding: 0.75em 1em
 }
 th {
     text-align: left;

@@ -13,21 +13,22 @@
             <span>Sistema de Gestão Universitária</span>
         </h1>
         <section id="user">
-            Logado como <%= link_to 'Niguém, ainda' %> | <%= link_to 'Sair' %>
+            Logado como <%= link_to 'Niguém, ainda' %> | 
+            Perfil: Administrador <%= link_to 'Trocar Perfil' %> | 
+            <%= link_to 'Sair' %>
         </section>
     </header>
     <nav id="main-nav">
         <ul>
-            <li>Administração
-                <ul>
-                    <li><%= link_to 'Início', :controller => 'admin/home' %></li>
-                    <li><%= link_to 'Cursos', :controller => 'admin/cursos' %></li>
-                    <li><%= link_to 'Relatórios' %></li>
-                </ul>
-            </li>
+            <li><%= link_to 'Início', :controller => 'admin/home' %></li>
+            <li><%= link_to 'Cursos', :controller => 'admin/cursos' %></li>
+            <li><%= link_to 'Relatórios' %></li>
         </ul>
     </nav>
     <section id="content">
+        <div id="breadcrumbs">
+            <%= get_bread_crumb(request.request_uri).html_safe %>
+        </div>
         <%= yield %>
     </section>
     <footer>
