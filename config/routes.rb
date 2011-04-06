@@ -1,4 +1,6 @@
 Uni::Application.routes.draw do
+  resources :professores
+
   root :to => 'admin/home#index'
   namespace :admin do
     root :to => 'home#index'
@@ -7,6 +9,7 @@ Uni::Application.routes.draw do
     resources :cursos do
         resources :cadeiras
     end
+    resources :professores
   end
   
   

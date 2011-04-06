@@ -2,7 +2,7 @@ class CreateProfessores < ActiveRecord::Migration
   def self.up
     create_table :professores do |t|
       t.integer :pessoa_id
-      t.integer :curso_id
+      t.integer :escolaridade_id
 
       t.timestamps
     end

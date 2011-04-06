@@ -3,7 +3,7 @@
         <ul>
             <li><%= link_to 'Página Inicial do Curso', admin_curso_path(curso), :class => 'home' %></li>
             <li><%= link_to 'Cadeiras', admin_curso_cadeiras_path(curso), :class => 'majors' %></li>
-            <li><%= link_to 'Professores', admin_curso_cadeiras_path(curso), :class => 'teachers' %></li>
+            <li><%= link_to 'Professores', admin_curso_professores_path(curso), :class => 'teachers' %></li>
             <li><%= link_to 'Alunos', admin_curso_cadeiras_path(curso), :class => 'students' %></li>
         </ul>
     </nav>

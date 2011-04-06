@@ -69,5 +69,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  i18n
   pg
   rails (= 3.0.5)

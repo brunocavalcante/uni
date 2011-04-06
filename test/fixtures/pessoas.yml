@@ -2,8 +2,8 @@
 
 one:
   nome: MyString
-  cpf: MyString
+  email: MyString
 
 two:
   nome: MyString
-  cpf: MyString
+  email: MyString
