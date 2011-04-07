@@ -23,6 +23,16 @@
         </li>
         <% end %>
     <% end %>
+    
+    <% if @disciplina.professores && @disciplina.professores.length > 0 %>
+    <h3>Professores</h3>
+    <ul>
+        <% for professor in @disciplina.professores %>
+        <li>
+            <%= link_to professor.nome, [:admin, professor] %>
+        </li>
+        <% end %>
+    <% end %>
 </ul>
     
     <%= link_to 'Editar', edit_admin_curso_disciplina_path(@disciplina.curso, @disciplina) %> | 
