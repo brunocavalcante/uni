@@ -10,6 +10,7 @@ Uni::Application.routes.draw do
         resources :cadeiras
     end
     resources :professores
+    resources :parametros
   end
   
   

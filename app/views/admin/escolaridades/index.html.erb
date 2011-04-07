@@ -1,23 +1,20 @@
-<h1>Listing escolaridades</h1>
-
-<table>
-  <tr>
-    <th>Nome</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @escolaridades.each do |escolaridade| %>
-  <tr>
-    <td><%= escolaridade.nome %></td>
-    <td><%= link_to 'Show', [:admin, escolaridade] %></td>
-    <td><%= link_to 'Edit', :action => 'edit', :id => escolaridade.id %></td>
-    <td><%= link_to 'Destroy', [:admin, escolaridade], :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Escolaridade', :action => 'new' %>
+<h1>Parâmetros</h1>
+<%= render :partial => 'admin/parametros/menu' %>
+<article>
+  <h2>Escolaridades</h2>
+  <table>
+    <tr>
+      <th>Nome</th>
+    </tr>
+  
+  <% @escolaridades.each do |escolaridade| %>
+    <tr class="<%= cycle("even", "odd") -%>">
+      <td><%= link_to escolaridade.nome, [:admin, escolaridade] %></td>
+    </tr>
+  <% end %>
+  </table>
+  
+  <br />
+  
+  <%= link_to 'Nova Escolaridade', :action => 'new' %>
+</h2>

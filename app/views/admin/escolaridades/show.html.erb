@@ -1,10 +1,16 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Nome:</b>
-  <%= @escolaridade.nome %>
-</p>
-
-
-<%= link_to 'Edit', :action => 'edit', :id => @escolaridade.id %> |
-<%= link_to 'Back', :action => 'index' %>
+<h1>Parâmetros</h1>
+<%= render :partial => 'admin/parametros/menu' %>
+<article>
+  <h2>Escolaridade</h2>
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <b>Nome:</b>
+    <%= @escolaridade.nome %>
+  </p>
+  
+  
+  <%= link_to 'Editar', :action => 'edit', :id => @escolaridade.id %> | 
+  <%= link_to 'Excluir', [:admin, @escolaridade], :confirm => 'Tem certeza disso?', :method => :delete %> | 
+  <%= link_to 'Voltar', :action => 'index' %>
+</article>

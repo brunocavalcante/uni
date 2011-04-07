@@ -1,6 +1,10 @@
-<h1>Editing escolaridade</h1>
+<h1>Parâmetros</h1>
+<%= render :partial => 'admin/parametros/menu' %>
+<article>
+  <h2>Editar Escolaridade</h2>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', :action => 'show', :id => @escolaridade.id %> |
-<%= link_to 'Back', :action => 'index' %>
+  <%= render 'form' %>
+  
+  <%= link_to 'Exibir', :action => 'show', :id => @escolaridade.id %> |
+  <%= link_to 'Voltar', :action => 'index' %>
+</article>

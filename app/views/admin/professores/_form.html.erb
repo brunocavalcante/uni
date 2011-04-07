@@ -1,4 +1,4 @@
-<%= form_for(@professor) do |f| %>
+<%= form_for([:admin, @professor]) do |f| %>
   <% if @professor.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@professor.errors.count, "error") %> prohibited this professor from being saved:</h2>
@@ -11,13 +11,19 @@
     </div>
   <% end %>
 
+  <%= f.fields_for :pessoa do |p| %>
   <div class="field">
-    <%= f.label :pessoa_id %><br />
-    <%= f.text_field :pessoa_id %>
+    <%= p.label :nome %><br />
+    <%= p.text_field :nome %>
   </div>
   <div class="field">
+    <%= p.label :email %><br />
+    <%= p.text_field :email %>
+  </div>
+  <% end %>
+  <div class="field">
     <%= f.label :escolaridade_id %><br />
-    <%= f.text_field :escolaridade_id %>
+    <%= f.select :escolaridade_id, Escolaridade.all.collect {|it| [it.nome, it.id]} %>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -24,6 +24,7 @@
             <li><%= link_to 'Cursos', :controller => 'admin/cursos' %></li>
             <li><%= link_to 'Professores', :controller => 'admin/professores' %></li>
             <li><%= link_to 'Relatórios' %></li>
+            <li><%= link_to 'Parâmetros', :controller => 'admin/parametros' %></li>
         </ul>
     </nav>
     <section id="content">
@@ -34,7 +35,13 @@
     </section>
     <footer>
         <b>Uni</b> &mdash; Sistema de Gestão Universitária<br/>
-        <small>Powered by <%= link_to 'Ruby on Rails', 'http://www.rubyonrails.org' %></small>
+        <p id="license">
+          Copyright © 2011 <%= link_to 'NomeDaEmpresa', 'http://www.sitedaempresa.org' %><br/>
+          <small>
+            Este trabalho está licenciado sob uma Licença <%= link_to 'Creative Commons Attribution-Share Alike 3.0', 'http://creativecommons.org/licenses/by-sa/3.0/' %>. 
+            Powered by <%= link_to 'Ruby on Rails', 'http://www.rubyonrails.org' %>.</small>
+          <small>
+        </p>
     </footer>
 </body>
 </html>

@@ -18,5 +18,6 @@
 </p>
 
 
-<%= link_to 'Editar', edit_admin_professor_path(@professor) %> |
+<%= link_to 'Editar', edit_admin_professor_path(@professor) %> | 
+<%= link_to 'Excluir', [:admin, @professor], :confirm => 'Tem certeza disso?', :method => :delete %> |
 <%= link_to 'Voltar', admin_professores_path %>
