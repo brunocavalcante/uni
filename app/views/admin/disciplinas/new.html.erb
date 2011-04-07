@@ -1,9 +1,9 @@
 <h1><%= @curso.nome %></h1>
 <%= render :partial => 'admin/cursos/menu', :locals => { :curso => @curso } %>
 <article>
-    <h2>Nova Cadeira</h2>
+    <h2>Nova Disciplina</h2>
     
     <%= render 'form' %>
 
-    <%= link_to 'Back', admin_curso_cadeiras_path(@curso) %>
+    <%= link_to 'Back', admin_curso_disciplinas_path(@curso) %>
 </article>

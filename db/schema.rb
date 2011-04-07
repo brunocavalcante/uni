@@ -10,15 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406035424) do
-
-  create_table "cadeiras", :force => true do |t|
-    t.string   "nome"
-    t.integer  "creditos"
-    t.integer  "curso_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110407154630) do
 
   create_table "categoria_cursos", :force => true do |t|
     t.string   "nome"
@@ -29,6 +21,21 @@ ActiveRecord::Schema.define(:version => 20110406035424) do
   create_table "cursos", :force => true do |t|
     t.string   "nome"
     t.integer  "categoria_curso_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "disciplina_professores", :force => true do |t|
+    t.integer  "disciplina_id"
+    t.integer  "professor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "disciplinas", :force => true do |t|
+    t.string   "nome"
+    t.integer  "creditos"
+    t.integer  "curso_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -47,15 +54,8 @@ ActiveRecord::Schema.define(:version => 20110406035424) do
   end
 
   create_table "prerequisitos", :force => true do |t|
-    t.integer  "cadeira_id"
+    t.integer  "disciplina_id"
     t.integer  "requisito_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "professor_cursos", :force => true do |t|
-    t.integer  "professor_id"
-    t.integer  "curso_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

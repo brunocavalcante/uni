@@ -1,10 +1,10 @@
-<%= form_for([:admin, @curso, @cadeira]) do |f| %>
-  <% if @cadeira.errors.any? %>
+<%= form_for([:admin, @curso, @disciplina]) do |f| %>
+  <% if @disciplina.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@cadeira.errors.count, "error") %> prohibited this cadeira from being saved:</h2>
+      <h2><%= pluralize(@disciplina.errors.count, "error") %> prohibited this disciplina from being saved:</h2>
 
       <ul>
-      <% @cadeira.errors.full_messages.each do |msg| %>
+      <% @disciplina.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -22,8 +22,8 @@
   <div class="field">
       <%= f.label :prerequisitos %><br />
       <%= f.select :prerequisito_ids, 
-                   @curso.cadeiras.all.collect {|c| [c.nome, c.id]}.delete_if {|i| i[1] == @cadeira.id}, 
-                   { :selected => @cadeira.prerequisito_ids }, 
+                   @curso.disciplinas.all.collect {|c| [c.nome, c.id]}.delete_if {|i| i[1] == @disciplina.id}, 
+                   { :selected => @disciplina.prerequisito_ids }, 
                    :multiple => true %>
   </div>
   <%= f.hidden_field :curso_id %>

@@ -1,0 +1,11 @@
+<h1><%= @disciplina.curso.nome %></h1>
+<%= render :partial => 'admin/cursos/menu', :locals => { :curso => @disciplina.curso } %>
+<article>
+    <h2>Editando Cadeira</h2>
+    
+    <%= render 'form' %>
+    
+    <%= link_to 'Exibir', [:admin, @disciplina.curso, @disciplina] %> | 
+    <%= link_to 'Excluir', [:admin, @disciplina.curso, @disciplina], :confirm => 'Tem certeza disso?', :method => :delete %> | 
+    <%= link_to 'Voltar', admin_curso_disciplinas_path %>
+</article>

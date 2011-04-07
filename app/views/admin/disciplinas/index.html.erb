@@ -1,7 +1,7 @@
 <h1><%= @curso.nome %></h1>
 <%= render :partial => 'admin/cursos/menu', :locals => { :curso => @curso } %>
 <article>
-    <h2>Cadeiras</h2>
+    <h2>Disciplinas</h2>
     
     <table>
       <tr>
@@ -9,15 +9,15 @@
         <th>Creditos</th>
       </tr>
     
-    <% @cadeiras.each do |cadeira| %>
+    <% @disciplinas.each do |disciplina| %>
       <tr class="<%= cycle("even", "odd") -%>">
-        <td><%= link_to cadeira.nome, [:admin, cadeira.curso, cadeira] %></td>
-        <td><%= cadeira.creditos %></td>
+        <td><%= link_to disciplina.nome, [:admin, disciplina.curso, disciplina] %></td>
+        <td><%= disciplina.creditos %></td>
       </tr>
     <% end %>
     </table>
     
     <br />
     
-    <%= link_to 'Nova Cadeira', new_admin_curso_cadeira_path %>
+    <%= link_to 'Nova Disciplina', new_admin_curso_disciplina_path %>
 </article>

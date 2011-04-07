@@ -7,7 +7,7 @@ Uni::Application.routes.draw do
     resources :home
     resources :escolaridades
     resources :cursos do
-        resources :cadeiras
+        resources :disciplinas
     end
     resources :professores
     resources :parametros

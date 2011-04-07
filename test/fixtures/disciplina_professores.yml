@@ -2,8 +2,8 @@
 
 one:
   disciplina_id: 1
-  requisito_id: 1
+  professor_id: 1
 
 two:
   disciplina_id: 1
-  requisito_id: 1
+  professor_id: 1

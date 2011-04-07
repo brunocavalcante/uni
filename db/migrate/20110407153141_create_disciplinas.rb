@@ -1,6 +1,6 @@
-class CreateCadeiras < ActiveRecord::Migration
+class CreateDisciplinas < ActiveRecord::Migration
   def self.up
-    create_table :cadeiras do |t|
+    create_table :disciplinas do |t|
       t.string :nome
       t.integer :creditos
       t.integer :curso_id
@@ -10,6 +10,6 @@ class CreateCadeiras < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :cadeiras
+    drop_table :disciplinas
   end
 end

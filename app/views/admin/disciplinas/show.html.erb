@@ -1,0 +1,31 @@
+<h1><%= @disciplina.curso.nome %></h1>
+<%= render :partial => 'admin/cursos/menu', :locals => { :curso => @disciplina.curso } %>
+<article>
+    <h2><%= @disciplina.nome %></h2>
+    <p id="notice"><%= notice %></p>
+    
+    <p>
+      <b>Nome:</b>
+      <%= @disciplina.nome %>
+    </p>
+    
+    <p>
+      <b>Creditos:</b>
+      <%= @disciplina.creditos %>
+    </p>
+    
+    <% if @disciplina.prerequisitos && @disciplina.prerequisitos.length > 0 %>
+    <h3>Pré-requisitos</h3>
+    <ul>
+        <% for prerequisito in @disciplina.prerequisitos %>
+        <li>
+            <%= link_to prerequisito.nome, [:admin, @disciplina.curso, prerequisito] %>
+        </li>
+        <% end %>
+    <% end %>
+</ul>
+    
+    <%= link_to 'Editar', edit_admin_curso_disciplina_path(@disciplina.curso, @disciplina) %> | 
+    <%= link_to 'Excluir', [:admin, @disciplina.curso, @disciplina], :confirm => 'Tem certeza disso?', :method => :delete %> | 
+    <%= link_to 'Voltar', admin_curso_disciplinas_path(@disciplina.curso) %>
+</article>
