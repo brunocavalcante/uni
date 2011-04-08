@@ -31,8 +31,12 @@
 
 /* multiselect styles */
 select[multiple=multiple] {
-  width: 540px;
-  height: 180px;
+  width: 40em;
+  height: 10em;
+}
+
+.ui-multiselect {
+  margin: 0.5em 0;
 }
 
 #switcher {

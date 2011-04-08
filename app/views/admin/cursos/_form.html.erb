@@ -11,14 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <p>
     <%= f.label :nome %><br />
     <%= f.text_field :nome %>
-  </div>
-  <div class="field">
+  </p>
+  <p>
     <%= f.label :categoria_curso_id %><br />
     <%= f.select :categoria_curso_id, CategoriaCurso.all.collect {|c| [ c.nome, c.id ] } %>
-  </div>
+  </p>
   <div class="actions">
     <%= f.submit %>
   </div>

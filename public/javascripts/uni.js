@@ -11,5 +11,5 @@ function initMultiSelect() {
     }
   });
   
-  $('select[multiple=multiple]').multiselect({dividerLocation: 0.5})
+  $('select[multiple=multiple]').multiselect({dividerLocation: 0.5, sortable: false})
 }

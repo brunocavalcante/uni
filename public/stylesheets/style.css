@@ -1,6 +1,7 @@
 body {
   color: #333;
   font-family: sans-serif;
+  font-size: 100%;
   margin: 0;
   background: white url('../images/html-bg.png') repeat-x;
 }
@@ -138,6 +139,13 @@ th, td {
 th {
   text-align: left;
 }
+/* Forms */
+input, select, textarea {
+  padding: 0.25em 0.5em;
+  font-size: 0.9em;
+  font-family: sans-serif;
+}
+
 /* Essas classes são do scaffold do Ruby - Depois ajeitamos. */
 #notice {
   color: green;

@@ -11,30 +11,30 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <p>
     <%= f.label :nome %><br />
     <%= f.text_field :nome %>
-  </div>
-  <div class="field">
+  </p>
+  <p>
     <%= f.label :creditos %><br />
     <%= f.text_field :creditos %>
-  </div>
-  <div class="field">
+  </p>
+  <p>
       <%= f.label :prerequisitos %><br />
       <%= f.select :prerequisito_ids, 
                    @curso.disciplinas.all.collect {|c| [c.nome, c.id]}.delete_if {|i| i[1] == @disciplina.id}, 
                    { :selected => @disciplina.prerequisito_ids }, 
                    :multiple => true %>
-  </div>
+  </p>
   <%= f.hidden_field :curso_id %>
   
-  <div class="field">
+  <p>
     <%= f.label :professores %><br />
     <%= f.select :professor_ids, 
                  Professor.all.collect {|it| [it.nome, it.id]}, 
                  { :selected => @disciplina.professor_ids }, 
                  :multiple => true %>
-  </div>
+  </p>
   
   <div class="actions">
     <%= f.submit %>

@@ -12,19 +12,19 @@
   <% end %>
 
   <%= f.fields_for :pessoa do |p| %>
-  <div class="field">
+  <p>
     <%= p.label :nome %><br />
     <%= p.text_field :nome %>
-  </div>
-  <div class="field">
+  </p>
+  <p>
     <%= p.label :email %><br />
     <%= p.text_field :email %>
-  </div>
+  </p>
   <% end %>
-  <div class="field">
+  <p>
     <%= f.label :escolaridade_id %><br />
     <%= f.select :escolaridade_id, Escolaridade.all.collect {|it| [it.nome, it.id]} %>
-  </div>
+  </p>
   <div class="actions">
     <%= f.submit %>
   </div>
