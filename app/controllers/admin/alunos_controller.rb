@@ -1,7 +1,7 @@
 class Admin::AlunosController < ApplicationController
   # GET /alunos
   def index
-    @alunos = Aluno.all
+    @alunos = Aluno.all.paginate :page => params[:page], :per_page => 20
   end
 
   # GET /alunos/1

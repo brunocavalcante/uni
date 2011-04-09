@@ -2,7 +2,7 @@ class Admin::DisciplinasController < ApplicationController
   # GET /disciplinas
   # GET /disciplinas.xml
   def index
-    @disciplinas = Disciplina.all(:conditions => ['curso_id = ?', params[:curso_id]])
+    @disciplinas = Disciplina.all(:conditions => ['curso_id = ?', params[:curso_id]]).paginate :page => params[:page]
     @curso = Curso.find(params[:curso_id])
 
     respond_to do |format|

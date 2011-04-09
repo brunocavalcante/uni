@@ -1,7 +1,7 @@
 class Admin::ProfessoresController < ApplicationController
   # GET /professores
   def index
-    @professores = Professor.all
+    @professores = Professor.all.paginate :page => params[:page]
   end
 
   # GET /professores/1

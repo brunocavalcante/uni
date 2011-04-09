@@ -9,6 +9,8 @@ gem 'pg'
 
 gem 'i18n'
 
+gem 'will_paginate'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

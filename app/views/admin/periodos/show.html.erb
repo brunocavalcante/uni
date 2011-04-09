@@ -1,21 +1,25 @@
-<h1>Periodo</h1>
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>Nome:</b>
-  <%= @periodo.nome %>
-</p>
-
-<p>
-  <b>Início:</b>
-  <%= l @periodo.inicio %>
-</p>
-
-<p>
-  <b>Fim:</b>
-  <%= l @periodo.fim %>
-</p>
-
-<%= link_to 'Editar', edit_admin_periodo_path(@periodo) %> | 
-<%= link_to 'Excluir', [:admin, @periodo], :confirm => 'Tem certeza disso?', :method => :delete %> |
-<%= link_to 'Voltar', admin_periodos_path %>
+<h1><%= @periodo.nome %></h1>
+<%= render :partial => 'menu', :locals => { :periodo => @periodo } %>
+<article>
+  <h2>Início</h2>
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <b>Nome:</b>
+    <%= @periodo.nome %>
+  </p>
+  
+  <p>
+    <b>Início:</b>
+    <%= l @periodo.inicio %>
+  </p>
+  
+  <p>
+    <b>Fim:</b>
+    <%= l @periodo.fim %>
+  </p>
+  
+  <%= link_to 'Editar', edit_admin_periodo_path(@periodo) %> | 
+  <%= link_to 'Excluir', [:admin, @periodo], :confirm => 'Tem certeza disso?', :method => :delete %> |
+  <%= link_to 'Voltar', admin_periodos_path %>
+</article>

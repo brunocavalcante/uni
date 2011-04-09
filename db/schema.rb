@@ -12,26 +12,10 @@
 
 ActiveRecord::Schema.define(:version => 20110409143949) do
 
-  create_table "admin_alunos", :force => true do |t|
-    t.integer  "pessoa_id"
-    t.integer  "curso_id"
-    t.string   "matricula"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "alunos", :force => true do |t|
     t.integer  "pessoa_id"
     t.integer  "curso_id"
     t.string   "matricula"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "cadeiras", :force => true do |t|
-    t.string   "nome"
-    t.integer  "creditos"
-    t.integer  "curso_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,13 +29,6 @@ ActiveRecord::Schema.define(:version => 20110409143949) do
   create_table "cursos", :force => true do |t|
     t.string   "nome"
     t.integer  "categoria_curso_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "disciplina_professores", :force => true do |t|
-    t.integer  "disciplina_id"
-    t.integer  "professor_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -271,21 +248,7 @@ ActiveRecord::Schema.define(:version => 20110409143949) do
     t.datetime "updated_at"
   end
 
-  create_table "professor_cursos", :force => true do |t|
-    t.integer  "professor_id"
-    t.integer  "curso_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "professores", :force => true do |t|
-    t.integer  "pessoa_id"
-    t.integer  "escolaridade_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "professors", :force => true do |t|
     t.integer  "pessoa_id"
     t.integer  "escolaridade_id"
     t.datetime "created_at"

@@ -197,3 +197,6 @@ pt:
 
       full_messages:
         format: "%{attribute}%{message}"
+        
+  previous: "Página anterior"
+  next: "Próxima página"

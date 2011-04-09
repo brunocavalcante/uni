@@ -11,7 +11,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: uni
+  database: uni_development
   pool: 5
   host: localhost
   username: postgres
@@ -40,13 +40,15 @@ test:
   encoding: unicode
   database: uni_test
   pool: 5
-  username: uni
-  password:
+  host: localhost
+  username: postgres
+  password: postgres
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: uni_production
+  database: uni
   pool: 5
-  username: uni
-  password:
+  host: localhost
+  username: postgres
+  password: postgres
