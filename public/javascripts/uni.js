@@ -7,7 +7,7 @@ function initMultiSelect() {
     locale: {
       addAll:'Incluir todos',
       removeAll:'Remover todos',
-      itemsCount:'itens selecionados'
+      itemsCount:'selecionado(s)'
     }
   });
   

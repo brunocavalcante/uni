@@ -28,14 +28,6 @@
   </p>
   <%= f.hidden_field :curso_id %>
   
-  <p>
-    <%= f.label :professores %><br />
-    <%= f.select :professor_ids, 
-                 Professor.all.collect {|it| [it.nome, it.id]}, 
-                 { :selected => @disciplina.professor_ids }, 
-                 :multiple => true %>
-  </p>
-  
   <div class="actions">
     <%= f.submit %>
   </div>

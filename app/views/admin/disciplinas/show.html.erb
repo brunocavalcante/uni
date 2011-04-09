@@ -25,17 +25,6 @@
     </ul>
     <% end %>
     
-    <% if @disciplina.professores && @disciplina.professores.length > 0 %>
-    <h3>Professores</h3>
-    <ul>
-        <% for professor in @disciplina.professores %>
-        <li>
-            <%= link_to professor.nome, [:admin, professor] %>
-        </li>
-        <% end %>
-    </ul>
-    <% end %>
-    
     <%= link_to 'Editar', edit_admin_curso_disciplina_path(@disciplina.curso, @disciplina) %> | 
     <%= link_to 'Excluir', [:admin, @disciplina.curso, @disciplina], :confirm => 'Tem certeza disso?', :method => :delete %> | 
     <%= link_to 'Voltar', admin_curso_disciplinas_path(@disciplina.curso) %>

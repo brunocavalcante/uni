@@ -1,0 +1,21 @@
+<h1>Alunos</h1>
+
+<table>
+  <tr>
+    <th>Matrícula</th>
+    <th>Nome</th>
+    <th>Curso</th>
+  </tr>
+
+<% @alunos.each do |aluno| %>
+  <tr class="<%= cycle("even", "odd") -%>">
+    <td><%= aluno.matricula %></td>
+    <td><%= link_to aluno.pessoa.nome, [:admin, aluno] %></td>
+    <td><%= aluno.curso.nome %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo Aluno', new_admin_aluno_path %>

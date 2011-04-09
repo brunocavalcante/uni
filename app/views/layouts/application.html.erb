@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>Uni - Sistema de Gestão Universitária</title>
+  <%= favicon_link_tag %>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :all %>
   <%= csrf_meta_tag %>
@@ -23,6 +24,8 @@
             <li><%= link_to 'Início', :controller => 'admin/home' %></li>
             <li><%= link_to 'Cursos', :controller => 'admin/cursos' %></li>
             <li><%= link_to 'Professores', :controller => 'admin/professores' %></li>
+            <li><%= link_to 'Alunos', :controller => 'admin/alunos' %></li>
+            <li><%= link_to 'Períodos', :controller => 'admin/periodos' %></li>
             <li><%= link_to 'Relatórios' %></li>
             <li><%= link_to 'Parâmetros', :controller => 'admin/parametros' %></li>
         </ul>

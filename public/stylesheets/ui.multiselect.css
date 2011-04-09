@@ -31,7 +31,7 @@
 
 /* multiselect styles */
 select[multiple=multiple] {
-  width: 40em;
+  width: 50em;
   height: 10em;
 }
 

@@ -1,0 +1,21 @@
+<h1>Aluno</h1>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Nome:</b>
+  <%= @aluno.pessoa.nome %>
+</p>
+
+<p>
+  <b>E-mail:</b>
+  <%= @aluno.pessoa.email %>
+</p>
+
+<p>
+  <b>Curso:</b>
+  <%= @aluno.curso.nome %>
+</p>
+
+<%= link_to 'Editar', edit_admin_aluno_path(@aluno) %> | 
+<%= link_to 'Excluir', [:admin, @aluno], :confirm => 'Tem certeza disso?', :method => :delete %> |
+<%= link_to 'Voltar', admin_alunos_path %>

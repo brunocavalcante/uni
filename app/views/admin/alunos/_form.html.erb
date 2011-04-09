@@ -1,0 +1,35 @@
+<%= form_for([:admin, @aluno]) do |f| %>
+  <% if @aluno.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
+
+      <ul>
+      <% @aluno.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.fields_for :pessoa do |p| %>
+  <p>
+    <%= p.label :nome %><br />
+    <%= p.text_field :nome %>
+  </p>
+  <p>
+    <%= p.label :email %><br />
+    <%= p.text_field :email %>
+  </p>
+  <% end %>
+  <p>
+    <%= f.label :matricula %><br />
+    <%= f.text_field :matricula %>
+  </p>
+  <p>
+    <%= f.label :curso_id %><br />
+    <%= f.select :curso_id, Curso.all.collect {|it| [it.nome, it.id]} %>
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

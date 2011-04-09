@@ -1,9 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  disciplina_id: 1
-  professor_id: 1
-
-two:
-  disciplina_id: 1
-  professor_id: 1

@@ -8,8 +8,11 @@ Uni::Application.routes.draw do
     resources :escolaridades
     resources :cursos do
         resources :disciplinas
+        resources :alunos_curso, :as => 'alunos', :only => [:index]
     end
     resources :professores
+    resources :alunos
+    resources :periodos
     resources :parametros
   end
   

@@ -1,0 +1,21 @@
+<h1>Periodos</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Início</th>
+    <th>Fim</th>
+  </tr>
+
+<% @periodos.each do |periodo| %>
+  <tr class="<%= cycle("even", "odd") -%>">
+    <td><%= link_to periodo.nome, [:admin, periodo] %></td>
+    <td><%= l periodo.inicio %></td>
+    <td><%= l periodo.fim %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Novo Periodo', new_admin_periodo_path %>

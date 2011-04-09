@@ -1,0 +1,29 @@
+<%= form_for([:admin, @periodo]) do |f| %>
+  <% if @periodo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@periodo.errors.count, "error") %> prohibited this periodo from being saved:</h2>
+
+      <ul>
+      <% @periodo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <p>
+    <%= f.label :inicio %><br />
+    <%= f.text_field :inicio %>
+  </p>
+  <p>
+    <%= f.label :fim %><br />
+    <%= f.text_field :fim %>
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
