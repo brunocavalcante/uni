@@ -11,23 +11,23 @@
     <header>
         <h1>
             <a href="/">Uni</a>
-            <span>Sistema de Gestão Universitária</span>
+            <span><%= t "SistemaDeGestaoUniversitaria" %></span>
         </h1>
         <section id="user">
-            Logado como <%= link_to 'Niguém, ainda' %> | 
-            Perfil: Administrador <%= link_to 'Trocar Perfil' %> | 
-            <%= link_to 'Sair' %>
+            <%= t "LogadoComo" %> <%= link_to 'Niguém, ainda' %> | 
+            <%= t "Perfil" %>: Administrador <%= link_to (t 'TrocarPerfil') %> | 
+            <%= link_to (t 'Sair') %>
         </section>
     </header>
     <nav id="main-nav">
         <ul>
-            <li><%= link_to 'Início', :controller => 'admin/home' %></li>
-            <li><%= link_to 'Cursos', :controller => 'admin/cursos' %></li>
-            <li><%= link_to 'Professores', :controller => 'admin/professores' %></li>
-            <li><%= link_to 'Alunos', :controller => 'admin/alunos' %></li>
-            <li><%= link_to 'Períodos', :controller => 'admin/periodos' %></li>
-            <li><%= link_to 'Relatórios' %></li>
-            <li><%= link_to 'Parâmetros', :controller => 'admin/parametros' %></li>
+            <li><%= link_to (t 'Inicio'), :controller => 'admin/home' %></li>
+            <li><%= link_to (t 'Cursos'), :controller => 'admin/cursos' %></li>
+            <li><%= link_to (t 'Professores'), :controller => 'admin/professores' %></li>
+            <li><%= link_to (t 'Alunos'), :controller => 'admin/alunos' %></li>
+            <li><%= link_to (t 'Periodos'), :controller => 'admin/periodos' %></li>
+            <li><%= link_to (t 'Relatorios') %></li>
+            <li><%= link_to (t 'Parametros'), :controller => 'admin/parametros' %></li>
         </ul>
     </nav>
     <section id="content">
@@ -37,11 +37,11 @@
         <%= yield %>
     </section>
     <footer>
-        <b>Uni</b> &mdash; Sistema de Gestão Universitária<br/>
+        <b>Uni</b> &mdash; <%= t "SistemaDeGestaoUniversitaria" %><br/>
         <p id="license">
           Copyright © 2011 <%= link_to 'NomeDaEmpresa', 'http://www.sitedaempresa.org' %><br/>
           <small>
-            Este trabalho está licenciado sob uma Licença <%= link_to 'Creative Commons Attribution-Share Alike 3.0', 'http://creativecommons.org/licenses/by-sa/3.0/' %>. 
+            <%= t 'EsteTrabalhoEstaLicenciadoSobUmaLicenca' %> <%= link_to 'Creative Commons Attribution-Share Alike 3.0', 'http://creativecommons.org/licenses/by-sa/3.0/' %>. 
             Powered by <%= link_to 'Ruby on Rails', 'http://www.rubyonrails.org' %>.</small>
           <small>
         </p>

@@ -200,3 +200,18 @@ pt:
         
   previous: "Página anterior"
   next: "Próxima página"
+  
+  # Uni-specific
+  Inicio: "Início"
+  Cursos: "Cursos"
+  Professores: "Professores"
+  Alunos: "Alunos"
+  Periodos: "Períodos"
+  Relatorios: "Relatórios"
+  Parametros: "Parâmetros"
+  SistemaDeGestaoUniversitaria: "Sistema de Gestão Universitária"
+  LogadoComo: "Logado como"
+  TrocarPerfil: "Trocar perfil"
+  Perfil: "Perfil"
+  Sair: "Sair"
+  EsteTrabalhoEstaLicenciadoSobUmaLicenca: "Este trabalho está licenciado sob uma licença"

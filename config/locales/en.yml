@@ -6,3 +6,18 @@ en:
   date:
     formats:
       default: "%m/%d/%Y"
+
+  # Uni-specific
+  Inicio: "Start"
+  Cursos: "Courses"
+  Professores: "Teachers"
+  Alunos: "Students"
+  Periodos: "Periods"
+  Relatorios: "Reports"
+  Parametros: "Parameters"
+  SistemaDeGestaoUniversitaria: "University Management System"
+  LogadoComo: "Logged in as"
+  TrocarPerfil: "Switch profile"
+  Perfil: "Profile"
+  Sair: "Logout"
+  EsteTrabalhoEstaLicenciadoSobUmaLicenca: "This work is licensed under a license"
