@@ -13,7 +13,11 @@ Uni::Application.routes.draw do
     resources :professores
     resources :alunos
     resources :periodos
-    resources :parametros
+    resources :parametros do 
+      collection do
+        post :update, :as => :update
+      end  
+    end
   end
   
   
