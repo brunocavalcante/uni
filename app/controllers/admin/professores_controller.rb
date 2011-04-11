@@ -2,11 +2,23 @@ class Admin::ProfessoresController < ApplicationController
   # GET /professores
   def index
     @professores = Professor.all.paginate :page => params[:page]
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render :xml => @professores }
+      format.json { render :json => @professores }
+    end
   end
 
   # GET /professores/1
   def show
     @professor = Professor.find(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render :xml => @professor }
+      format.json { render :json => @professor }
+    end
   end
 
   # GET /professores/new

@@ -2,11 +2,23 @@ class Admin::AlunosController < ApplicationController
   # GET /alunos
   def index
     @alunos = Aluno.all.paginate :page => params[:page], :per_page => 20
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render :xml => @alunos }
+      format.json { render :json => @alunos }
+    end
   end
 
   # GET /alunos/1
   def show
     @aluno = Aluno.find_by_matricula(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render :xml => @aluno }
+      format.json { render :json => @aluno }
+    end
   end
 
   # GET /alunos/new

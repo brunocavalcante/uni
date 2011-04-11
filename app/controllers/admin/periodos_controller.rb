@@ -2,11 +2,23 @@ class Admin::PeriodosController < ApplicationController
   # GET /periodos
   def index
     @periodos = Periodo.all.paginate :page => params[:page], :per_page => 20
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render :xml => @periodos }
+      format.json { render :json => @periodos }
+    end
   end
 
   # GET /periodos/1
   def show
     @periodo = Periodo.find(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render :xml => @periodo }
+      format.json { render :json => @periodo }
+    end
   end
 
   # GET /periodos/new

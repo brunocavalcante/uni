@@ -3,6 +3,12 @@ class Admin::CursosController < ApplicationController
   # GET /cursos.xml
   def index
     @cursos = Curso.all.paginate :page => params[:page]
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render :xml => @cursos }
+      format.json { render :json => @cursos }
+    end
   end
 
   # GET /cursos/1
@@ -12,7 +18,8 @@ class Admin::CursosController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @curso }
+      format.xml { render :xml => @curso }
+      format.json { render :json => @curso }
     end
   end
 
