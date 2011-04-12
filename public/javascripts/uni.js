@@ -1,5 +1,6 @@
 $(document).ready(function() {
   initMultiSelect()
+  initDatePicker()
 });
 
 function initMultiSelect() {
@@ -12,4 +13,8 @@ function initMultiSelect() {
   });
   
   $('select[multiple=multiple]').multiselect({dividerLocation: 0.5, sortable: false})
+}
+
+function initDatePicker() {
+  $('input.date').datepicker()
 }

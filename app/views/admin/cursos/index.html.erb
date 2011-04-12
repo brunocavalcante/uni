@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>Curso</th>
-    <th>Categoria</th>
+    <th><%= t 'Curso' %></th>
+    <th><%= t 'Categoria' %></th>
   </tr>
 <% @cursos.each do |curso| %>
   <tr class="<%= cycle("even", "odd") -%>">

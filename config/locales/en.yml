@@ -9,10 +9,11 @@ en:
 
   # Uni-specific
   Inicio: "Start"
+  Curso: "Course"
   Cursos: "Courses"
   Professores: "Teachers"
   Alunos: "Students"
-  Periodos: "Periods"
+  Periodos: "Academic Periods"
   Relatorios: "Reports"
   Parametros: "Parameters"
   SistemaDeGestaoUniversitaria: "University Management System"
@@ -23,3 +24,6 @@ en:
   EsteTrabalhoEstaLicenciadoSobUmaLicenca: "This work is licensed under a license"
   Idioma: "Locale"
   Sistema: "System"
+  Escolaridade: "Scholarity"
+  Nome: "Name"
+  Categoria: "Category"

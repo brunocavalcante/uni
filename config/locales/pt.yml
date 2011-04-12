@@ -203,10 +203,11 @@ pt:
   
   # Uni-specific
   Inicio: "Início"
+  Curso : "Curso"
   Cursos: "Cursos"
   Professores: "Professores"
   Alunos: "Alunos"
-  Periodos: "Períodos"
+  Periodos: "Períodos Letivos"
   Relatorios: "Relatórios"
   Parametros: "Parâmetros"
   SistemaDeGestaoUniversitaria: "Sistema de Gestão Universitária"
@@ -217,3 +218,6 @@ pt:
   EsteTrabalhoEstaLicenciadoSobUmaLicenca: "Este trabalho está licenciado sob uma licença"
   Idioma: "Idioma"
   Sistema: "Sistema"
+  Escolaridade: "Escolaridade"
+  Nome: "Nome"
+  Categoria: "Categoria"
