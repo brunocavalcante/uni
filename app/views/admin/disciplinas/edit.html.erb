@@ -6,6 +6,6 @@
     <%= render 'form' %>
     
     <%= link_to 'Exibir', [:admin, @disciplina.curso, @disciplina] %> | 
-    <%= link_to 'Excluir', [:admin, @disciplina.curso, @disciplina], :confirm => 'Tem certeza disso?', :method => :delete %> | 
-    <%= link_to 'Voltar', admin_curso_disciplinas_path %>
+    <%= button_to (t 'Excluir'), [:admin, @disciplina.curso, @disciplina], :confirm => 'Tem certeza disso?', :method => :delete %> | 
+    <%= link_to (t 'Voltar'), admin_curso_disciplinas_path %>
 </article>

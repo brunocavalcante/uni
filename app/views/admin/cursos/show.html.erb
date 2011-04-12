@@ -14,7 +14,7 @@
       <%= @curso.categoria_curso.nome %>
     </p>
     
-    <%= link_to 'Editar', edit_admin_curso_path(@curso) %> | 
-    <%= link_to 'Excluir', [:admin, @curso], :confirm => 'Tem certeza disso?', :method => :delete %> | 
-    <%= link_to 'Voltar', admin_cursos_path %>
+    <%= link_to (t 'Editar'), edit_admin_curso_path(@curso) %> | 
+    <%= button_to (t 'Excluir'), [:admin, @curso], :confirm => 'Tem certeza disso?', :method => :delete %> | 
+    <%= link_to (t 'Voltar'), admin_cursos_path %>
 </article>

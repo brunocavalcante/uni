@@ -16,6 +16,6 @@
   <%= @aluno.curso.nome %>
 </p>
 
-<%= link_to 'Editar', edit_admin_aluno_path(@aluno) %> | 
-<%= link_to 'Excluir', [:admin, @aluno], :confirm => 'Tem certeza disso?', :method => :delete %> |
-<%= link_to 'Voltar', admin_alunos_path %>
+<%= link_to (t 'Editar'), edit_admin_aluno_path(@aluno) %> | 
+<%= button_to (t 'Excluir'), [:admin, @aluno], :confirm => 'Tem certeza disso?', :method => :delete %> |
+<%= link_to (t 'Voltar'), admin_alunos_path %>

@@ -25,7 +25,7 @@
     </ul>
     <% end %>
     
-    <%= link_to 'Editar', edit_admin_curso_disciplina_path(@disciplina.curso, @disciplina) %> | 
-    <%= link_to 'Excluir', [:admin, @disciplina.curso, @disciplina], :confirm => 'Tem certeza disso?', :method => :delete %> | 
-    <%= link_to 'Voltar', admin_curso_disciplinas_path(@disciplina.curso) %>
+    <%= link_to (t 'Editar'), edit_admin_curso_disciplina_path(@disciplina.curso, @disciplina) %> | 
+    <%= button_to (t 'Excluir'), [:admin, @disciplina.curso, @disciplina], :confirm => 'Tem certeza disso?', :method => :delete %> | 
+    <%= link_to (t 'Voltar'), admin_curso_disciplinas_path(@disciplina.curso) %>
 </article>

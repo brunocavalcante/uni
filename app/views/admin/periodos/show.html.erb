@@ -19,7 +19,7 @@
     <%= l @periodo.fim %>
   </p>
   
-  <%= link_to 'Editar', edit_admin_periodo_path(@periodo) %> | 
-  <%= link_to 'Voltar', admin_periodos_path %>
+  <%= link_to (t 'Editar'), edit_admin_periodo_path(@periodo) %> | 
+  <%= link_to (t 'Voltar'), admin_periodos_path %>
   <%= button_to 'Excluir', [:admin, @periodo], :confirm => 'Tem certeza disso?', :method => :delete %>
 </article>
