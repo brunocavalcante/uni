@@ -1,0 +1,22 @@
+<h1>Parâmetros</h1>
+<%= render :partial => 'admin/parametros/menu' %>
+<article>
+  <h2>Categorias de Cursos</h2>
+  <table>
+    <tr>
+      <th>Nome</th>
+    </tr>
+  
+  <% @categoriacursos.each do |categoriacurso| %>
+    <tr class="<%= cycle("even", "odd") -%>">
+      <td><%= link_to categoriacurso.nome, [:admin, categoriacurso] %></td>
+    </tr>
+  <% end %>
+  </table>
+  
+  <%= will_paginate @categoriacursos %>
+  
+  <br />
+  
+  <%= link_to 'Nova Categoria de Curso', :action => 'new' %>
+</h2>

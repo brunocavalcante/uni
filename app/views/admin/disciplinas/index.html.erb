@@ -1,25 +1,19 @@
-<h1><%= @curso.nome %></h1>
-<%= render :partial => 'admin/cursos/menu', :locals => { :curso => @curso } %>
-<article>
-    <h2>Disciplinas</h2>
-    
-    <table>
-      <tr>
-        <th>Nome</th>
-        <th>Creditos</th>
-      </tr>
-    
-    <% @disciplinas.each do |disciplina| %>
-      <tr class="<%= cycle("even", "odd") -%>">
-        <td><%= link_to disciplina.nome, [:admin, disciplina.curso, disciplina] %></td>
-        <td><%= disciplina.creditos %></td>
-      </tr>
-    <% end %>
-    </table>
-    
-    <%= will_paginate @disciplinas %>
-    
-    <br />
-    
-    <%= link_to 'Nova Disciplina', new_admin_curso_disciplina_path %>
-</article>
+<h1>Disciplinas</h1>
+
+<table>
+  <tr>
+    <th>Nome</th>
+  </tr>
+
+<% @disciplinas.each do |disciplina| %>
+  <tr class="<%= cycle("even", "odd") -%>">
+    <td><%= link_to disciplina.nome, [:admin, disciplina] %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @disciplinas %>
+
+<br />
+
+<%= link_to 'Nova Disciplina', new_admin_disciplina_path %>

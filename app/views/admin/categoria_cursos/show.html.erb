@@ -1,0 +1,16 @@
+<h1>Parâmetros</h1>
+<%= render :partial => 'admin/parametros/menu' %>
+<article>
+  <h2>Categoria de Curso</h2>
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <b>Nome:</b>
+    <%= @categoriacurso.nome %>
+  </p>
+  
+  
+  <%= link_to (t 'Editar'), :action => 'edit', :id => @categoriacurso.id %> | 
+  <%= button_to (t 'Excluir'), [:admin, @categoriacurso], :confirm => 'Tem certeza disso?', :method => :delete %> | 
+  <%= link_to (t 'Voltar'), :action => 'index' %>
+</article>

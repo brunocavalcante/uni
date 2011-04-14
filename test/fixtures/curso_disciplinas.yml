@@ -1,7 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  nome: MyString
+  curso_id: 1
+  disciplina_id: 1
 
 two:
-  nome: MyString
+  curso_id: 1
+  disciplina_id: 1

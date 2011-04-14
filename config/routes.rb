@@ -6,10 +6,12 @@ Uni::Application.routes.draw do
     root :to => 'home#index'
     resources :home
     resources :escolaridades
+    resources :categoria_cursos
     resources :cursos do
-        resources :disciplinas
         resources :alunos_curso, :as => 'alunos', :only => [:index]
+        resources :curso_disciplinas, :as => 'disciplinas', :only => [:index]
     end
+    resources :disciplinas
     resources :professores
     resources :alunos
     resources :periodos

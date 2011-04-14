@@ -1,11 +1,7 @@
-<h1><%= @disciplina.curso.nome %></h1>
-<%= render :partial => 'admin/cursos/menu', :locals => { :curso => @disciplina.curso } %>
-<article>
-    <h2>Editar Disciplina</h2>
-    
-    <%= render 'form' %>
-    
-    <%= link_to 'Exibir', [:admin, @disciplina.curso, @disciplina] %> | 
-    <%= button_to (t 'Excluir'), [:admin, @disciplina.curso, @disciplina], :confirm => 'Tem certeza disso?', :method => :delete %> | 
-    <%= link_to (t 'Voltar'), admin_curso_disciplinas_path %>
-</article>
+<h1>Editar Disciplina</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Exibir', [:admin, @disciplina] %> | 
+<%= button_to (t 'Excluir'), [:admin, @disciplina], :confirm => 'Tem certeza disso?', :method => :delete %> | 
+<%= link_to (t 'Voltar'), admin_disciplinas_path %>

@@ -1,0 +1,21 @@
+<%= form_for([:admin, @categoriacurso]) do |f| %>
+  <% if @categoriacurso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@categoriacurso.errors.count, "error") %> prohibited this categoria de curso from being saved:</h2>
+
+      <ul>
+      <% @categoriacurso.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :nome %><br />
+    <%= f.text_field :nome %>
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

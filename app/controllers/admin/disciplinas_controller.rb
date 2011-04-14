@@ -2,9 +2,8 @@ class Admin::DisciplinasController < ApplicationController
   # GET /disciplinas
   # GET /disciplinas.xml
   def index
-    @disciplinas = Disciplina.all(:conditions => ['curso_id = ?', params[:curso_id]]).paginate :page => params[:page]
-    @curso = Curso.find(params[:curso_id])
-
+    @disciplinas = Disciplina.all().paginate :page => params[:page]
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml { render :xml => @disciplinas }
@@ -28,8 +27,7 @@ class Admin::DisciplinasController < ApplicationController
   # GET /disciplinas/new.xml
   def new
     @disciplina = Disciplina.new
-    @curso = Curso.find(params[:curso_id])
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml { render :xml => @disciplina }
@@ -39,18 +37,16 @@ class Admin::DisciplinasController < ApplicationController
   # GET /disciplinas/1/edit
   def edit
     @disciplina = Disciplina.find(params[:id])
-    @curso = Curso.find(params[:curso_id])
   end
 
   # POST /disciplinas
   # POST /disciplinas.xml
   def create
     @disciplina = Disciplina.new(params[:disciplina])
-    @disciplina.curso_id = params[:curso_id]
-
+  
     respond_to do |format|
       if @disciplina.save
-        format.html { redirect_to([:admin, @disciplina.curso, @disciplina], :notice => 'Disciplina was successfully created.') }
+        format.html { redirect_to([:admin, @disciplina], :notice => 'Disciplina was successfully created.') }
         format.xml  { render :xml => @disciplina, :status => :created, :location => @disciplina }
       else
         format.html { render :action => "new" }
@@ -66,7 +62,7 @@ class Admin::DisciplinasController < ApplicationController
 
     respond_to do |format|
       if @disciplina.update_attributes(params[:disciplina])
-        format.html { redirect_to([:admin, @disciplina.curso, @disciplina], :notice => 'Disciplina was successfully updated.') }
+        format.html { redirect_to([:admin, @disciplina], :notice => 'Disciplina was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

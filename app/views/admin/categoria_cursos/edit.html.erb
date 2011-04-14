@@ -1,0 +1,10 @@
+<h1>Parâmetros</h1>
+<%= render :partial => 'admin/parametros/menu' %>
+<article>
+  <h2>Editar Categoria de Curso</h2>
+
+  <%= render 'form' %>
+  
+  <%= link_to 'Exibir', :action => 'show', :id => @categoriacurso.id %> |
+  <%= link_to (t 'Voltar'), :action => 'index' %>
+</article>
