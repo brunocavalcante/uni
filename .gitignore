@@ -2,3 +2,4 @@
 db/*.sqlite3
 log/*.log
 tmp/
+doc/modelo_de_dados.dia~
