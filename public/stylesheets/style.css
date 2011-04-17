@@ -177,3 +177,18 @@ input, select, textarea {
   font-size: 12px;
   list-style: square;
 }
+
+/* Login */
+#login #username, #login #password {
+  padding-left: 26px;
+  background-position: 8px 50%;
+  background-repeat: no-repeat;
+}
+
+#login #username {
+  background-image: url('../images/icons/username.png') !important;
+}
+
+#login #password {
+  background-image: url('../images/icons/password.png') !important;
+}
