@@ -2,8 +2,8 @@
 
 one:
   pessoa_id: 1
-  matricula: MyString
+  perfil_id: 1
 
 two:
   pessoa_id: 1
-  matricula: MyString
+  perfil_id: 1

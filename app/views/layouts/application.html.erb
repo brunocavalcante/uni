@@ -16,19 +16,23 @@
       </h1>
       <section id="user">
         <% if session[:user] %>
-          <%= t "LogadoComo" %> <%= link_to 'Niguém, ainda' %> |
-          <%= t "Perfil" %>: Administrador <%= link_to (t 'TrocarPerfil') %> |
+          <%= t "LogadoComo" %> <%= link_to session[:user].nome %> |
+          <%= t "Perfil" %>: <%= session[:profile].nome %> <%= link_to (t 'TrocarPerfil') %> |
           <%= link_to (t 'Sair'), logout_path %>
         <% end %>
       </section>
     </header>
     <nav id="main-nav">
       <%= 
-      if !session[:user]
+      if !session[:user] or !session[:profile]
         render :partial => 'layouts/menu-guest'
-      else
+      elsif session[:profile] and session[:profile].id == Perfil::ADMINISTRADOR
         render :partial => 'layouts/menu-admin'
-      end 
+      elsif session[:profile] and session[:profile].id == Perfil::PROFESSOR
+        render :partial => 'layouts/menu-professor'
+      elsif session[:profile] and session[:profile].id == Perfil::ALUNO
+        render :partial => 'layouts/menu-aluno'
+      end
       %>
     </nav>
     <section id="content">

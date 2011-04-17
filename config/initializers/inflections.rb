@@ -10,6 +10,7 @@
 # end
 ActiveSupport::Inflector.inflections do |inflect|
     inflect.irregular 'professor', 'professores'
+    inflect.irregular 'perfil', 'perfis'
 end
 #   inflect.singular /^(ox)en/i, '\1'
 #   inflect.irregular 'person', 'people'

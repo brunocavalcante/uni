@@ -24,6 +24,7 @@ Uni::Application.routes.draw do
   
   match 'login', :to => 'auth#login', :as => "login"
   match 'login/auth', :to => 'auth#authenticate', :as => "authenticate"
+  match 'perfil', :to => 'auth#profile', :as => "profile"
   match 'logout', :to => 'auth#logout', :as => "logout"
   
 

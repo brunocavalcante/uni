@@ -5,6 +5,7 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+Perfil.create([{ :nome => 'Administrador' }, { :nome => 'Professor' }, { :nome => 'Aluno' }])
 Escolaridade.create([{ :nome => 'Bacharel' }, { :nome => 'Mestre' }, { :nome => 'Doutor' }, { :nome => 'Especialista' }])
 CategoriaCurso.create([{ :nome => 'Graduação' }, { :nome => 'Pós-Graduação' }])
 Curso.create([{ :nome => 'Sistemas de Informação', :categoria_curso => CategoriaCurso.first },
@@ -92,3 +93,11 @@ Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Rodrigo Pordeus Nascime
 Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Tarciane de Castro Andrade' }), :escolaridade => Escolaridade.first }])
 Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Tiago Seixas' }), :escolaridade => Escolaridade.first }])
 Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Wamberg Glaucon Chaves de Oliveira' }), :escolaridade => Escolaridade.first }])
+
+# Users
+@administrador = Perfil.find_by_nome('Administrador');
+@professor = Perfil.find_by_nome('Professor');
+@aluno = Perfil.find_by_nome('Aluno');
+Pessoa.create([{ :nome => 'Administrador do Sistema', :email => 'admin@uni.com.br', :senha => '21232f297a57a5a743894a0e4a801fc3', :perfis => [@administrador] }])
+Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Professor de Teste', :email => 'professor@uni.com.br', :senha => '3f9cd3c7b11eb1bae99dddb3d05da3c5', :perfis => [@professor] }), :escolaridade => Escolaridade.first }])
+Aluno.create([{ :pessoa => Pessoa.create({ :nome => 'Aluno de Teste', :email => 'aluno@uni.com.br', :senha => 'ca0cd09a12abade3bf0777574d9f987f', :perfis => [@aluno] }), :matricula => '12345', :cursos => [@si] }])

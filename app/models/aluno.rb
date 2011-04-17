@@ -1,17 +1,10 @@
 class Aluno < ActiveRecord::Base
   belongs_to :pessoa
-  belongs_to :curso
+  has_many :alunocursos, :foreign_key => 'aluno_id', :class_name => 'AlunoCurso'
+  has_many :cursos, :through => :alunocursos
   
   accepts_nested_attributes_for :pessoa
-  
-  validates :curso_id, :presence => true
-  validates :pessoa_id, :presence => true
-  validates :matricula, :presence => true, :uniqueness => true
-  
-  def to_param
-    matricula
-  end
-  
+    
   def nome
     pessoa.nome
   end
