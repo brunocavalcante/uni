@@ -180,9 +180,15 @@ input, select, textarea {
 
 /* Login */
 #login #username, #login #password {
-  padding-left: 26px;
   background-position: 8px 50%;
   background-repeat: no-repeat;
+  padding: 1em 1em 1em 2.75em;
+  background-color: #FBFBFB;
+  background-position: 1em 50%;
+  background-repeat: no-repeat;
+  border: 1px solid #E5E5E5;
+  width: 23em;
+  margin-top: 0.5em;
 }
 
 #login #username {
