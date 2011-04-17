@@ -22,6 +22,9 @@ Uni::Application.routes.draw do
     end
   end
   
+  match 'login', :to => 'auth#login', :as => "login"
+  match 'login/auth', :to => 'auth#authenticate', :as => "authenticate"
+  match 'logout', :to => 'auth#logout', :as => "logout"
   
 
   # The priority is based upon order of creation:

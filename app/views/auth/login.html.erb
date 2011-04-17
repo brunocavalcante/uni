@@ -1,0 +1,18 @@
+<h1><%= t 'Login' %></h1>
+<p id="notice"><%= notice %></p>
+<%= form_tag(authenticate_url) do %>
+<div id="login">
+  <p id="username">
+    <%= label_tag 'usuario', (t 'Usuario') %><br/>
+    <%= text_field_tag 'username' %>
+  </p>
+  <p id="password">
+    <%= label_tag 'password', (t 'Senha') %><br/>
+    <%= password_field_tag 'password' %>
+  </p>
+  <div class="actions">
+    <%= submit_tag (t 'Entrar') %>
+    <%= link_to t 'EsqueciASenha' %>
+  </p>
+</div>
+<% end %>

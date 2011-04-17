@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Uni - Sistema de Gestão Universitária</title>
-  <%= favicon_link_tag %>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= javascript_include_tag :all %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+  <head>
+    <title>Uni - Sistema de Gestão Universitária</title>
+    <%= favicon_link_tag %>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :defaults %>
+    <%= javascript_include_tag :all %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
     <header>
-        <h1>
-            <a href="/">Uni</a>
-            <span><%= t "SistemaDeGestaoUniversitaria" %></span>
-        </h1>
-        <section id="user">
-            <%= t "LogadoComo" %> <%= link_to 'Niguém, ainda' %> | 
-            <%= t "Perfil" %>: Administrador <%= link_to (t 'TrocarPerfil') %> | 
-            <%= link_to (t 'Sair') %>
-        </section>
+      <h1>
+        <a href="/">Uni</a>
+        <span><%= t "SistemaDeGestaoUniversitaria" %></span>
+      </h1>
+      <section id="user">
+        <% if session[:user] %>
+          <%= t "LogadoComo" %> <%= link_to 'Niguém, ainda' %> |
+          <%= t "Perfil" %>: Administrador <%= link_to (t 'TrocarPerfil') %> |
+          <%= link_to (t 'Sair'), logout_path %>
+        <% end %>
+      </section>
     </header>
     <nav id="main-nav">
-        <ul>
-            <li><%= link_to (t 'Inicio'), :controller => 'admin/home' %></li>
-            <li><%= link_to (t 'Cursos'), :controller => 'admin/cursos' %></li>
-            <li><%= link_to (t 'Disciplinas'), :controller => 'admin/disciplinas' %></li>
-            <li><%= link_to (t 'Professores'), :controller => 'admin/professores' %></li>
-            <li><%= link_to (t 'Alunos'), :controller => 'admin/alunos' %></li>
-            <li><%= link_to (t 'Periodos'), :controller => 'admin/periodos' %></li>
-            <li><%= link_to (t 'Relatorios') %></li>
-            <li><%= link_to (t 'Parametros'), :controller => 'admin/parametros' %></li>
-        </ul>
+      <%= 
+      if !session[:user]
+        render :partial => 'layouts/menu-guest'
+      else
+        render :partial => 'layouts/menu-admin'
+      end 
+      %>
     </nav>
     <section id="content">
-        <div id="breadcrumbs">
-            <%= get_bread_crumb(request.request_uri).html_safe %>
-        </div>
-        <%= yield %>
+      <div id="breadcrumbs">
+        <%= get_bread_crumb(request.request_uri).html_safe %>
+      </div>
+      <%= yield %>
     </section>
     <footer>
-        <b>Uni</b> &mdash; <%= t "SistemaDeGestaoUniversitaria" %><br/>
-        <p id="license">
-          Copyright © 2011 <%= link_to 'Aygean', 'http://www.aygean.com' %><br/>
-          <small>
-            <%= t 'EsteTrabalhoEstaLicenciadoSobUmaLicenca' %> <%= link_to 'Creative Commons Attribution-Share Alike 3.0', 'http://creativecommons.org/licenses/by-sa/3.0/' %>. 
-            Powered by <%= link_to 'Ruby on Rails', 'http://www.rubyonrails.org' %>.</small>
-          <small>
-        </p>
+      <b>Uni</b> &mdash; <%= t "SistemaDeGestaoUniversitaria" %>
+      <br/>
+      <p id="license">
+        Copyright © 2011 <%= link_to 'Aygean', 'http://www.aygean.com' %>
+        <br/>
+        <small>
+          <%= t 'EsteTrabalhoEstaLicenciadoSobUmaLicenca' %> <%= link_to 'Creative Commons Attribution-Share Alike 3.0', 'http://creativecommons.org/licenses/by-sa/3.0/' %>.
+          Powered by <%= link_to 'Ruby on Rails', 'http://www.rubyonrails.org' %>.
+        </small>
+      </p>
     </footer>
-</body>
+  </body>
 </html>
