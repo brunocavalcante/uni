@@ -1,7 +1,15 @@
 <h1><%= @curso.nome %></h1>
 <%= render :partial => 'menu', :locals => { :curso => @curso } %>
 <article>
-    <h2>Início</h2>
+    <header>
+      <h2>Início</h2>
+      <ul id="toolbar">
+        <li><%= link_to (t 'Voltar'), admin_cursos_path, :class => 'back' %></li>
+        <li><%= link_to (t 'Editar'), edit_admin_curso_path(@curso), :class => 'edit' %></li>
+        <li><%= button_to (t 'Excluir'), [:admin, @curso], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li> 
+      </ul>
+    </header>
+    
     <p id="notice"><%= notice %></p>
     
     <p>
@@ -14,7 +22,5 @@
       <%= @curso.categoria_curso.nome %>
     </p>
     
-    <%= link_to (t 'Editar'), edit_admin_curso_path(@curso) %> | 
-    <%= button_to (t 'Excluir'), [:admin, @curso], :confirm => 'Tem certeza disso?', :method => :delete %> | 
-    <%= link_to (t 'Voltar'), admin_cursos_path %>
+    
 </article>

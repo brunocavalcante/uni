@@ -1,4 +1,9 @@
-<h1><%= t 'Cursos' %></h1>
+<header>
+  <h1><%= t 'Cursos' %></h1>
+  <ul id="toolbar">
+    <li><%= link_to 'Novo Curso', new_admin_curso_path, :class => 'new'  %></li>
+  </ul>
+</header>
 
 <table>
   <tr>
@@ -14,7 +19,3 @@
 </table>
 
 <%= will_paginate @cursos %>
-
-<br />
-
-<%= link_to 'Novo Curso', :action => 'new' %>

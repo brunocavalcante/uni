@@ -79,10 +79,20 @@ header section {
   width: 96%;
   margin: 2%;
 }
-#content h1, #content article h2 {
+#content h1, #content article h2, #content header {
   border-bottom: 1px dotted #ccc;
   padding-bottom: 0.25em;
   margin: 0 0 2%;
+}
+#content header {
+  position: relative;
+}
+#content header h1, #content header h2 {
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  min-height: 0;
 }
 #content article {
   float: left;
@@ -125,6 +135,49 @@ footer, footer a, footer a:active, a:visited, footer a:link {
 #license {
   line-height: 1.4em;
 }
+/* Toolbar */
+#toolbar {
+  position: absolute;
+  bottom: 0.25em;
+  right: 0;
+  float: left;
+  list-style-type: none;
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+#toolbar li {
+  float: left;
+  display: block;
+  margin-left: 1.5em;
+}
+#toolbar a, #toolbar input {
+  background: none;
+  padding: 0;
+  margin: 0;
+  text-decoration: underline;
+  color: #000;
+  border: 0;
+  text-shadow: none;
+  font-size: 1em;
+}
+
+#toolbar a:hover, #toolbar input:hover {
+  text-decoration: none;
+}
+
+#toolbar .edit, #toolbar .delete, #toolbar .back, #toolbar .new, #toolbar .show {
+  padding-left: 28px;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
+}
+
+#toolbar .new {background-image: url('../images/icons/add.png')}
+#toolbar .back {background-image: url('../images/icons/back.png')}
+#toolbar .edit {background-image: url('../images/icons/edit.png')}
+#toolbar .delete {background-image: url('../images/icons/delete.png')}
+#toolbar .show {background-image: url('../images/icons/full_page.png')}
+
 /* Tables */
 table {
   border-spacing: 0;
@@ -144,6 +197,10 @@ input, select, textarea {
   padding: 0.25em 0.5em;
   font-size: 0.9em;
   font-family: sans-serif;
+}
+
+button, input[type=submit], input[type=reset] {
+  padding: 0.5em 2em;
 }
 
 /* Essas classes são do scaffold do Ruby - Depois ajeitamos. */
@@ -192,9 +249,9 @@ input, select, textarea {
 }
 
 #login #username {
-  background-image: url('../images/icons/username.png') !important;
+  background-image: url('../images/icons/user.png') !important;
 }
 
 #login #password {
-  background-image: url('../images/icons/password.png') !important;
+  background-image: url('../images/icons/lock.png') !important;
 }

@@ -65,12 +65,6 @@ ActiveRecord::Schema.define(:version => 20110417164256) do
     t.datetime "updated_at"
   end
 
-  create_table "perfils", :force => true do |t|
-    t.string   "nome"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "perfis", :force => true do |t|
     t.string   "nome"
     t.datetime "created_at"
@@ -81,6 +75,8 @@ ActiveRecord::Schema.define(:version => 20110417164256) do
     t.string   "nome"
     t.date     "inicio"
     t.date     "fim"
+    t.date     "iniciomatricula"
+    t.date     "fimmatricula"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

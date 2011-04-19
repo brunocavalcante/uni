@@ -4,6 +4,8 @@ class CreatePeriodos < ActiveRecord::Migration
       t.string :nome
       t.date :inicio
       t.date :fim
+      t.date :iniciomatricula
+      t.date :fimmatricula
 
       t.timestamps
     end
