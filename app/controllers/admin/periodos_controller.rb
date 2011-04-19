@@ -35,10 +35,14 @@ class Admin::PeriodosController < ApplicationController
   def create
     @periodo = Periodo.new(params[:periodo])
     
-    if @periodo.save
-      redirect_to([:admin, @periodo], :notice => 'Periodo was successfully created.')
-    else
-      redirect_to :action => "new"
+    respond_to do |format|
+      if @periodo.save
+        format.html { redirect_to([:admin, @periodo], :notice => 'Periodo was successfully created.') }
+        format.xml  { render :xml => @periodo, :status => :created, :location => @periodo }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @periodo.errors, :status => :unprocessable_entity }
+      end
     end
   end
 
@@ -46,10 +50,14 @@ class Admin::PeriodosController < ApplicationController
   def update
     @periodo = Periodo.find(params[:id])
 
-    if @periodo.update_attributes(params[:periodo])
-      redirect_to([:admin, @periodo], :notice => 'Periodo was successfully updated.')
-    else
-      redirect_to :action => "edit"
+    respond_to do |format|
+      if @periodo.update_attributes(params[:periodo])
+        format.html { redirect_to([:admin, @periodo], :notice => 'Periodo was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @periodo.errors, :status => :unprocessable_entity }
+      end
     end
   end
 

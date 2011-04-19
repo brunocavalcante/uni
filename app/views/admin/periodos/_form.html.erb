@@ -16,12 +16,14 @@
     <%= f.text_field :nome %>
   </p>
   <p>
-    <%= f.label :inicio %><br />
-    <%= f.text_field :inicio, :class => 'date' %>
+    <%= f.label :inicio, 'Aulas' %><br />
+    <%= f.date_select :inicio %> até <%= f.date_select :fim %>
   </p>
   <p>
-    <%= f.label :fim %><br />
-    <%= f.text_field :fim, :class => 'date' %>
+    <%= f.label :iniciomatricula, 'Matrícula' %><br />
+    <%= f.date_select :iniciomatricula, :include_blank => true %> até 
+    <%= f.date_select :fimmatricula, :include_blank => true %><br/>
+    <small>Caso não seja informado o período de matrícula, a inscrição não será aberta para os alunos.</small>
   </p>
   <div class="actions">
     <%= f.submit %>

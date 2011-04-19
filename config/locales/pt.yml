@@ -3,6 +3,8 @@
 pt:
   # formatos de data e hora
   date:
+    input:
+      formats: [:default, :long, :short]
     formats:
       default: "%d/%m/%Y"
       short: "%d de %B"
@@ -19,6 +21,8 @@ pt:
       - :year
   
   time:
+    input:
+      formats: [:long, :medium, :short, :default, :time]
     formats:
       default: "%A, %d de %B de %Y, %H:%M h"
       short: "%d/%m, %H:%M h"
@@ -208,6 +212,7 @@ pt:
   Professores: "Professores"
   Alunos: "Alunos"
   Periodos: "Períodos Letivos"
+  Periodo: "Período Letivo"
   Relatorios: "Relatórios"
   Parametros: "Parâmetros"
   SistemaDeGestaoUniversitaria: "Sistema de Gestão Universitária"

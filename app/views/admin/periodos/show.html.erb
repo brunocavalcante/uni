@@ -19,6 +19,13 @@
     <%= l @periodo.fim %>
   </p>
   
+  <% if @periodo.iniciomatricula and @periodo.fimmatricula %>
+  <p>
+    <b>Matrícula:</b>
+    <%= l @periodo.iniciomatricula %> à <%= l @periodo.fimmatricula %>
+  </p>
+  <% end %>
+  
   <%= link_to (t 'Editar'), edit_admin_periodo_path(@periodo) %> | 
   <%= link_to (t 'Voltar'), admin_periodos_path %>
   <%= button_to 'Excluir', [:admin, @periodo], :confirm => 'Tem certeza disso?', :method => :delete %>
