@@ -235,6 +235,7 @@ pt:
   Usuario: "Usuário"
   Senha: "Senha"
   Entrar: "Entrar"
-  EsqueciASenha: "Esqueci a senha"
+  EsqueciASenha: "Esqueceu a senha?"
   Turmas: "Turmas"
   Matricula: "Matrícula"
+  BemVindo: "Bem-vindo!"

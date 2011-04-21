@@ -1,5 +1,9 @@
-<h1><%= t 'Login' %></h1>
+<aside id="login-splash">
+  <%= image_tag 'splash.png' %>
+</aside>
+  
 <article id="login">
+  <h1><%= t 'BemVindo' %></h1>
   <p id="notice"><%= notice %></p>
   <%= form_tag(authenticate_url) do %>
   <p>

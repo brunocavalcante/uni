@@ -236,6 +236,22 @@ button, input[type=submit], input[type=reset] {
 }
 
 /* Login */
+article#login, aside#login-splash {
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
+article#login {
+  width: 48%;
+}
+article#login h1 {
+  width: 16em;
+  font-size: 1.5em;
+}
+aside#login-splash {
+  width: 48%;
+  text-align: right;
+  background: none;
+}
 #login #username, #login #password {
   background-position: 8px 50%;
   background-repeat: no-repeat;

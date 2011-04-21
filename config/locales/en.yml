@@ -37,6 +37,7 @@ en:
   Usuario: "Username"
   Senha: "Password"
   Entrar: "Submit"
-  EsqueciASenha: "Forgot my password"
+  EsqueciASenha: "Forgot your password?"
   Turmas: "Classes"
   Matricula: "Registration"
+  BemVindo: "Welcome!"
