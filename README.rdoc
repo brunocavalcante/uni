@@ -15,8 +15,11 @@ Uni é uma Plataforma Livre para Sistemas de Gestão Universitária, com os segu
   rake db:migrate
 
 == Usuários Iniciais
-admin@uni.com.br admin
-professor@uni.com.br professor
-12345 aluno
+
+No formato usuário, senha
+
+* admin@uni.com.br, admin
+* professor@uni.com.br, professor
+* 12345, aluno
 
 Powered by Ruby on Rails
