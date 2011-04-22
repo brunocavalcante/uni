@@ -1,6 +1,14 @@
-<h1>Editar <%= t 'Periodo' %></h1>
+<h1><%= @periodo.nome %></h1>
+
+<%= render :partial => 'menu', :locals => { :periodo => @periodo } %>
+<article>
+  <header>
+    <h2>Editando Período Letivo</h2>
+    <ul id="toolbar">
+      <li><%= link_to 'Exibir', [:admin, @periodo], :class => 'show' %></li>
+      <li><%= link_to (t 'Voltar'), admin_periodos_path, :class => 'back' %></li>
+    </ul>
+  </header>
 
 <%= render 'form' %>
-
-<%= link_to 'Exibir', [:admin, @periodo] %> |
-<%= link_to (t 'Voltar'), admin_periodos_path %>
+</article>

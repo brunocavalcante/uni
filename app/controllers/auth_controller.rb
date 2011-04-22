@@ -1,6 +1,9 @@
 require 'digest/md5'
 
 class AuthController < ApplicationController
+  
+  skip_before_filter :login_required
+  
   def login
   end
   

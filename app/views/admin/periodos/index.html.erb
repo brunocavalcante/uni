@@ -1,4 +1,9 @@
-<h1><%= t 'Periodos' %></h1>
+<header>
+  <h1><%= t 'Periodos' %></h1>
+  <ul id="toolbar">
+    <li><%= link_to 'Novo Periodo Letivo', new_admin_periodo_path, :class => 'new'  %></li>
+  </ul>
+</header>
 
 <table>
   <tr>
@@ -17,7 +22,3 @@
 </table>
 
 <%= will_paginate @periodos %>
-
-<br />
-
-<%= link_to 'Novo Periodo', new_admin_periodo_path %>

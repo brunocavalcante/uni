@@ -2,7 +2,7 @@ class Admin::DisciplinasController < ApplicationController
   # GET /disciplinas
   # GET /disciplinas.xml
   def index
-    @disciplinas = Disciplina.all().paginate :page => params[:page]
+    @disciplinas = Disciplina.paginate :page => params[:page]
     
     respond_to do |format|
       format.html # index.html.erb

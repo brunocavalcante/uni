@@ -1,7 +1,15 @@
 <h1><%= @periodo.nome %></h1>
 <%= render :partial => 'menu', :locals => { :periodo => @periodo } %>
 <article>
-  <h2>Início</h2>
+  <header>
+    <h2>Início</h2>
+    <ul id="toolbar">
+      <li><%= link_to (t 'Voltar'), admin_periodos_path, :class => 'back' %></li>
+      <li><%= link_to (t 'Editar'), edit_admin_periodo_path(@periodo), :class => 'edit' %></li>
+      <li><%= button_to (t 'Excluir'), [:admin, @periodo], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li> 
+    </ul>
+  </header>
+  
   <p id="notice"><%= notice %></p>
   
   <p>
@@ -20,8 +28,4 @@
     <%= l @periodo.iniciomatricula, :format => :long %> à <%= l @periodo.fimmatricula, :format => :long %>
   </p>
   <% end %>
-  
-  <%= link_to (t 'Editar'), edit_admin_periodo_path(@periodo) %> | 
-  <%= link_to (t 'Voltar'), admin_periodos_path %>
-  <%= button_to 'Excluir', [:admin, @periodo], :confirm => 'Tem certeza disso?', :method => :delete %>
 </article>

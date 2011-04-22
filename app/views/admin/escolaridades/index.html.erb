@@ -1,22 +1,24 @@
 <h1>Parâmetros</h1>
 <%= render :partial => 'admin/parametros/menu' %>
 <article>
-  <h2>Escolaridades</h2>
+  <header>
+    <h2>Escolaridades</h2>
+    <ul id="toolbar">
+      <li><%= link_to 'Nova Escolaridade', new_admin_escolaridade_path, :class => 'new' %></li>
+    </ul>
+  </header>
+
   <table>
     <tr>
       <th>Nome</th>
     </tr>
   
-  <% @escolaridades.each do |escolaridade| %>
+    <% @escolaridades.each do |escolaridade| %>
     <tr class="<%= cycle("even", "odd") -%>">
       <td><%= link_to escolaridade.nome, [:admin, escolaridade] %></td>
     </tr>
-  <% end %>
+    <% end %>
   </table>
   
   <%= will_paginate @escolaridades %>
-  
-  <br />
-  
-  <%= link_to 'Nova Escolaridade', :action => 'new' %>
-</h2>
+</article>

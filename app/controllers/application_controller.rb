@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
   end
   
   def login_required
-    if !session[:user] and params[:controller] != 'auth'
+    if !session[:user]
       redirect_to(login_url)
-    elsif !session[:profile] and params[:controller] != 'auth'
+    elsif !session[:profile]
       redirect_to(profile_url)
     end
   end

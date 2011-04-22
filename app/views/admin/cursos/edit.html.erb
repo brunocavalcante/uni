@@ -2,13 +2,13 @@
 
 <%= render :partial => 'menu', :locals => { :curso => @curso } %>
 <article>
-    <header>
-      <h2>Editando Curso</h2>
-        <ul id="toolbar">
-        <li><%= link_to 'Exibir', [:admin, @curso], :class => 'show' %></li>
-        <li><%= link_to (t 'Voltar'), admin_cursos_path, :class => 'back' %></li>
-      </ul>
-    </header>
+  <header>
+    <h2>Editando Curso</h2>
+    <ul id="toolbar">
+      <li><%= link_to 'Exibir', [:admin, @curso], :class => 'show' %></li>
+      <li><%= link_to (t 'Voltar'), admin_cursos_path, :class => 'back' %></li>
+    </ul>
+  </header>
 
-    <%= render 'form' %>
+  <%= render 'form' %>
 </article>
