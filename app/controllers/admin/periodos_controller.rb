@@ -1,7 +1,7 @@
 class Admin::PeriodosController < ApplicationController
   # GET /periodos
   def index
-    @periodos = Periodo.all.paginate :page => params[:page], :per_page => 20
+    @periodos = Periodo.paginate :page => params[:page]
     
     respond_to do |format|
       format.html # show.html.erb

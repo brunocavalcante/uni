@@ -1,7 +1,7 @@
 class Admin::ProfessoresController < ApplicationController
   # GET /professores
   def index
-    @professores = Professor.all.paginate :page => params[:page]
+    @professores = Professor.paginate :page => params[:page]
     
     respond_to do |format|
       format.html # show.html.erb

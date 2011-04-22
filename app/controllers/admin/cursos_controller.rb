@@ -2,7 +2,7 @@ class Admin::CursosController < ApplicationController
   # GET /cursos
   # GET /cursos.xml
   def index
-    @cursos = Curso.all.paginate :page => params[:page]
+    @cursos = Curso.paginate :page => params[:page]
     
     respond_to do |format|
       format.html # show.html.erb

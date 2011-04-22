@@ -1,6 +1,6 @@
 class Admin::EscolaridadesController < ApplicationController
   def index
-    @escolaridades = Escolaridade.all.paginate :page => params[:page], :per_page => 20
+    @escolaridades = Escolaridade.paginate :page => params[:page]
     
     respond_to do |format|
       format.html # show.html.erb

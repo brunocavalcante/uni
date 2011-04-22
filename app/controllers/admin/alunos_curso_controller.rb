@@ -1,7 +1,8 @@
 class Admin::AlunosCursoController < ApplicationController
   def index
-    @alunos = Aluno.all(:include => ['cursos'], 
-                        :conditions => ['aluno_cursos.curso_id = ?', params[:curso_id]]).paginate :page => params[:page], :per_page => 20
+    @alunos = Aluno.paginate :page => params[:page], 
+                             :include => ['cursos'], 
+                             :conditions => ['aluno_cursos.curso_id = ?', params[:curso_id]]
     @curso = Curso.find(params[:curso_id])
     
     respond_to do |format|

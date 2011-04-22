@@ -1,6 +1,6 @@
 class Admin::CategoriaCursosController < ApplicationController
   def index
-    @categoriacursos = CategoriaCurso.all.paginate :page => params[:page], :per_page => 20
+    @categoriacursos = CategoriaCurso.paginate :page => params[:page]
     
     respond_to do |format|
       format.html # show.html.erb
