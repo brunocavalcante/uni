@@ -1,4 +1,4 @@
-== Uni
+= Uni
 
 Uni é uma Plataforma Livre para Sistemas de Gestão Universitária, com os seguintes módulos:
 
