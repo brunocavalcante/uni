@@ -1,8 +1,20 @@
 == Uni
 
-Uni é uma Plataforma para Sistemas de Gestão Universitária
+Uni é uma Plataforma Livre para Sistemas de Gestão Universitária, com os seguintes módulos:
 
-== Usuários
+* Administração: Controle de Cursos, Disciplinas, Alunos e Períodos Letivos
+* Matrícula: Criação de turmas, definição de horários e vagas
+* Professor: Gerência de suas turmas (avaliações, notas, arquivos e e-mail para os alunos)
+* Aluno: Acesso à suas turmas (avaliações, notas, arquivos e e-mail para os alunos e o professor)
+* Relatórios: Relatórios estatísticos por curso, aluno, professor e disciplina
+* Social: perfil do aluno/professor com links, turmas atuais e contato
+
+== Instalação
+  bundle install
+  rake db:create
+  rake db:migrate
+
+== Usuários Iniciais
 admin@uni.com.br admin
 professor@uni.com.br professor
 12345 aluno
