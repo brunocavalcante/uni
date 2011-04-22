@@ -1,3 +1,10 @@
-Uni - Sistema de Gestão Universitária
+== Uni
+
+Uni é uma Plataforma para Sistemas de Gestão Universitária
+
+== Usuários
+admin@uni.com.br admin
+professor@uni.com.br professor
+12345 aluno
 
 Powered by Ruby on Rails
