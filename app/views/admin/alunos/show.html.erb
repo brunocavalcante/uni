@@ -1,6 +1,11 @@
 <h1>Aluno</h1>
 
 <p>
+  <b>Matrícula:</b>
+  <%= @aluno.matricula %>
+</p>
+
+<p>
   <b>Nome:</b>
   <%= @aluno.pessoa.nome %>
 </p>
@@ -10,10 +15,16 @@
   <%= @aluno.pessoa.email %>
 </p>
 
-<p>
-  <b>Curso:</b>
-  <%= @aluno.curso.nome %>
-</p>
+<% if @aluno.cursos && @aluno.cursos.length > 0 %>
+<h3>Cursos</h3>
+<ul>
+    <% for curso in @aluno.cursos %>
+    <li>
+        <%= link_to curso.nome, [:admin, curso] %>
+    </li>
+    <% end %>
+</ul>
+<% end %>
 
 <%= link_to (t 'Editar'), edit_admin_aluno_path(@aluno) %> | 
 <%= button_to (t 'Excluir'), [:admin, @aluno], :confirm => 'Tem certeza disso?', :method => :delete %> |

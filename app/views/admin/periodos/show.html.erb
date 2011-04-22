@@ -10,19 +10,14 @@
   </p>
   
   <p>
-    <b>Início:</b>
-    <%= l @periodo.inicio %>
-  </p>
-  
-  <p>
-    <b>Fim:</b>
-    <%= l @periodo.fim %>
+    <b>Aulas:</b>
+    <%= l @periodo.inicio, :format => :long %> à <%= l @periodo.fim, :format => :long %>
   </p>
   
   <% if @periodo.iniciomatricula and @periodo.fimmatricula %>
   <p>
     <b>Matrícula:</b>
-    <%= l @periodo.iniciomatricula %> à <%= l @periodo.fimmatricula %>
+    <%= l @periodo.iniciomatricula, :format => :long %> à <%= l @periodo.fimmatricula, :format => :long %>
   </p>
   <% end %>
   

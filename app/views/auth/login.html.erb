@@ -5,9 +5,10 @@
 <article id="login">
   <h1><%= t 'BemVindo' %></h1>
   <p id="notice"><%= notice %></p>
+  <p id="alert"><%= alert %></p>
   <%= form_tag(authenticate_url) do %>
   <p>
-    <%= label_tag 'usuario', (t 'Usuario') %><br/>
+    <%= label_tag 'usuario', (t 'EmailMatricula') %><br/>
     <%= text_field_tag 'username', nil, :autocomplete => 'off' %>
   </p>
   <p>

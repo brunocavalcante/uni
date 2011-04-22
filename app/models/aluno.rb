@@ -5,6 +5,10 @@ class Aluno < ActiveRecord::Base
   
   accepts_nested_attributes_for :pessoa
     
+  def to_param
+    matricula
+  end
+    
   def nome
     pessoa.nome
   end

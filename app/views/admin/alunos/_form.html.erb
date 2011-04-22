@@ -26,8 +26,11 @@
     <%= f.text_field :matricula %>
   </p>
   <p>
-    <%= f.label :curso_id %><br />
-    <%= f.select :curso_id, Curso.all.collect {|it| [it.nome, it.id]} %>
+      <%= f.label :cursos %><br />
+      <%= f.select :curso_ids, 
+                   Curso.all.collect {|c| [c.nome, c.id]}, 
+                   { :selected => @aluno.curso_ids }, 
+                   :multiple => true %>
   </p>
   <div class="actions">
     <%= f.submit %>

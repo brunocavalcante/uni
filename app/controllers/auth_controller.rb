@@ -27,7 +27,7 @@ class AuthController < ApplicationController
       session[:user] = @pessoa
       redirect_to(root_url)
     rescue
-      redirect_to(login_url, :notice => 'Usuário/senha não encontrados')
+      redirect_to(login_url, :alert => 'Usuário/senha não encontrados')
     end
   end
   
