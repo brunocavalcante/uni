@@ -2,10 +2,9 @@
 <%= render :partial => 'admin/cursos/menu', :locals => { :curso => @curso } %>
 <article>
   <header>
-    <h2><%= t 'Disciplinas' %></h2>
+    <h2><%= t 'Adicionar Disciplina de outro Curso' %></h2>
     <ul id="toolbar">
-      <li><%= link_to 'Criar Disciplina', new_admin_curso_disciplina_path(@curso), :class => 'new' %></li>
-      <li><%= link_to 'Adicionar Disciplina de outro Curso', {:action => 'search'}, :class => 'new' %></li>
+      <li><%= link_to 'Voltar', admin_curso_disciplinas_path(@curso), :class => 'back' %></li>
     </ul>
   </header>
 
@@ -18,7 +17,7 @@
     <tbody>
       <% @disciplinas.each do |disciplina| %>
       <tr class="<%= cycle("even", "odd") -%>">
-        <td><%= link_to disciplina.nome, [:admin, @curso, disciplina] %></td>
+        <td><%= link_to disciplina.nome, {:action => :add, :id => disciplina.id} %></td>
       </tr>
       <% end %>
     </tbody>

@@ -8,7 +8,11 @@ Uni::Application.routes.draw do
     resources :escolaridades
     resources :categoria_cursos
     resources :cursos do
-        resources :disciplinas
+        resources :disciplinas do 
+          new do
+            get :search
+          end
+        end
         resources :alunos_curso, :as => 'alunos', :only => [:index]
     end
     resources :professores
@@ -25,8 +29,8 @@ Uni::Application.routes.draw do
   match 'login/auth', :to => 'auth#authenticate', :as => "authenticate"
   match 'perfil', :to => 'auth#profile', :as => "profile"
   match 'logout', :to => 'auth#logout', :as => "logout"
+  match 'admin/cursos/:curso_id/disciplinas/new/search/:id', :to => 'admin/disciplinas#add'
   
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

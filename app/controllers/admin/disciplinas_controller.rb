@@ -50,23 +50,8 @@ class Admin::DisciplinasController < ApplicationController
   # POST /disciplinas
   # POST /disciplinas.xml
   def create
-    @disciplina = params[:disciplina] ? Disciplina.new(params[:disciplina]) : session[:disciplinaNewTemp]
-    @disciplinasExistentes = Disciplina.find :all, :conditions => ['nome = ?', @disciplina.nome]
-    
-    session[:disciplinaNewTemp] = nil
-    
-    if @disciplinasExistentes.size == 0 or params[:criarNovaDisciplina]
-      @disciplina.cursos = [@curso]
-    elsif @disciplinasExistentes.size > 0 && params[:disciplinaEscolhida]
-      @disciplina = Disciplina.find(params[:disciplinaEscolhida])
-      @disciplina.cursos << @curso
-    else
-      session[:disciplinaNewTemp] = @disciplina
-      respond_to do |format|
-        format.html
-      end
-      return
-    end
+    @disciplina = Disciplina.new(params[:disciplina])
+    @disciplina.cursos = [@curso]
     
     respond_to do |format|
       if @disciplina.save
@@ -83,6 +68,10 @@ class Admin::DisciplinasController < ApplicationController
   # PUT /disciplinas/1.xml
   def update
     @disciplina = Disciplina.find(params[:id])
+
+    if !@disciplina.curso_ids.include?(@curso.id)
+      @disciplina.cursos << @curso
+    end
 
     respond_to do |format|
       if @disciplina.update_attributes(params[:disciplina])
@@ -109,6 +98,29 @@ class Admin::DisciplinasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(admin_curso_disciplinas_url(@curso)) }
       format.xml  { head :ok }
+    end
+  end
+  
+  # GET /disciplinas/search
+  def search
+    @disciplinas = Disciplina.paginate :include => ['cursodisciplinas'], 
+                                       :conditions => ['curso_disciplinas.curso_id <> ?', params[:curso_id]], 
+                                       :page => params[:page]
+                                       
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml { render :xml => @disciplinas }
+      format.json { render :json => @disciplinas }
+    end
+  end
+  
+  def add
+    @disciplina = Disciplina.find(params[:id])
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render :xml => @disciplina }
+      format.json { render :json => @disciplina }
     end
   end
 end
