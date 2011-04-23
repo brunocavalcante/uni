@@ -1,4 +1,4 @@
-<%= form_for([:admin, @disciplina]) do |f| %>
+<%= form_for([:admin, @curso, @disciplina]) do |f| %>
   <% if @disciplina.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@disciplina.errors.count, "error") %> prohibited this disciplina from being saved:</h2>
@@ -20,13 +20,6 @@
       <%= f.select :prerequisito_ids, 
                    Disciplina.all.collect {|c| [c.nome, c.id]}.delete_if {|i| i[1] == @disciplina.id}, 
                    { :selected => @disciplina.prerequisito_ids }, 
-                   :multiple => true %>
-  </p>
-  <p>
-      <%= f.label :cursos %><br />
-      <%= f.select :curso_ids, 
-                   Curso.all.collect {|c| [c.nome, c.id]}, 
-                   { :selected => @disciplina.curso_ids }, 
                    :multiple => true %>
   </p>
   

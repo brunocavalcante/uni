@@ -1,5 +1,12 @@
-<h1>Nova Disciplina</h1>
+<h1><%= @curso.nome %></h1>
+<%= render :partial => 'admin/cursos/menu', :locals => { :curso => @curso } %>
+<article>
+  <header>
+    <h2>Nova Disciplina</h2>
+    <ul id="toolbar">
+      <li><%= link_to 'Back', admin_curso_disciplinas_path(@curso), :class => 'back' %></li>
+    </ul>
+  </header>
 
-<%= render 'form' %>
-
-<%= link_to 'Back', admin_disciplinas_path %>
+  <%= render 'form' %>
+</article>

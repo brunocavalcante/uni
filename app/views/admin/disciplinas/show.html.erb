@@ -1,33 +1,41 @@
-<h2><%= @disciplina.nome %></h2>
-<p id="notice"><%= notice %></p>
+<h1><%= @curso.nome %></h1>
+<%= render :partial => 'admin/cursos/menu', :locals => { :curso => @curso } %>
+<article>
+  <header>
+    <h2><%= @disciplina.nome %></h2>
+    <ul id="toolbar">
+      <li><%= link_to (t 'Editar'), edit_admin_curso_disciplina_path(@curso, @disciplina), :class => 'edit' %></li>
+      <li><%= button_to (t 'Excluir'), [:admin, @curso, @disciplina], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li> 
+      <li><%= link_to (t 'Voltar'), admin_curso_disciplinas_path, :class => 'back' %></li>
+    </ul>
+  </header>
 
-<p>
-  <b>Nome:</b>
-  <%= @disciplina.nome %>
-</p>
-
-<% if @disciplina.prerequisitos && @disciplina.prerequisitos.length > 0 %>
-<h3>Pré-requisitos</h3>
-<ul>
-    <% for prerequisito in @disciplina.prerequisitos %>
-    <li>
-        <%= link_to prerequisito.nome, [:admin, prerequisito] %>
-    </li>
-    <% end %>
-</ul>
-<% end %>
-
-<% if @disciplina.cursos && @disciplina.cursos.length > 0 %>
-<h3>Cursos</h3>
-<ul>
-    <% for curso in @disciplina.cursos %>
-    <li>
-        <%= link_to curso.nome, [:admin, curso] %>
-    </li>
-    <% end %>
-</ul>
-<% end %>
-
-<%= link_to (t 'Editar'), edit_admin_disciplina_path(@disciplina) %> | 
-<%= button_to (t 'Excluir'), [:admin, @disciplina], :confirm => 'Tem certeza disso?', :method => :delete %> | 
-<%= link_to (t 'Voltar'), admin_disciplinas_path %>
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <b>Nome:</b>
+    <%= @disciplina.nome %>
+  </p>
+  
+  <% if @disciplina.prerequisitos && @disciplina.prerequisitos.length > 0 %>
+  <h3>Pré-requisitos</h3>
+  <ul>
+      <% for prerequisito in @disciplina.prerequisitos %>
+      <li>
+          <%= link_to prerequisito.nome, [:admin, prerequisito] %>
+      </li>
+      <% end %>
+  </ul>
+  <% end %>
+  
+  <% if @disciplina.cursos && @disciplina.cursos.length > 0 %>
+  <h3>Cursos</h3>
+  <ul>
+      <% for curso in @disciplina.cursos %>
+      <li>
+          <%= link_to curso.nome, [:admin, curso] %>
+      </li>
+      <% end %>
+  </ul>
+  <% end %>
+</article>
