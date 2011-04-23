@@ -50,9 +50,24 @@ class Admin::DisciplinasController < ApplicationController
   # POST /disciplinas
   # POST /disciplinas.xml
   def create
-    @disciplina = Disciplina.new(params[:disciplina])
-    @disciplina.cursos = [@curso]
-  
+    @disciplina = params[:disciplina] ? Disciplina.new(params[:disciplina]) : session[:disciplinaNewTemp]
+    @disciplinasExistentes = Disciplina.find :all, :conditions => ['nome = ?', @disciplina.nome]
+    
+    session[:disciplinaNewTemp] = nil
+    
+    if @disciplinasExistentes.size == 0 or params[:criarNovaDisciplina]
+      @disciplina.cursos = [@curso]
+    elsif @disciplinasExistentes.size > 0 && params[:disciplinaEscolhida]
+      @disciplina = Disciplina.find(params[:disciplinaEscolhida])
+      @disciplina.cursos << @curso
+    else
+      session[:disciplinaNewTemp] = @disciplina
+      respond_to do |format|
+        format.html
+      end
+      return
+    end
+    
     respond_to do |format|
       if @disciplina.save
         format.html { redirect_to([:admin, @curso, @disciplina], :notice => 'Disciplina was successfully created.') }
@@ -84,8 +99,13 @@ class Admin::DisciplinasController < ApplicationController
   # DELETE /disciplinas/1.xml
   def destroy
     @disciplina = Disciplina.find(params[:id])
-    @disciplina.destroy
-
+    
+    if (@disciplina.cursos.size == 1)
+      @disciplina.destroy
+    else
+      CursoDisciplina.delete_all ['curso_id = ? and disciplina_id = ?', @curso.id, @disciplina.id]
+    end
+    
     respond_to do |format|
       format.html { redirect_to(admin_curso_disciplinas_url(@curso)) }
       format.xml  { head :ok }

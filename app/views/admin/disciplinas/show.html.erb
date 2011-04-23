@@ -22,7 +22,7 @@
   <ul>
       <% for prerequisito in @disciplina.prerequisitos %>
       <li>
-          <%= link_to prerequisito.nome, [:admin, prerequisito] %>
+          <%= link_to prerequisito.nome, [:admin, @curso, prerequisito] %>
       </li>
       <% end %>
   </ul>
