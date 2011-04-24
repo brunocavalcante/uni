@@ -104,7 +104,9 @@ class Admin::DisciplinasController < ApplicationController
   # GET /disciplinas/search
   def search
     @disciplinas = Disciplina.paginate :include => ['cursodisciplinas'], 
-                                       :conditions => ['curso_disciplinas.curso_id <> ?', params[:curso_id]], 
+                                       :conditions => ['curso_disciplinas.curso_id <> ? and disciplinas.id not in (?)', 
+                                                      params[:curso_id], 
+                                                      @curso.disciplinas.size > 0 ? @curso.disciplinas.collect(&:id) : -1], 
                                        :page => params[:page]
                                        
     respond_to do |format|
