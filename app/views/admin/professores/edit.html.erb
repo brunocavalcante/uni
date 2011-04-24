@@ -1,6 +1,9 @@
-<h1>Editar Professor</h1>
+<header>
+  <h1>Editar Professor</h1>
+  <ul id="toolbar">
+    <li><%= link_to 'Exibir', [:admin, @professor], :class => 'show' %></li>
+    <li><%= link_to (t 'Voltar'), admin_professores_path, :class => 'back' %></li>
+  </ul>
+</header>
 
 <%= render 'form' %>
-
-<%= link_to 'Exibir', [:admin, @professor] %> |
-<%= link_to (t 'Voltar'), admin_professores_path %>

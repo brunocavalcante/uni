@@ -1,4 +1,11 @@
-<h1>Aluno</h1>
+<header>
+  <h1>Aluno</h1>
+  <ul id="toolbar">
+    <li><%= link_to (t 'Editar'), edit_admin_aluno_path(@aluno), :class => 'edit' %></li> 
+    <li><%= button_to (t 'Excluir'), [:admin, @aluno], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li>
+    <li><%= link_to (t 'Voltar'), admin_alunos_path, :class => 'back' %></li>
+  </ul>
+</header>
 
 <p>
   <b>Matrícula:</b>
@@ -25,7 +32,3 @@
     <% end %>
 </ul>
 <% end %>
-
-<%= link_to (t 'Editar'), edit_admin_aluno_path(@aluno) %> | 
-<%= button_to (t 'Excluir'), [:admin, @aluno], :confirm => 'Tem certeza disso?', :method => :delete %> |
-<%= link_to (t 'Voltar'), admin_alunos_path %>

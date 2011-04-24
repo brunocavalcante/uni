@@ -1,6 +1,9 @@
-<h1>Editar Aluno</h1>
+<header>
+  <h1>Editar Aluno</h1>
+  <ul id="toolbar">
+    <li><%= link_to 'Exibir', [:admin, @aluno], :class => 'show' %></li>
+    <li><%= link_to (t 'Voltar'), admin_alunos_path, :class => 'back' %></li>
+  </ul>
+</header>
 
 <%= render 'form' %>
-
-<%= link_to 'Exibir', [:admin, @aluno] %> |
-<%= link_to (t 'Voltar'), admin_alunos_path %>

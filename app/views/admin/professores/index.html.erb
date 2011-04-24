@@ -1,4 +1,9 @@
-<h1><%= t 'Professores' %></h1>
+<header>
+  <h1><%= t 'Professores' %></h1>
+  <ul id="toolbar">
+    <li><%= link_to 'Novo Professor', new_admin_professor_path, :class => 'new' %></li>
+  </ul>
+</header>
 
 <table>
   <tr>
@@ -15,7 +20,3 @@
 </table>
 
 <%= will_paginate @professores %>
-
-<br />
-
-<%= link_to 'Novo Professor', new_admin_professor_path %>

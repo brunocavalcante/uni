@@ -12,12 +12,14 @@
     <thead>
       <tr>
         <th>Nome</th>
+        <th>Cursos</th>
       </tr>
     </thead>
     <tbody>
       <% @disciplinas.each do |disciplina| %>
       <tr class="<%= cycle("even", "odd") -%>">
         <td><%= link_to disciplina.nome, {:action => :add, :id => disciplina.id} %></td>
+        <td><%= disciplina.cursos.collect(&:nome).join(', ') %></td>
       </tr>
       <% end %>
     </tbody>

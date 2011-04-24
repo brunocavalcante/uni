@@ -1,10 +1,13 @@
 <h1>Parâmetros</h1>
 <%= render :partial => 'admin/parametros/menu' %>
 <article>
-  <h2>Editar Categoria de Curso</h2>
+  <header>
+    <h2>Editar Categoria de Curso</h2>
+    <ul id="toolbar">
+      <li><%= link_to 'Exibir', {:action => 'show', :id => @categoriacurso.id}, :class => 'show' %></li>
+      <li><%= link_to (t 'Voltar'), {:action => 'index'}, :class => 'back' %></li>
+    </ul>
+  </header>
 
   <%= render 'form' %>
-  
-  <%= link_to 'Exibir', :action => 'show', :id => @categoriacurso.id %> |
-  <%= link_to (t 'Voltar'), :action => 'index' %>
 </article>

@@ -1,7 +1,14 @@
 <h1>Parâmetros</h1>
+  
 <%= render :partial => 'admin/parametros/menu' %>
 <article>
-  <h2>Categorias de Cursos</h2>
+  <header>
+    <h2>Categorias de Cursos</h2>
+    <ul id="toolbar">
+      <li><%= link_to 'Nova Categoria de Curso', {:action => 'new'}, :class => 'new' %></li>
+    </ul>
+  </header>
+
   <table>
     <tr>
       <th>Nome</th>
@@ -14,9 +21,5 @@
   <% end %>
   </table>
   
-  <%= will_paginate @categoriacursos %>
-  
-  <br />
-  
-  <%= link_to 'Nova Categoria de Curso', :action => 'new' %>
-</h2>
+  <%= will_paginate @categoriacursos %>  
+</article>

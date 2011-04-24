@@ -1,9 +1,13 @@
 <h1>Parâmetros</h1>
+
 <%= render :partial => 'admin/parametros/menu' %>
 <article>
-  <h2>Nova Categoria de Curso</h2>
+  <header>
+    <h2>Nova Categoria de Curso</h2>
+    <ul id="toolbar">
+      <li><%= link_to (t 'Voltar'), {:action => 'index'}, :class => 'back' %></li>
+    </ul>
+  </header>
 
   <%= render 'form' %>
-  
-  <%= link_to (t 'Voltar'), :action => 'index' %>
 </article>

@@ -12,6 +12,13 @@
 
   <p id="notice"><%= notice %></p>
   
+  <% if @disciplina.codigo %>
+  <p>
+    <b>Código:</b>
+    <%= @disciplina.codigo %>
+  </p>
+  <% end %>
+
   <p>
     <b>Nome:</b>
     <%= @disciplina.nome %>

@@ -1,4 +1,12 @@
-<h1>Professor</h1>
+<header>
+  <h1>Professor</h1>
+  <ul id="toolbar">
+    <li><%= link_to (t 'Editar'), edit_admin_professor_path(@professor), :class => 'edit' %></li> 
+    <li><%= button_to (t 'Excluir'), [:admin, @professor], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li>
+    <li><%= link_to (t 'Voltar'), admin_professores_path, :class => 'back' %></li>
+  </ul>
+</header>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -15,7 +23,3 @@
   <b>Escolaridade:</b>
   <%= @professor.escolaridade.nome %>
 </p>
-
-<%= link_to (t 'Editar'), edit_admin_professor_path(@professor) %> | 
-<%= button_to (t 'Excluir'), [:admin, @professor], :confirm => 'Tem certeza disso?', :method => :delete %> |
-<%= link_to (t 'Voltar'), admin_professores_path %>

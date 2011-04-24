@@ -1,10 +1,13 @@
 <h1>Parâmetros</h1>
 <%= render :partial => 'admin/parametros/menu' %>
 <article>
-  <h2>Editar Escolaridade</h2>
+  <header>
+    <h2>Editar Escolaridade</h2>
+    <ul id="toolbar">
+      <li><%= link_to 'Exibir', {:action => 'show', :id => @escolaridade.id}, :class => 'show' %></li>
+      <li><%= link_to (t 'Voltar'), {:action => 'index'}, :class => 'back' %></li>
+    </ul>
+  </header>
 
   <%= render 'form' %>
-  
-  <%= link_to 'Exibir', :action => 'show', :id => @escolaridade.id %> |
-  <%= link_to (t 'Voltar'), :action => 'index' %>
 </article>
