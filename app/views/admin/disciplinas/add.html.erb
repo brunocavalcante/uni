@@ -4,9 +4,7 @@
   <header>
     <h2><%= @disciplina.nome %></h2>
     <ul id="toolbar">
-      <li><%= link_to (t 'Editar'), edit_admin_curso_disciplina_path(@curso, @disciplina), :class => 'edit' %></li>
-      <li><%= button_to (t 'Excluir'), [:admin, @curso, @disciplina], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li> 
-      <li><%= link_to (t 'Voltar'), admin_curso_disciplinas_path, :class => 'back' %></li>
+      <li><%= link_to (t 'Voltar'), {:action => 'search'}, :class => 'back' %></li>
     </ul>
   </header>
 
