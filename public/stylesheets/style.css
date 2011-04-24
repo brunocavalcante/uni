@@ -1,3 +1,4 @@
+/* Basic */
 body {
   color: #333;
   font-family: sans-serif;
@@ -5,18 +6,12 @@ body {
   margin: 0;
   background: white url('../images/html-bg.png') repeat-x;
 }
-body a, body a:visited, body a:active {
-  color: #000;
-}
-a:hover {
-  text-decoration: none;
-}
-h1 {
-  text-shadow: 1px 1px 0px white;
-}
-header {
-  margin: 1% 2% 1%;
-}
+body a, body a:visited, body a:active {color: #000}
+a:hover {text-decoration: none}
+h1 {text-shadow: 1px 1px 0px white}
+
+/* Headers */
+header {margin: 1% 2% 1%}
 header h1 {
   background: url('../images/logo-uni.png') no-repeat 0% 50%;
   padding: 0 0 0 64px;
@@ -24,10 +19,7 @@ header h1 {
   position: relative;
   margin: 0;
 }
-header h1 a {
-  text-decoration: none;
-  color: #333333 !important;
-}
+header h1 a {text-decoration: none;color: #333333}
 header h1 span {
   font-size: small;
   font-weight: normal;
@@ -35,32 +27,37 @@ header h1 span {
   position: absolute;
   bottom: 0em;
 }
-header {
-  position: relative;
-}
+header {position: relative}
 header section {
   position: absolute;
   top: 0;
   right: 0;
 }
+
+/* Main Menu */
 #main-nav {
   float: left;
   width: 96%;
   margin: 0 2%;
-  background: #333 url('../images/top_bar-bg.png') repeat-x;
   -moz-border-radius: 6px;
   border-radius: 6px;
   -moz-box-shadow: 0 2px 4px #CCC;
-  box-shadow: 0 2px 4px #CCC;
+  box-shadow: 0 2px 8px #CCC;
+  background-color: #575d62;
+  background-image: -moz-linear-gradient(top, #575d62, #2c3135); /* FF3.6 */
+  background-image: -ms-linear-gradient(top, #575d62, #2c3135); /* IE10 */
+  background-image: -o-linear-gradient(top, #575d62, #2c3135); /* Opera 11.10+ */
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#575d62), to(#2c3135)); /* Saf4+, Chrome */
+  background-image: -webkit-linear-gradient(top, #575d62, #2c3135); /* Chrome 10+, Saf5.1+ */
+  background-image: linear-gradient(top, #575d62, #2c3135);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#575d62', EndColorStr='#2c3135'); /* IE6–IE9 */
 }
 #main-nav li.active, #main-nav a {
   color: white;
   text-decoration: none;
   text-shadow: 1px 1px 0px #000;
 }
-#main-nav a:hover {
-  text-decoration: underline;
-}
+#main-nav a:hover {text-decoration: underline}
 #main-nav ul {
   margin: 0;
   padding: 0;
@@ -74,6 +71,8 @@ header section {
   padding: 0.5em 1.75em;
   border-right: 1px solid #666;
 }
+
+/* Content */
 #content {
   float: left;
   width: 96%;
@@ -84,9 +83,7 @@ header section {
   padding-bottom: 0.25em;
   margin: 0 0 2%;
 }
-#content header {
-  position: relative;
-}
+#content header {position: relative}
 #content header h1, #content header h2 {
   padding: 0;
   margin: 0;
@@ -119,6 +116,8 @@ header section {
   font-size: small;
   text-decoration: none;
 }
+
+/* Footer */
 footer {
   padding-top: 0.5em;
   border-top: 1px dotted #EEE;
@@ -126,15 +125,10 @@ footer {
   width: 96%;
   margin: 0 2% 2%;
 }
-footer {
-  font-size: small;
-}
-footer, footer a, footer a:active, a:visited, footer a:link {
-  color: #666;
-}
-#license {
-  line-height: 1.4em;
-}
+footer {font-size: small}
+footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
+#license {line-height: 1.4em}
+
 /* Toolbar */
 #toolbar {
   position: absolute;
@@ -161,17 +155,12 @@ footer, footer a, footer a:active, a:visited, footer a:link {
   text-shadow: none;
   font-size: 1em;
 }
-
-#toolbar a:hover, #toolbar input:hover {
-  text-decoration: none;
-}
-
+#toolbar a:hover, #toolbar input:hover {text-decoration: none}
 #toolbar .edit, #toolbar .delete, #toolbar .back, #toolbar .new, #toolbar .show {
   padding-left: 28px;
   background-repeat: no-repeat;
   background-position: 0 50%;
 }
-
 #toolbar .new {background-image: url('../images/icons/add.png')}
 #toolbar .back {background-image: url('../images/icons/back.png')}
 #toolbar .edit {background-image: url('../images/icons/edit.png')}
@@ -179,34 +168,23 @@ footer, footer a, footer a:active, a:visited, footer a:link {
 #toolbar .show {background-image: url('../images/icons/full_page.png')}
 
 /* Tables */
-table {
-  border-spacing: 0;
-  width: 100%
-}
-tr.even {
-  background: #eee;
-}
+table {border-spacing: 0;width: 100%}
+tr.even {background: #eee}
 th, td {
-  padding: 0.75em 1em
+  padding: 0.75em 1em;
+  text-align: left
 }
-th {
-  text-align: left;
-}
+
 /* Forms */
 input, select, textarea {
   padding: 0.25em 0.5em;
   font-size: 0.9em;
   font-family: sans-serif;
 }
-
-button, input[type=submit], input[type=reset] {
-  padding: 0.5em 2em;
-}
+button, input[type=submit], input[type=reset] {padding: 0.5em 2em}
 
 /* Essas classes são do scaffold do Ruby - Depois ajeitamos. */
-#notice {
-  color: green;
-}
+#notice {color: green}
 .field_with_errors {
   padding: 2px;
   background-color: red;
@@ -240,9 +218,7 @@ article#login, aside#login-splash {
   margin-top: 2%;
   margin-bottom: 1%;
 }
-article#login {
-  width: 48%;
-}
+article#login {width: 48%}
 article#login h1 {
   width: 16em;
   font-size: 1.5em;
@@ -264,10 +240,5 @@ aside#login-splash {
   margin-top: 0.5em;
 }
 
-#login #username {
-  background-image: url('../images/icons/user.png') !important;
-}
-
-#login #password {
-  background-image: url('../images/icons/lock.png') !important;
-}
+#login #username {background-image: url('../images/icons/user.png')}
+#login #password {background-image: url('../images/icons/lock.png')}
