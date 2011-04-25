@@ -127,7 +127,7 @@ footer {
 }
 footer {font-size: small}
 footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
-#license {line-height: 1.4em}
+#license {margin-top: 0.20em}
 
 /* Toolbar */
 #toolbar {
