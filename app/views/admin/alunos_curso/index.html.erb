@@ -1,22 +1,25 @@
 <h1><%= @curso.nome %></h1>
 <%= render :partial => 'admin/cursos/menu', :locals => { :curso => @curso } %>
 <article>
-    <h2>Alunos</h2>
-    
-    <table>
+  <h2>Alunos</h2>
+  
+  <table>
+    <thead>
       <tr>
         <th>Matrícula</th>
         <th>Nome</th>
       </tr>
-    
-    <% @alunos.each do |aluno| %>
-      <tr class="<%= cycle("even", "odd") -%>">
+    </thead>
+  
+    <tbody>
+      <% @alunos.each do |aluno| %>
+      <tr>
         <td><%= aluno.matricula %></td>
         <td><%= link_to aluno.nome, [:admin, aluno] %></td>
       </tr>
-    <% end %>
-    </table>
-    
-    <%= will_paginate @alunos %>
-    
+      <% end %>
+    </tbody>
+  </table>
+  
+  <%= will_paginate @alunos %>
 </article>

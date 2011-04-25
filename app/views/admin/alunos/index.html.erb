@@ -6,17 +6,21 @@
 </header>
 
 <table>
-  <tr>
-    <th>Matrícula</th>
-    <th><%= t 'Nome' %></th>
-  </tr>
+  <thead>
+    <tr>
+      <th>Matrícula</th>
+      <th><%= t 'Nome' %></th>
+    </tr>
+  </thead>
 
-<% @alunos.each do |aluno| %>
-  <tr class="<%= cycle("even", "odd") -%>">
-    <td><%= aluno.matricula %></td>
-    <td><%= link_to aluno.pessoa.nome, [:admin, aluno] %></td>
-  </tr>
-<% end %>
+  <tbody>
+    <% @alunos.each do |aluno| %>
+    <tr>
+      <td><%= aluno.matricula %></td>
+      <td><%= link_to aluno.pessoa.nome, [:admin, aluno] %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <%= will_paginate @alunos %>

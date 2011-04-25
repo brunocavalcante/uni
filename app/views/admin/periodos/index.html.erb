@@ -6,19 +6,22 @@
 </header>
 
 <table>
-  <tr>
-    <th><%= t 'Nome' %></th>
-    <th>Início</th>
-    <th>Fim</th>
-  </tr>
-
-<% @periodos.each do |periodo| %>
-  <tr class="<%= cycle("even", "odd") -%>">
-    <td><%= link_to periodo.nome, [:admin, periodo] %></td>
-    <td><%= l periodo.inicio %></td>
-    <td><%= l periodo.fim %></td>
-  </tr>
-<% end %>
+  <thead>
+    <tr>
+      <th><%= t 'Nome' %></th>
+      <th>Início</th>
+      <th>Fim</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @periodos.each do |periodo| %>
+    <tr>
+      <td><%= link_to periodo.nome, [:admin, periodo] %></td>
+      <td><%= l periodo.inicio %></td>
+      <td><%= l periodo.fim %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <%= will_paginate @periodos %>

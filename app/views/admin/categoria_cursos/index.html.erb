@@ -10,15 +10,19 @@
   </header>
 
   <table>
-    <tr>
-      <th>Nome</th>
-    </tr>
+    <thead>
+      <tr>
+        <th>Nome</th>
+      </tr>
+    </thead>
   
-  <% @categoriacursos.each do |categoriacurso| %>
-    <tr class="<%= cycle("even", "odd") -%>">
-      <td><%= link_to categoriacurso.nome, [:admin, categoriacurso] %></td>
-    </tr>
-  <% end %>
+    <tbody>
+      <% @categoriacursos.each do |categoriacurso| %>
+      <tr>
+        <td><%= link_to categoriacurso.nome, [:admin, categoriacurso] %></td>
+      </tr>
+      <% end %>
+    </tbody>
   </table>
   
   <%= will_paginate @categoriacursos %>  

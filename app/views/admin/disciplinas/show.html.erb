@@ -12,13 +12,11 @@
 
   <p id="notice"><%= notice %></p>
   
-  <% if @disciplina.codigo %>
   <p>
     <b>Código:</b>
     <%= @disciplina.codigo %>
   </p>
-  <% end %>
-
+  
   <p>
     <b>Nome:</b>
     <%= @disciplina.nome %>
@@ -35,7 +33,7 @@
   </ul>
   <% end %>
   
-  <% if @disciplina.cursos && @disciplina.cursos.length > 0 %>
+  <% if @disciplina.cursos && @disciplina.cursos.length > 1 %>
   <h3>Cursos</h3>
   <ul>
       <% for curso in @disciplina.cursos %>

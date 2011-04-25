@@ -9,15 +9,18 @@
   </header>
 
   <table>
-    <tr>
-      <th>Nome</th>
-    </tr>
-  
-    <% @escolaridades.each do |escolaridade| %>
-    <tr class="<%= cycle("even", "odd") -%>">
-      <td><%= link_to escolaridade.nome, [:admin, escolaridade] %></td>
-    </tr>
-    <% end %>
+    <thead>
+      <tr>
+        <th>Nome</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @escolaridades.each do |escolaridade| %>
+      <tr>
+        <td><%= link_to escolaridade.nome, [:admin, escolaridade] %></td>
+      </tr>
+      <% end %>
+    </tbody>
   </table>
   
   <%= will_paginate @escolaridades %>

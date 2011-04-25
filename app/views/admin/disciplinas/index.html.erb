@@ -12,12 +12,14 @@
   <table>
     <thead>
       <tr>
+        <th>Código</th>
         <th>Nome</th>
       </tr>
     </thead>
     <tbody>
       <% @disciplinas.each do |disciplina| %>
-      <tr class="<%= cycle("even", "odd") -%>">
+      <tr>
+        <td><%= disciplina.codigo %></td>
         <td><%= link_to disciplina.nome, [:admin, @curso, disciplina] %></td>
       </tr>
       <% end %>

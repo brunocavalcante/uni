@@ -168,11 +168,14 @@ footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
 #toolbar .show {background-image: url('../images/icons/full_page.png')}
 
 /* Tables */
-table {border-spacing: 0;width: 100%}
-tr.even {background: #eee}
+table {
+  border-spacing: 0;
+  width: 100%;
+}
+tbody tr:nth-child(odd) {background: #EEE}
 th, td {
   padding: 0.75em 1em;
-  text-align: left
+  text-align: left;
 }
 
 /* Forms */
