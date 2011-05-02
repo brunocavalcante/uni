@@ -3,23 +3,23 @@
 </aside>
   
 <article id="login">
-  <h1><%= t 'BemVindo' %></h1>
+  <h1><%= t 'Welcome' %></h1>
   <p id="notice"><%= notice %></p>
   <p id="alert"><%= alert %></p>
   <%= form_tag(authenticate_url) do %>
   <p>
-    <%= label_tag 'usuario', (t 'EmailMatricula') %><br/>
+    <%= label_tag 'usuario', (t 'EmailOrStudentId') %><br/>
     <%= text_field_tag 'username', nil, :autocomplete => 'off' %>
   </p>
   <p>
-    <%= label_tag 'password', (t 'Senha') %><br/>
+    <%= label_tag 'password', (t 'Password') %><br/>
     <%= password_field_tag 'password' %>
   </p>
   <div class="actions">
-    <%= submit_tag (t 'Entrar') %>
+    <%= submit_tag (t 'LogIn') %>
   </p>
   <p>
-    <%= link_to t 'EsqueciASenha' %>
+    <%= link_to t 'ForgotYourPassword' %>
   </p>
   <% end %>
 </article>

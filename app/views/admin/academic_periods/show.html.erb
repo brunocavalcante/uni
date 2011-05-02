@@ -1,0 +1,31 @@
+<h1><%= @academic_period.name %></h1>
+<%= render :partial => 'menu', :locals => { :academic_period => @academic_period } %>
+<article>
+  <header>
+    <h2>Início</h2>
+    <ul id="toolbar">
+      <li><%= link_to (t 'Voltar'), admin_academic_periods_path, :class => 'back' %></li>
+      <li><%= link_to (t 'Editar'), edit_admin_academic_period_path(@academic_period), :class => 'edit' %></li>
+      <li><%= button_to (t 'Excluir'), [:admin, @academic_period], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li> 
+    </ul>
+  </header>
+  
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <b><%= t ' Name' %></b>
+    <%= @academic_period.name %>
+  </p>
+  
+  <p>
+    <b><%= t 'Classes' %></b>
+    <%= l @academic_period.start, :format => :long %> <%= t 'until' %> <%= l @academic_period.end, :format => :long %>
+  </p>
+  
+  <% if @academic_period.registration_start and @academic_period.registration_end %>
+  <p>
+    <b><%= t 'Registration' %></b>
+    <%= l @academic_period.registration_start, :format => :long %> à <%= l @academic_period.registration_end, :format => :long %>
+  </p>
+  <% end %>
+</article>

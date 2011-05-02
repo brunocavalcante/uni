@@ -10,24 +10,24 @@ class AuthController < ApplicationController
   def authenticate
     begin
       if /@/.match(params[:username])
-        @pessoa = Pessoa.find_by_email(params[:username])
+        @person = Person.find_by_email(params[:username])
       else
-        @aluno = Aluno.find_by_matricula(params[:username])
+        @aluno = Student.find_by_code(params[:username])
         if !@aluno
           raise 'Aluno não encontrado'
         end
-        @pessoa = @aluno.pessoa
+        @person = @aluno.person
       end
-      if !@pessoa
+      if !@person
         raise 'Pessoa não encontrada'
       end
-      if @pessoa.senha != Digest::MD5.hexdigest(params[:password])
+      if @person.password != Digest::MD5.hexdigest(params[:password])
         raise 'Senha inválida'
       end
-      if @pessoa.perfis.length == 1
-        session[:profile] = @pessoa.perfis[0]
+      if @person.roles.length == 1
+        session[:role] = @person.roles[0]
       end
-      session[:user] = @pessoa
+      session[:user] = @person
       redirect_to(root_url)
     rescue
       redirect_to(login_url, :alert => 'Usuário/senha não encontrados')
@@ -40,7 +40,7 @@ class AuthController < ApplicationController
   
   def logout
     session[:user] = nil
-    session[:profile] = nil
+    session[:role] = nil
     redirect_to(login_url, :notice => 'Logout realizado com sucesso')
   end
 end

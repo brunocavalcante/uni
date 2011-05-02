@@ -5,20 +5,20 @@ Uni::Application.routes.draw do
   namespace :admin do
     root :to => 'home#index'
     resources :home
-    resources :escolaridades
-    resources :categoria_cursos
-    resources :cursos do
-        resources :disciplinas do 
+    resources :scholarities
+    resources :course_categories
+    resources :courses do
+        resources :disciplines do 
           new do
             get :search
           end
         end
         resources :alunos_curso, :as => 'alunos', :only => [:index]
     end
-    resources :professores
-    resources :alunos
-    resources :periodos
-    resources :parametros do 
+    resources :professors
+    resources :students
+    resources :academic_periods
+    resources :parameters do 
       collection do
         post :update, :as => :update
       end  
@@ -29,7 +29,7 @@ Uni::Application.routes.draw do
   match 'login/auth', :to => 'auth#authenticate', :as => "authenticate"
   match 'perfil', :to => 'auth#profile', :as => "profile"
   match 'logout', :to => 'auth#logout', :as => "logout"
-  match 'admin/cursos/:curso_id/disciplinas/new/search/:id', :to => 'admin/disciplinas#add'
+  match 'admin/courses/:course_id/disciplinas/new/search/:id', :to => 'admin/disciplinas#add'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

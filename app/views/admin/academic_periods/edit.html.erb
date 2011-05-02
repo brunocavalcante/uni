@@ -1,0 +1,14 @@
+<h1><%= @academic_periodo.nome %></h1>
+
+<%= render :partial => 'menu', :locals => { :academic_periodo => @academic_periodo } %>
+<article>
+  <header>
+    <h2>Editando Período Letivo</h2>
+    <ul id="toolbar">
+      <li><%= link_to t 'Show', [:admin, @academic_periodo], :class => 'show' %></li>
+      <li><%= link_to (t 'Voltar'), admin_academic_periods_path, :class => 'back' %></li>
+    </ul>
+  </header>
+
+<%= render 'form' %>
+</article>

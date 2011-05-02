@@ -6,13 +6,16 @@ class ApplicationController < ActionController::Base
   
   def set_locale
     # if params[:locale] is nil then I18n.default_locale will be used
-    I18n.locale = session[:locale]
+    @localeParameter = Parameter.find_by_name('locale')
+    if @localeParameter:
+      I18n.locale = @localeParameter.value
+    end
   end
   
   def login_required
     if !session[:user]
       redirect_to(login_url)
-    elsif !session[:profile]
+    elsif !session[:role]
       redirect_to(profile_url)
     end
   end

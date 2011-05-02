@@ -1,0 +1,25 @@
+<header>
+  <h1><%= t 'Professors' %></h1>
+  <ul id="toolbar">
+    <li><%= link_to ((t 'New') + ' ' + (t 'Professor')), new_admin_professor_path, :class => 'new' %></li>
+  </ul>
+</header>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t 'Name' %></th>
+      <th><%= t 'Scholarity' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @professors.each do |professor| %>
+    <tr>
+      <td><%= link_to professor.name, [:admin, professor] %></td>
+      <td><%= professor.scholarity.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @professors %>

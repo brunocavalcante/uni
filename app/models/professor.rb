@@ -1,10 +1,9 @@
 class Professor < ActiveRecord::Base
-    belongs_to :pessoa
-    belongs_to :escolaridade
-    
-    accepts_nested_attributes_for :pessoa
-    
-    def nome
-      pessoa.nome
-    end
+  belongs_to :person
+  belongs_to :scholarity
+
+  accepts_nested_attributes_for :person
+  def name
+    person.name
+  end
 end

@@ -1,0 +1,27 @@
+<header>
+  <h1><%= t 'Courses' %></h1>
+  <ul id="toolbar">
+    <li><%= link_to ((t 'New') + ' ' + (t 'Course')), new_admin_course_path, :class => 'new'  %></li>
+  </ul>
+</header>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t 'Code' %></th>
+      <th><%= t 'Course' %></th>
+      <th><%= t 'Category' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+    <tr>
+      <td><%= course.code %></td>
+      <td><%= link_to course.name, [:admin, course] %></td>
+      <td><%= course.course_category.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @courses %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  active: false
+  course_id: 1
+
+two:
+  name: MyString
+  active: false
+  course_id: 1

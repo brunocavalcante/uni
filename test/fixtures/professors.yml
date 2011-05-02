@@ -1,9 +1,9 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  pessoa_id: 1
-  escolaridade_id: 1
+  person_id: 1
+  scholarity_id: 1
 
 two:
-  pessoa_id: 1
-  escolaridade_id: 1
+  person_id: 1
+  scholarity_id: 1

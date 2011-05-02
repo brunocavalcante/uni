@@ -4,100 +4,106 @@
 # Examples:
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
-Perfil.create([{ :nome => 'Administrador' }, { :nome => 'Professor' }, { :nome => 'Aluno' }])
-Escolaridade.create([{ :nome => 'Bacharel' }, { :nome => 'Mestre' }, { :nome => 'Doutor' }, { :nome => 'Especialista' }])
-CategoriaCurso.create([{ :nome => 'Graduação' }, { :nome => 'Pós-Graduação' }])
-Curso.create([{ :nome => 'Sistemas de Informação', :categoria_curso => CategoriaCurso.first },
-              { :nome => 'Administração', :categoria_curso => CategoriaCurso.first },
-              { :nome => 'Ciências Contábeis', :categoria_curso => CategoriaCurso.first },
-              { :nome => 'Direito', :categoria_curso => CategoriaCurso.first },
-              { :nome => 'Jornalismo', :categoria_curso => CategoriaCurso.first },
-              { :nome => 'Pedagogia', :categoria_curso => CategoriaCurso.first },
-              { :nome => 'Publicidade e Propaganda', :categoria_curso => CategoriaCurso.first },
-              { :nome => 'Logística', :categoria_curso => CategoriaCurso.first },
-              { :nome => 'Negócios Imobiliários', :categoria_curso => CategoriaCurso.first }, 
-              { :nome => 'Design Gráfico', :categoria_curso => CategoriaCurso.first }])
-@si = Curso.find_by_nome('Sistemas de Informação');
-Disciplina.create([{ :codigo => 'N011', :nome => 'Cálculo Diferencial e Integral', :cursos => [@si] }, 
-                   { :codigo => 'T009', :nome => 'Computação Básica', :cursos => [@si] }, 
-                   { :codigo => 'T019', :nome => 'Fundamentos de Sistemas de Informação', :cursos => [@si] }, 
-                   { :codigo => 'H145', :nome => 'Inglês Instrumental', :cursos => [@si] },
-                   { :codigo => 'N009', :nome => 'Lógica Matemática', :cursos => [@si] },
-                   { :codigo => 'T001', :nome => 'Algoritmos e Estruturas de Dados I', :cursos => [@si] },
-                   { :codigo => 'H144', :nome => 'Comunicação e Expressão', :cursos => [@si] },
-                   { :codigo => 'N004', :nome => 'Estatística Computacional', :cursos => [@si] },
-                   { :codigo => 'N010', :nome => 'Matemática Discreta', :cursos => [@si] },
-                   { :codigo => 'T005', :nome => 'Arquitetura e Organização de Computadores', :cursos => [@si] },
-                   { :codigo => 'T002', :nome => 'Algoritmos e Estruturas de Dados II', :cursos => [@si] },
-                   { :codigo => 'T023', :nome => 'Linguagens Formais, Autômatos e Computabilidade', :cursos => [@si] },
-                   { :codigo => 'T025', :nome => 'Programação com Orientação à Objetos', :cursos => [@si] },
-                   { :codigo => 'T032', :nome => 'Sistemas Operacionais', :cursos => [@si] },
-                   { :codigo => 'A072', :nome => 'Contabilidade e Finanças', :cursos => [@si] },
-                   { :codigo => 'A073', :nome => 'Economia', :cursos => [@si] },
-                   { :codigo => 'T033', :nome => 'Técnicas de Programação', :cursos => [@si] },
-                   { :codigo => 'T026', :nome => 'Redes de Computadores I', :cursos => [@si] },
-                   { :codigo => 'T024', :nome => 'Pesquisa e Ordenação de Dados', :cursos => [@si] },
-                   { :codigo => 'A067', :nome => 'Psicologia Organizacional', :cursos => [@si] },
-                   { :codigo => 'T007', :nome => 'Banco de Dados I', :cursos => [@si] },
-                   { :codigo => 'J080', :nome => 'Direito e Legislação', :cursos => [@si] },
-                   { :codigo => 'T013', :nome => 'Engenharia de Software', :cursos => [@si] },
-                   { :codigo => 'T008', :nome => 'Banco de Dados II', :cursos => [@si] },
-                   { :codigo => 'T027', :nome => 'Redes de Computadores II', :cursos => [@si] },
-                   { :codigo => 'T022', :nome => 'Linguagens de Programação', :cursos => [@si] },
-                   { :codigo => 'T014', :nome => 'Estágio Supervisionado I', :cursos => [@si] },
-                   { :codigo => 'T003', :nome => 'Análise, Projeto e Implementação de Sistemas I', :cursos => [@si] },
-                   { :codigo => 'T030', :nome => 'Sistemas Distribuídos', :cursos => [@si] },
-                   { :codigo => 'T010', :nome => 'Computação Gráfica', :cursos => [@si] },
-                   { :codigo => 'T031', :nome => 'Sistemas Multimídia', :cursos => [@si] },
-                   { :codigo => 'T015', :nome => 'Estágio Supervisionado II', :cursos => [@si] },
-                   { :codigo => 'T004', :nome => 'Análise, Projeto e Implementação de Sistemas II', :cursos => [@si] },
-                   { :codigo => 'T011', :nome => 'Computador e Sociedade', :cursos => [@si] },
-                   { :codigo => 'T028', :nome => 'Segurança de Sistemas', :cursos => [@si] },
-                   { :codigo => 'T021', :nome => 'Inteligência Artificial', :cursos => [@si] },
-                   { :codigo => 'T016', :nome => 'Estágio Supervisionado III', :cursos => [@si] },
-                   { :codigo => 'T036', :nome => 'Trabalho de Conclusão de Curso I', :cursos => [@si] },
-                   { :codigo => 'A077', :nome => 'Empreendedorismo em Computação', :cursos => [@si] },
-                   { :codigo => 'T020', :nome => 'Gerenciamento de Projetos', :cursos => [@si] },
-                   { :codigo => 'T006', :nome => 'Auditoria de Sistemas', :cursos => [@si] },
-                   { :codigo => 'T037', :nome => 'Trabalho de Conclusão de Curso II', :cursos => [@si] },
-                   { :codigo => 'T017', :nome => 'Estágio Supervisionado IV', :cursos => [@si] },
-                   { :codigo => 'T029', :nome => 'Sistemas de Apoio à Decisão', :cursos => [@si] }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Antônio de Barros Serra' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Alexandre Silva Cavalcante' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Ciro Carneiro Coelho' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Cristiano Therrien' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Daniel Capelo Borges' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Danielle da Costa Filgueiras Albuquerque' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Eduardo Mendes de Oliveira' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Fabiana Nogueira Holanda' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Fláudio José Gonçalves' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Francisco Ivan de Oliveira' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Francisco Cristino de França Júnior' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Francisco A. Tavares F. Silva' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Glauber Ferreira Cintra' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Leandro da Silva Toledo' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Luiz Humberto Sucupira Júnior' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Luciano Comin Nunes' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Marum Simão Filho' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Marcelo Bezerra de Alcântara' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Mariana Aguiar Alcântara Brito' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Raimundo Sales Neto e Azevedo' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Rafael Leão Fonseca' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Régis Patrick Silva Simão' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Renato Barros da Costa' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Renato Simões' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Ricardo Aquino Coimbra' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Ricardo Bezerra de Menezes' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Rodrigo Pordeus Nascimento' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Tarciane de Castro Andrade' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Tiago Seixas' }), :escolaridade => Escolaridade.first }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Wamberg Glaucon Chaves de Oliveira' }), :escolaridade => Escolaridade.first }])
+#   Mayor.create(:name => 'Daley', :city => cities.first) = 0
+
+# Parameters
+Parameter.create([{ :name => 'locale', :value => 'en' }])
+Role.create([{ :name => 'Administrator' }, { :name => 'Professor' }, { :name => 'Student' }])
+Scholarity.create([{ :name => 'Bacharel' }, { :name => 'Mestre' }, { :name => 'Doutor' }, { :name => 'Especialista' }])
+CourseCategory.create([{ :name => 'Graduação' }, { :name => 'Pós-Graduação' }])
+
+# Courses
+Course.create([{ :code => 'SI', :name => 'Sistemas de Informação', :course_category => CourseCategory.first },
+              { :code => 'AD', :name => 'Administração', :course_category => CourseCategory.first },
+              { :code => 'CC', :name => 'Ciências Contábeis', :course_category => CourseCategory.first },
+              { :code => 'DI', :name => 'Direito', :course_category => CourseCategory.first },
+              { :code => 'JO', :name => 'Jornalismo', :course_category => CourseCategory.first },
+              { :code => 'PE', :name => 'Pedagogia', :course_category => CourseCategory.first },
+              { :code => 'PP', :name => 'Publicidade e Propaganda', :course_category => CourseCategory.first },
+              { :code => 'LO', :name => 'Logística', :course_category => CourseCategory.first },
+              { :code => 'NI', :name => 'Negócios Imobiliários', :course_category => CourseCategory.first }, 
+              { :code => 'DG', :name => 'Design Gráfico', :course_category => CourseCategory.first }])
+@si = Course.find_by_name('Sistemas de Informação');
+Curriculum.create([{ :name => '2008', :course => @si }])
+Discipline.create([{ :code => 'N011', :name => 'Cálculo Diferencial e Integral', :curriculums => [Curriculum.first] }, 
+                   { :code => 'T009', :name => 'Computação Básica', :curriculums => [Curriculum.first] }, 
+                   { :code => 'T019', :name => 'Fundamentos de Sistemas de Informação', :curriculums => [Curriculum.first] }, 
+                   { :code => 'H145', :name => 'Inglês Instrumental', :curriculums => [Curriculum.first] },
+                   { :code => 'N009', :name => 'Lógica Matemática', :curriculums => [Curriculum.first] },
+                   { :code => 'T001', :name => 'Algoritmos e Estruturas de Dados I', :curriculums => [Curriculum.first] },
+                   { :code => 'H144', :name => 'Comunicação e Expressão', :curriculums => [Curriculum.first] },
+                   { :code => 'N004', :name => 'Estatística Computacional', :curriculums => [Curriculum.first] },
+                   { :code => 'N010', :name => 'Matemática Discreta', :curriculums => [Curriculum.first] },
+                   { :code => 'T005', :name => 'Arquitetura e Organização de Computadores', :curriculums => [Curriculum.first] },
+                   { :code => 'T002', :name => 'Algoritmos e Estruturas de Dados II', :curriculums => [Curriculum.first] },
+                   { :code => 'T023', :name => 'Linguagens Formais, Autômatos e Computabilidade', :curriculums => [Curriculum.first] },
+                   { :code => 'T025', :name => 'Programação com Orientação à Objetos', :curriculums => [Curriculum.first] },
+                   { :code => 'T032', :name => 'Sistemas Operacionais', :curriculums => [Curriculum.first] },
+                   { :code => 'A072', :name => 'Contabilidade e Finanças', :curriculums => [Curriculum.first] },
+                   { :code => 'A073', :name => 'Economia', :curriculums => [Curriculum.first] },
+                   { :code => 'T033', :name => 'Técnicas de Programação', :curriculums => [Curriculum.first] },
+                   { :code => 'T026', :name => 'Redes de Computadores I', :curriculums => [Curriculum.first] },
+                   { :code => 'T024', :name => 'Pesquisa e Ordenação de Dados', :curriculums => [Curriculum.first] },
+                   { :code => 'A067', :name => 'Psicologia Organizacional', :curriculums => [Curriculum.first] },
+                   { :code => 'T007', :name => 'Banco de Dados I', :curriculums => [Curriculum.first] },
+                   { :code => 'J080', :name => 'Direito e Legislação', :curriculums => [Curriculum.first] },
+                   { :code => 'T013', :name => 'Engenharia de Software', :curriculums => [Curriculum.first] },
+                   { :code => 'T008', :name => 'Banco de Dados II', :curriculums => [Curriculum.first] },
+                   { :code => 'T027', :name => 'Redes de Computadores II', :curriculums => [Curriculum.first] },
+                   { :code => 'T022', :name => 'Linguagens de Programação', :curriculums => [Curriculum.first] },
+                   { :code => 'T014', :name => 'Estágio Supervisionado I', :curriculums => [Curriculum.first] },
+                   { :code => 'T003', :name => 'Análise, Projeto e Implementação de Sistemas I', :curriculums => [Curriculum.first] },
+                   { :code => 'T030', :name => 'Sistemas Distribuídos', :curriculums => [Curriculum.first] },
+                   { :code => 'T010', :name => 'Computação Gráfica', :curriculums => [Curriculum.first] },
+                   { :code => 'T031', :name => 'Sistemas Multimídia', :curriculums => [Curriculum.first] },
+                   { :code => 'T015', :name => 'Estágio Supervisionado II', :curriculums => [Curriculum.first] },
+                   { :code => 'T004', :name => 'Análise, Projeto e Implementação de Sistemas II', :curriculums => [Curriculum.first] },
+                   { :code => 'T011', :name => 'Computador e Sociedade', :curriculums => [Curriculum.first] },
+                   { :code => 'T028', :name => 'Segurança de Sistemas', :curriculums => [Curriculum.first] },
+                   { :code => 'T021', :name => 'Inteligência Artificial', :curriculums => [Curriculum.first] },
+                   { :code => 'T016', :name => 'Estágio Supervisionado III', :curriculums => [Curriculum.first] },
+                   { :code => 'T036', :name => 'Trabalho de Conclusão de Course I', :curriculums => [Curriculum.first] },
+                   { :code => 'A077', :name => 'Empreendedorismo em Computação', :curriculums => [Curriculum.first] },
+                   { :code => 'T020', :name => 'Gerenciamento de Projetos', :curriculums => [Curriculum.first] },
+                   { :code => 'T006', :name => 'Auditoria de Sistemas', :curriculums => [Curriculum.first] },
+                   { :code => 'T037', :name => 'Trabalho de Conclusão de Course II', :curriculums => [Curriculum.first] },
+                   { :code => 'T017', :name => 'Estágio Supervisionado IV', :curriculums => [Curriculum.first] },
+                   { :code => 'T029', :name => 'Sistemas de Apoio à Decisão', :curriculums => [Curriculum.first] }])
+Professor.create([{ :person => Person.create({ :name => 'Antônio de Barros Serra' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Alexandre Silva Cavalcante' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Ciro Carneiro Coelho' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Cristiano Therrien' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Daniel Capelo Borges' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Danielle da Costa Filgueiras Albuquerque' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Eduardo Mendes de Oliveira' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Fabiana Nogueira Holanda' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Fláudio José Gonçalves' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Francisco Ivan de Oliveira' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Francisco Cristino de França Júnior' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Francisco A. Tavares F. Silva' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Glauber Ferreira Cintra' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Leandro da Silva Toledo' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Luiz Humberto Sucupira Júnior' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Luciano Comin Nunes' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Marum Simão Filho' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Marcelo Bezerra de Alcântara' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Mariana Aguiar Alcântara Brito' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Raimundo Sales Neto e Azevedo' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Rafael Leão Fonseca' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Régis Patrick Silva Simão' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Renato Barros da Costa' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Renato Simões' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Ricardo Aquino Coimbra' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Ricardo Bezerra de Menezes' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Rodrigo Pordeus Nascimento' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Tarciane de Castro Andrade' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Tiago Seixas' }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Wamberg Glaucon Chaves de Oliveira' }), :scholarity => Scholarity.first }])
 
 # Users
-@administrador = Perfil.find_by_nome('Administrador');
-@professor = Perfil.find_by_nome('Professor');
-@aluno = Perfil.find_by_nome('Aluno');
-Pessoa.create([{ :nome => 'Administrador do Sistema', :email => 'admin@uni.com.br', :senha => '21232f297a57a5a743894a0e4a801fc3', :perfis => [@administrador] }])
-Professor.create([{ :pessoa => Pessoa.create({ :nome => 'Professor de Teste', :email => 'professor@uni.com.br', :senha => '3f9cd3c7b11eb1bae99dddb3d05da3c5', :perfis => [@professor] }), :escolaridade => Escolaridade.first }])
-Aluno.create([{ :pessoa => Pessoa.create({ :nome => 'Aluno de Teste', :email => 'aluno@uni.com.br', :senha => 'ca0cd09a12abade3bf0777574d9f987f', :perfis => [@aluno] }), :matricula => '12345', :cursos => [@si] }])
+@administrator = Role.find_by_name('Administrator');
+@professor = Role.find_by_name('Professor');
+@student = Role.find_by_name('Student');
+Person.create([{ :name => 'Administrator', :email => 'admin@uni.com.br', :password => '21232f297a57a5a743894a0e4a801fc3', :roles => [@administrator] }])
+Professor.create([{ :person => Person.create({ :name => 'Professor de Teste', :email => 'professor@uni.com.br', :password => '3f9cd3c7b11eb1bae99dddb3d05da3c5', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Student.create([{ :person => Person.create({ :name => 'Aluno de Teste', :email => 'aluno@uni.com.br', :password => 'ca0cd09a12abade3bf0777574d9f987f', :roles => [@student] }), :code => '12345', :curriculums => [Curriculum.first] }])

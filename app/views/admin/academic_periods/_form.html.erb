@@ -1,0 +1,31 @@
+<%= form_for([:admin, @academic_period]) do |f| %>
+  <% if @academic_period.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@academic_period.errors.count, "error") %> prohibited this academic_period from being saved:</h2>
+
+      <ul>
+      <% @academic_period.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :start, 'Aulas' %><br />
+    <%= f.date_select :start %> <%= t 'until' %> <%= f.date_select :end %>
+  </p>
+  <p>
+    <%= f.label :registration_start, 'Matrícula' %><br />
+    <%= f.date_select :registration_start, :include_blank => true %> <%= t 'until' %> 
+    <%= f.date_select :registration_end, :include_blank => true %><br/>
+    <small><%= t 'InformationOfAbsenceOfRegistrationPeriod' %></small>
+  </p>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

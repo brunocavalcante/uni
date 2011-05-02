@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Uni - Sistema de Gestão Universitária</title>
+    <title>Uni - <%= t 'UniversityManagementSystem' %></title>
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag :all %>
     <%= javascript_include_tag :defaults %>
@@ -12,25 +12,25 @@
     <header>
       <h1>
         <a href="/">Uni</a>
-        <span><%= t "SistemaDeGestaoUniversitaria" %></span>
+        <span><%= t 'UniversityManagementSystem' %></span>
       </h1>
       <section id="user">
         <% if session[:user] %>
-          <%= t "LogadoComo" %> <%= link_to session[:user].nome %> |
-          <%= t "Perfil" %>: <%= session[:profile].nome %> <%= link_to (t 'TrocarPerfil') %> |
-          <%= link_to (t 'Sair'), logout_path %>
+          <%= t "LoggedInAs" %> <%= link_to session[:user].name %> |
+          <%= t "Role" %>: <%= session[:role].name %> <%= link_to (t 'SwitchRole') %> |
+          <%= link_to (t 'Logout'), logout_path %>
         <% end %>
       </section>
     </header>
     <nav id="main-nav">
       <%= 
-      if !session[:user] or !session[:profile]
+      if !session[:user] or !session[:role]
         render :partial => 'layouts/menu-guest'
-      elsif session[:profile] and session[:profile].id == Perfil::ADMINISTRADOR
+      elsif session[:role] and session[:role].id == Role::ADMINISTRATOR
         render :partial => 'layouts/menu-admin'
-      elsif session[:profile] and session[:profile].id == Perfil::PROFESSOR
+      elsif session[:role] and session[:role].id == Role::PROFESSOR
         render :partial => 'layouts/menu-professor'
-      elsif session[:profile] and session[:profile].id == Perfil::ALUNO
+      elsif session[:role] and session[:role].id == Role::STUDENT
         render :partial => 'layouts/menu-aluno'
       end
       %>
@@ -44,11 +44,11 @@
       <%= yield %>
     </section>
     <footer>
-      <b>Uni</b> &mdash; <%= t "SistemaDeGestaoUniversitaria" %>
+      <b>Uni</b> &mdash; <%= t 'UniversityManagementSystem' %>
       <p id="license">
         <small>
           <%= link_to 'Aygean', 'http://www.aygean.com' %> © 2011 &middot; 
-          <%= t 'EsteTrabalhoEstaLicenciadoSobUmaLicenca' %> <%= link_to 'GNU General Public License 3', 'http://www.gnu.org/licenses/gpl-3.0.html' %>.
+          <%= t 'ThisWorkIsLicensedUnderALicense' %> <%= link_to 'GNU General Public License 3', 'http://www.gnu.org/licenses/gpl-3.0.html' %>.
           Powered by <%= link_to 'Ruby on Rails', 'http://www.rubyonrails.org' %>.
         </small>
       </p>

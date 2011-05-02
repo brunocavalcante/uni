@@ -10,96 +10,114 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110424010200) do
+ActiveRecord::Schema.define(:version => 20110501155200) do
 
-  create_table "aluno_cursos", :force => true do |t|
-    t.integer  "aluno_id"
-    t.integer  "curso_id"
+  create_table "academic_periods", :force => true do |t|
+    t.string   "name"
+    t.date     "start"
+    t.date     "end"
+    t.date     "registration_start"
+    t.date     "registration_end"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "alunos", :force => true do |t|
-    t.integer  "pessoa_id"
-    t.string   "matricula"
+  create_table "course_categories", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "categoria_cursos", :force => true do |t|
-    t.string   "nome"
+  create_table "courses", :force => true do |t|
+    t.string   "name"
+    t.integer  "course_category_id"
+    t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "curso_disciplinas", :force => true do |t|
-    t.integer  "curso_id"
-    t.integer  "disciplina_id"
+  create_table "curriculum_disciplines", :force => true do |t|
+    t.integer  "curriculum_id"
+    t.integer  "discipline_id"
+    t.string   "module"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "cursos", :force => true do |t|
-    t.string   "nome"
-    t.integer  "categoria_curso_id"
+  create_table "curriculum_students", :force => true do |t|
+    t.integer  "curriculum_id"
+    t.integer  "student_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "disciplinas", :force => true do |t|
-    t.string   "nome"
-    t.string   "codigo"
+  create_table "curriculums", :force => true do |t|
+    t.string   "name"
+    t.boolean  "active"
+    t.integer  "course_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "escolaridades", :force => true do |t|
-    t.string   "nome"
+  create_table "disciplines", :force => true do |t|
+    t.string   "code"
+    t.string   "name"
+    t.integer  "version"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "perfil_pessoas", :force => true do |t|
-    t.integer  "pessoa_id"
-    t.integer  "perfil_id"
+  create_table "parameters", :force => true do |t|
+    t.string   "name"
+    t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "perfis", :force => true do |t|
-    t.string   "nome"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "periodos", :force => true do |t|
-    t.string   "nome"
-    t.date     "inicio"
-    t.date     "fim"
-    t.date     "iniciomatricula"
-    t.date     "fimmatricula"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "pessoas", :force => true do |t|
-    t.string   "nome"
+  create_table "people", :force => true do |t|
+    t.string   "name"
     t.string   "email"
-    t.string   "senha"
+    t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "prerequisitos", :force => true do |t|
-    t.integer  "disciplina_id"
-    t.integer  "requisito_id"
+  create_table "person_roles", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "role_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "professores", :force => true do |t|
-    t.integer  "pessoa_id"
-    t.integer  "escolaridade_id"
+  create_table "prerequisites", :force => true do |t|
+    t.integer  "curriculum_discipline_id"
+    t.integer  "curriculum_discipline_prerequisite_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "professors", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "scholarity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "scholarities", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "students", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

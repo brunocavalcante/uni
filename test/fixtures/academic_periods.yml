@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  start: 2011-05-01
+  end: 2011-05-01
+  registration_start: 2011-05-01
+  registration_end: 2011-05-01
+
+two:
+  name: MyString
+  start: 2011-05-01
+  end: 2011-05-01
+  registration_start: 2011-05-01
+  registration_end: 2011-05-01
