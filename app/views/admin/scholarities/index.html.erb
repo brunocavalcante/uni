@@ -1,27 +1,27 @@
-<h1>Parâmetros</h1>
-<%= render :partial => 'admin/parametros/menu' %>
+<h1><%= t 'Parameters' %></h1>
+<%= render :partial => 'admin/parameters/menu' %>
 <article>
   <header>
-    <h2>Escolaridades</h2>
+    <h2><%= t ' Scholarities' %></h2>
     <ul id="toolbar">
-      <li><%= link_to 'Nova Escolaridade', new_admin_escolaridade_path, :class => 'new' %></li>
+      <li><%= link_to ((t 'New') + ' ' + (t 'Scholarity')), new_admin_scholarity_path, :class => 'new' %></li>
     </ul>
   </header>
 
   <table>
     <thead>
       <tr>
-        <th>Nome</th>
+        <th><%= t 'Name' %></th>
       </tr>
     </thead>
     <tbody>
-      <% @escolaridades.each do |escolaridade| %>
+      <% @scholarities.each do |scholarity| %>
       <tr>
-        <td><%= link_to escolaridade.nome, [:admin, escolaridade] %></td>
+        <td><%= link_to scholarity.name, [:admin, scholarity] %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
   
-  <%= will_paginate @escolaridades %>
+  <%= will_paginate @scholarities %>
 </article>

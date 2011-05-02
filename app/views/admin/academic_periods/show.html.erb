@@ -2,7 +2,7 @@
 <%= render :partial => 'menu', :locals => { :academic_period => @academic_period } %>
 <article>
   <header>
-    <h2>Início</h2>
+    <h2><%= t 'Home' %></h2>
     <ul id="toolbar">
       <li><%= link_to (t 'Voltar'), admin_academic_periods_path, :class => 'back' %></li>
       <li><%= link_to (t 'Editar'), edit_admin_academic_period_path(@academic_period), :class => 'edit' %></li>

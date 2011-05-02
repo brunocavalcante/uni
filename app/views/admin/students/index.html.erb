@@ -1,26 +1,26 @@
 <header>
-  <h1><%= t 'Alunos' %></h1>
+  <h1><%= t 'Students' %></h1>
   <ul id="toolbar">
-    <li><%= link_to 'Novo Aluno', new_admin_aluno_path, :class => 'new' %></li>
+    <li><%= link_to ((t 'New') + ' ' + (t 'Student')), new_admin_student_path, :class => 'new' %></li>
   </ul>
 </header>
 
 <table>
   <thead>
     <tr>
-      <th>Matrícula</th>
-      <th><%= t 'Nome' %></th>
+      <th><%= t 'Code' %></th>
+      <th><%= t 'Name' %></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @alunos.each do |aluno| %>
+    <% @students.each do |student| %>
     <tr>
-      <td><%= aluno.matricula %></td>
-      <td><%= link_to aluno.pessoa.nome, [:admin, aluno] %></td>
+      <td><%= student.code %></td>
+      <td><%= link_to student.name, [:admin, student] %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= will_paginate @alunos %>
+<%= will_paginate @students %>

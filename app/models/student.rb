@@ -9,7 +9,7 @@ class Student < ActiveRecord::Base
     code
   end
     
-  def nome
+  def name
     person.name
   end
 end

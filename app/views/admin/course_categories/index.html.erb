@@ -1,29 +1,29 @@
-<h1>Parâmetros</h1>
+<h1><%= t 'Parameters' %></h1>
   
-<%= render :partial => 'admin/parametros/menu' %>
+<%= render :partial => 'admin/parameters/menu' %>
 <article>
   <header>
-    <h2>Categorias de Cursos</h2>
+    <h2><%= t 'CourseCategories' %></h2>
     <ul id="toolbar">
-      <li><%= link_to 'Nova Categoria de Curso', {:action => 'new'}, :class => 'new' %></li>
+      <li><%= link_to ((t 'New') + ' ' + (t 'CourseCategory')), {:action => 'new'}, :class => 'new' %></li>
     </ul>
   </header>
 
   <table>
     <thead>
       <tr>
-        <th>Nome</th>
+        <th><%= t 'Name' %></th>
       </tr>
     </thead>
   
     <tbody>
-      <% @categoriacursos.each do |categoriacurso| %>
+      <% @course_categories.each do |course_category| %>
       <tr>
-        <td><%= link_to categoriacurso.nome, [:admin, categoriacurso] %></td>
+        <td><%= link_to course_category.name, [:admin, course_category] %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
   
-  <%= will_paginate @categoriacursos %>  
+  <%= will_paginate @course_categories %>  
 </article>

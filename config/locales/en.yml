@@ -13,6 +13,7 @@ en:
   Courses: "Courses"
   Professor: "Professor"
   Professors: "Professors"
+  Student: "Student"
   Students: "Students"
   AcademicPeriods: "Academic Periods"
   AcademicPeriod: "Academic Period"
@@ -49,3 +50,5 @@ en:
   End: "End"
   until: "until"
   InformationOfAbsenceOfRegistrationPeriod: "If the registration period is not informed, the registration will not be open for the students."
+  CourseCategory: "Course Category"
+  CourseCategories: "Course Categories"
