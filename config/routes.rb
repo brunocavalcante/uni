@@ -13,7 +13,7 @@ Uni::Application.routes.draw do
             get :search
           end
         end
-        resources :alunos_curso, :as => 'alunos', :only => [:index]
+        resources :course_students, :as => 'students', :only => [:index]
     end
     resources :professors
     resources :students

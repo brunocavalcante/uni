@@ -1,26 +1,29 @@
-<h1><%= @curso.nome %></h1>
-<%= render :partial => 'menu', :locals => { :curso => @curso } %>
+<h1><%= @course.name %></h1>
+<%= render :partial => 'menu', :locals => { :course => @course } %>
 <article>
-    <header>
-      <h2>Início</h2>
-      <ul id="toolbar">
-        <li><%= link_to (t 'Voltar'), admin_cursos_path, :class => 'back' %></li>
-        <li><%= link_to (t 'Editar'), edit_admin_curso_path(@curso), :class => 'edit' %></li>
-        <li><%= button_to (t 'Excluir'), [:admin, @curso], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li> 
-      </ul>
-    </header>
-    
-    <p id="notice"><%= notice %></p>
-    
-    <p>
-      <b>Nome:</b>
-      <%= @curso.nome %>
-    </p>
-    
-    <p>
-      <b>Categoria curso:</b>
-      <%= @curso.categoria_curso.nome %>
-    </p>
-    
-    
+  <header>
+    <h2><%= t 'Start' %></h2>
+    <ul id="toolbar">
+      <li><%= link_to (t 'Back'), admin_courses_path, :class => 'back' %></li>
+      <li><%= link_to (t 'Edit'), edit_admin_course_path(@course), :class => 'edit' %></li>
+      <li><%= button_to (t 'Delete'), [:admin, @course], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li> 
+    </ul>
+  </header>
+  
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+    <b>Code:</b>
+    <%= @course.code %>
+  </p>
+
+  <p>
+    <b>Name:</b>
+    <%= @course.name %>
+  </p>
+  
+  <p>
+    <b>Course Category:</b>
+    <%= @course.course_category.name %>
+  </p>
 </article>

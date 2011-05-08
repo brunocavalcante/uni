@@ -11,10 +11,10 @@
     </div>
   <% end %>
 
-  <%= f.fields_for :pessoa do |p| %>
+  <%= f.fields_for :person do |p| %>
   <p>
-    <%= p.label :nome %><br />
-    <%= p.text_field :nome %>
+    <%= p.label :name %><br />
+    <%= p.text_field :name %>
   </p>
   <p>
     <%= p.label :email %><br />
@@ -22,8 +22,8 @@
   </p>
   <% end %>
   <p>
-    <%= f.label :escolaridade_id %><br />
-    <%= f.select :escolaridade_id, Escolaridade.all.collect {|it| [it.nome, it.id]} %>
+    <%= f.label :scholarity_id %><br />
+    <%= f.select :scholarity_id, Scholarity.all.collect {|it| [it.name, it.id]} %>
   </p>
   <div class="actions">
     <%= f.submit %>

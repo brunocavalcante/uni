@@ -1,34 +1,23 @@
 <header>
-  <h1>Aluno</h1>
+  <h1><%= t 'Student' %></h1>
   <ul id="toolbar">
-    <li><%= link_to (t 'Editar'), edit_admin_aluno_path(@aluno), :class => 'edit' %></li> 
-    <li><%= button_to (t 'Excluir'), [:admin, @aluno], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li>
-    <li><%= link_to (t 'Voltar'), admin_alunos_path, :class => 'back' %></li>
+    <li><%= link_to (t 'Edit'), edit_admin_student_path(@student), :class => 'edit' %></li> 
+    <li><%= button_to (t 'Delete'), [:admin, @student], :confirm => ( t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
+    <li><%= link_to (t 'Back'), admin_students_path, :class => 'back' %></li>
   </ul>
 </header>
 
 <p>
-  <b>Matrícula:</b>
-  <%= @aluno.matricula %>
+  <b><%= t 'Code' %>:</b>
+  <%= @student.code %>
 </p>
 
 <p>
-  <b>Nome:</b>
-  <%= @aluno.pessoa.nome %>
+  <b><%= t 'Name' %>:</b>
+  <%= @student.person.name %>
 </p>
 
 <p>
-  <b>E-mail:</b>
-  <%= @aluno.pessoa.email %>
+  <b><%= t 'E-mail' %>:</b>
+  <%= @student.person.email %>
 </p>
-
-<% if @aluno.cursos && @aluno.cursos.length > 0 %>
-<h3>Cursos</h3>
-<ul>
-    <% for curso in @aluno.cursos %>
-    <li>
-        <%= link_to curso.nome, [:admin, curso] %>
-    </li>
-    <% end %>
-</ul>
-<% end %>

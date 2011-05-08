@@ -1,10 +1,10 @@
-<%= form_for([:admin, @curso]) do |f| %>
-  <% if @curso.errors.any? %>
+<%= form_for([:admin, @course]) do |f| %>
+  <% if @course.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@curso.errors.count, "error") %> prohibited this curso from being saved:</h2>
+      <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
 
       <ul>
-      <% @curso.errors.full_messages.each do |msg| %>
+      <% @course.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -12,12 +12,16 @@
   <% end %>
 
   <p>
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
   </p>
   <p>
-    <%= f.label :categoria_curso_id %><br />
-    <%= f.select :categoria_curso_id, CategoriaCurso.all.collect {|c| [ c.nome, c.id ] } %>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :course_category_id %><br />
+    <%= f.select :course_category_id, CourseCategory.all.collect {|c| [ c.name, c.id ] } %>
   </p>
   <div class="actions">
     <%= f.submit %>

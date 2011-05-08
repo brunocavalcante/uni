@@ -1,37 +1,30 @@
-<%= form_for([:admin, @aluno]) do |f| %>
-  <% if @aluno.errors.any? %>
+<%= form_for([:admin, @student]) do |f| %>
+  <% if @student.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@aluno.errors.count, "error") %> prohibited this aluno from being saved:</h2>
+      <h2><%= pluralize(@student.errors.count, "error") %> prohibited this student from being saved:</h2>
 
       <ul>
-      <% @aluno.errors.full_messages.each do |msg| %>
+      <% @student.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
 
-  <%= f.fields_for :pessoa do |p| %>
   <p>
-    <%= p.label :nome %><br />
-    <%= p.text_field :nome %>
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </p>
+  <%= f.fields_for :person do |p| %>
+  <p>
+    <%= p.label :name %><br />
+    <%= p.text_field :name %>
   </p>
   <p>
     <%= p.label :email %><br />
     <%= p.text_field :email %>
   </p>
   <% end %>
-  <p>
-    <%= f.label :matricula %><br />
-    <%= f.text_field :matricula %>
-  </p>
-  <p>
-      <%= f.label :cursos %><br />
-      <%= f.select :curso_ids, 
-                   Curso.all.collect {|c| [c.nome, c.id]}, 
-                   { :selected => @aluno.curso_ids }, 
-                   :multiple => true %>
-  </p>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,10 +1,10 @@
 <aside>
     <nav>
         <ul>
-            <li><%= link_to 'Página Inicial', admin_curso_path(curso) %></li>
-            <li><%= link_to 'Disciplinas', admin_curso_disciplinas_path(curso) %></li>
-            <li><%= link_to 'Alunos', admin_curso_alunos_path(curso) %></li>
-            <li><%= link_to 'Relatorios' %></li>
+            <li><%= link_to (t 'Home'), admin_course_path(course) %></li>
+            <li><%= link_to (t 'Curriculums') %></li>
+            <li><%= link_to (t 'Students'), admin_course_students_path(course) %></li>
+            <li><%= link_to (t 'Reports') %></li>
         </ul>
     </nav>
 </aside>

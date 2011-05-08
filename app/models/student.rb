@@ -8,7 +8,7 @@ class Student < ActiveRecord::Base
   def to_param
     code
   end
-    
+
   def name
     person.name
   end

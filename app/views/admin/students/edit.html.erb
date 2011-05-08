@@ -1,8 +1,8 @@
 <header>
-  <h1>Editar Aluno</h1>
+  <h1><%= t 'Edit' %> <%= t 'Student' %></h1>
   <ul id="toolbar">
-    <li><%= link_to 'Exibir', [:admin, @aluno], :class => 'show' %></li>
-    <li><%= link_to (t 'Voltar'), admin_alunos_path, :class => 'back' %></li>
+    <li><%= link_to 'Show', [:admin, @student], :class => 'show' %></li>
+    <li><%= link_to (t 'Back'), admin_students_path, :class => 'back' %></li>
   </ul>
 </header>
 

@@ -1,7 +1,7 @@
 class Admin::StudentsController < ApplicationController
   # GET /students
   def index
-    @students = Student.paginate :page => params[:page]
+    @students = Student.paginate :page => params[:page], :include => ['person'], :order => 'people.name'
     
     respond_to do |format|
       format.html # show.html.erb
@@ -12,7 +12,7 @@ class Admin::StudentsController < ApplicationController
 
   # GET /students/1
   def show
-    @student = Student.find_by_matricula(params[:id])
+    @student = Student.find_by_code(params[:id])
     
     respond_to do |format|
       format.html # show.html.erb
@@ -24,12 +24,12 @@ class Admin::StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
-    @student.pessoa = Pessoa.new
+    @student.person = Person.new
   end
 
   # GET /students/1/edit
   def edit
-    @student = Student.find_by_matricula(params[:id])
+    @student = Student.find_by_code(params[:id])
   end
 
   # POST /students
@@ -45,7 +45,7 @@ class Admin::StudentsController < ApplicationController
 
   # PUT /students/1
   def update
-    @student = Student.find_by_matricula(params[:id])
+    @student = Student.find_by_code(params[:id])
 
     if @student.update_attributes(params[:student])
       redirect_to([:admin, @student], :notice => 'Student was successfully updated.')

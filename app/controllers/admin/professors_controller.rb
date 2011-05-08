@@ -1,7 +1,7 @@
 class Admin::ProfessorsController < ApplicationController
   # GET /professors
   def index
-    @professors = Professor.paginate :page => params[:page]
+    @professors = Professor.paginate :page => params[:page], :include => ['person'], :order => 'people.name'
     
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +24,7 @@ class Admin::ProfessorsController < ApplicationController
   # GET /professors/new
   def new
     @professor = Professor.new
-    @professor.pessoa = Pessoa.new
+    @professor.person = Person.new
   end
 
   # GET /professors/1/edit
