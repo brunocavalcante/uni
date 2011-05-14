@@ -34,6 +34,9 @@ Uni::Application.routes.draw do
     resources :reports
   end
   
+  resources :password_recovery
+  resources :about
+  
   match 'login', :to => 'auth#login', :as => "login"
   match 'login/auth', :to => 'auth#authenticate', :as => "authenticate"
   match 'profile', :to => 'auth#profile', :as => "profile"

@@ -1,0 +1,12 @@
+<h1><%= t 'PasswordRecovery' %></h1>
+<p id="notice"><%= notice %></p>
+<p id="alert"><%= alert %></p>
+<%= form_tag(authenticate_url) do %>
+<p>
+  <%= label_tag 'usuario', (t 'EmailOrStudentId') %><br/>
+  <%= text_field_tag 'username', nil, :autocomplete => 'off' %>
+</p>
+<div class="actions">
+  <%= submit_tag (t 'SendMeMyPassword') %>
+</p>
+<% end %>
