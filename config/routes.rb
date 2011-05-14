@@ -31,11 +31,12 @@ Uni::Application.routes.draw do
   
   namespace :student do
     root :to => 'home#index'
+    resources :reports
   end
   
   match 'login', :to => 'auth#login', :as => "login"
   match 'login/auth', :to => 'auth#authenticate', :as => "authenticate"
-  match 'perfil', :to => 'auth#profile', :as => "profile"
+  match 'profile', :to => 'auth#profile', :as => "profile"
   match 'logout', :to => 'auth#logout', :as => "logout"
   match 'admin/courses/:course_id/disciplinas/new/search/:id', :to => 'admin/disciplinas#add'
   

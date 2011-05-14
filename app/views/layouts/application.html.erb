@@ -31,7 +31,7 @@
       elsif session[:role] and session[:role].id == Role::PROFESSOR
         render :partial => 'layouts/menu-professor'
       elsif session[:role] and session[:role].id == Role::STUDENT
-        render :partial => 'layouts/menu-aluno'
+        render :partial => 'layouts/menu-student'
       end
       %>
     </nav>
