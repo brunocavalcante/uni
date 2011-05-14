@@ -1,0 +1,14 @@
+<header>
+  <h1><%= @user.name %></h1>
+  <ul id="toolbar">
+    <li><%= link_to (t 'Edit'), nil, :class => 'edit'  %></li>
+  </ul>
+</header>
+
+<aside id="user">
+  <%= image_tag 'tmp/student-profile.jpg' %>
+</aside>
+
+<article>
+  <%= render :partial => 'data', :locals => { :user => @user } %>
+</article>

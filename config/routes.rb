@@ -1,7 +1,5 @@
 Uni::Application.routes.draw do
-  resources :professores
-
-  root :to => 'admin/home#index'
+  root :to => 'home#index'
   namespace :admin do
     root :to => 'home#index'
     resources :home
@@ -23,6 +21,16 @@ Uni::Application.routes.draw do
         post :update, :as => :update
       end  
     end
+  end
+  
+  resources :user
+  
+  namespace :professor do
+    root :to => 'home#index'
+  end
+  
+  namespace :student do
+    root :to => 'home#index'
   end
   
   match 'login', :to => 'auth#login', :as => "login"

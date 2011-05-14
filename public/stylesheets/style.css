@@ -245,3 +245,9 @@ aside#login-splash {
 
 #login #username {background-image: url('../images/icons/user.png')}
 #login #password {background-image: url('../images/icons/lock.png')}
+
+/* Page-specific */
+aside#user {
+  width: 180px; 
+  padding: 5px;
+}

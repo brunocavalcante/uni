@@ -1,0 +1,2 @@
+module Aluno::HomeHelper
+end
