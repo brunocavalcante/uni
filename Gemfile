@@ -1,11 +1,18 @@
 source 'http://rubygems.org'
 
 gem 'rails', '~> 3.0.7'
+gem 'rake', '0.8.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
+if RUBY_PLATFORM =~ /java/
+    gem 'activerecord-jdbc-adapter'
+    gem 'activerecord-jdbcpostgresql-adapter'
+    gem 'jdbc-postgres'
+else
+    gem 'pg'
+end
 
 gem 'i18n'
 
