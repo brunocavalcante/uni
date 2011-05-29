@@ -1,10 +1,10 @@
-<%= form_for([:admin, @curso, @disciplina]) do |f| %>
-  <% if @disciplina.errors.any? %>
+<%= form_for([:admin, @course, @discipline]) do |f| %>
+  <% if @discipline.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@disciplina.errors.count, "error") %> prohibited this disciplina from being saved:</h2>
+      <h2><%= pluralize(@discipline.errors.count, "error") %> prohibited this discipline from being saved:</h2>
 
       <ul>
-      <% @disciplina.errors.full_messages.each do |msg| %>
+      <% @discipline.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -12,19 +12,12 @@
   <% end %>
 
   <p>
-    <%= f.label :codigo %><br />
-    <%= f.text_field :codigo %>
+    <%= f.label :code, (t 'Code') %><br />
+    <%= f.text_field :code %>
   </p>
   <p>
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
-  </p>
-  <p>
-      <%= f.label :prerequisitos %><br />
-      <%= f.select :prerequisito_ids, 
-                   Disciplina.all.collect {|c| [c.nome, c.id]}.delete_if {|i| i[1] == @disciplina.id}, 
-                   { :selected => @disciplina.prerequisito_ids }, 
-                   :multiple => true %>
+    <%= f.label :name, (t 'Name') %><br />
+    <%= f.text_field :name %>
   </p>
   
   <div class="actions">

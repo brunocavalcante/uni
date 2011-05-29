@@ -1,10 +1,10 @@
-<h1><%= @curso.nome %></h1>
-<%= render :partial => 'admin/cursos/menu', :locals => { :curso => @curso } %>
+<h1><%= @course.name %></h1>
+<%= render :partial => 'admin/courses/menu', :locals => { :course => @course } %>
 <article>
   <header>
-    <h2>Nova Disciplina</h2>
+    <h2><%= 'New' %> <%= t 'Discipline' %></h2>
     <ul id="toolbar">
-      <li><%= link_to 'Back', admin_curso_disciplinas_path(@curso), :class => 'back' %></li>
+      <li><%= link_to 'Back', admin_course_disciplines_path(@course), :class => 'back' %></li>
     </ul>
   </header>
 

@@ -1,10 +1,10 @@
-<%= form_for([:admin, @escolaridade]) do |f| %>
-  <% if @escolaridade.errors.any? %>
+<%= form_for([:admin, @scholarity]) do |f| %>
+  <% if @scholarity.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@escolaridade.errors.count, "error") %> prohibited this escolaridade from being saved:</h2>
+      <h2><%= pluralize(@scholarity.errors.count, "error") %> prohibited this scholarity from being saved:</h2>
 
       <ul>
-      <% @escolaridade.errors.full_messages.each do |msg| %>
+      <% @scholarity.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -12,8 +12,8 @@
   <% end %>
 
   <p>
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
+    <%= f.label :name, (t 'Name') %><br />
+    <%= f.text_field :name %>
   </p>
   <div class="actions">
     <%= f.submit %>
