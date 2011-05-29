@@ -23,7 +23,12 @@ Uni::Application.routes.draw do
     end
   end
   
-  resources :user
+  resources :user do 
+    collection do
+      get :edit
+      post :update
+    end
+  end
   
   namespace :professor do
     root :to => 'home#index'

@@ -27,7 +27,7 @@ class AuthController < ApplicationController
       if @person.roles.length == 1
         session[:role] = @person.roles[0]
       end
-      session[:user] = @person
+      session[:user] = @person.id
       redirect_to(root_url)
     rescue
       redirect_to(login_url, :alert => 'Usuário/senha não encontrados')

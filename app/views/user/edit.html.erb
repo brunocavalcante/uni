@@ -1,0 +1,44 @@
+<header>
+  <h1><%= 'Editing' %> <%= @user.name %></h1>
+  <ul id="toolbar">
+    <li><%= link_to (t 'Back'), {:action => 'index'}, :class => 'back'  %></li>
+  </ul>
+</header>
+<p id="notice"><%= notice %></p>
+<%= form_tag({:action => 'update'}, :multipart => true) do %>
+  <p>
+    <%= label_tag (t 'Name') %><br />
+    <%= text_field(:user, :name) %>
+  </p>
+  <p>
+    <%= label_tag (t 'Email') %><br />
+    <%= text_field(:user, :email) %>
+  </p>
+  <p>
+    <%= label_tag (t 'Photo') %><br />
+    <%= file_field(:user, :photo) %><br />
+    <small><%= t 'PhotoWillBeResizedTo180x240Px' %></small>
+  </p>
+  <h3>Sites</h3>
+  <p>
+    <%= label_tag (t 'Name') %>, <%= label_tag (t 'Url') %> <br />
+    <%= text_field_tag :site01name, 'My Blog' %> 
+    <%= text_field_tag :site01url, 'http://teste.wordpress.com', :size => '60' %> 
+    <%= submit_tag (t 'Remove'), {:type => 'button'} %>
+  </p>
+  <p>
+    <%= label_tag (t 'Name') %>, <%= label_tag (t 'Url') %> <br />
+    <%= text_field_tag :site02name, 'Linkedin' %> 
+    <%= text_field_tag :site02url, 'http://www.linkedin.com/user/teste', :size => '60' %> 
+    <%= submit_tag (t 'Remove'), {:type => 'button'} %>        
+  </p>
+  <p>
+    <%= label_tag (t 'Name') %>, <%= label_tag (t 'Url') %> <br />
+    <%= text_field_tag :site03name, 'Lattes' %> 
+    <%= text_field_tag :site03url, 'http://www.lattes.com.br/curriculum/teste', :size => '60' %> 
+    <%= submit_tag (t 'AddAnother'), {:type => 'button'} %>
+  </p>
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>

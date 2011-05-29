@@ -8,11 +8,12 @@ Uni é uma Plataforma Livre para Sistemas de Gestão Universitária, com os segu
 * Aluno: Acesso à suas turmas (avaliações, notas, arquivos e e-mail para os alunos e o professor)
 * Relatórios: Relatórios estatísticos por curso, aluno, professor e disciplina
 * Social: perfil do aluno/professor com links, turmas atuais e contato
+* Biblioteca: Controle do catálogo de livros/vídeos/revistas e suas locações.
 
 == Instalação
   bundle install
-  rake db:create
-  rake db:migrate
+  rake db:migrate:reset
+  rake db:seed
 
 == Usuários Iniciais
 

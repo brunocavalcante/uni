@@ -1,12 +1,16 @@
 <header>
   <h1><%= @user.name %></h1>
   <ul id="toolbar">
-    <li><%= link_to (t 'Edit'), nil, :class => 'edit'  %></li>
+    <li><%= link_to (t 'Edit'), {:action => 'edit'}, :class => 'edit'  %></li>
   </ul>
 </header>
 
 <aside id="user">
-  <%= image_tag 'no-picture-normal.png' %>
+  <% if @user.photo.exists? %>
+    <%= image_tag @user.photo.url() %>
+  <% else %>
+    <%= image_tag 'no-picture-normal.png' %>
+  <% end %>
 </aside>
 
 <article>

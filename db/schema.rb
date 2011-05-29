@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110501155200) do
+ActiveRecord::Schema.define(:version => 20110529033521) do
 
   create_table "academic_periods", :force => true do |t|
     t.string   "name"
@@ -70,37 +70,6 @@ ActiveRecord::Schema.define(:version => 20110501155200) do
   create_table "parameters", :force => true do |t|
     t.string   "name"
     t.string   "value"
-    t.string   "specific_catalog"
-    t.string   "specific_schema" 
-    t.string   "specific_name"
-    t.string   "ordinal_position"
-    t.string   "parameter_mode"
-    t.string   "is_result"
-    t.string   "as_locator"
-    t.string   "parameter_name"
-    t.string   "data_type"
-    t.integer  "character_maximum_length"
-    t.integer  "character_octet_length"
-    t.string   "character_set_catalog"
-    t.string   "character_set_schema"
-    t.string   "character_set_name"
-    t.string   "collation_catalog"
-    t.string   "collation_schema"
-    t.string   "collation_name"
-    t.string   "numeric_precision"
-    t.string   "numeric_precision_radix" 
-    t.string   "numeric_scale"
-    t.string   "datetime_precision"
-    t.string   "interval_type"
-    t.string   "interval_precision"
-    t.string   "udt_catalog"
-    t.string   "udt_schema"
-    t.string   "udt_name"
-    t.string   "scope_catalog"
-    t.string   "scope_schema"
-    t.string   "scope_name"
-    t.integer  "maximum_cardinality"
-    t.string   "dtd_identifier"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -111,6 +80,10 @@ ActiveRecord::Schema.define(:version => 20110501155200) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   create_table "person_roles", :force => true do |t|
