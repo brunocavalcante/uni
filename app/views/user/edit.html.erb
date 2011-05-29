@@ -29,22 +29,19 @@
   <% end %>
 
   <h3>Sites</h3>
+  <% for site in @user.sites %>
+    <p>
+      <%= label_tag (t 'Name') %>, <%= label_tag (t 'Url') %> <br />
+      <%= text_field_tag 'sites[][name]', site.name %> 
+      <%= text_field_tag 'sites[][url]', site.url, :size => '60' %> 
+      <%= submit_tag (t 'Remove'), {:type => 'button'} %>
+    </p>
+  <% end %>
+  
   <p>
     <%= label_tag (t 'Name') %>, <%= label_tag (t 'Url') %> <br />
-    <%= text_field_tag :site01name, 'My Blog' %> 
-    <%= text_field_tag :site01url, 'http://teste.wordpress.com', :size => '60' %> 
-    <%= submit_tag (t 'Remove'), {:type => 'button'} %>
-  </p>
-  <p>
-    <%= label_tag (t 'Name') %>, <%= label_tag (t 'Url') %> <br />
-    <%= text_field_tag :site02name, 'Linkedin' %> 
-    <%= text_field_tag :site02url, 'http://www.linkedin.com/user/teste', :size => '60' %> 
-    <%= submit_tag (t 'Remove'), {:type => 'button'} %>        
-  </p>
-  <p>
-    <%= label_tag (t 'Name') %>, <%= label_tag (t 'Url') %> <br />
-    <%= text_field_tag :site03name, 'Lattes' %> 
-    <%= text_field_tag :site03url, 'http://www.lattes.com.br/curriculum/teste', :size => '60' %> 
+    <%= text_field_tag 'sites[][name]' %> 
+    <%= text_field_tag 'sites[][url]', nil, :size => '60' %> 
     <%= submit_tag (t 'AddAnother'), {:type => 'button'} %>
   </p>
   <div class="actions">

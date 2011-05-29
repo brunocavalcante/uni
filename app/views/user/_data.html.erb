@@ -8,20 +8,15 @@
   <%= user.email %>
 </p>
 
-<p>
-  <b>My Blog:</b>
-  <%= link_to 'http://teste.wordpress.com' %>
-</p>
-
-<p>
-  <b>Linkedin:</b>
-  <%= link_to 'http://www.linkedin.com/user/teste' %>
-</p>
-
-<p>
-  <b>Lattes:</b>
-  <%= link_to 'http://www.lattes.com.br/curriculum/teste' %>
-</p>
+<% if @user.sites.exists? %>
+  <h3>Sites</h3>
+  <% for site in @user.sites %>
+  <p>
+    <b><%= site.name %>:</b>
+    <%= link_to site.url %>
+  </p>
+  <% end %>
+<% end%>
 
 <h3><%= t 'CurrentCourses' %></h3>
 <ul>

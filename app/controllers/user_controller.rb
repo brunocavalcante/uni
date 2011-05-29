@@ -9,6 +9,14 @@ class UserController < ApplicationController
   
   def update
     respond_to do |format|
+      sites = Array.new
+      for site in params[:sites]
+        if (site[:name] != '' && site[:url] != '')
+          sites.push Site.new(:name => site[:name], :url => site[:url])
+        end
+      end
+      @user.sites = sites
+      
       if params[:delete_photo]
         params[:photo] = nil
         @user.photo = nil
