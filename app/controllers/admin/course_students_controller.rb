@@ -1,15 +1,6 @@
-class Admin::AlunosCursoController < ApplicationController
+class Admin::CourseStudentsController < ApplicationController
   def index
-    @alunos = Aluno.paginate :page => params[:page], 
-                             :include => ['cursos'], 
-                             :conditions => ['aluno_cursos.curso_id = ?', params[:curso_id]]
-    @curso = Curso.find(params[:curso_id])
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @alunos }
-      format.json { render :json => @alunos }
-    end
+    @course = Course.find(params[:course_id])
   end
   
   def show

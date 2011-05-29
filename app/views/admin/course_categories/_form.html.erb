@@ -1,10 +1,10 @@
-<%= form_for([:admin, @categoriacurso]) do |f| %>
-  <% if @categoriacurso.errors.any? %>
+<%= form_for([:admin, @course_category]) do |f| %>
+  <% if @course_category.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@categoriacurso.errors.count, "error") %> prohibited this categoria de curso from being saved:</h2>
+      <h2><%= pluralize(@course_category.errors.count, "error") %> prohibited this categoria de curso from being saved:</h2>
 
       <ul>
-      <% @categoriacurso.errors.full_messages.each do |msg| %>
+      <% @course_category.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -12,8 +12,8 @@
   <% end %>
 
   <p>
-    <%= f.label :nome %><br />
-    <%= f.text_field :nome %>
+    <%= f.label :name, (t 'Name') %><br />
+    <%= f.text_field :name %>
   </p>
   <div class="actions">
     <%= f.submit %>

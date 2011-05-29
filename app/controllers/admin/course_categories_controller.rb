@@ -28,7 +28,7 @@ class Admin::CourseCategoriesController < ApplicationController
   end
 
   def create
-    @course_category = CourseCategory.new(params[:categoria_curso])
+    @course_category = CourseCategory.new(params[:course_category])
 
     if @course_category.save
         redirect_to([:admin, @course_category], :notice => 'Course Category was successfully created.')

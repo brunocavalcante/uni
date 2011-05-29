@@ -1,8 +1,15 @@
-<h1><%= @curso.nome %></h1>
-<%= render :partial => 'admin/cursos/menu', :locals => { :curso => @curso } %>
+<h1><%= @course.name %></h1>
+<%= render :partial => 'admin/courses/menu', :locals => { :course => @course } %>
 <article>
   <h2>Alunos</h2>
   
+  <form>
+    <p>
+      <%= text_field_tag :search %> 
+      <%= submit_tag (t 'Search')%>
+    </p>
+  </form>
+
   <table>
     <thead>
       <tr>
@@ -12,14 +19,18 @@
     </thead>
   
     <tbody>
-      <% @alunos.each do |aluno| %>
       <tr>
-        <td><%= aluno.matricula %></td>
-        <td><%= link_to aluno.nome, [:admin, aluno] %></td>
+        <td>029298101</td>
+        <td>Nome do aluno A</td>
       </tr>
-      <% end %>
+      <tr>
+        <td>029218101</td>
+        <td>Nome do aluno B</td>
+      </tr>
+      <tr>
+        <td>029238101</td>
+        <td>Nome do aluno c</td>
+      </tr>
     </tbody>
   </table>
-  
-  <%= will_paginate @alunos %>
 </article>

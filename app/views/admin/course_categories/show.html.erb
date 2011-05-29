@@ -1,19 +1,19 @@
-<h1>Parâmetros</h1>
-<%= render :partial => 'admin/parametros/menu' %>
+<h1><%= t 'Parameters' %></h1>
+<%= render :partial => 'admin/parameters/menu' %>
 <article>
   <header>
-    <h2>Categoria de Curso</h2>
+    <h2><%= t 'CourseCategory' %></h2>
     <ul id="toolbar">
-      <li><%= link_to (t 'Editar'), {:action => 'edit', :id => @categoriacurso.id}, :class => 'edit' %></li>
-      <li><%= button_to (t 'Excluir'), [:admin, @categoriacurso], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li> 
-      <li><%= link_to (t 'Voltar'), {:action => 'index'}, :class => 'back' %></li>
+      <li><%= link_to (t 'Edit'), {:action => 'edit', :id => @course_category.id}, :class => 'edit' %></li>
+      <li><%= button_to (t 'Delete'), [:admin, @course_category], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li> 
+      <li><%= link_to (t 'Back'), {:action => 'index'}, :class => 'back' %></li>
     </ul>
   </header>
 
   <p id="notice"><%= notice %></p>
   
   <p>
-    <b>Nome:</b>
-    <%= @categoriacurso.nome %>
+    <b><%= t 'Name' %>:</b>
+    <%= @course_category.name %>
   </p>
 </article>
