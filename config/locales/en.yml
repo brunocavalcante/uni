@@ -64,5 +64,7 @@ en:
   Email: "E-mail"
   Photo: "Photo"
   PhotoWillBeResizedTo180x240Px: "Photo will be resized to 180x240px."
+  Upload: "Upload"
+  DeleteCurrentPhoto: "Delete current photo?"
   Remove: "Remove"
   AddAnother: "Add another"

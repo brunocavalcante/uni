@@ -262,5 +262,7 @@ pt:
   Email: "E-mail"
   Photo: "Foto"
   PhotoWillBeResizedTo180x240Px: "A foto será redimensionada para 180x240px."
+  Upload: "Enviar"
+  DeleteCurrentPhoto: "Excluir foto atual?"
   Remove: "Remover"
   AddAnother: "Adicionar outro"

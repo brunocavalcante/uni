@@ -14,11 +14,20 @@
     <%= label_tag (t 'Email') %><br />
     <%= text_field(:user, :email) %>
   </p>
+  <h3><%= t 'Photo' %></h3>
   <p>
-    <%= label_tag (t 'Photo') %><br />
+    <%= label_tag (t 'Upload') %><br />
     <%= file_field(:user, :photo) %><br />
     <small><%= t 'PhotoWillBeResizedTo180x240Px' %></small>
   </p>
+  
+  <% if @user.photo.exists? %>
+  <p>
+    <%= label_tag (t 'DeleteCurrentPhoto')%>  
+    <%= check_box_tag :delete_photo %>
+  </p>
+  <% end %>
+
   <h3>Sites</h3>
   <p>
     <%= label_tag (t 'Name') %>, <%= label_tag (t 'Url') %> <br />
