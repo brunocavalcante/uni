@@ -2,6 +2,7 @@
     <nav>
         <ul>
             <li><%= link_to (t 'Home'), admin_course_path(course) %></li>
+            <li><%= link_to (t 'Disciplines'), admin_course_disciplines_path(course) %></li>
             <li><%= link_to (t 'Curriculums') %></li>
             <li><%= link_to (t 'Students'), admin_course_students_path(course) %></li>
             <li><%= link_to (t 'Reports') %></li>

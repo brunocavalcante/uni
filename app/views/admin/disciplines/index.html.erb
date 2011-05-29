@@ -1,30 +1,29 @@
-<h1><%= @curso.nome %></h1>
-<%= render :partial => 'admin/cursos/menu', :locals => { :curso => @curso } %>
+<h1><%= @course.name %></h1>
+<%= render :partial => 'admin/courses/menu', :locals => { :course => @course } %>
 <article>
   <header>
-    <h2><%= t 'Disciplinas' %></h2>
+    <h2><%= t 'Disciplines' %></h2>
     <ul id="toolbar">
-      <li><%= link_to 'Criar Disciplina', new_admin_curso_disciplina_path(@curso), :class => 'new' %></li>
-      <li><%= link_to 'Adicionar Disciplina de outro Curso', {:action => 'search'}, :class => 'new' %></li>
+      <li><%= link_to ((t 'New') + ' ' + (t 'Discipline')), new_admin_course_discipline_path(@course), :class => 'new' %></li>
     </ul>
   </header>
 
   <table>
     <thead>
       <tr>
-        <th>Código</th>
-        <th>Nome</th>
+        <th><%= t 'Code' %></th>
+        <th><%= t 'Name' %></th>
       </tr>
     </thead>
     <tbody>
-      <% @disciplinas.each do |disciplina| %>
+      <% @disciplines.each do |discipline| %>
       <tr>
-        <td><%= disciplina.codigo %></td>
-        <td><%= link_to disciplina.nome, [:admin, @curso, disciplina] %></td>
+        <td><%= discipline.code %></td>
+        <td><%= link_to discipline.name, [:admin, @course, discipline] %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
   
-  <%= will_paginate @disciplinas %>
+  <%= will_paginate @disciplines %>
 </article>

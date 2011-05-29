@@ -1,12 +1,12 @@
-<h1><%= @curso.nome %></h1>
+<h1><%= @course.name %></h1>
 
-<%= render :partial => 'menu', :locals => { :curso => @curso } %>
+<%= render :partial => 'menu', :locals => { :course => @course } %>
 <article>
   <header>
-    <h2>Editando Curso</h2>
+    <h2><%= t 'Editing' %> <%= t 'Course' %></h2>
     <ul id="toolbar">
-      <li><%= link_to 'Exibir', [:admin, @curso], :class => 'show' %></li>
-      <li><%= link_to (t 'Voltar'), admin_cursos_path, :class => 'back' %></li>
+      <li><%= link_to (t 'Show'), [:admin, @course], :class => 'show' %></li>
+      <li><%= link_to (t 'Back'), admin_courses_path, :class => 'back' %></li>
     </ul>
   </header>
 

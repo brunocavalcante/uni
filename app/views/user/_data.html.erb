@@ -18,12 +18,22 @@
   <% end %>
 <% end%>
 
-<h3><%= t 'CurrentCourses' %></h3>
-<ul>
-  <li><%= link_to 'Sistemas de Informação' %></li>
-</ul>
+<% if @student %>
+  <h3><%= t 'CurrentCourses' %></h3>
+  <% if @student.curriculums.exists?%>
+    <ul>
+      <% for curriculum in @student.curriculums %>
+      <li><%= curriculum.course.name %></li>
+      <% end %>
+    </ul>
+  <% else %>
+  <p><%= t 'ThisStudentIsNotRegisteredInAnyCourse' %></p>
+  <% end %>
+<% end %>
 
+<% if @student %>
 <h3><%= t 'CurrentClasses' %></h3>
 <ul>
   <li><%= link_to 'Lógica' %></li>
 </ul>
+<% end %>

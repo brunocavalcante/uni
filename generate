@@ -1,0 +1,378 @@
+Script started on Sun 29 May 2011 09:01:27 AM BRT
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ sudo su postgrescreatedb -U postgres sagu -E LATIN1 template0 -W[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[32Psudo su postgres[Kscript/rails generate model Disci[Kipline code:integer name:string  version:integer credits:integer
+[1m[37m      invoke[0m  active_record
+Another migration is already named create_disciplines: /home/bruno/Workspace/Rails/uni/db/migrate/20110501145838_create_disciplines.rb
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ script/rails generate model Discipline code:integer name:string  version:integer credits:integer[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmodel Discipline code:integer name:string v[1P[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmodel Discipline code:integer name:string ve[1P[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmodel Discipline code:integer name:string ver[1P[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmodel Discipline code:integer name:string vers[1P[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmodel Discipline code:integer name:string versi[1P[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmodel Discipline code:integer name:string versio[1P[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmodel Discipline code:integer name:string version[1P[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmodel Discipline code:integer name:string version:[1P[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[Cmodel Discipline code:integer name:string version:i[1P[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[Cumodel Discipline code:integer name:string version:[4hi[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[Cpmodel Discipline code:integer name:string version[4h:[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdmodel Discipline code:integer name:string versio[4hn[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Camodel Discipline code:integer name:string versi[4ho[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ctmodel Discipline code:integer name:string vers[4hi[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cemodel Discipline code:integer name:string ver[4hs[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C model Discipline code:integer name:string ve[4hr[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+Error: Command not recognized
+Usage: rails COMMAND [ARGS]
+
+The most common rails commands are:
+ generate    Generate new code (short-cut alias: "g")
+ console     Start the Rails console (short-cut alias: "c")
+ server      Start the Rails server (short-cut alias: "s")
+ dbconsole   Start a console for the database specified in config/database.yml
+             (short-cut alias: "db")
+ new         Create a new Rails application. "rails new my_app" creates a
+             new application called MyApp in "./my_app"
+
+In addition to those, there are:
+ application  Generate the Rails application code
+ destroy      Undo code generated with "generate"
+ benchmarker  See how fast a piece of code runs
+ profiler     Get profile information from a piece of code
+ plugin       Install a plugin
+ runner       Run a piece of code in the application environment
+
+All commands can be run with -h for more information.
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ script/rails update model Discipline code:integer name:string veersion:integer credits:integer[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[Cgenerate model Discipline code:integer name:string [4hve[4l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[Cupdate model Discipline code:integer name:string ve[2P[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[Cgenerate model Discipline code:integer name:string [4hve[4l[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[1m[37m      invoke[0m  active_record
+Another migration is already named create_disciplines: /home/bruno/Workspace/Rails/uni/db/migrate/20110501145838_create_disciplines.rb
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rae[Kke db:migrate
+(in /home/bruno/Workspace/Rails/uni)
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ script/rails destroy model DIsci[K[K[K[Ks[Kiscipline
+[1m[37m      invoke[0m  active_record
+[1m[31m      remove[0m    db/migrate/20110501145838_create_disciplines.rb
+[1m[31m      remove[0m    app/models/discipline.rb
+[1m[37m      invoke[0m    test_unit
+[1m[31m      remove[0m      test/unit/discipline_test.rb
+[1m[31m      remove[0m      test/fixtures/disciplines.yml
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ script/rails destroy model Discipline[22Prake db:migratescript/rails generate model Discipline code:integer name:string  version:integer credits:integer course_id:[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccode:integer name:string[4h [4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cocode:integer name:strin[4hg[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cucode:integer name:stri[4hn[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crcode:integer name:str[4hi[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscode:integer name:st[4hr[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cecode:integer name:s[4ht[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C_code:integer name:[4hs[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cicode:integer name[4h:[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cdcode:integer nam[4he[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C:code:integer na[4hm[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cicode:integer n[4ha[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cncode:integer [4hn[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ctcode:integer[4h [4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cecode:intege[4hr[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcode:integ[4he[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cecode:inte[4hg[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Crcode:int[4he[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C code:in[4ht[4l[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+[1m[37m      invoke[0m  active_record
+[1m[32m      create[0m    db/migrate/20110529120545_create_disciplines.rb
+[1m[32m      create[0m    app/models/discipline.rb
+[1m[37m      invoke[0m    test_unit
+[1m[32m      create[0m      test/unit/discipline_test.rb
+[1m[32m      create[0m      test/fixtures/disciplines.yml
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db>[K:migrate
+(in /home/bruno/Workspace/Rails/uni)
+==  CreateDisciplines: migrating ==============================================
+-- create_table(:disciplines)
+NOTICE:  CREATE TABLE will create implicit sequence "disciplines_id_seq1" for serial column "disciplines.id"
+rake aborted!
+An error has occurred, this and all later migrations canceled:
+
+PGError: ERROR:  relation "disciplines" already exists
+: CREATE TABLE "disciplines" ("id" serial primary key, "course_id" integer, "code" integer, "name" character varying(255), "version" integer, "credits" integer, "created_at" timestamp, "updated_at" timestamp) 
+
+(See full trace by running task with --trace)
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db:migrate:reset
+(in /home/bruno/Workspace/Rails/uni)
+Couldn't drop uni_development : #<ActiveRecord::StatementInvalid: PGError: ERROR:  database "uni_development" is being accessed by other users
+DETAIL:  There are 2 other session(s) using the database.
+: DROP DATABASE IF EXISTS "uni_development">
+uni_test already exists
+uni_development already exists
+==  CreateDisciplines: migrating ==============================================
+-- create_table(:disciplines)
+NOTICE:  CREATE TABLE will create implicit sequence "disciplines_id_seq1" for serial column "disciplines.id"
+rake aborted!
+An error has occurred, this and all later migrations canceled:
+
+PGError: ERROR:  relation "disciplines" already exists
+: CREATE TABLE "disciplines" ("id" serial primary key, "course_id" integer, "code" integer, "name" character varying(255), "version" integer, "credits" integer, "created_at" timestamp, "updated_at" timestamp) 
+
+(See full trace by running task with --trace)
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db:rop[K[K[Kdrop:all
+(in /home/bruno/Workspace/Rails/uni)
+NOTICE:  database "uni" does not exist, skipping
+Couldn't drop uni_development : #<ActiveRecord::StatementInvalid: PGError: ERROR:  database "uni_development" is being accessed by other users
+DETAIL:  There are 2 other session(s) using the database.
+: DROP DATABASE IF EXISTS "uni_development">
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db:drop:all
+(in /home/bruno/Workspace/Rails/uni)
+NOTICE:  database "uni" does not exist, skipping
+NOTICE:  database "uni_test" does not exist, skipping
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db:migrate:reset
+(in /home/bruno/Workspace/Rails/uni)
+NOTICE:  database "uni_development" does not exist, skipping
+==  CreatePeople: migrating ===================================================
+-- create_table(:people)
+NOTICE:  CREATE TABLE will create implicit sequence "people_id_seq" for serial column "people.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "people_pkey" for table "people"
+   -> 0.1115s
+==  CreatePeople: migrated (0.1117s) ==========================================
+
+==  CreateStudents: migrating =================================================
+-- create_table(:students)
+NOTICE:  CREATE TABLE will create implicit sequence "students_id_seq" for serial column "students.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "students_pkey" for table "students"
+   -> 0.0612s
+==  CreateStudents: migrated (0.0615s) ========================================
+
+==  CreateProfessors: migrating ===============================================
+-- create_table(:professors)
+NOTICE:  CREATE TABLE will create implicit sequence "professors_id_seq" for serial column "professors.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "professors_pkey" for table "professors"
+   -> 0.0743s
+==  CreateProfessors: migrated (0.0744s) ======================================
+
+==  CreateScholarities: migrating =============================================
+-- create_table(:scholarities)
+NOTICE:  CREATE TABLE will create implicit sequence "scholarities_id_seq" for serial column "scholarities.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "scholarities_pkey" for table "scholarities"
+   -> 0.0721s
+==  CreateScholarities: migrated (0.0723s) ====================================
+
+==  CreateCourseCategories: migrating =========================================
+-- create_table(:course_categories)
+NOTICE:  CREATE TABLE will create implicit sequence "course_categories_id_seq" for serial column "course_categories.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "course_categories_pkey" for table "course_categories"
+   -> 0.0754s
+==  CreateCourseCategories: migrated (0.0756s) ================================
+
+==  CreateCourses: migrating ==================================================
+-- create_table(:courses)
+NOTICE:  CREATE TABLE will create implicit sequence "courses_id_seq" for serial column "courses.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "courses_pkey" for table "courses"
+   -> 0.2190s
+==  CreateCourses: migrated (0.2192s) =========================================
+
+==  CreateRoles: migrating ====================================================
+-- create_table(:roles)
+NOTICE:  CREATE TABLE will create implicit sequence "roles_id_seq" for serial column "roles.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "roles_pkey" for table "roles"
+   -> 0.0741s
+==  CreateRoles: migrated (0.0744s) ===========================================
+
+==  CreatePersonRoles: migrating ==============================================
+-- create_table(:person_roles)
+NOTICE:  CREATE TABLE will create implicit sequence "person_roles_id_seq" for serial column "person_roles.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "person_roles_pkey" for table "person_roles"
+   -> 0.0656s
+==  CreatePersonRoles: migrated (0.0658s) =====================================
+
+==  CreateAcademicPeriods: migrating ==========================================
+-- create_table(:academic_periods)
+NOTICE:  CREATE TABLE will create implicit sequence "academic_periods_id_seq" for serial column "academic_periods.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "academic_periods_pkey" for table "academic_periods"
+   -> 0.0740s
+==  CreateAcademicPeriods: migrated (0.0742s) =================================
+
+==  CreateCurriculums: migrating ==============================================
+-- create_table(:curriculums)
+NOTICE:  CREATE TABLE will create implicit sequence "curriculums_id_seq" for serial column "curriculums.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "curriculums_pkey" for table "curriculums"
+   -> 0.0602s
+==  CreateCurriculums: migrated (0.0605s) =====================================
+
+==  CreateCurriculumDisciplines: migrating ====================================
+-- create_table(:curriculum_disciplines)
+NOTICE:  CREATE TABLE will create implicit sequence "curriculum_disciplines_id_seq" for serial column "curriculum_disciplines.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "curriculum_disciplines_pkey" for table "curriculum_disciplines"
+   -> 0.0739s
+==  CreateCurriculumDisciplines: migrated (0.0742s) ===========================
+
+==  CreatePrerequisites: migrating ============================================
+-- create_table(:prerequisites)
+NOTICE:  CREATE TABLE will create implicit sequence "prerequisites_id_seq" for serial column "prerequisites.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "prerequisites_pkey" for table "prerequisites"
+   -> 0.0670s
+==  CreatePrerequisites: migrated (0.0671s) ===================================
+
+==  CreateCurriculumStudents: migrating =======================================
+-- create_table(:curriculum_students)
+NOTICE:  CREATE TABLE will create implicit sequence "curriculum_students_id_seq" for serial column "curriculum_students.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "curriculum_students_pkey" for table "curriculum_students"
+   -> 0.0567s
+==  CreateCurriculumStudents: migrated (0.0568s) ==============================
+
+==  CreateParameters: migrating ===============================================
+-- create_table(:parameters)
+NOTICE:  CREATE TABLE will create implicit sequence "parameters_id_seq" for serial column "parameters.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "parameters_pkey" for table "parameters"
+   -> 0.1107s
+==  CreateParameters: migrated (0.1109s) ======================================
+
+==  AddPhotoColumnsToPerson: migrating ========================================
+-- add_column(:people, :photo_file_name, :string)
+   -> 0.0011s
+-- add_column(:people, :photo_content_type, :string)
+   -> 0.0008s
+-- add_column(:people, :photo_file_size, :integer)
+   -> 0.0008s
+-- add_column(:people, :photo_updated_at, :datetime)
+   -> 0.0008s
+==  AddPhotoColumnsToPerson: migrated (0.0040s) ===============================
+
+==  CreateSites: migrating ====================================================
+-- create_table(:sites)
+NOTICE:  CREATE TABLE will create implicit sequence "sites_id_seq" for serial column "sites.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "sites_pkey" for table "sites"
+   -> 0.1031s
+==  CreateSites: migrated (0.1032s) ===========================================
+
+==  CreateDisciplines: migrating ==============================================
+-- create_table(:disciplines)
+NOTICE:  CREATE TABLE will create implicit sequence "disciplines_id_seq" for serial column "disciplines.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "disciplines_pkey" for table "disciplines"
+   -> 0.0700s
+==  CreateDisciplines: migrated (0.0703s) =====================================
+
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db[K]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db[K]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db:seed
+(in /home/bruno/Workspace/Rails/uni)
+^Crake aborted!
+
+
+(See full trace by running task with --trace)
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db:seed
+(in /home/bruno/Workspace/Rails/uni)
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db:drop:all
+(in /home/bruno/Workspace/Rails/uni)
+NOTICE:  database "uni" does not exist, skipping
+Couldn't drop uni_development : #<ActiveRecord::StatementInvalid: PGError: ERROR:  database "uni_development" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+: DROP DATABASE IF EXISTS "uni_development">
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db:drop:all
+(in /home/bruno/Workspace/Rails/uni)
+NOTICE:  database "uni" does not exist, skipping
+Couldn't drop uni_development : #<ActiveRecord::StatementInvalid: PGError: ERROR:  database "uni_development" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+: DROP DATABASE IF EXISTS "uni_development">
+NOTICE:  database "uni_test" does not exist, skipping
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db:drop:all
+(in /home/bruno/Workspace/Rails/uni)
+NOTICE:  database "uni" does not exist, skipping
+Couldn't drop uni_development : #<ActiveRecord::StatementInvalid: PGError: ERROR:  database "uni_development" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+: DROP DATABASE IF EXISTS "uni_development">
+NOTICE:  database "uni_test" does not exist, skipping
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db:drop:all
+(in /home/bruno/Workspace/Rails/uni)
+NOTICE:  database "uni" does not exist, skipping
+Couldn't drop uni_development : #<ActiveRecord::StatementInvalid: PGError: ERROR:  database "uni_development" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+: DROP DATABASE IF EXISTS "uni_development">
+NOTICE:  database "uni_test" does not exist, skipping
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ script/rails destroy model Discipline
+[1m[37m      invoke[0m  active_record
+[1m[31m      remove[0m    db/migrate/20110529120545_create_disciplines.rb
+[1m[31m      remove[0m    app/models/discipline.rb
+[1m[37m      invoke[0m    test_unit
+[1m[31m      remove[0m      test/unit/discipline_test.rb
+[1m[31m      remove[0m      test/fixtures/disciplines.yml
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ script/rails destroy model Discipline[21Prake db:drop:all[4Pseedmigrate:reset[5Pdrop:allmigrate:reset[Kscript/rails generate model Discipline course_id:integer code:innteger name:string version:integer credits:integer[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[1P[1P[1P[1P[1P[1P[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C n[1P[A]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs [4hn[4l[4ht[4l[4hr[4l[4hi[4l[4hn[4l[4hg[4l
+[1m[37m      invoke[0m  active_record
+[1m[32m      create[0m    db/migrate/20110529122106_create_disciplines.rb
+[1m[32m      create[0m    app/models/discipline.rb
+[1m[37m      invoke[0m    test_unit
+[1m[32m      create[0m      test/unit/discipline_test.rb
+[1m[32m      create[0m      test/fixtures/disciplines.yml
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db:d[Kdrop:all
+(in /home/bruno/Workspace/Rails/uni)
+NOTICE:  database "uni" does not exist, skipping
+Couldn't drop uni_development : #<ActiveRecord::StatementInvalid: PGError: ERROR:  database "uni_development" is being accessed by other users
+DETAIL:  There are 1 other session(s) using the database.
+: DROP DATABASE IF EXISTS "uni_development">
+NOTICE:  database "uni_test" does not exist, skipping
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ sudo kill[K[K[K[K[Kapa[K[K[K apache2ctl stop
+[sudo] password for bruno: 
+apache2: Could not reliably determine the server's fully qualified domain name, using 127.0.1.1 for ServerName
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ sudo apache2ctl stop[4Prake db:drop:all
+(in /home/bruno/Workspace/Rails/uni)
+NOTICE:  database "uni" does not exist, skipping
+NOTICE:  database "uni_test" does not exist, skipping
+]0;bruno@bruno-laptop: ~/Workspace/Rails/uni[01;32mbruno@bruno-laptop[00m:[01;34m~/Workspace/Rails/uni[00m$ rake db>migrate[K[K[K[K[K[K[K[K:migreate[K[K[K[Kate:reset
+(in /home/bruno/Workspace/Rails/uni)
+NOTICE:  database "uni_development" does not exist, skipping
+==  CreatePeople: migrating ===================================================
+-- create_table(:people)
+NOTICE:  CREATE TABLE will create implicit sequence "people_id_seq" for serial column "people.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "people_pkey" for table "people"
+   -> 0.1117s
+==  CreatePeople: migrated (0.1119s) ==========================================
+
+==  CreateStudents: migrating =================================================
+-- create_table(:students)
+NOTICE:  CREATE TABLE will create implicit sequence "students_id_seq" for serial column "students.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "students_pkey" for table "students"
+   -> 0.0612s
+==  CreateStudents: migrated (0.0614s) ========================================
+
+==  CreateProfessors: migrating ===============================================
+-- create_table(:professors)
+NOTICE:  CREATE TABLE will create implicit sequence "professors_id_seq" for serial column "professors.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "professors_pkey" for table "professors"
+   -> 0.0641s
+==  CreateProfessors: migrated (0.0643s) ======================================
+
+==  CreateScholarities: migrating =============================================
+-- create_table(:scholarities)
+NOTICE:  CREATE TABLE will create implicit sequence "scholarities_id_seq" for serial column "scholarities.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "scholarities_pkey" for table "scholarities"
+   -> 0.0641s
+==  CreateScholarities: migrated (0.0643s) ====================================
+
+==  CreateCourseCategories: migrating =========================================
+-- create_table(:course_categories)
+NOTICE:  CREATE TABLE will create implicit sequence "course_categories_id_seq" for serial column "course_categories.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "course_categories_pkey" for table "course_categories"
+   -> 0.0655s
+==  CreateCourseCategories: migrated (0.0657s) ================================
+
+==  CreateCourses: migrating ==================================================
+-- create_table(:courses)
+NOTICE:  CREATE TABLE will create implicit sequence "courses_id_seq" for serial column "courses.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "courses_pkey" for table "courses"
+   -> 0.1424s
+==  CreateCourses: migrated (0.1425s) =========================================
+
+==  CreateRoles: migrating ====================================================
+-- create_table(:roles)
+NOTICE:  CREATE TABLE will create implicit sequence "roles_id_seq" for serial column "roles.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "roles_pkey" for table "roles"
+   -> 0.0645s
+==  CreateRoles: migrated (0.0647s) ===========================================
+
+==  CreatePersonRoles: migrating ==============================================
+-- create_table(:person_roles)
+NOTICE:  CREATE TABLE will create implicit sequence "person_roles_id_seq" for serial column "person_roles.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "person_roles_pkey" for table "person_roles"
+   -> 0.0633s
+==  CreatePersonRoles: migrated (0.0635s) =====================================
+
+==  CreateAcademicPeriods: migrating ==========================================
+-- create_table(:academic_periods)
+NOTICE:  CREATE TABLE will create implicit sequence "academic_periods_id_seq" for serial column "academic_periods.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "academic_periods_pkey" for table "academic_periods"
+   -> 0.0746s
+==  CreateAcademicPeriods: migrated (0.0749s) =================================
+
+==  CreateCurriculums: migrating ==============================================
+-- create_table(:curriculums)
+NOTICE:  CREATE TABLE will create implicit sequence "curriculums_id_seq" for serial column "curriculums.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "curriculums_pkey" for table "curriculums"
+   -> 0.0642s
+==  CreateCurriculums: migrated (0.0644s) =====================================
+
+==  CreateCurriculumDisciplines: migrating ====================================
+-- create_table(:curriculum_disciplines)
+NOTICE:  CREATE TABLE will create implicit sequence "curriculum_disciplines_id_seq" for serial column "curriculum_disciplines.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "curriculum_disciplines_pkey" for table "curriculum_disciplines"
+   -> 0.0782s
+==  CreateCurriculumDisciplines: migrated (0.0784s) ===========================
+
+==  CreatePrerequisites: migrating ============================================
+-- create_table(:prerequisites)
+NOTICE:  CREATE TABLE will create implicit sequence "prerequisites_id_seq" for serial column "prerequisites.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "prerequisites_pkey" for table "prerequisites"
+   -> 0.0671s
+==  CreatePrerequisites: migrated (0.0676s) ===================================
+
+==  CreateCurriculumStudents: migrating =======================================
+-- create_table(:curriculum_students)
+NOTICE:  CREATE TABLE will create implicit sequence "curriculum_students_id_seq" for serial column "curriculum_students.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "curriculum_students_pkey" for table "curriculum_students"
+   -> 0.0669s
+==  CreateCurriculumStudents: migrated (0.0670s) ==============================
+
+==  CreateParameters: migrating ===============================================
+-- create_table(:parameters)
+NOTICE:  CREATE TABLE will create implicit sequence "parameters_id_seq" for serial column "parameters.id"
+NOTICE:  CREATE TABLE / PRIMARY KEY will create implicit index "parameters_pkey" for table "parameters"
+   -> 0.1236s
+==  CreateParameters: migrated (0.1238s) ======================================
+
+==  AddPhotoColumnsToPerson: migrating ===================

@@ -1,6 +1,6 @@
 class UserController < ApplicationController
   def index
-    
+    @student = Student.find_by_person_id(@user.id)
   end
   
   def edit
