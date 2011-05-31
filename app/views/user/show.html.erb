@@ -1,0 +1,15 @@
+<header>
+  <h1><%= @person.name %></h1>
+</header>
+
+<aside id="user">
+  <% if @person.photo.exists? %>
+    <%= image_tag @person.photo.url() %>
+  <% else %>
+    <%= image_tag 'no-picture-normal.png' %>
+  <% end %>
+</aside>
+
+<article>
+  <%= render :partial => 'data', :locals => { :user => @person } %>
+</article>

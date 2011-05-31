@@ -46,6 +46,11 @@ class Admin::StudentsController < ApplicationController
   # PUT /students/1
   def update
     @student = Student.find_by_code(params[:id])
+    
+    if params[:delete_photo]
+      params[:photo] = nil
+      @student.person.photo = nil
+    end
 
     if @student.update_attributes(params[:student])
       redirect_to([:admin, @student], :notice => 'Student was successfully updated.')

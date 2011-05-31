@@ -1,0 +1,25 @@
+<h1><%= @course.name %></h1>
+<%= render :partial => 'admin/courses/menu', :locals => {:course => @course} %>
+<article>
+  <header>
+    <h2><%= t 'Curriculums' %></h2>
+    <ul id="toolbar">
+      <li><%= link_to ((t 'New') + ' ' + (t 'Curriculum')), nil, :class => 'new' %></li>
+  </header>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t 'Code' %></th>
+        <th><%= t 'Name' %></th>
+        <th><%= t 'Date' %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>20081</td>
+        <td><%= link_to '2008.1', {:action => 'show', :id => 1} %></td>
+        <td>01/01/2008</td>
+      </tr>
+    </tbody>
+  </table>
+</article>

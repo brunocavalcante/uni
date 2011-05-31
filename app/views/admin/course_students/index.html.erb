@@ -17,19 +17,21 @@
         <th>Nome</th>
       </tr>
     </thead>
-  
+
+    <% @aluno = Student.first %>  
+
     <tbody>
       <tr>
         <td>029298101</td>
-        <td>Nome do aluno A</td>
+        <td><%= link_to 'Nome do aluno A', [:admin, @aluno] %></td>
       </tr>
       <tr>
         <td>029218101</td>
-        <td>Nome do aluno B</td>
+        <td><%= link_to 'Nome do aluno B', [:admin, @aluno] %></td>
       </tr>
       <tr>
         <td>029238101</td>
-        <td>Nome do aluno c</td>
+        <td><%= link_to 'Nome do aluno C', [:admin, @aluno] %></td>
       </tr>
     </tbody>
   </table>

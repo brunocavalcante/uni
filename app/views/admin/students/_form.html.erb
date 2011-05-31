@@ -24,7 +24,15 @@
     <%= p.label :email %><br />
     <%= p.text_field :email %>
   </p>
+  
+  <% if @student.person.photo.exists? %>
+  <p>
+    <%= label_tag (t 'DeleteCurrentPhoto')%>  
+    <%= check_box_tag :delete_photo %>
+  </p>
   <% end %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

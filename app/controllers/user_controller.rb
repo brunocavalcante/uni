@@ -3,6 +3,11 @@ class UserController < ApplicationController
     @student = Student.find_by_person_id(@user.id)
   end
   
+  def show
+    @person = Person.find(params[:id])
+    @student = Student.find_by_person_id(@user.id)
+  end
+  
   def edit
     
   end

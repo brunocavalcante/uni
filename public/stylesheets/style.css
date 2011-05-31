@@ -143,7 +143,7 @@ footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
 #toolbar li {
   float: left;
   display: block;
-  margin-left: 1.5em;
+  margin-left: 2em;
 }
 #toolbar a, #toolbar input {
   background: none;
@@ -156,8 +156,8 @@ footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
   font-size: 1em;
 }
 #toolbar a:hover, #toolbar input:hover {text-decoration: none}
-#toolbar .edit, #toolbar .delete, #toolbar .back, #toolbar .new, #toolbar .show {
-  padding-left: 28px;
+#toolbar .edit, #toolbar .delete, #toolbar .back, #toolbar .new, #toolbar .show, #toolbar .person {
+  padding-left: 24px;
   background-repeat: no-repeat;
   background-position: 0 50%;
 }
@@ -166,6 +166,7 @@ footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
 #toolbar .edit {background-image: url('../images/icons/edit.png')}
 #toolbar .delete {background-image: url('../images/icons/delete.png')}
 #toolbar .show {background-image: url('../images/icons/full_page.png')}
+#toolbar .person {background-image: url('../images/icons/user.png')}
 
 /* Tables */
 table {
