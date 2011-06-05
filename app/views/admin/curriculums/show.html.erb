@@ -9,4 +9,72 @@
       <li><%= link_to (t 'AddDiscipline'), nil, :class => 'new' %></li>
     </ul>
   </header>
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <b><%= t 'Code' %>:</b> 20081
+  </p>
+  
+  <p>
+    <b><%= t 'Name' %>:</b> 2008.1
+  </p>
+  
+  <p>
+    <b><%= t 'Date' %>:</b> 01/01/2008
+  </p>
+
+  <p>
+    <b><%= t 'Active' %>:</b> <%= t 'Yes' %>
+  </p>
+  
+  <h3><%= t 'Disciplines' %></h3>
+  <table>
+    <thead>
+      <tr>
+        <th><%= t 'Code' %></th>
+        <th><%= t 'Name' %></th>
+        <th><%= t 'Module' %></th>
+        <th><%= t 'Credits' %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>T001</td>
+        <td>Algoritmos e Estruturas de Dados I</td>
+        <td>1</td>
+        <td>20</td>
+      </tr>
+      <tr>
+        <td>T002</td>
+        <td>Lógica Matemática</td>
+        <td>1</td>
+        <td>40</td>
+      </tr>
+      <tr>
+        <td>T003</td>
+        <td>Matemática Discreta</td>
+        <td>1</td>
+        <td>20</td>
+      </tr>
+      <tr>
+        <td>T004</td>
+        <td>Introdução à Sistemas de Informação</td>
+        <td>2</td>
+        <td>40</td>
+      </tr>
+      <tr>
+        <td>T005</td>
+        <td>Contabilidade</td>
+        <td>2</td>
+        <td>40</td>
+      </tr>
+      <tr>
+        <td>T005</td>
+        <td>Programação com Orientação à Objetos</td>
+        <td>2</td>
+        <td>40</td>
+      </tr>
+    </tbody>
+  </table>
 </article>

@@ -13,6 +13,7 @@
       <tr>
         <th><%= t 'Code' %></th>
         <th><%= t 'Name' %></th>
+        <th><%= t 'Credits' %></th>
       </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
       <tr>
         <td><%= discipline.code %></td>
         <td><%= link_to discipline.name, [:admin, @course, discipline] %></td>
+        <td><%= discipline.credits %></td>
       </tr>
       <% end %>
     </tbody>

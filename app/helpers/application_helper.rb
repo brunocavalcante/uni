@@ -10,7 +10,7 @@ module ApplicationHelper
 
         if elements[i] =~ /^\d+$/
           begin
-            breadcrumb += link_to_if(i != elements.size - 1, eval("#{elements[i - 1].singularize.camelize}.find(#{elements[i]}).nome").gsub("_"," ").to_s, so_far)
+            breadcrumb += link_to_if(i != elements.size - 1, eval("#{elements[i - 1].singularize.camelize}.find(#{elements[i]}).name").gsub("_"," ").to_s, so_far)
           rescue
           breadcrumb += elements[i]
           end

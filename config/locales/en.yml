@@ -74,3 +74,8 @@ en:
   ThisStudentIsNotRegisteredInAnyCourse: "This student is not registered in any course."
   Editing: "Editing"
   Search: "Search"
+  AddDiscipline: "Add Discipline"
+  Active: "Active"
+  IsActive: "Active?"
+  Yes: "Yes"
+  No: "No"

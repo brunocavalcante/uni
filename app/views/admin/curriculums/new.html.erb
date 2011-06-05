@@ -1,0 +1,25 @@
+<h1><%= @course.name %></h1>
+<%= render :partial => 'admin/courses/menu', :locals => {:course => @course} %>
+<article>
+  <header>
+    <h2><%= t 'New' %> <%= t 'Curriculum' %></h2>
+    <ul id="toolbar">
+      <li><%= link_to (t 'Back'), nil, :class => 'back' %></li>
+    </ul>
+  </header>
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <label>Code</label><br />
+    <input type="text">
+  </p>
+  
+  <p>
+    <label>Name</label><br />
+    <input type="text">
+  </p> 
+  
+  <p><input type="submit"></p>
+
+</article>

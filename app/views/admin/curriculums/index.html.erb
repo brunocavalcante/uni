@@ -4,7 +4,7 @@
   <header>
     <h2><%= t 'Curriculums' %></h2>
     <ul id="toolbar">
-      <li><%= link_to ((t 'New') + ' ' + (t 'Curriculum')), nil, :class => 'new' %></li>
+      <li><%= link_to ((t 'New') + ' ' + (t 'Curriculum')), {:action => 'new'}, :class => 'new' %></li>
   </header>
   <table>
     <thead>
