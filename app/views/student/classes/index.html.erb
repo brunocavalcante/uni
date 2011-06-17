@@ -1,0 +1,37 @@
+<h1><%= t 'Classes' %></h1>
+<table>
+  <thead>
+    <tr>
+      <th><%= t 'Code' %></th>
+      <th><%= t 'Name' %></th>
+      <th><%= t 'Course' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SI036</td>
+      <td><%= link_to 'Arquitetura de Computadores', {:action => 'show', :id => 1} %></td>
+      <td>Sistemas de Informação</td>
+    </tr>
+    <tr>
+      <td>AD015</td>
+      <td><%= link_to 'Direito e Legislação', {:action => 'show', :id => 1} %></td>
+      <td>Administração</td>
+    </tr>
+    <tr>
+      <td>AD027</td>
+      <td><%= link_to 'Economia', {:action => 'show', :id => 1} %></td>
+      <td>Administração</td>
+    </tr>
+    <tr>
+      <td>SI072</td>
+      <td><%= link_to 'Lógica', {:action => 'show', :id => 1} %></td>
+      <td>Sistemas de Informação</td>
+    </tr>
+    <tr>
+      <td>SI051</td>
+      <td><%= link_to 'Sistemas Distribuídos', {:action => 'show', :id => 1} %></td>
+      <td>Sistemas de Informação</td>
+    </tr>
+  </tbody>
+</table>

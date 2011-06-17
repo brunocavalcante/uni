@@ -41,6 +41,6 @@ class AuthController < ApplicationController
   def logout
     session[:user] = nil
     session[:role] = nil
-    redirect_to(login_url, :notice => 'Logout realizado com sucesso')
+    redirect_to(login_url)
   end
 end

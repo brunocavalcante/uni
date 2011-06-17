@@ -40,6 +40,7 @@ Uni::Application.routes.draw do
   namespace :student do
     root :to => 'home#index'
     resources :reports
+    resources :classes
   end
   
   resources :password_recovery
