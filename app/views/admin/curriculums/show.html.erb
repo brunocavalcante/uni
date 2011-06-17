@@ -6,7 +6,7 @@
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), nil, :class => 'back' %></li>
       <li><%= link_to (t 'Edit'), {:action => 'edit', :id => 1}, :class => 'edit' %></li>
-      <li><%= link_to (t 'AddDiscipline'), nil, :class => 'new' %></li>
+      <li><%= link_to (t 'AddDiscipline'), new_admin_course_curriculum_discipline_path(@course, @curriculum), :class => 'new' %></li>
     </ul>
   </header>
 
@@ -25,7 +25,7 @@
   </p>
 
   <p>
-    <b><%= t 'Active' %>:</b> <%= t 'Yes' %>
+    <b><%= t 'Active' %>:</b> <%= t 'No' %>
   </p>
   
   <h3><%= t 'Disciplines' %></h3>

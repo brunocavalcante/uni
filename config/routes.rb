@@ -11,7 +11,9 @@ Uni::Application.routes.draw do
             get :search
           end
         end
-        resources :curriculums
+        resources :curriculums do 
+          resources :curriculum_disciplines, :as => 'disciplines'
+        end
         resources :course_students, :as => 'students', :only => [:index]
     end
     resources :professors

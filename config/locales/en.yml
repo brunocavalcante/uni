@@ -79,3 +79,5 @@ en:
   IsActive: "Active?"
   Yes: "Yes"
   No: "No"
+  AddDisciplineToCurriculum: "Add Discipline to Curriculum"
+  UserPasswordNotFound: "User/Password not found"

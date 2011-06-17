@@ -4,8 +4,8 @@
   
 <article id="login">
   <h1><%= t 'Welcome' %></h1>
-  <p id="notice"><%= notice %></p>
-  <p id="alert"><%= alert %></p>
+  <p id="notice"><%= t notice if notice %></p>
+  <p id="alert"><%= t alert if alert %></p>
   <%= form_tag(authenticate_url) do %>
   <p>
     <%= label_tag 'usuario', (t 'EmailOrStudentId') %><br/>

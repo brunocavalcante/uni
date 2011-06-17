@@ -14,15 +14,15 @@ class AuthController < ApplicationController
       else
         @aluno = Student.find_by_code(params[:username])
         if !@aluno
-          raise 'Aluno não encontrado'
+          raise 'StudentNotFound'
         end
         @person = @aluno.person
       end
       if !@person
-        raise 'Pessoa não encontrada'
+        raise 'PersonNotFound'
       end
       if @person.password != Digest::MD5.hexdigest(params[:password])
-        raise 'Senha inválida'
+        raise 'InvalidPassword'
       end
       if @person.roles.length == 1
         session[:role] = @person.roles[0]
@@ -30,7 +30,7 @@ class AuthController < ApplicationController
       session[:user] = @person.id
       redirect_to(root_url)
     rescue
-      redirect_to(login_url, :alert => 'Usuário/senha não encontrados')
+      redirect_to(login_url, :alert => 'UserPasswordNotFound')
     end
   end
   
