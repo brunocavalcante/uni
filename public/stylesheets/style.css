@@ -169,15 +169,12 @@ footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
 #toolbar .person {background-image: url('../images/icons/user.png')}
 
 /* Tables */
-table {
-  border-spacing: 0;
-  width: 100%;
-}
-tbody tr:nth-child(odd) {background: #EEE}
-th, td {
-  padding: 0.75em 1em;
-  text-align: left;
-}
+table {border-spacing: 0; width: 100%;}
+tbody tr:nth-child(even) {background: #FAFAFA}
+th, td {padding: 0.75em 1em; text-align: left;}
+thead th {font-size: 0.75em; text-transform: uppercase;padding-left: 1.3em}
+tbody td {border-top: 1px solid #EEE;}
+div.pagination {margin-top: 0.75em}
 
 /* Forms */
 input, select, textarea {

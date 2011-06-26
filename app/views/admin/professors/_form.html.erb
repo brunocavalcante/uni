@@ -13,16 +13,16 @@
 
   <%= f.fields_for :person do |p| %>
   <p>
-    <%= p.label :name %><br />
+    <%= p.label :name, (t 'Name') %><br />
     <%= p.text_field :name %>
   </p>
   <p>
-    <%= p.label :email %><br />
+    <%= p.label :email, (t 'Email') %><br />
     <%= p.text_field :email %>
   </p>
   <% end %>
   <p>
-    <%= f.label :scholarity_id %><br />
+    <%= f.label :scholarity_id, (t 'Scholarity') %><br />
     <%= f.select :scholarity_id, Scholarity.all.collect {|it| [it.name, it.id]} %>
   </p>
   <div class="actions">

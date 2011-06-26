@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_locale
   before_filter :login_required
   before_filter :load_user
+  before_filter :translate_will_paginate
   
   def set_locale
     # if params[:locale] is nil then I18n.default_locale will be used
@@ -25,6 +26,11 @@ class ApplicationController < ActionController::Base
     if session[:user]
       @user = Person.find(session[:user])
     end
+  end
+  
+  def translate_will_paginate
+    WillPaginate::ViewHelpers.pagination_options[:previous_label] = '&larr; ' + (I18n.t 'Previous')
+    WillPaginate::ViewHelpers.pagination_options[:next_label] = (I18n.t 'Next') + ' &rarr;'
   end
   
 end

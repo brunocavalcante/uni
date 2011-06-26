@@ -13,18 +13,18 @@
   <p id="notice"><%= notice %></p>
   
   <p>
-    <b><%= t ' Name' %></b>
+    <b><%= t 'Name' %>:</b>
     <%= @academic_period.name %>
   </p>
   
   <p>
-    <b><%= t 'Classes' %></b>
+    <b><%= t 'Classes' %>:</b>
     <%= l @academic_period.start, :format => :long %> <%= t 'until' %> <%= l @academic_period.end, :format => :long %>
   </p>
   
   <% if @academic_period.registration_start and @academic_period.registration_end %>
   <p>
-    <b><%= t 'Registration' %></b>
+    <b><%= t 'Registration' %>:</b>
     <%= l @academic_period.registration_start, :format => :long %> à <%= l @academic_period.registration_end, :format => :long %>
   </p>
   <% end %>

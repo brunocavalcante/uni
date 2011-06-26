@@ -12,16 +12,16 @@
   <% end %>
 
   <p>
-    <%= f.label :code %><br />
+    <%= f.label :code, (t 'Code') %><br />
     <%= f.text_field :code %>
   </p>
   <%= f.fields_for :person do |p| %>
   <p>
-    <%= p.label :name %><br />
+    <%= p.label :name, (t 'Name') %><br />
     <%= p.text_field :name %>
   </p>
   <p>
-    <%= p.label :email %><br />
+    <%= p.label :email, (t 'Email') %><br />
     <%= p.text_field :email %>
   </p>
   
