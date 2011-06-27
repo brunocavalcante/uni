@@ -39,7 +39,12 @@ Uni::Application.routes.draw do
   
   namespace :student do
     root :to => 'home#index'
-    resources :reports
+    resources :reports do
+      collection do
+        get 'current-tests-and-abscences', :action => :current_tests_and_abscences, :as => 'cta'
+        get :transcripts
+      end
+    end
     resources :classes
   end
   

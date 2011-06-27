@@ -73,11 +73,7 @@ header section {
 }
 
 /* Content */
-#content {
-  float: left;
-  width: 96%;
-  margin: 2%;
-}
+#content {float: left; width: 96%; margin: 2%;}
 #content h1, #content article h2, #content header {
   border-bottom: 1px dotted #ccc;
   padding-bottom: 0.25em;
@@ -91,10 +87,7 @@ header section {
   background: none;
   min-height: 0;
 }
-#content article {
-  float: left;
-  width: 75%;
-}
+#content article {float: left; width: 75%;}
 #content aside {
   float: left;
   margin-right: 2%;
@@ -140,11 +133,7 @@ footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
   margin: 0;
   padding: 0;
 }
-#toolbar li {
-  float: left;
-  display: block;
-  margin-left: 2em;
-}
+#toolbar li {float: left; display: block; margin-left: 2em;}
 #toolbar a, #toolbar input {
   background: none;
   padding: 0;
@@ -169,19 +158,18 @@ footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
 #toolbar .person {background-image: url('../images/icons/user.png')}
 
 /* Tables */
-table {border-spacing: 0; width: 100%;}
+table {border-spacing: 0; width: 100%; border-collapse: collapse}
 tbody tr:nth-child(even) {background: #FAFAFA}
 th, td {padding: 0.75em 1em; text-align: left;}
 thead th {font-size: 0.75em; text-transform: uppercase;padding-left: 1.3em}
 tbody td {border-top: 1px solid #EEE;}
 div.pagination {margin-top: 0.75em}
 
+table.grid tbody td, table.grid thead th {border: 1px solid #EEE}
+table.grid tbody td {font-size: 0.8em}
+
 /* Forms */
-input, select, textarea {
-  padding: 0.25em 0.5em;
-  font-size: 0.9em;
-  font-family: sans-serif;
-}
+input, select, textarea {padding: 0.25em 0.5em; font-size: 0.9em; font-family: sans-serif;}
 button, input[type=submit], input[type=reset] {padding: 0.5em 2em}
 
 /* Essas classes são do scaffold do Ruby - Depois ajeitamos. */
@@ -209,21 +197,12 @@ button, input[type=submit], input[type=reset] {padding: 0.5em 2em}
   background-color: #c00;
   color: #fff;
 }
-#error_explanation ul li {
-  font-size: 12px;
-  list-style: square;
-}
+#error_explanation ul li {font-size: 12px; list-style: square;}
 
 /* Login */
-article#login, aside#login-splash {
-  margin-top: 2%;
-  margin-bottom: 1%;
-}
+article#login, aside#login-splash {margin-top: 2%; margin-bottom: 1%;}
 article#login {width: 48%}
-article#login h1 {
-  width: 16em;
-  font-size: 1.5em;
-}
+article#login h1 {width: 16em; font-size: 1.5em;}
 aside#login-splash {
   width: 48%;
   text-align: right;
@@ -245,8 +224,7 @@ aside#login-splash {
 #login #password {background-image: url('../images/icons/lock.png')}
 
 /* Page-specific */
-aside#user {
-  width: 180px;
-  height: 240px; 
-  padding: 5px;
-}
+aside#user {width: 180px; height: 240px; padding: 5px}
+
+/* Text */
+.small-relevance {color: #999;}

@@ -1,0 +1,137 @@
+<h1><%= t 'Reports' %></h1>
+<%= render :partial => 'menu' %>
+<article>
+  <h2><%= t 'CurrentTestsAndAbscences' %></h2>
+  
+  <h3><%= t 'Tests' %></h3>
+  <table class="grid">
+    <thead>
+      <tr>
+        <th><%= t 'ClassCode' %></th>
+        <th><%= t 'Discipline' %></th>
+        <th><%= t 'Situation'%></th>
+        <th>VP1</th>
+        <th>VP2</th>
+        <th>VF</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SI07N01</td>
+        <td><%= link_to 'SI036 - Arquitetura de Computadores', {:controller => 'classes', :action => 'show', :id => 1} %></td>
+        <td><%= t 'Studying' %></td>
+        <td>80 <span class="small-relevance">/100</span></td>
+        <td>70 <span class="small-relevance">/100</span></td>
+        <td>58 <span class="small-relevance">/100</span></td>
+      </tr>
+      <tr>
+        <td>SI07N01</td>
+        <td><%= link_to 'SI036 - Direito e Legislação', {:controller => 'classes', :action => 'show', :id => 1} %></td>
+        <td><%= t 'Studying' %></td>
+        <td>80 <span class="small-relevance">/100</span></td>
+        <td>70 <span class="small-relevance">/100</span></td>
+        <td>58 <span class="small-relevance">/100</span></td>
+      </tr>
+      <tr>
+        <td>SI07N01</td>
+        <td><%= link_to 'SI036 - Economia', {:controller => 'classes', :action => 'show', :id => 1} %></td>
+        <td><%= t 'Studying' %></td>
+        <td>80 <span class="small-relevance">/100</span></td>
+        <td>70 <span class="small-relevance">/100</span></td>
+        <td>58 <span class="small-relevance">/100</span></td>
+      </tr>
+      <tr>
+        <td>SI07N01</td>
+        <td><%= link_to 'SI036 - Lógica', {:controller => 'classes', :action => 'show', :id => 1} %></td>
+        <td><%= t 'Studying' %></td>
+        <td>80 <span class="small-relevance">/100</span></td>
+        <td>70 <span class="small-relevance">/100</span></td>
+        <td>58 <span class="small-relevance">/100</span></td>
+      </tr>
+      <tr>
+        <td>SI07N01</td>
+        <td><%= link_to 'SI036 - Sistemas Distribuídos', {:controller => 'classes', :action => 'show', :id => 1} %></td>
+        <td><%= t 'Studying' %></td>
+        <td>80 <span class="small-relevance">/100</span></td>
+        <td>70 <span class="small-relevance">/100</span></td>
+        <td>58 <span class="small-relevance">/100</span></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <br />
+  
+  <h3><%= t 'Abscences' %></h3>
+  <table class="grid">
+    <thead>
+      <tr>
+        <th><%= t 'ClassCode' %></th>
+        <th><%= t 'Discipline' %></th>
+        <th>Jan</th>
+        <th>Feb</th>
+        <th>Mar</th>
+        <th>Abr</th>
+        <th>Mai</th>
+        <th>Jun</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>SI07N01</td>
+        <td><%= link_to 'SI036 - Arquitetura de Computadores', {:controller => 'classes', :action => 'show', :id => 1} %></td>
+        <td>0</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>4</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>SI07N01</td>
+        <td><%= link_to 'SI036 - Direito e Legislação', {:controller => 'classes', :action => 'show', :id => 1} %></td>
+        <td>0</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>4</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>SI07N01</td>
+        <td><%= link_to 'SI036 - Economia', {:controller => 'classes', :action => 'show', :id => 1} %></td>
+        <td>0</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>4</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>SI07N01</td>
+        <td><%= link_to 'SI036 - Lógica', {:controller => 'classes', :action => 'show', :id => 1} %></td>
+        <td>0</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>4</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>SI07N01</td>
+        <td><%= link_to 'SI036 - Sistemas Distribuídos', {:controller => 'classes', :action => 'show', :id => 1} %></td>
+        <td>0</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>2</td>
+        <td>4</td>
+        <td>12</td>
+      </tr>
+    </tbody>
+  </table> 
+</article>
