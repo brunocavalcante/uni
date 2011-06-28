@@ -245,6 +245,7 @@ pt:
   Files: "Arquivos"
   Inbox: "Caixa de Entrada"
   CurrentTestsAndAbscences: "Notas e Faltas Atuais"
+  TestsAndAbscences: "Notas e Faltas"
   ForgotYourPassword: "Esqueceu a senha?"
   Classes: "Turmas"
   Registration: "Matrícula"
@@ -297,3 +298,5 @@ pt:
   Studying: "Cursando"
   Tests: "Avaliações"
   Abscences: "Faltas"
+  Schedule: "Horário"
+  TimeTable: "Quadro de Horários"

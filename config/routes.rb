@@ -41,8 +41,8 @@ Uni::Application.routes.draw do
     root :to => 'home#index'
     resources :reports do
       collection do
-        get 'current-tests-and-abscences', :action => :current_tests_and_abscences, :as => 'cta'
-        get :transcripts
+        get 'tests-and-abscences', :action => :tests_and_abscences, :as => 'tests_and_abscences'
+        get :transcripts, :timetable
       end
     end
     resources :classes

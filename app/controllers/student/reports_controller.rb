@@ -3,7 +3,11 @@ class Student::ReportsController < ApplicationController
     
   end
   
-  def current_tests_and_abscences
+  def tests_and_abscences
+    
+  end
+  
+  def timetable
     
   end
 end
