@@ -8,7 +8,10 @@ body {
 }
 body a, body a:visited, body a:active {color: #000}
 a:hover {text-decoration: none}
-h1 {text-shadow: 1px 1px 0px white}
+h1, h2, h3 {text-shadow: 1px 1px 0px white;}
+h1 {font-size: 2em}
+h2 {font-size: 1.75em}
+h3 {font-size: 1.5em}
 
 /* Headers */
 header {margin: 1% 2% 1%}
@@ -28,11 +31,7 @@ header h1 span {
   bottom: 0em;
 }
 header {position: relative}
-header section {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
+header section {position: absolute; top: 0; right: 0;}
 
 /* Main Menu */
 #main-nav {
@@ -52,11 +51,7 @@ header section {
   background-image: linear-gradient(top, #575d62, #2c3135);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#575d62', EndColorStr='#2c3135'); /* IE6–IE9 */
 }
-#main-nav li.active, #main-nav a {
-  color: white;
-  text-decoration: none;
-  text-shadow: 1px 1px 0px #000;
-}
+#main-nav li.active, #main-nav a {color: white; text-decoration: none; text-shadow: 1px 1px 0px #000;}
 #main-nav a:hover {text-decoration: underline}
 #main-nav ul {
   margin: 0;
@@ -66,24 +61,16 @@ header section {
   float: left;
   width: 96%;
 }
-#main-nav ul li {
-  float: left;
-  padding: 0.5em 1.75em;
-  border-right: 1px solid #666;
-}
+#main-nav ul li {float: left; padding: 0.5em 1.75em; border-right: 1px solid #666;}
 
 /* Content */
 #content {float: left; width: 96%; margin: 2%;}
-#content h1, #content article h2, #content header {
-  border-bottom: 1px dotted #ccc;
-  padding-bottom: 0.25em;
-  margin: 0 0 2%;
-}
-#content header {position: relative}
+#content h1, #content article h2 {border-bottom: 1px dotted #ccc;}
+#content h1, #content article h2, #content header {padding-bottom: 0.25em;margin: 0 0 1.5%;}
+#content header {position: relative; float: left; width: 100%}
 #content header h1, #content header h2 {
-  padding: 0;
-  margin: 0;
-  border: none;
+  padding: 0 0 0.25em 0;
+  margin-bottom: 0.4em;
   background: none;
   min-height: 0;
 }
@@ -124,16 +111,13 @@ footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
 
 /* Toolbar */
 #toolbar {
-  position: absolute;
-  bottom: 0.25em;
-  right: 0;
   float: left;
   list-style-type: none;
   display: block;
   margin: 0;
   padding: 0;
 }
-#toolbar li {float: left; display: block; margin-left: 2em;}
+#toolbar li {float: left; display: block; margin-right: 2em;}
 #toolbar a, #toolbar input {
   background: none;
   padding: 0;
@@ -161,7 +145,7 @@ footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
 table {border-spacing: 0; width: 100%; border-collapse: collapse}
 tbody tr:nth-child(even) {background: #FAFAFA}
 th, td {padding: 0.75em 1em; text-align: left;}
-thead th {font-size: 0.75em; text-transform: uppercase;padding-left: 1.3em}
+thead th {font-size: 0.75em; text-transform: uppercase;padding-left: 1.3em;}
 tbody td {border-top: 1px solid #EEE;}
 div.pagination {margin-top: 0.75em}
 
@@ -228,3 +212,6 @@ aside#user {width: 180px; height: 240px; padding: 5px}
 
 /* Text */
 .small-relevance {color: #999;}
+.approved {color:#008000}
+.failed {color:#CC0000}
+.studying {font-style: italic}
