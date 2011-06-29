@@ -24,6 +24,7 @@ Uni::Application.routes.draw do
         post :update, :as => :update
       end  
     end
+    resources :reports
   end
   
   resources :user do 

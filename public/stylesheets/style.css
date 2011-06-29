@@ -9,8 +9,8 @@ body {
 body a, body a:visited, body a:active {color: #000}
 a:hover {text-decoration: none}
 h1, h2, h3 {text-shadow: 1px 1px 0px white;}
-h1 {font-size: 2em}
-h2 {font-size: 1.75em}
+h1 {font-size: 2.2em}
+h2 {font-size: 1.8em}
 h3 {font-size: 1.5em}
 
 /* Headers */
@@ -65,12 +65,12 @@ header section {position: absolute; top: 0; right: 0;}
 
 /* Content */
 #content {float: left; width: 96%; margin: 2%;}
-#content h1, #content article h2 {border-bottom: 1px dotted #ccc;}
-#content h1, #content article h2, #content header {padding-bottom: 0.25em;margin: 0 0 1.5%;}
+#content h1, #content article h2 {border-bottom: 1px solid #DDD;}
+#content h1, #content article h2, #content header {padding-bottom: 0.2em;margin: 0 0 1.5%;}
 #content header {position: relative; float: left; width: 100%}
 #content header h1, #content header h2 {
-  padding: 0 0 0.25em 0;
-  margin-bottom: 0.4em;
+  padding: 0 0 0.2em 0;
+  margin-bottom: 24px;
   background: none;
   min-height: 0;
 }
@@ -79,12 +79,13 @@ header section {position: absolute; top: 0; right: 0;}
   float: left;
   margin-right: 2%;
   width: 23%;
-  background: #EEE;
+  background: #F2F2F2;
 }
 #content aside ul {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  border-top: 1px solid #DDD;
 }
 #content aside ul li {
   border-bottom: 1px solid #DDD;
@@ -114,10 +115,13 @@ footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
   float: left;
   list-style-type: none;
   display: block;
-  margin: 0;
+  margin: -24px 0 0 0;
   padding: 0;
+  background: #F2F2F2;
+  width: 100%;  
+  border-bottom: 1px solid #DDD;
 }
-#toolbar li {float: left; display: block; margin-right: 2em;}
+#toolbar li {float: left; display: block; margin-left: 1.5em;padding: 0.5em 0;}
 #toolbar a, #toolbar input {
   background: none;
   padding: 0;
