@@ -11,10 +11,12 @@
 <% if @user.sites.exists? %>
   <h3>Sites</h3>
   <% for site in @user.sites %>
-  <p>
-    <b><%= site.name %>:</b>
-    <%= link_to site.url %>
-  </p>
+  <ul>
+    <li>
+      <b><%= site.name %>:</b>
+      <%= link_to site.url %>
+    </li>
+  </ul>
   <% end %>
 <% end%>
 

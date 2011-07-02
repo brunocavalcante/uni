@@ -1,11 +1,11 @@
 <aside>
     <nav>
         <ul>
-            <li><%= link_to (t 'Home'), student_reports_path %></li>
-            <li><%= link_to (t 'Students') %></li>
-            <li><%= link_to (t 'Files') %></li>
-            <li><%= link_to (t 'Inbox') %> (2)</li>
-            <li><%= link_to (t 'TestsAndAbscences') %></li>
+            <li class="home"><%= link_to (t 'Home'), {:action => :show, :id => 1} %></li>
+            <li class="group"><%= link_to (t 'Students'), {:action => :students, :id => 1} %></li>
+            <li class="files"><%= link_to (t 'Files'), {:action => :files} %></li>
+            <li class="mail"><%= link_to (t 'Inbox'), {:action => :messages} %> (2)</li>
+            <li class="statistics"><%= link_to (t 'TestsAndAbscences'), {:action => :tests_and_abscences} %></li>
         </ul>
     </nav>
 </aside>

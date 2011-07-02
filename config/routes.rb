@@ -46,7 +46,15 @@ Uni::Application.routes.draw do
         get :transcripts, :timetable
       end
     end
-    resources :classes
+    resources :classes do
+      member do 
+        get :students
+        get :files
+        get :messages
+        get :students
+        get 'tests-and-abscences', :action => :tests_and_abscences, :as => 'tests_and_abscences'
+      end 
+    end
   end
   
   resources :password_recovery

@@ -10,8 +10,8 @@ body a, body a:visited, body a:active {color: #000}
 a:hover {text-decoration: none}
 h1, h2, h3 {text-shadow: 1px 1px 0px white;}
 h1 {font-size: 2.2em}
-h2 {font-size: 1.8em}
-h3 {font-size: 1.5em}
+h2 {font-size: 1.9em}
+h3 {font-size: 1.5em; border-bottom: 1px dotted #CCC; padding-bottom: 0.2em}
 
 /* Headers */
 header {margin: 1% 2% 1%}
@@ -219,3 +219,12 @@ aside#user {width: 180px; height: 240px; padding: 5px}
 .approved {color:#008000}
 .failed {color:#CC0000}
 .studying {font-style: italic}
+
+/* Icons */
+#content aside ul li.home {background-image: url('../images/icons/home.png')}
+#content aside ul li.group {background-image: url('../images/icons/group.png')}
+#content aside ul li.files {background-image: url('../images/icons/upcoming-work.png')}
+#content aside ul li.mail {background-image: url('../images/icons/email.png')}
+#content aside ul li.report {background-image: url('../images/icons/report.png')}
+#content aside ul li.statistics {background-image: url('../images/icons/statistics.png')}
+#content aside ul li.calendar {background-image: url('../images/icons/calendar.png')}

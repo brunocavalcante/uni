@@ -6,4 +6,20 @@ class Student::ClassesController < ApplicationController
   def show
     
   end
+  
+  def students
+    
+  end
+  
+  def files
+    
+  end
+  
+  def messages
+    
+  end
+  
+  def tests_and_abscences
+    
+  end
 end

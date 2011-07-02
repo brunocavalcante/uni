@@ -1,0 +1,67 @@
+<h1>Arquitetura de Computadores</h1>
+<%= render :partial => 'menu' %>
+<article>
+  <h2><%= t 'Students' %></h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th>Matrícula</th>
+        <th>Nome</th>
+      </tr>
+    </thead>
+
+    <% @aluno = Student.first %>  
+
+    <tbody>
+      <tr>
+        <td>029298101</td>
+        <td><%= link_to 'Nome do aluno A', [:admin, @aluno] %></td>
+      </tr>
+      <tr>
+        <td>029218102</td>
+        <td><%= link_to 'Nome do aluno B', [:admin, @aluno] %></td>
+      </tr>
+      <tr>
+        <td>029258101</td>
+        <td><%= link_to 'Nome do aluno C', [:admin, @aluno] %></td>
+      </tr>
+      <tr>
+        <td>029292101</td>
+        <td><%= link_to 'Nome do aluno D', [:admin, @aluno] %></td>
+      </tr>
+      <tr>
+        <td>029218161</td>
+        <td><%= link_to 'Nome do aluno E', [:admin, @aluno] %></td>
+      </tr>
+      <tr>
+        <td>029238101</td>
+        <td><%= link_to 'Nome do aluno F', [:admin, @aluno] %></td>
+      </tr>
+      <tr>
+        <td>024298101</td>
+        <td><%= link_to 'Nome do aluno G', [:admin, @aluno] %></td>
+      </tr>
+      <tr>
+        <td>029218101</td>
+        <td><%= link_to 'Nome do aluno H', [:admin, @aluno] %></td>
+      </tr>
+      <tr>
+        <td>029218101</td>
+        <td><%= link_to 'Nome do aluno I', [:admin, @aluno] %></td>
+      </tr>
+      <tr>
+        <td>029208101</td>
+        <td><%= link_to 'Nome do aluno J', [:admin, @aluno] %></td>
+      </tr>
+      <tr>
+        <td>029918001</td>
+        <td><%= link_to 'Nome do aluno K', [:admin, @aluno] %></td>
+      </tr>
+      <tr>
+        <td>029132101</td>
+        <td><%= link_to 'Nome do aluno L', [:admin, @aluno] %></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
