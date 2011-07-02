@@ -14,7 +14,7 @@ h2 {font-size: 1.75em}
 h3 {font-size: 1.25em; border-bottom: 1px dotted #CCC; padding-bottom: 0.2em}
 
 /* Headers */
-header {margin: 1% 2% 1%}
+header {margin: 1.5% 2.5%}
 header h1 {
   background: url('../images/logo-uni.png') no-repeat 0% 50%;
   padding: 0 0 0 64px;
@@ -36,8 +36,8 @@ header section {position: absolute; top: 0; right: 0;}
 /* Main Menu */
 #main-nav {
   float: left;
-  width: 96%;
-  margin: 0 2%;
+  width: 95%;
+  margin: 0 2.5%;
   -moz-border-radius: 6px;
   border-radius: 6px;
   -moz-box-shadow: 0 2px 4px #CCC;
@@ -64,7 +64,7 @@ header section {position: absolute; top: 0; right: 0;}
 #main-nav ul li {float: left; padding: 0.5em 1.75em; border-right: 1px solid #666;}
 
 /* Content */
-#content {float: left; width: 96%; margin: 2%;}
+#content {float: left; width: 95%; margin: 1.5% 2.5%;}
 #content h1, #content article h2 {border-bottom: 1px solid #DDD;}
 #content h1, #content article h2, #content header {padding-bottom: 0.2em;margin: 0 0 1.5%;}
 #content header {position: relative; float: left; width: 100%}
@@ -77,8 +77,8 @@ header section {position: absolute; top: 0; right: 0;}
 #content article {float: left; width: 75%;}
 #content aside {
   float: left;
-  margin-right: 2%;
-  width: 23%;
+  margin-right: 2.5%;
+  width: 22.5%;
   background: #F2F2F2;
 }
 #content aside ul {
@@ -228,3 +228,8 @@ aside#user {width: 180px; height: 240px; padding: 5px}
 #content aside ul li.report {background-image: url('../images/icons/report.png')}
 #content aside ul li.statistics {background-image: url('../images/icons/statistics.png')}
 #content aside ul li.calendar {background-image: url('../images/icons/calendar.png')}
+
+/* Panels */
+.panel-left, .panel-right {width: 48.25%; float: left}
+.panel-left {margin-right: 1.75%}
+.panel-right {margin-left: 1.75%}

@@ -2,4 +2,82 @@
 <%= render :partial => 'menu' %>
 <article>
   <h2><%= t 'Home' %></h2>
+  <p>
+    <b><%= t 'ClassCode' %>:</b> 201289
+  </p>
+  <p>
+    <% @professor = Professor.first %>
+    <b><%= t 'Professor' %>:</b> <%= link_to @professor.person.name, user_path(@professor.person) %>
+  </p>
+  <p>
+    <b><%= t 'TimeTable' %>:</b> SEG 19:00 - 20:40, QUA 19:00 - 20:40
+  </p>
+  
+  <div class="panel-left">
+    <h3><%= t 'LastMessages' %></h3>
+    <table class="grid">
+      <thead>
+        <tr>
+          <th><%= t 'Date' %></th>
+          <th><%= t 'Subject' %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>11/06/2011</td>
+          <td><%= link_to 'Dia 14/06 não haverá aula' %></td>
+        </tr>
+        <tr>
+          <td>07/06/2011</td>
+          <td><%= link_to 'Lista 2 disponibilizada' %></td>
+        </tr>
+        <tr>
+          <td>11/05/2011</td>
+          <td><%= link_to 'Dia 14/05 não haverá aula' %></td>
+        </tr>
+        <tr>
+          <td>07/05/2011</td>
+          <td><%= link_to 'Lista 1 disponibilizada' %></td>
+        </tr>
+        <tr>
+          <td>11/04/2011</td>
+          <td><%= link_to 'Dia 14/04 não haverá aula' %></td>
+        </tr>
+      </table>
+      <p><%= link_to (t 'SeeAllMessages'), {:action => :messages, :id => 1} %></p>
+  </div>
+  
+  <div class="panel-right">
+    <h3><%= t 'LastFiles' %></h3>
+    <table class="grid">
+      <thead>
+        <tr>
+          <th><%= t 'Date' %></th>
+          <th><%= t 'Description' %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>11/06/2011</td>
+          <td><%= link_to 'Lista 2' %></td>
+        </tr>
+        <tr>
+          <td>07/06/2011</td>
+          <td><%= link_to 'Aula 13' %></td>
+        </tr>
+        <tr>
+          <td>11/05/2011</td>
+          <td><%= link_to 'Aula 12' %></td>
+        </tr>
+        <tr>
+          <td>07/05/2011</td>
+          <td><%= link_to 'Aula 11' %></td>
+        </tr>
+        <tr>
+          <td>11/04/2011</td>
+          <td><%= link_to 'Lista 1' %></td>
+        </tr>
+      </table>
+      <p><%= link_to (t 'SeeAllFiles'), {:action => :files, :id => 1} %></p>
+  </div>
 </article>
