@@ -8,9 +8,9 @@
   <%= user.email %>
 </p>
 
-<% if @user.sites.exists? %>
+<% if user.sites.exists? %>
   <h3>Sites</h3>
-  <% for site in @user.sites %>
+  <% for site in user.sites %>
   <ul>
     <li>
       <b><%= site.name %>:</b>
@@ -20,11 +20,11 @@
   <% end %>
 <% end%>
 
-<% if @student %>
+<% if student %>
   <h3><%= t 'CurrentCourses' %></h3>
-  <% if @student.curriculums.exists?%>
+  <% if student.curriculums.exists?%>
     <ul>
-      <% for curriculum in @student.curriculums %>
+      <% for curriculum in student.curriculums %>
       <li><%= curriculum.course.name %></li>
       <% end %>
     </ul>
@@ -33,7 +33,7 @@
   <% end %>
 <% end %>
 
-<% if @student %>
+<% if student %>
 <h3><%= t 'CurrentClasses' %></h3>
 <ul>
   <li><%= link_to 'Lógica' %></li>

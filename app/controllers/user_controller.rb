@@ -5,7 +5,7 @@ class UserController < ApplicationController
   
   def show
     @person = Person.find(params[:id])
-    @student = Student.find_by_person_id(@user.id)
+    @student = Student.find_by_person_id(@person.id)
   end
   
   def edit
