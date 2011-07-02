@@ -9,9 +9,9 @@ body {
 body a, body a:visited, body a:active {color: #000}
 a:hover {text-decoration: none}
 h1, h2, h3 {text-shadow: 1px 1px 0px white;}
-h1 {font-size: 2.2em}
-h2 {font-size: 1.9em}
-h3 {font-size: 1.5em; border-bottom: 1px dotted #CCC; padding-bottom: 0.2em}
+h1 {font-size: 2.25em}
+h2 {font-size: 1.75em}
+h3 {font-size: 1.25em; border-bottom: 1px dotted #CCC; padding-bottom: 0.2em}
 
 /* Headers */
 header {margin: 1% 2% 1%}
