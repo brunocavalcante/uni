@@ -215,7 +215,7 @@ aside#login-splash {
 aside#user {width: 180px; height: 240px; padding: 5px}
 
 /* Text */
-.small-relevance {color: #999;}
+.small-relevance, body .small-relevance a {color: #999;}
 .approved {color:#008000}
 .failed {color:#CC0000}
 .studying {font-style: italic}
