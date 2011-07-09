@@ -201,6 +201,13 @@ pt:
 
       full_messages:
         format: "%{attribute}%{message}"
+    models: 
+      course: "Curso"
+      student: "Aluno"
+      academic_period: "Período Letivo"
+      course_category: "Categoria de Curso"
+      scholarity: "Escolaridade"
+      discipline: "Disciplina"
         
   previous: "Página anterior"
   next: "Próxima página"
