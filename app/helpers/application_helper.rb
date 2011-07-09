@@ -15,7 +15,7 @@ module ApplicationHelper
           breadcrumb += elements[i]
           end
         else
-          breadcrumb += link_to_if(i != elements.size - 1,elements[i].gsub("_"," ").titleize, so_far)
+          breadcrumb += link_to_if(i != elements.size - 1, (I18n.t 'url.' + elements[i].gsub("-", "_")), so_far)
         end
 
         breadcrumb += " &raquo; " if i != elements.size - 1
