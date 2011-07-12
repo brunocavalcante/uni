@@ -36,6 +36,10 @@
 <% if student %>
 <h3><%= t 'CurrentClasses' %></h3>
 <ul>
-  <li><%= link_to 'Lógica' %></li>
+  <li><%= link_to 'Matemática', {:controller => 'student/classes', :action => 'show', :id => 1} %></li>
+  <li><%= link_to 'Português', {:controller => 'student/classes', :action => 'show', :id => 1} %></li>
+  <li><%= link_to 'História', {:controller => 'student/classes', :action => 'show', :id => 1} %></li>
+  <li><%= link_to 'Geografia', {:controller => 'student/classes', :action => 'show', :id => 1} %></li>
+  <li><%= link_to 'Biologia', {:controller => 'student/classes', :action => 'show', :id => 1} %></li>
 </ul>
 <% end %>

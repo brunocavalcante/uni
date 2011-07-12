@@ -1,4 +1,4 @@
-<h1>Arquitetura de Computadores</h1>
+<h1>Matemática</h1>
 <%= render :partial => 'menu' %>
 <article>
   <h2><%= t 'Students' %></h2>
@@ -11,56 +11,58 @@
       </tr>
     </thead>
 
-    <% @aluno = Student.first %>  
+    <% @alunos = Student.all %>
+    <% @aluno = @alunos[0] %>
+    <% @aluno2 = @alunos[1] %>
 
     <tbody>
       <tr>
         <td>029298101</td>
-        <td><%= link_to 'Nome do aluno A', [:admin, @aluno] %></td>
+        <td><%= link_to 'Nome do aluno A', user_path(@aluno.person) %></td>
       </tr>
       <tr>
         <td>029218102</td>
-        <td><%= link_to 'Nome do aluno B', [:admin, @aluno] %></td>
+        <td><%= link_to 'Nome do aluno B', user_path(@aluno2.person) %></td>
       </tr>
       <tr>
         <td>029258101</td>
-        <td><%= link_to 'Nome do aluno C', [:admin, @aluno] %></td>
+        <td><%= link_to 'Nome do aluno C', user_path(@aluno.person) %></td>
       </tr>
       <tr>
         <td>029292101</td>
-        <td><%= link_to 'Nome do aluno D', [:admin, @aluno] %></td>
+        <td><%= link_to 'Nome do aluno D', user_path(@aluno2.person) %></td>
       </tr>
       <tr>
         <td>029218161</td>
-        <td><%= link_to 'Nome do aluno E', [:admin, @aluno] %></td>
+        <td><%= link_to 'Nome do aluno E', user_path(@aluno.person) %></td>
       </tr>
       <tr>
         <td>029238101</td>
-        <td><%= link_to 'Nome do aluno F', [:admin, @aluno] %></td>
+        <td><%= link_to 'Nome do aluno F', user_path(@aluno2.person) %></td>
       </tr>
       <tr>
         <td>024298101</td>
-        <td><%= link_to 'Nome do aluno G', [:admin, @aluno] %></td>
+        <td><%= link_to 'Nome do aluno G', user_path(@aluno.person) %></td>
       </tr>
       <tr>
         <td>029218101</td>
-        <td><%= link_to 'Nome do aluno H', [:admin, @aluno] %></td>
+        <td><%= link_to 'Nome do aluno H', user_path(@aluno2.person) %></td>
       </tr>
       <tr>
         <td>029218101</td>
-        <td><%= link_to 'Nome do aluno I', [:admin, @aluno] %></td>
+        <td><%= link_to 'Nome do aluno I', user_path(@aluno.person) %></td>
       </tr>
       <tr>
         <td>029208101</td>
-        <td><%= link_to 'Nome do aluno J', [:admin, @aluno] %></td>
+        <td><%= link_to 'Nome do aluno J', user_path(@aluno2.person) %></td>
       </tr>
       <tr>
         <td>029918001</td>
-        <td><%= link_to 'Nome do aluno K', [:admin, @aluno] %></td>
+        <td><%= link_to 'Nome do aluno K', user_path(@aluno.person) %></td>
       </tr>
       <tr>
         <td>029132101</td>
-        <td><%= link_to 'Nome do aluno L', [:admin, @aluno] %></td>
+        <td><%= link_to 'Nome do aluno L', user_path(@aluno2.person) %></td>
       </tr>
     </tbody>
   </table>

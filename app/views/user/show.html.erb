@@ -4,7 +4,7 @@
 
 <aside id="user">
   <% if @person.photo.exists? %>
-    <%= image_tag @person.photo.url() %>
+    <%= image_tag @person.photo.url(:medium) %>
   <% else %>
     <%= image_tag 'no-picture-normal.png' %>
   <% end %>
