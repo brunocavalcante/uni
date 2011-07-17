@@ -16,14 +16,15 @@ h3 {font-size: 1.25em; border-bottom: 1px dotted #CCC; padding-bottom: 0.2em}
 /* Headers */
 header {margin: 1.5% 2.5%}
 header h1 {
-  background: url('../images/logo-uni.png') no-repeat 0% 50%;
-  padding: 0 0 0 64px;
-  min-height: 48px;
+  background: url('../images/logouni48.png') no-repeat 0 0;
+  padding: 0;
+  min-height: 50px;
   position: relative;
-  margin: 0;
+  margin: 0; 
 }
-header h1 a {text-decoration: none;color: #333333}
+header h1 a {text-decoration: none;color: #333333; text-indent: -9999px; display: block}
 header h1 span {
+  margin-left: 97px;
   font-size: small;
   font-weight: normal;
   display: block;
