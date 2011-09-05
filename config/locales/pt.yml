@@ -290,6 +290,8 @@ pt:
   IsActive: "Ativo?"
   Yes: "Sim"
   No: "Não"
+  BooleanYes: "Sim"
+  BooleanNo: "Não"
   AddDisciplineToCurriculum: "Adicionar Disciplina à Grade Curricular"
   UserPasswordNotFound: "Usuário/Senha não encontrados"
   Credits: "Créditos"

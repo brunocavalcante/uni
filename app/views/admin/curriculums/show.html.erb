@@ -4,8 +4,8 @@
   <header>
     <h2><%= t 'Curriculum' %></h2>
     <ul id="toolbar">
-      <li><%= link_to (t 'Back'), nil, :class => 'back' %></li>
-      <li><%= link_to (t 'Edit'), {:action => 'edit', :id => 1}, :class => 'edit' %></li>
+      <li><%= link_to (t 'Back'), {:action => 'index'}, :class => 'back' %></li>
+      <li><%= link_to (t 'Edit'), {:action => 'edit', :id => @curriculum.id}, :class => 'edit' %></li>
       <li><%= link_to (t 'AddDiscipline'), new_admin_course_curriculum_discipline_path(@course, @curriculum), :class => 'new' %></li>
     </ul>
   </header>
@@ -13,19 +13,15 @@
   <p id="notice"><%= notice %></p>
 
   <p>
-    <b><%= t 'Code' %>:</b> 20081
+    <b><%= t 'Code' %>:</b> <%= @curriculum.id %>
   </p>
   
   <p>
-    <b><%= t 'Name' %>:</b> 2008.1
+    <b><%= t 'Name' %>:</b> <%= @curriculum.name %>
   </p>
   
   <p>
-    <b><%= t 'Date' %>:</b> 01/01/2008
-  </p>
-
-  <p>
-    <b><%= t 'Active' %>:</b> <%= t 'Yes' %>
+    <b><%= t 'Active' %>:</b> <%= @curriculum.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %>
   </p>
   
   <h3><%= t 'Disciplines' %></h3>
@@ -39,42 +35,14 @@
       </tr>
     </thead>
     <tbody>
+      <% @curriculum.disciplines.each do |discipline| %>
       <tr>
-        <td>T001</td>
-        <td>Algoritmos e Estruturas de Dados I</td>
+        <td><%= discipline.id %></td>
+        <td><%= link_to discipline.name, [:admin, @course, @curriculum, discipline] %></td>
         <td>1</td>
-        <td>20</td>
+        <td><%= discipline.credits %></td>
       </tr>
-      <tr>
-        <td>T002</td>
-        <td>História Matemática</td>
-        <td>1</td>
-        <td>40</td>
-      </tr>
-      <tr>
-        <td>T003</td>
-        <td>Matemática Discreta</td>
-        <td>1</td>
-        <td>20</td>
-      </tr>
-      <tr>
-        <td>T004</td>
-        <td>Introdução à Sistemas de Informação</td>
-        <td>2</td>
-        <td>40</td>
-      </tr>
-      <tr>
-        <td>T005</td>
-        <td>Contabilidade</td>
-        <td>2</td>
-        <td>40</td>
-      </tr>
-      <tr>
-        <td>T005</td>
-        <td>Programação com Orientação à Objetos</td>
-        <td>2</td>
-        <td>40</td>
-      </tr>
+      <% end %>
     </tbody>
   </table>
 </article>

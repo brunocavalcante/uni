@@ -9,4 +9,10 @@ class Admin::CurriculumDisciplinesController < ApplicationController
   
   def new
   end
+  
+  def show
+    @course = Course.find(params[:course_id])
+    @curriculum = Curriculum.find(params[:curriculum_id])
+    @curriculum_discipline = CurriculumDiscipline.find(params[:id])
+  end
 end

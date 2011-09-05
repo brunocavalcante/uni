@@ -80,6 +80,8 @@ en:
   IsActive: "Active?"
   Yes: "Yes"
   No: "No"
+  BooleanYes: "Yes"
+  BooleanNo: "No"
   AddDisciplineToCurriculum: "Add Discipline to Curriculum"
   UserPasswordNotFound: "User/Password not found"
   Credits: "Credits"

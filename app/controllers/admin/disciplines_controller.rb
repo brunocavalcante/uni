@@ -50,7 +50,8 @@ class Admin::DisciplinesController < ApplicationController
   # POST /disciplines.xml
   def create
     @discipline = Discipline.new(params[:discipline])
-    @discipline.courses = [@course]
+    @discipline.course = @course
+    @discipline.version = 1
     
     respond_to do |format|
       if @discipline.save
@@ -68,10 +69,6 @@ class Admin::DisciplinesController < ApplicationController
   def update
     @discipline = Discipline.find(params[:id])
 
-    if !@discipline.course_ids.include?(@course.id)
-      @discipline.courses << @course
-    end
-
     respond_to do |format|
       if @discipline.update_attributes(params[:discipline])
         format.html { redirect_to([:admin, @course, @discipline], :notice => 'Discipline was successfully updated.') }
@@ -87,12 +84,7 @@ class Admin::DisciplinesController < ApplicationController
   # DELETE /disciplines/1.xml
   def destroy
     @discipline = Discipline.find(params[:id])
-    
-    if (@discipline.courses.size == 1)
-      @discipline.destroy
-    else
-      CourseDiscipline.delete_all ['course_id = ? and discipline_id = ?', @course.id, @discipline.id]
-    end
+    @discipline.destroy
     
     respond_to do |format|
       format.html { redirect_to(admin_course_disciplines_url(@course)) }

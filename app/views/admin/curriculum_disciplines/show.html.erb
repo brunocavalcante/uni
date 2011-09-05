@@ -1,0 +1,9 @@
+<h1><%= @course.name %></h1>
+<%= render :partial => 'admin/courses/menu', :locals => {:course => @course} %>
+<article>
+  <header>
+    <h2><%= t 'AddDisciplineToCurriculum' %></h2>
+    <ul id="toolbar">
+      <li><%= link_to (t 'Back'), admin_course_curriculum_path(@course, @curriculum), :class => 'back' %></li>
+  </header>
+</article>
