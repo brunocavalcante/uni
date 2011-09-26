@@ -35,6 +35,8 @@ class Admin::StudentsController < ApplicationController
   # POST /students
   def create
     @student = Student.new(params[:student])
+    @student.person.password = Digest::MD5.hexdigest(@student.c)
+    @student.person.roles = [Role.find_by_name('Student')]
     
     if @student.save
       redirect_to([:admin, @student], :notice => 'Student was successfully created.')
@@ -61,7 +63,7 @@ class Admin::StudentsController < ApplicationController
 
   # DELETE /students/1
   def destroy
-    @student = Student.find_by_matricula(params[:id])
+    @student = Student.find_by_code(params[:id])
     @student.destroy
 
     redirect_to(admin_students_url)

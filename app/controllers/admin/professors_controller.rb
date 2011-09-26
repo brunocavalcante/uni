@@ -1,3 +1,5 @@
+require 'digest/md5'
+
 class Admin::ProfessorsController < ApplicationController
   # GET /professors
   def index
@@ -35,6 +37,8 @@ class Admin::ProfessorsController < ApplicationController
   # POST /professors
   def create
     @professor = Professor.new(params[:professor])
+    @professor.person.password = Digest::MD5.hexdigest(@professor.person.email)
+    @professor.person.roles = [Role.find_by_name('Professor')]
     
     if @professor.save
       redirect_to([:admin, @professor], :notice => 'Professor was successfully created.')
