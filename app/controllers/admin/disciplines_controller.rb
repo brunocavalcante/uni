@@ -9,7 +9,7 @@ class Admin::DisciplinesController < ApplicationController
   # GET /disciplines.xml
   def index
     @disciplines = Discipline.paginate :conditions => ['course_id = ?', params[:course_id]], 
-                                       :page => params[:page]
+                                       :page => params[:page], :order => 'name ASC, version ASC'
     
     respond_to do |format|
       format.html # index.html.erb
@@ -68,10 +68,13 @@ class Admin::DisciplinesController < ApplicationController
   # PUT /disciplines/1.xml
   def update
     @discipline = Discipline.find(params[:id])
+    @new_discipline = Discipline.new(params[:discipline])
+    @new_discipline.course = @discipline.course
+    @new_discipline.version = @discipline.version + 1
 
     respond_to do |format|
-      if @discipline.update_attributes(params[:discipline])
-        format.html { redirect_to([:admin, @course, @discipline], :notice => 'Discipline was successfully updated.') }
+      if @new_discipline.save
+        format.html { redirect_to([:admin, @course, @new_discipline], :notice => 'Discipline was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

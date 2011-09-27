@@ -17,7 +17,7 @@
     <tbody>
       <% @curriculums.each do |curriculum| %>
       <tr>
-        <td><%= curriculum.id %></td>
+        <td><%= curriculum.code %></td>
         <td><%= link_to curriculum.name, [:admin, @course, curriculum] %></td>
         <td><%= curriculum.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %></td>
       </tr>

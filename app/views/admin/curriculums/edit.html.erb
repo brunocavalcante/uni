@@ -4,27 +4,13 @@
   <header>
     <h2><%= t 'Edit' %> <%= t 'Curriculum' %></h2>
     <ul id="toolbar">
-      <li><%= link_to (t 'Show'), nil, :class => 'show' %></li>
-      <li><%= link_to (t 'Back'), nil, :class => 'back' %></li>
+      <li><%= link_to (t 'Show'), [:admin, @course, @curriculum], :class => 'show' %></li>
+      <li><%= link_to (t 'Back'), [:admin, @course, @curriculum], :class => 'back' %></li>
     </ul>
   </header>
 
   <p id="notice"><%= notice %></p>
 
-  <p>
-    <label><%= t 'Code' %></label><br />
-    <input type="text" />
-  </p>
-  
-  <p>
-    <label><%= t 'Name' %></label><br />
-    <input type="text" />
-  </p>
-
-  <p>
-    <label><%= t 'IsActive' %></label> <input type="checkbox" />
-  </p> 
-  
-  <p><input type="submit" /></p>
+  <%= render 'form' %>
 
 </article>

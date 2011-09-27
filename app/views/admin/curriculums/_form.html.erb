@@ -19,6 +19,12 @@
     <%= f.label :name, (t 'Name') %><br />
     <%= f.text_field :name %>
   </p>
+  <% if @curriculum.id %>
+  <p>
+    <%= f.label :active, (t 'IsActive') %><br />
+    <%= f.check_box :active %>
+  </p>
+  <% end %>
   
   <div class="actions">
     <%= f.submit %>

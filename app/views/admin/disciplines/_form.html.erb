@@ -13,7 +13,7 @@
 
   <p>
     <%= f.label :code, (t 'Code') %><br />
-    <%= f.text_field :code %>
+    <%= f.text_field :code, :disabled => (@discipline.id) %>
   </p>
   <p>
     <%= f.label :name, (t 'Name') %><br />

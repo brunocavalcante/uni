@@ -29,14 +29,14 @@
 
   <p>
     <b><%= t 'Version' %>:</b>
-    <%= @discipline.version %>
+    <%= @discipline.version_fullname %>
   </p>
   
   <h3><%= t 'Versions' %></h3>
   <ul>
-    <li><%= link_to '1' %></li>
-    <li><%= link_to '2' %></li>
-    <li><%= link_to '3' %></li>
+    <% @discipline.versions.each do |discipline| %>
+    <li><%= link_to discipline.version_fullname, [:admin, @course, discipline] %></li>
+    <% end %>
   </ul>
 
 </article>

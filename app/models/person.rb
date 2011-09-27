@@ -3,4 +3,6 @@ class Person < ActiveRecord::Base
   has_many :roles, :through => :personroles
   has_many :sites
   has_attached_file :photo, :styles => { :medium => "180x240#", :thumb => "100x100#" }
+  
+  validates :name, :presence => true
 end
