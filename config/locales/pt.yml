@@ -322,6 +322,7 @@ pt:
   Messages: "Mensagens"
   Type: "Tipo"
   Size: "Tamanho"
+  AddSelected: "Adicionar Itens Selecionados"
   
   url:
     uni: "Uni"

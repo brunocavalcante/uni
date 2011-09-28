@@ -22,6 +22,10 @@ class Admin::CurriculumsController < ApplicationController
   # GET /curriculums/1.xml
   def show
     @curriculum = Curriculum.find(params[:id])
+    @curriculum_disciplines = CurriculumDiscipline.paginate :conditions => ['curriculum_id = ?', params[:id]],
+                                                            :include => ['discipline'], 
+                                                            :page => params[:page], 
+                                                            :order => 'disciplines.name ASC'
 
     respond_to do |format|
       format.html # show.html.erb

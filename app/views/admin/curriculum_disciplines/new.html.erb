@@ -6,4 +6,35 @@
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), admin_course_curriculum_path(@course, @curriculum), :class => 'back' %></li>
   </header>
+  
+  <%= form_tag({:action => 'create'}) do %>
+    <div class="actions">
+      <%= submit_tag (t 'AddSelected') %>
+    </div>
+    
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th><%= t 'Code' %></th>
+          <th><%= t 'Name' %></th>
+          <th><%= t 'Credits' %></th>
+          <th><%= t 'Version' %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @disciplines.each do |discipline| %>
+        <tr>
+          <td><%= check_box_tag 'disciplines[]', discipline.id %></td>
+          <td><%= discipline.code %></td>
+          <td><%= link_to discipline.name, [:admin, @course, discipline] %></td>
+          <td><%= discipline.credits %></td>
+          <td><%= discipline.version %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+    <%= will_paginate @disciplines %>
+  <% end %>
 </article>

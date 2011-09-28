@@ -117,6 +117,7 @@ en:
   Messages: "Menssages"
   Type: "Type"
   Size: "Size"
+  AddSelected: "Add Selected Items"
   
   url:
     uni: "Uni"

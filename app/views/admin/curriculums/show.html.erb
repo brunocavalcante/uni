@@ -35,14 +35,16 @@
       </tr>
     </thead>
     <tbody>
-      <% @curriculum.disciplines.each do |discipline| %>
+      <% @curriculum_disciplines.each do |curriculum_discipline| %>
       <tr>
-        <td><%= discipline.id %></td>
-        <td><%= link_to discipline.name, [:admin, @course, @curriculum, discipline] %></td>
+        <td><%= curriculum_discipline.discipline.code %></td>
+        <td><%= link_to curriculum_discipline.discipline.name, admin_course_curriculum_discipline_path(@course, @curriculum, curriculum_discipline) %></td>
         <td>1</td>
-        <td><%= discipline.credits %></td>
+        <td><%= curriculum_discipline.discipline.credits %></td>
       </tr>
       <% end %>
     </tbody>
   </table>
+  
+  <%= will_paginate @curriculum_disciplines %>
 </article>
