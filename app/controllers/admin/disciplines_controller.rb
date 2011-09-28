@@ -8,8 +8,13 @@ class Admin::DisciplinesController < ApplicationController
   # GET /disciplines
   # GET /disciplines.xml
   def index
-    @disciplines = Discipline.paginate :conditions => ['course_id = ?', params[:course_id]], 
-                                       :page => params[:page], :order => 'name ASC, version ASC'
+    @disciplines = Discipline.paginate :conditions => ['course_id = ? AND 
+                                                       version = (SELECT MAX(version) 
+                                                                  FROM disciplines d2 
+                                                                  WHERE d2.code = disciplines.code)', 
+                                                       params[:course_id]], 
+                                       :page => params[:page], 
+                                       :order => 'name ASC, version ASC'
     
     respond_to do |format|
       format.html # index.html.erb
