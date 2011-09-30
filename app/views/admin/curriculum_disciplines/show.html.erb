@@ -2,8 +2,32 @@
 <%= render :partial => 'admin/courses/menu', :locals => {:course => @course} %>
 <article>
   <header>
-    <h2><%= t 'AddDisciplineToCurriculum' %></h2>
+    <h2><%= @curriculum.name %>: <%= @curriculum_discipline.discipline.name %></h2>
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), admin_course_curriculum_path(@course, @curriculum), :class => 'back' %></li>
+      <li><%= link_to (t 'Edit'), edit_admin_course_curriculum_discipline_path(@course, @curriculum, @curriculum_discipline), :class => 'edit' %></li>
+    </ul>
   </header>
+  
+  <p>
+    <b><%= t 'Curriculum' %>:</b> <%= @curriculum.name %>
+  </p>
+  
+  <p>
+    <b><%= t 'Module' %>:</b> <%= @curriculum_discipline.module %>
+  </p>
+  
+  <h3><%= t 'Discipline' %></h3>
+  
+  <p>
+    <b><%= t 'Code' %>:</b> <%= @curriculum_discipline.discipline.code %>
+  </p>
+  
+  <p>
+    <b><%= t 'Name' %>:</b> <%= @curriculum_discipline.discipline.name %>
+  </p>
+  
+  <p>
+    <b><%= t 'Version' %>:</b> <%= @curriculum_discipline.discipline.version_fullname %>
+  </p>
 </article>

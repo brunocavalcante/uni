@@ -7,9 +7,10 @@ class Admin::CurriculumDisciplinesController < ApplicationController
   end
   
   def new
+    @curriculum_disciplines = @curriculum.disciplines
     @disciplines = Discipline.paginate :conditions => ['course_id = ? AND id NOT IN (?)', 
                                                        params[:course_id], 
-                                                       @curriculum.disciplines.map(&:id)], 
+                                                       @curriculum_disciplines.size > 0 ? @curriculum_disciplines.map(&:id) : 0], 
                                        :page => params[:page], 
                                        :order => 'name ASC, version ASC'
   end
