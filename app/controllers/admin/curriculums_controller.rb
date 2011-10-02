@@ -25,7 +25,7 @@ class Admin::CurriculumsController < ApplicationController
     @curriculum_disciplines = CurriculumDiscipline.paginate :conditions => ['curriculum_id = ?', params[:id]],
                                                             :include => ['discipline'], 
                                                             :page => params[:page], 
-                                                            :order => 'disciplines.name ASC'
+                                                            :order => 'module ASC, disciplines.name ASC'
 
     respond_to do |format|
       format.html # show.html.erb

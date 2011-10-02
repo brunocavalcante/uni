@@ -24,7 +24,7 @@ Course.create([{ :code => 'SI', :name => 'Sistemas de Informação', :course_cat
               { :code => 'NI', :name => 'Negócios Imobiliários', :course_category => CourseCategory.first }, 
               { :code => 'DG', :name => 'Design Gráfico', :course_category => CourseCategory.first }])
 @si = Course.find_by_name('Sistemas de Informação');
-Curriculum.create([{ :name => '2008', :course => @si }])
+Curriculum.create([{ :code => '20081', :name => '2008.1', :course => @si }])
 Discipline.create([{ :code => 'N011', :name => 'Cálculo Diferencial e Integral', :course => @si, :version => 1, :curriculums => [Curriculum.first] }, 
                    { :code => 'T009', :name => 'Computação Básica', :course => @si, :version => 1, :curriculums => [Curriculum.first] }, 
                    { :code => 'T019', :name => 'Fundamentos de Sistemas de Informação', :course => @si, :version => 1, :curriculums => [Curriculum.first] }, 

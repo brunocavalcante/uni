@@ -1,0 +1,22 @@
+<%= form_for([:admin, @course, @curriculum, @curriculum_discipline]) do |f| %>
+  <% if @curriculum_discipline.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@curriculum_discipline.errors.count, "error") %> prohibited this object from being saved:</h2>
+
+      <ul>
+      <% @curriculum_discipline.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label (t 'Module') %><br />
+    <%= f.text_field :module %>
+  </p>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

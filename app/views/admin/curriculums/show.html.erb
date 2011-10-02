@@ -6,7 +6,7 @@
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), {:action => 'index'}, :class => 'back' %></li>
       <li><%= link_to (t 'Edit'), {:action => 'edit', :id => @curriculum.id}, :class => 'edit' %></li>
-      <li><%= link_to (t 'AddDiscipline'), new_admin_course_curriculum_discipline_path(@course, @curriculum), :class => 'new' %></li>
+      <li><%= link_to (t 'AddDiscipline'), new_admin_course_curriculum_curriculum_discipline_path(@course, @curriculum), :class => 'new' %></li>
     </ul>
   </header>
 
@@ -38,8 +38,8 @@
       <% @curriculum_disciplines.each do |curriculum_discipline| %>
       <tr>
         <td><%= curriculum_discipline.discipline.code %></td>
-        <td><%= link_to curriculum_discipline.discipline.name, admin_course_curriculum_discipline_path(@course, @curriculum, curriculum_discipline) %></td>
-        <td>1</td>
+        <td><%= link_to curriculum_discipline.discipline.name, admin_course_curriculum_curriculum_discipline_path(@course, @curriculum, curriculum_discipline) %></td>
+        <td><%= curriculum_discipline.module %></td>
         <td><%= curriculum_discipline.discipline.credits %></td>
       </tr>
       <% end %>

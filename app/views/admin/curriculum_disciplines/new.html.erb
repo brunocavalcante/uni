@@ -8,6 +8,11 @@
   </header>
   
   <%= form_tag({:action => 'create'}) do %>
+    <p>
+      <%= label_tag :module, (t 'Module') %><br />
+      <%= text_field_tag :module %>
+    </p>
+  
     <div class="actions">
       <%= submit_tag (t 'AddSelected') %>
     </div>

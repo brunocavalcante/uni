@@ -9,9 +9,10 @@ class Admin::DisciplinesController < ApplicationController
   # GET /disciplines.xml
   def index
     @disciplines = Discipline.paginate :conditions => ['course_id = ? AND 
-                                                       version = (SELECT MAX(version) 
+                                                       (version = (SELECT MAX(version) 
                                                                   FROM disciplines d2 
-                                                                  WHERE d2.code = disciplines.code)', 
+                                                                  WHERE d2.code = disciplines.code) OR 
+                                                        version IS NULL)', 
                                                        params[:course_id]], 
                                        :page => params[:page], 
                                        :order => 'name ASC, version ASC'
@@ -74,6 +75,7 @@ class Admin::DisciplinesController < ApplicationController
   def update
     @discipline = Discipline.find(params[:id])
     @new_discipline = Discipline.new(params[:discipline])
+    @new_discipline.code = @discipline.code
     @new_discipline.course = @discipline.course
     @new_discipline.version = @discipline.version + 1
 

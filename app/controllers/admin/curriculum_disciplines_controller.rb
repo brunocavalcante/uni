@@ -16,7 +16,13 @@ class Admin::CurriculumDisciplinesController < ApplicationController
   end
   
   def create
-    @curriculum.discipline_ids = params[:disciplines]
+    params[:disciplines].each do |discipline_id|
+      @curriculum_discipline = CurriculumDiscipline.new
+      @curriculum_discipline.discipline_id = discipline_id
+      @curriculum_discipline.curriculum_id = @curriculum.id
+      @curriculum_discipline.module = params[:module]
+      @curriculum.curriculum_disciplines << @curriculum_discipline
+    end
     
     respond_to do |format|
       if @curriculum.save
@@ -30,8 +36,24 @@ class Admin::CurriculumDisciplinesController < ApplicationController
   end
   
   def show
-    @course = Course.find(params[:course_id])
-    @curriculum = Curriculum.find(params[:curriculum_id])
     @curriculum_discipline = CurriculumDiscipline.find(params[:id])
+  end
+  
+  def edit
+    @curriculum_discipline = CurriculumDiscipline.find(params[:id])
+  end
+  
+  def update
+    @curriculum_discipline = CurriculumDiscipline.find(params[:id])
+    
+    respond_to do |format|
+      if @curriculum_discipline.update_attributes(params[:curriculum_discipline])
+        format.html { redirect_to([:admin, @course, @curriculum, @curriculum_discipline], :notice => 'Object was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @curriculum_discipline.errors, :status => :unprocessable_entity }
+      end
+    end
   end
 end

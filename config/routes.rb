@@ -12,7 +12,7 @@ Uni::Application.routes.draw do
           end
         end
         resources :curriculums do 
-          resources :curriculum_disciplines, :as => 'disciplines'
+          resources :curriculum_disciplines
         end
         resources :course_students, :as => 'students', :only => [:index]
     end
