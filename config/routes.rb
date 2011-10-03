@@ -19,7 +19,9 @@ Uni::Application.routes.draw do
     resources :professors
     resources :students
     resources :academic_periods do
-      resources :lectures
+      resources :lectures do 
+        resources :lecture_students
+      end
     end
     resources :parameters do 
       collection do

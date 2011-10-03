@@ -39,6 +39,9 @@ class Admin::LecturesController < ApplicationController
   
   def show
     @lecture = Lecture.find(params[:id])
+    @lecture_students = LectureStudent.paginate :conditions => ['lecture_id = ?', params[:id]], 
+                                       :include => [{:student => :person}],  
+                                       :page => params[:page]
     
     respond_to do |format|
       format.html # show.html.erb

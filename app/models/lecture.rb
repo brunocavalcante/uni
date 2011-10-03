@@ -7,4 +7,8 @@ class Lecture < ActiveRecord::Base
   validates :discipline_id, :presence => true
   validates :professor_id, :presence => true
   validates :academic_period_id, :presence => true
+  
+  def name
+    discipline.name
+  end
 end
