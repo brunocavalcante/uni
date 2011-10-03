@@ -1,7 +1,12 @@
 <h1><%= @course.name %></h1>
 <%= render :partial => 'admin/courses/menu', :locals => { :course => @course } %>
 <article>
-  <h2>Alunos</h2>
+  <header>
+    <h2><%= t 'Students' %></h2>
+    <ul id="toolbar">
+      <li><%= link_to ((t 'Add') + ' ' + (t 'Student')), new_admin_course_course_student_path, :class => 'new'  %></li>
+    </ul>
+  </header>
   
   <form>
     <p>
@@ -13,26 +18,18 @@
   <table>
     <thead>
       <tr>
-        <th>Matrícula</th>
-        <th>Nome</th>
+        <th><%= t 'Code' %></th>
+        <th><%= t 'Name' %></th>
       </tr>
     </thead>
 
-    <% @aluno = Student.first %>  
-
     <tbody>
+      <% @curriculum_students.each do |curriculum_student| %>
       <tr>
-        <td>029298101</td>
-        <td><%= link_to 'Nome do aluno A', [:admin, @aluno] %></td>
+        <td><%= curriculum_student.student.code %></td>
+        <td><%= link_to curriculum_student.student.person.name %></td>
       </tr>
-      <tr>
-        <td>029218101</td>
-        <td><%= link_to 'Nome do aluno B', [:admin, @aluno] %></td>
-      </tr>
-      <tr>
-        <td>029238101</td>
-        <td><%= link_to 'Nome do aluno C', [:admin, @aluno] %></td>
-      </tr>
+      <% end %>
     </tbody>
   </table>
 </article>

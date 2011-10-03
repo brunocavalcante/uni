@@ -118,6 +118,7 @@ en:
   Type: "Type"
   Size: "Size"
   AddSelected: "Add Selected Items"
+  Add: "Add"
   
   url:
     uni: "Uni"

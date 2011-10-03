@@ -323,6 +323,7 @@ pt:
   Type: "Tipo"
   Size: "Tamanho"
   AddSelected: "Adicionar Itens Selecionados"
+  Add: "Adicionar"
   
   url:
     uni: "Uni"

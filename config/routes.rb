@@ -14,7 +14,7 @@ Uni::Application.routes.draw do
         resources :curriculums do 
           resources :curriculum_disciplines
         end
-        resources :course_students, :as => 'students', :only => [:index]
+        resources :course_students
     end
     resources :professors
     resources :students
