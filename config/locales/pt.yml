@@ -254,7 +254,8 @@ pt:
   CurrentTestsAndAbscences: "Notas e Faltas Atuais"
   TestsAndAbscences: "Notas e Faltas"
   ForgotYourPassword: "Esqueceu a senha?"
-  Classes: "Turmas"
+  Lectures: "Turmas"
+  Lecture: "Turma"
   Registration: "Matrícula"
   Welcome: "Bem-vindo!"
   EmailOrStudentId: "E-mail ou Matrícula"
@@ -324,6 +325,7 @@ pt:
   Size: "Tamanho"
   AddSelected: "Adicionar Itens Selecionados"
   Add: "Adicionar"
+  Places: "Vagas"
   
   url:
     uni: "Uni"
@@ -350,3 +352,4 @@ pt:
     tests_and_abscences: "Notas e Faltas"
     transcripts: "Histórico Escolar"
     timetable: "Quadro de Horários"
+    lectures: "Turmas"

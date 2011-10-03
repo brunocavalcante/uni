@@ -1,0 +1,40 @@
+<h1><%= @academic_period.name %></h1>
+<%= render :partial => 'admin/academic_periods/menu', :locals => {:academic_period => @academic_period} %>
+<article>
+  <header>
+    <h2><%= t 'Lecture' %>: <%= @lecture.discipline.name %></h2>
+    <ul id="toolbar">
+      <li><%= link_to (t 'Back'), {:action => 'index'}, :class => 'back' %></li>
+      <li><%= link_to (t 'Edit'), {:action => 'edit', :id => @lecture.id}, :class => 'edit' %></li>
+      <li><%= button_to (t 'Delete'), [:admin, @academic_period, @lecture], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
+    </ul>
+  </header>
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <b><%= t 'Code' %>:</b> <%= @lecture.code %>
+  </p>
+  
+  <p>
+    <b><%= t 'Places' %>:</b> <%= @lecture.places %>
+  </p>
+  
+  <p>
+    <b><%= t 'Professor' %>:</b> <%= @lecture.professor.person.name %>
+  </p>
+  
+  <h3><%= t 'Discipline' %></h3>
+  
+  <p>
+    <b><%= t 'Code' %>:</b> <%= @lecture.discipline.code %>
+  </p>
+  
+  <p>
+    <b><%= t 'Name' %>:</b> <%= @lecture.discipline.name %>
+  </p>
+  
+  <p>
+    <b><%= t 'Version' %>:</b> <%= @lecture.discipline.version_fullname %>
+  </p>
+</article>

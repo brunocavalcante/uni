@@ -1,0 +1,12 @@
+<h1><%= @academic_period.name %></h1>
+<%= render :partial => 'admin/academic_periods/menu', :locals => {:academic_period => @academic_period} %>
+<article>
+  <header>
+    <h2><%= t 'New' %> <%= t 'Lecture' %></h2>
+    <ul id="toolbar">
+      <li><%= link_to (t 'Back'), admin_academic_period_lectures_path(@academic_period), :class => 'back' %></li>
+    </ul>
+  </header>
+
+  <%= render 'form' %>
+</article>

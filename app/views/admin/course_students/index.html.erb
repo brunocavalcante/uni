@@ -20,6 +20,7 @@
       <tr>
         <th><%= t 'Code' %></th>
         <th><%= t 'Name' %></th>
+        <th><%= t 'Curriculum' %></th>
       </tr>
     </thead>
 
@@ -27,7 +28,8 @@
       <% @curriculum_students.each do |curriculum_student| %>
       <tr>
         <td><%= curriculum_student.student.code %></td>
-        <td><%= link_to curriculum_student.student.person.name %></td>
+        <td><%= link_to curriculum_student.student.person.name, admin_student_path(curriculum_student.student) %></td>
+        <td><%= link_to curriculum_student.curriculum.name, admin_course_curriculum_path(@course, curriculum_student.curriculum) %></td>
       </tr>
       <% end %>
     </tbody>

@@ -44,7 +44,8 @@ en:
   Password: "Password"
   LogIn: "Submit"
   ForgotYourPassword: "Forgot your password?"
-  Classes: "Classes"
+  Lectures: "Classes"
+  Lecture: "Class"
   Registration: "Registration"
   Welcome: "Welcome!"
   EmailOrStudentId: "Email or Student ID"
@@ -119,6 +120,7 @@ en:
   Size: "Size"
   AddSelected: "Add Selected Items"
   Add: "Add"
+  Places: "Places"
   
   url:
     uni: "Uni"
@@ -145,3 +147,4 @@ en:
     tests_and_abscences: "Tests and Abscences"
     transcripts: "Transcripts"
     timetable: "Timetable"
+    lectures: "Classes"

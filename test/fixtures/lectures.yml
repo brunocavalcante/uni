@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  discipline_id: 1
+  professor_id: 1
+  academic_period_id: 1
+  code: MyString
+  places: 1
+
+two:
+  discipline_id: 1
+  professor_id: 1
+  academic_period_id: 1
+  code: MyString
+  places: 1

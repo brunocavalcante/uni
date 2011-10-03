@@ -1,0 +1,37 @@
+<%= form_for([:admin, @academic_period, @lecture]) do |f| %>
+  <% if @lecture.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lecture.errors.count, "error") %> prohibited this curriculum from being saved:</h2>
+
+      <ul>
+      <% @lecture.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= label_tag :discipline_code, (t 'Discipline') %><br />
+    <%= text_field_tag :discipline_code, @lecture.discipline ? @lecture.discipline.code : nil %>
+  </p>
+  
+  <p>
+    <%= f.label :professor_id, (t 'Professor') %><br />
+    <%= f.text_field :professor_id %>
+  </p>
+  
+  <p>
+    <%= f.label :code, (t 'Code') %><br />
+    <%= f.text_field :code %>
+  </p>
+  
+  <p>
+    <%= f.label :places, (t 'Places') %><br />
+    <%= f.text_field :places %>
+  </p>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

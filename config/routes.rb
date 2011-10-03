@@ -18,7 +18,9 @@ Uni::Application.routes.draw do
     end
     resources :professors
     resources :students
-    resources :academic_periods
+    resources :academic_periods do
+      resources :lectures
+    end
     resources :parameters do 
       collection do
         post :update, :as => :update

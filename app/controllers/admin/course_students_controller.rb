@@ -9,7 +9,12 @@ class Admin::CourseStudentsController < ApplicationController
     @curriculum_students = CurriculumStudent.paginate :conditions => ['curriculums.course_id = ?', params[:course_id]], 
                                                       :include => [:curriculum, {:student => :person}], 
                                                       :page => params[:page]
-
+                                                      
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render :xml => @curriculum_students }
+      format.json { render :json => @curriculum_students }
+    end
   end
   
   def new
