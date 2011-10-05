@@ -1,12 +1,22 @@
 class Admin::StudentsController < ApplicationController
   # GET /students
   def index
-    @students = Student.paginate :page => params[:page], :include => ['person'], :order => 'people.name'
+    @students = Student.paginate :conditions => ['people.name ILIKE ? OR code = ?', 
+                                                 '%' + params[:term] + '%', params[:term]], 
+                                 :page => params[:page], 
+                                 :include => ['person'], 
+                                 :order => 'people.name'
+    
+    @students_hash = []
+    @students.each do |student|
+      @students_hash << {"id" => student.code, "label" => student.code + ' - ' + student.name}
+    end
     
     respond_to do |format|
       format.html # show.html.erb
       format.xml { render :xml => @students }
-      format.json { render :json => @students }
+      format.json { render :json => @students.to_json(:include => [:person]) }
+      format.js { render :json => @students_hash }
     end
   end
 

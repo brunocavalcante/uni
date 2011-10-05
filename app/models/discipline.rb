@@ -9,6 +9,8 @@ class Discipline < ActiveRecord::Base
   validates :name, :presence => true
   validates :version, :presence => true
   
+  validates_uniqueness_of :code, :scope => :version
+  
   def versions
     Discipline.find(:all, :conditions => ["code = ? and course_id = ?", code, course.id])
   end

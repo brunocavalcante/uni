@@ -169,24 +169,23 @@ button, input[type=submit], input[type=reset] {padding: 0.5em 2em}
   display: table;
 }
 #error_explanation {
-  width: 450px;
-  border: 2px solid red;
-  padding: 7px;
   padding-bottom: 0;
-  margin-bottom: 20px;
+  margin-bottom: 1.5%;
   background-color: #f0f0f0;
+  float: left;
+  width: 100%;
 }
-#error_explanation h2 {
+#content #error_explanation h2 {
+  font-size: 0.8em;
   text-align: left;
   font-weight: bold;
-  padding: 5px 5px 5px 15px;
-  font-size: 12px;
-  margin: -7px;
-  margin-bottom: 0px;
+  margin: 0;
   background-color: #c00;
   color: #fff;
+  text-shadow: none;
+  padding: 0.5em 0.5em 0.5em 1.5em;
 }
-#error_explanation ul li {font-size: 12px; list-style: square;}
+#error_explanation ul li {font-size: 0.8em; list-style: square;}
 
 /* Login */
 article#login, aside#login-splash {margin-top: 2%; margin-bottom: 1%;}

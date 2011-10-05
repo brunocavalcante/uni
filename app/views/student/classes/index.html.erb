@@ -8,30 +8,12 @@
     </tr>
   </thead>
   <tbody>
+    <% for lecture in @lectures do %>
     <tr>
-      <td>SI036</td>
-      <td><%= link_to 'Matemática', {:action => 'show', :id => 1} %></td>
-      <td>7ª Série</td>
+      <td><%= lecture.code %></td>
+      <td><%= link_to lecture.name, {:action => 'show', :id => lecture.id} %></td>
+      <td><%= lecture.discipline.course.name %></td>
     </tr>
-    <tr>
-      <td>AD015</td>
-      <td><%= link_to 'Português', {:action => 'show', :id => 1} %></td>
-      <td>7ª Série</td>
-    </tr>
-    <tr>
-      <td>AD027</td>
-      <td><%= link_to 'Geografia', {:action => 'show', :id => 1} %></td>
-      <td>7ª Série</td>
-    </tr>
-    <tr>
-      <td>SI072</td>
-      <td><%= link_to 'História', {:action => 'show', :id => 1} %></td>
-      <td>7ª Série</td>
-    </tr>
-    <tr>
-      <td>SI051</td>
-      <td><%= link_to 'Biologia', {:action => 'show', :id => 1} %></td>
-      <td>7ª Série</td>
-    </tr>
+    <% end %>
   </tbody>
 </table>

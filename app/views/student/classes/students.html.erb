@@ -1,4 +1,4 @@
-<h1>Matemática</h1>
+<h1><%= @lecture.name %></h1>
 <%= render :partial => 'menu' %>
 <article>
   <h2><%= t 'Students' %></h2>
@@ -11,59 +11,15 @@
       </tr>
     </thead>
 
-    <% @alunos = Student.all %>
-    <% @aluno = @alunos[0] %>
-    <% @aluno2 = @alunos[1] %>
-
     <tbody>
+      <% for lecture_student in @lecture_students do %>
       <tr>
-        <td>029298101</td>
-        <td><%= link_to 'Nome do aluno A', user_path(@aluno.person) %></td>
+        <td><%= lecture_student.student.code %></td>
+        <td><%= link_to lecture_student.name, user_path(lecture_student.student.person) %></td>
       </tr>
-      <tr>
-        <td>029218102</td>
-        <td><%= link_to 'Nome do aluno B', user_path(@aluno2.person) %></td>
-      </tr>
-      <tr>
-        <td>029258101</td>
-        <td><%= link_to 'Nome do aluno C', user_path(@aluno.person) %></td>
-      </tr>
-      <tr>
-        <td>029292101</td>
-        <td><%= link_to 'Nome do aluno D', user_path(@aluno2.person) %></td>
-      </tr>
-      <tr>
-        <td>029218161</td>
-        <td><%= link_to 'Nome do aluno E', user_path(@aluno.person) %></td>
-      </tr>
-      <tr>
-        <td>029238101</td>
-        <td><%= link_to 'Nome do aluno F', user_path(@aluno2.person) %></td>
-      </tr>
-      <tr>
-        <td>024298101</td>
-        <td><%= link_to 'Nome do aluno G', user_path(@aluno.person) %></td>
-      </tr>
-      <tr>
-        <td>029218101</td>
-        <td><%= link_to 'Nome do aluno H', user_path(@aluno2.person) %></td>
-      </tr>
-      <tr>
-        <td>029218101</td>
-        <td><%= link_to 'Nome do aluno I', user_path(@aluno.person) %></td>
-      </tr>
-      <tr>
-        <td>029208101</td>
-        <td><%= link_to 'Nome do aluno J', user_path(@aluno2.person) %></td>
-      </tr>
-      <tr>
-        <td>029918001</td>
-        <td><%= link_to 'Nome do aluno K', user_path(@aluno.person) %></td>
-      </tr>
-      <tr>
-        <td>029132101</td>
-        <td><%= link_to 'Nome do aluno L', user_path(@aluno2.person) %></td>
-      </tr>
+      <% end %>
     </tbody>
   </table>
+  
+  <%= will_paginate @lecture_students %>
 </article>

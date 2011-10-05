@@ -208,6 +208,9 @@ pt:
       course_category: "Categoria de Curso"
       scholarity: "Escolaridade"
       discipline: "Disciplina"
+    attributes:
+      discipline:
+        code: "Código"
         
   previous: "Página anterior"
   next: "Próxima página"

@@ -4,4 +4,6 @@ class CurriculumStudent < ActiveRecord::Base
   
   validates :curriculum_id, :presence => true
   validates :student_id, :presence => true
+  
+  validates_uniqueness_of :student_id, :scope => :curriculum_id
 end

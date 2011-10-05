@@ -1,13 +1,12 @@
-<h1>Matemática</h1>
+<h1><%= @lecture.name %></h1>
 <%= render :partial => 'menu' %>
 <article>
   <h2><%= t 'Home' %></h2>
   <p>
-    <b><%= t 'ClassCode' %>:</b> 201289
+    <b><%= t 'ClassCode' %>:</b> <%= @lecture.code %>
   </p>
   <p>
-    <% @professor = Professor.first %>
-    <b><%= t 'Professor' %>:</b> <%= link_to @professor.person.name, user_path(@professor.person) %>
+    <b><%= t 'Professor' %>:</b> <%= link_to @lecture.professor.name, user_path(@lecture.professor.person) %>
   </p>
   <p>
     <b><%= t 'TimeTable' %>:</b> SEG 19:00 - 20:40, QUA 19:00 - 20:40

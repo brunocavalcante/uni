@@ -35,9 +35,9 @@
 
 <% if student %>
   <h3><%= t 'CurrentClasses' %></h3>
-  <% if student.lectures.exists?%>
+  <% if student.current_lectures %>
   <ul>
-    <% for lecture in student.lectures %>
+    <% for lecture in student.current_lectures %>
     <li><%= link_to lecture.discipline.name, {:controller => 'student/classes', :action => 'show', :id => lecture.id} %></li>
     <% end %>
   </ul>

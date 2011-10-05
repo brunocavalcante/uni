@@ -4,4 +4,8 @@ class LectureStudent < ActiveRecord::Base
   
   validates :lecture_id, :presence => true
   validates :student_id, :presence => true
+  
+  def name
+    student.name
+  end
 end

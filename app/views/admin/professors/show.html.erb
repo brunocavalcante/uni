@@ -1,6 +1,7 @@
 <header>
   <h1><%= t 'Professor' %></h1>
   <ul id="toolbar">
+    <li><%= link_to (t 'Profile'), user_path(@professor.person), :class => 'person' %></li>
     <li><%= link_to (t 'Edit'), edit_admin_professor_path(@professor), :class => 'edit' %></li> 
     <li><%= button_to (t 'Delete'), [:admin, @professor], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
     <li><%= link_to (t 'Back'), admin_professors_path, :class => 'back' %></li>
