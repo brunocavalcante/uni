@@ -34,12 +34,12 @@
 <% end %>
 
 <% if student %>
-<h3><%= t 'CurrentClasses' %></h3>
-<ul>
-  <li><%= link_to 'Matemática', {:controller => 'student/classes', :action => 'show', :id => 1} %></li>
-  <li><%= link_to 'Português', {:controller => 'student/classes', :action => 'show', :id => 1} %></li>
-  <li><%= link_to 'História', {:controller => 'student/classes', :action => 'show', :id => 1} %></li>
-  <li><%= link_to 'Geografia', {:controller => 'student/classes', :action => 'show', :id => 1} %></li>
-  <li><%= link_to 'Biologia', {:controller => 'student/classes', :action => 'show', :id => 1} %></li>
-</ul>
+  <h3><%= t 'CurrentClasses' %></h3>
+  <% if student.lectures.exists?%>
+  <ul>
+    <% for lecture in student.lectures %>
+    <li><%= link_to lecture.discipline.name, {:controller => 'student/classes', :action => 'show', :id => lecture.id} %></li>
+    <% end %>
+  </ul>
+  <% end%>
 <% end %>

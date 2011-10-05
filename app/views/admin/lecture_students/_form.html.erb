@@ -12,8 +12,8 @@
   <% end %>
 
   <p>
-    <%= f.label :student_id, (t 'Student') %><br />
-    <%= f.text_field :student_id %>
+    <%= label_tag :student_code, (t 'Student') %><br />
+    <%= text_field_tag :student_code %>
   </p>
   
   <% if (@lecture_student.id): %>
