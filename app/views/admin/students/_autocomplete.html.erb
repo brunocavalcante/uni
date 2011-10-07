@@ -1,15 +1,5 @@
 <script language="JavaScript">
   $(document).ready(function() {
-    $('#student_code').after('<input type="hidden" id="student_code" name="student_code" />');
-    $('#student_code').remove()
-    $('#student_code').hide().after('<input type="text" id="student_code_autocomplete" />')
-    
-    $('#student_code_autocomplete').autocomplete({
-      dataType: 'json', 
-      source: '<%= admin_students_path %>.js', 
-      select: function (event, ui) {
-        $('#student_code').val(ui.item.id)
-      }
-    })
+    autocomplete('student_code', '<%= admin_students_path %>.js', '<%= t "Remove" %>')
   });
 </script>

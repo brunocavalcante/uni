@@ -233,3 +233,20 @@ aside#user {width: 180px; height: 240px; padding: 5px}
 .panel-left, .panel-right {width: 48.25%; float: left}
 .panel-left {margin-right: 1.75%}
 .panel-right {margin-left: 1.75%}
+
+/* Autocomplete */
+.ui-autocomplete-input {
+  background-image: url('../images/icons/white/search.png');
+  background-position: 6px center;
+  background-repeat: no-repeat;
+  padding-left: 28px;
+}
+.ui-autocomplete-loading {
+  background-image: url('../images/ajax-loader.gif');
+}
+.ui-autocomplete-success {
+  background-image: url('../images/icons/check.png');
+}
+.ui-autocomplete-error {
+  background-color: #CC0000;
+}
