@@ -10,3 +10,10 @@
 
   <%= render 'form' %>
 </article>
+
+<script language="JavaScript">
+  $(document).ready(function() {
+    autocomplete('discipline_code', '<%= disciplines_path %>.js', '<%= t "Remove" %>')
+    autocomplete('lecture_professor_id', '<%= professors_path %>.js', '<%= t "Remove" %>')
+  });
+</script>

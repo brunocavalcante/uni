@@ -63,6 +63,8 @@ Uni::Application.routes.draw do
   
   resources :password_recovery
   resources :about
+  resources :disciplines
+  resources :professors
   
   match 'login', :to => 'auth#login', :as => "login"
   match 'login/auth', :to => 'auth#authenticate', :as => "authenticate"

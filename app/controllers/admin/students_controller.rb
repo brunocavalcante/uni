@@ -1,8 +1,12 @@
 class Admin::StudentsController < ApplicationController
   # GET /students
   def index
-    @students = Student.paginate :conditions => ['people.name ILIKE ? OR code = ?', 
-                                                 '%' + params[:term] + '%', params[:term]], 
+    @conditions = nil
+    if params[:term]
+      @conditions = ['people.name ILIKE ? OR code = ?', '%' + params[:term] + '%', params[:term]]
+    end
+    
+    @students = Student.paginate :conditions => @conditions, 
                                  :page => params[:page], 
                                  :include => ['person'], 
                                  :order => 'people.name'

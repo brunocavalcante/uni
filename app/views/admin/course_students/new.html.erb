@@ -11,4 +11,8 @@
   <%= render 'form' %>
 </article>
 
-<%= render :partial => 'admin/students/autocomplete' %>
+<script language="JavaScript">
+  $(document).ready(function() {
+    autocomplete('student_code', '<%= admin_students_path %>.js', '<%= t "Remove" %>')
+  });
+</script>
