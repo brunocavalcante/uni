@@ -249,6 +249,8 @@ pt:
   AcademicPeriods: "Períodos Letivos"
   AcademicPeriod: "Período Letivo"
   Reports: "Relatórios"
+  Contract: "Contrato"
+  Contracts: "Contratos"
   Parameters: "Parâmetros"
   UniversityManagementSystem: "Plataforma de Gestão Acadêmica"
   LoggedInAs: "Logado como"
