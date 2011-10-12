@@ -40,10 +40,14 @@ class Admin::ProfessorsController < ApplicationController
     @professor.person.password = Digest::MD5.hexdigest(@professor.person.email)
     @professor.person.roles = [Role.find_by_name('Professor')]
     
-    if @professor.save
-      redirect_to([:admin, @professor], :notice => 'Professor was successfully created.')
-    else
-      redirect_to :action => "new"
+    respond_to do |format|
+      if @professor.save
+        format.html { redirect_to([:admin, @professor], :notice => 'Record was successfully created.') }
+        format.xml  { render :xml => @professor, :status => :created, :location => @professor }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @professor.errors, :status => :unprocessable_entity }
+      end
     end
   end
 
