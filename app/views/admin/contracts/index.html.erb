@@ -1,0 +1,26 @@
+<header>
+  <h1><%= t 'Contracts' %></h1>
+  <ul id="toolbar">
+    <li><%= link_to ((t 'New') + ' ' + (t 'Contract')), new_admin_contract_path, :class => 'new' %></li>
+  </ul>
+</header>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= t 'Code' %></th>
+      <th><%= t 'Student' %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contracts.each do |contract| %>
+    <tr>
+      <td><%= link_to contract.code, [:admin, contract] %></td>
+      <td><%= link_to contract.student.name, [:admin, contract.student] %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @contracts %>
