@@ -49,7 +49,8 @@ class Admin::StudentsController < ApplicationController
   # POST /students
   def create
     @student = Student.new(params[:student])
-    @student.person.password = Digest::MD5.hexdigest(@student.c)
+    raise params.inspect
+    @student.person.password = Digest::MD5.hexdigest(@student.code)
     @student.person.roles = [Role.find_by_name('Student')]
     
     if @student.save
