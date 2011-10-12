@@ -1,15 +1,5 @@
 <%= form_for(@curriculum_student, :url => admin_course_course_students_path) do |f| %>
-  <% if @curriculum_student.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@curriculum_student.errors.count, "error") %> prohibited this curriculum from being saved:</h2>
-
-      <ul>
-      <% @curriculum_student.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.error_messages %>
 
   <p>
     <%= label_tag :student_code, (t 'Student') %><br/>

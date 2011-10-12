@@ -1,15 +1,5 @@
 <%= form_for([:admin, @course_category]) do |f| %>
-  <% if @course_category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@course_category.errors.count, "error") %> prohibited this categoria de curso from being saved:</h2>
-
-      <ul>
-      <% @course_category.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.error_messages %>
 
   <p>
     <%= f.label :name, (t 'Name') %><br />

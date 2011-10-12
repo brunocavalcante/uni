@@ -1,15 +1,5 @@
 <%= form_for([:admin, @academic_period, @lecture]) do |f| %>
-  <% if @lecture.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@lecture.errors.count, "error") %> prohibited this curriculum from being saved:</h2>
-
-      <ul>
-      <% @lecture.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.error_messages %>
 
   <p>
     <%= label_tag :discipline_code, (t 'Discipline') %><br />
