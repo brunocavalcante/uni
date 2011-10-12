@@ -5,6 +5,13 @@ class Professor < ActiveRecord::Base
 
   accepts_nested_attributes_for :person
   
+  validates_presence_of :email
+  validates_presence_of :scholarity
+  
+  def email
+    person.email
+  end
+  
   def name
     person.name
   end

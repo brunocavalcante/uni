@@ -5,4 +5,6 @@ class Curriculum < ActiveRecord::Base
   
   validates :code, :presence => true
   validates :name, :presence => true
+  
+  validates_uniqueness_of :code, :scope => :course_id
 end

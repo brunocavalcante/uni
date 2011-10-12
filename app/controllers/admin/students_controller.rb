@@ -49,13 +49,17 @@ class Admin::StudentsController < ApplicationController
   # POST /students
   def create
     @student = Student.new(params[:student])
-    @student.person.password = Digest::MD5.hexdigest(@student.c)
+    @student.person.password = Digest::MD5.hexdigest(@student.code)
     @student.person.roles = [Role.find_by_name('Student')]
     
-    if @student.save
-      redirect_to([:admin, @student], :notice => 'Student was successfully created.')
-    else
-      redirect_to :action => "new"
+    respond_to do |format|
+      if @student.save
+        format.html { redirect_to([:admin, @student], :notice => 'Record was successfully created.') }
+        format.xml  { render :xml => @student, :status => :created, :location => @course }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @student.errors, :status => :unprocessable_entity }
+      end
     end
   end
 
