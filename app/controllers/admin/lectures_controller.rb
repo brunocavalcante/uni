@@ -24,6 +24,7 @@ class Admin::LecturesController < ApplicationController
     @lecture = Lecture.new(params[:lecture])
     @lecture.academic_period_id = params[:academic_period_id]
     @lecture.discipline = Discipline.find_by_code(params[:discipline_code])
+    @lecture.professor = Professor.find_by_id(params[:lecture_professor_id])
     
     respond_to do |format|
       if @lecture.save

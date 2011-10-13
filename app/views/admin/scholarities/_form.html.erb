@@ -1,15 +1,5 @@
 <%= form_for([:admin, @scholarity]) do |f| %>
-  <% if @scholarity.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@scholarity.errors.count, "error") %> prohibited this scholarity from being saved:</h2>
-
-      <ul>
-      <% @scholarity.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.error_messages %>
 
   <p>
     <%= f.label :name, (t 'Name') %><br />

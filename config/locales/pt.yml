@@ -208,10 +208,34 @@ pt:
       course_category: "Categoria de Curso"
       scholarity: "Escolaridade"
       discipline: "Disciplina"
+      curriculum: "Grade Curricular"
+      curriculum_student: "Aluno"
+      lecture: "Turma"
     attributes:
+      course:
+        code: "Código"
+        name: "Nome"
       discipline:
         code: "Código"
-        
+        name: "Nome"
+      curriculum:
+        code: "Código"
+        name: "Nome"
+      curriculum_student:
+        student_id: "Aluno"
+      academic_period:
+        name: "Nome"
+      course_category:
+        name: "Nome"
+      scholarity:
+        name: "Nome"
+      student:
+        person: 
+          name: "Nome"
+      professor:
+        person: 
+          name: "Nome"
+      
   previous: "Página anterior"
   next: "Próxima página"
   
@@ -226,6 +250,8 @@ pt:
   AcademicPeriods: "Períodos Letivos"
   AcademicPeriod: "Período Letivo"
   Reports: "Relatórios"
+  Contract: "Contrato"
+  Contracts: "Contratos"
   Parameters: "Parâmetros"
   UniversityManagementSystem: "Plataforma de Gestão Acadêmica"
   LoggedInAs: "Logado como"

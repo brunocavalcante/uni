@@ -168,14 +168,14 @@ button, input[type=submit], input[type=reset] {padding: 0.5em 2em}
   background-color: red;
   display: table;
 }
-#error_explanation {
+#error_explanation, .errorExplanation {
   padding-bottom: 0;
   margin-bottom: 1.5%;
   background-color: #f0f0f0;
   float: left;
   width: 100%;
 }
-#content #error_explanation h2 {
+#content #error_explanation h2, .errorExplanation h2 {
   font-size: 0.8em;
   text-align: left;
   font-weight: bold;
@@ -185,7 +185,11 @@ button, input[type=submit], input[type=reset] {padding: 0.5em 2em}
   text-shadow: none;
   padding: 0.5em 0.5em 0.5em 1.5em;
 }
-#error_explanation ul li {font-size: 0.8em; list-style: square;}
+.errorExplanation p, .errorExplanation ul {
+  font-size: 0.8em;
+  margin-left: 1.5em;
+}
+#error_explanation ul li, .errorExplanation ul li {list-style: square;}
 
 /* Login */
 article#login, aside#login-splash {margin-top: 2%; margin-bottom: 1%;}

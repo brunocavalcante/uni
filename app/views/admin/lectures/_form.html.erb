@@ -1,16 +1,11 @@
 <%= form_for([:admin, @academic_period, @lecture]) do |f| %>
-  <% if @lecture.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@lecture.errors.count, "error") %> prohibited this curriculum from being saved:</h2>
+  <%= f.error_messages %>
 
-      <ul>
-      <% @lecture.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+  <p>
+    <%= f.label :code, (t 'Code') %><br />
+    <%= f.text_field :code, :disabled => (@lecture.id) %>
+  </p>
+  
   <p>
     <%= label_tag :discipline_code, (t 'Discipline') %><br />
     <%= text_field_tag :discipline_code, @lecture.discipline ? @lecture.discipline.code : nil %>
@@ -22,16 +17,28 @@
   </p>
   
   <p>
-    <%= f.label :code, (t 'Code') %><br />
-    <%= f.text_field :code %>
-  </p>
-  
-  <p>
     <%= f.label :places, (t 'Places') %><br />
     <%= f.text_field :places %>
+  </p>
+  
+  <h3><%= t 'TimeTable' %></h3>
+  
+  <p>
+    <%= select_tag 'weekday[]', options_for_select(get_day_names_map) %>
+    <%= text_field_tag 'start_time[]' %> <%= t 'until'%>  
+    <%= text_field_tag 'end_time[]' %>
+    <%= submit_tag (t 'AddAnother'), {:class => 'add-another-item', :type => 'button'} %>
   </p>
   
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<script language="JavaScript">
+  $(document).ready(function() {
+    autocomplete('discipline_code', '<%= disciplines_path %>.js', '<%= t "Remove" %>')
+    autocomplete('lecture_professor_id', '<%= professors_path %>.js', '<%= t "Remove" %>')
+    enableAddAnotherItem('<%= t "Remove" %>')
+  });
+</script>

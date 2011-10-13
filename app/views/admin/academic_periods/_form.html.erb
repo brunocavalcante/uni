@@ -1,15 +1,5 @@
 <%= form_for([:admin, @academic_period]) do |f| %>
-  <% if @academic_period.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@academic_period.errors.count, "error") %> prohibited this academic_period from being saved:</h2>
-
-      <ul>
-      <% @academic_period.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= f.error_messages %>
 
   <p>
     <%= f.label :name %><br />

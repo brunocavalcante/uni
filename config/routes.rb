@@ -29,6 +29,7 @@ Uni::Application.routes.draw do
       end  
     end
     resources :reports
+    resources :contracts
   end
   
   resources :user do 

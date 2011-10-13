@@ -18,6 +18,8 @@ en:
   AcademicPeriod: "Academic Period"
   Reports: "Reports"
   Parameters: "Parameters"
+  Contract: "Contract"
+  Contracts: "Contracts"
   UniversityManagementSystem: "University Management System"
   LoggedInAs: "Logged in as"
   SwitchRole: "Switch profile"
