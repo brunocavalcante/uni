@@ -185,7 +185,7 @@ button, input[type=submit], input[type=reset] {padding: 0.5em 2em}
   text-shadow: none;
   padding: 0.5em 0.5em 0.5em 1.5em;
 }
-.errorExplanation p, ul {
+.errorExplanation p, .errorExplanation ul {
   font-size: 0.8em;
   margin-left: 1.5em;
 }

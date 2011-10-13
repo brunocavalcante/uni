@@ -42,9 +42,15 @@
     <%= label_tag (t 'Name') %>, <%= label_tag (t 'Url') %> <br />
     <%= text_field_tag 'sites[][name]' %> 
     <%= text_field_tag 'sites[][url]', nil, :size => '60' %> 
-    <%= submit_tag (t 'AddAnother'), {:type => 'button'} %>
+    <%= submit_tag (t 'AddAnother'), {:class => 'add-another-item', :type => 'button'} %>
   </p>
   <div class="actions">
     <%= submit_tag %>
   </div>
 <% end %>
+
+<script language="JavaScript">
+  $(document).ready(function() {
+    enableAddAnotherItem('<%= t "Remove" %>')
+  });
+</script>
