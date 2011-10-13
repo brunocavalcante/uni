@@ -106,5 +106,5 @@ Professor.create([{ :person => Person.create({ :name => 'Wamberg Glaucon Chaves 
 @student = Role.find_by_name('Student');
 Person.create([{ :name => 'Administrator', :email => 'admin@uni.com.br', :password => '21232f297a57a5a743894a0e4a801fc3', :roles => [@administrator] }])
 Professor.create([{ :person => Person.create({ :name => 'Professor de Teste', :email => 'professor@uni.com.br', :password => '3f9cd3c7b11eb1bae99dddb3d05da3c5', :roles => [@professor] }), :scholarity => Scholarity.first }])
-Student.create([{ :person => Person.create({ :name => 'Aluno de Teste', :email => 'aluno@uni.com.br', :password => 'ca0cd09a12abade3bf0777574d9f987f', :roles => [@student] }), :code => '12345', :version => 1, :curriculums => [Curriculum.first] }])
-Student.create([{ :person => Person.create({ :name => 'Aluno de Teste 2', :email => 'aluno2@uni.com.br', :password => 'ca0cd09a12abade3bf0777574d9f987f', :roles => [@student] }), :code => '54321', :version => 1, :curriculums => [Curriculum.first] }])
+Student.create([{ :person => Person.create({ :name => 'Aluno de Teste', :email => 'aluno@uni.com.br', :password => 'ca0cd09a12abade3bf0777574d9f987f', :roles => [@student] }), :code => '12345', :curriculums => [Curriculum.first] }])
+Student.create([{ :person => Person.create({ :name => 'Aluno de Teste 2', :email => 'aluno2@uni.com.br', :password => 'ca0cd09a12abade3bf0777574d9f987f', :roles => [@student] }), :code => '54321', :curriculums => [Curriculum.first] }])
