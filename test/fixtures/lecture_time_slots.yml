@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  lecture_id: 1
+  weekday: 1
+  start_time: 1
+  end_time: 1
+  rrule: MyString
+
+two:
+  lecture_id: 1
+  weekday: 1
+  start_time: 1
+  end_time: 1
+  rrule: MyString

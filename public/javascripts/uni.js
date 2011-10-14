@@ -1,7 +1,12 @@
 $(document).ready(function() {
+  initFormHelpers()
+});
+
+function initFormHelpers() {
   initMultiSelect()
   initDatePicker()
-});
+  initTimePicker()
+}
 
 function initMultiSelect() {
   $.extend($.ui.multiselect, {
@@ -19,6 +24,14 @@ function initDatePicker() {
   $('input.date').datepicker()
 }
 
+function initTimePicker() {
+  $('input.time').timePicker({
+    show24Hours: true,
+    separator: ':',
+    step: 15
+  })
+}
+
 function enableAddAnotherItem(removeName) {
   $('.add-another-item').live('click', function() {
     var container = $(this).parent();
@@ -28,6 +41,7 @@ function enableAddAnotherItem(removeName) {
                                                     .removeClass('add-another-item')
                                                     .addClass('remove-item')
     $('.add-another-item:eq(' + (lastItemIndex - 1) + ')').parent().find('input[type=text], select').val('')
+    initFormHelpers()
   });
   
   $('.remove-item').live('click', function() {

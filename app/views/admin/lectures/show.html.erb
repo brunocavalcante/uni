@@ -39,6 +39,18 @@
     <b><%= t 'Version' %>:</b> <%= @lecture.discipline.version_fullname %>
   </p>
   
+  <% if @lecture.lecture_time_slots %>
+  <h3><%= t 'TimeTable' %></h3>
+  <ul>
+    <% for time_slot in @lecture.lecture_time_slots %>
+    <li>
+      <%= (t 'date.day_names')[time_slot.weekday] %> 
+      <%= time_slot.start_time_string %> - <%= time_slot.end_time_string %>
+    </li>
+    <% end %>
+  </ul>    
+  <% end %>
+  
   <h3><%= t 'Students' %></h3>
   
   <% if @lecture_students %>

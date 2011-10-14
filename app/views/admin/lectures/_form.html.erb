@@ -25,8 +25,8 @@
   
   <p>
     <%= select_tag 'weekday[]', options_for_select(get_day_names_map) %>
-    <%= text_field_tag 'start_time[]' %> <%= t 'until'%>  
-    <%= text_field_tag 'end_time[]' %>
+    <%= text_field_tag 'start_time[]', nil, :class => 'time' %> <%= t 'until'%>  
+    <%= text_field_tag 'end_time[]', nil, :class => 'time' %>
     <%= submit_tag (t 'AddAnother'), {:class => 'add-another-item', :type => 'button'} %>
   </p>
   

@@ -26,6 +26,17 @@ class Admin::LecturesController < ApplicationController
     @lecture.discipline = Discipline.find_by_code(params[:discipline_code])
     @lecture.professor = Professor.find_by_id(params[:lecture_professor_id])
     
+    @time_slots = []
+    for i in 0..params[:weekday].size - 1
+      @time_slot = LectureTimeSlot.new
+      @time_slot.weekday = params[:weekday][i]
+      @time_slot.start_time = params[:start_time][i].delete ":"
+      @time_slot.end_time = params[:end_time][i].delete ":"
+      @time_slots << @time_slot
+    end
+    
+    @lecture.lecture_time_slots = @time_slots
+    
     respond_to do |format|
       if @lecture.save
         format.html { redirect_to({:action => "index"}, :notice => 'Object was successfully created.') }

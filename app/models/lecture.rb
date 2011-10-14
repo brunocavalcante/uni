@@ -2,6 +2,7 @@ class Lecture < ActiveRecord::Base
   belongs_to :discipline
   belongs_to :professor
   belongs_to :academic_period
+  has_many :lecture_time_slots
   
   validates :code, :presence => true
   validates :discipline_id, :presence => true
