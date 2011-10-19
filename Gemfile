@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.0.7'
+gem 'rails'
 gem 'rake', '0.8.7'
 
 # Bundle edge Rails instead:
@@ -16,11 +16,13 @@ end
 
 gem 'i18n'
 
-gem 'will_paginate', '~> 3.0.pre2'
+gem 'will_paginate'
 
 gem "paperclip", "~> 2.3"
 
 gem 'dynamic_form'
+
+gem 'jquery-rails'
 
 # Use unicorn as the web server
 # gem 'unicorn'

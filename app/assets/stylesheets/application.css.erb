@@ -1,9 +1,17 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
 /* Basic */
 body {
   color: #333;
   font-size: 100%;
   margin: 0;
-  background: white url('../images/html-bg.png') repeat-x;
+  background: white url(<%= asset_path 'html-bg.png' %>) repeat-x;
 }
 body, input, select, button {font-family: 'Ubuntu', 'Helvetica', sans-serif;}
 body a, body a:visited, body a:active {color: #000}
@@ -16,7 +24,7 @@ h3 {font-size: 1.25em; border-bottom: 1px dotted #CCC; padding-bottom: 0.2em}
 /* Headers */
 header {margin: 1.5% 2.5%}
 header h1 {
-  background: url('../images/logouni48.png') no-repeat 0 0;
+  background: url(<%= asset_path 'logouni48.png' %>) no-repeat 0 0;
   padding: 0;
   min-height: 50px;
   position: relative;
@@ -91,7 +99,7 @@ header section {position: absolute; top: 0; right: 0;}
 #content aside ul li {
   border-bottom: 1px solid #DDD;
   padding: 1em 1.5em 1em 2.5em;
-  background: url('../images/icons/bullet_black.png') no-repeat 1em 50%;
+  background: url(<%= asset_path 'icons/bullet_black.png' %>) no-repeat 1em 50%;
 }
 #breadcrumbs, #breadcrumbs a {
   color: #666;
@@ -139,12 +147,12 @@ footer, footer a, footer a:active, a:visited, footer a:link {color: #666}
   background-repeat: no-repeat;
   background-position: 0 50%;
 }
-#toolbar .new {background-image: url('../images/icons/add.png')}
-#toolbar .back {background-image: url('../images/icons/back.png')}
-#toolbar .edit {background-image: url('../images/icons/edit.png')}
-#toolbar .delete {background-image: url('../images/icons/delete.png')}
-#toolbar .show {background-image: url('../images/icons/full_page.png')}
-#toolbar .person {background-image: url('../images/icons/user.png')}
+#toolbar .new {background-image: url(<%= asset_path 'icons/add.png' %>)}
+#toolbar .back {background-image: url(<%= asset_path 'icons/back.png' %>)}
+#toolbar .edit {background-image: url(<%= asset_path 'icons/edit.png' %>)}
+#toolbar .delete {background-image: url(<%= asset_path 'icons/delete.png' %>)}
+#toolbar .show {background-image: url(<%= asset_path 'icons/full_page.png' %>)}
+#toolbar .person {background-image: url(<%= asset_path 'icons/user.png' %>)}
 
 /* Tables */
 table {border-spacing: 0; width: 100%; border-collapse: collapse}
@@ -212,8 +220,8 @@ aside#login-splash {
   margin-top: 0.5em;
 }
 
-#login #username {background-image: url('../images/icons/user.png')}
-#login #password {background-image: url('../images/icons/lock.png')}
+#login #username {background-image: url(<%= asset_path 'icons/user.png' %>)}
+#login #password {background-image: url(<%= asset_path 'icons/lock.png' %>)}
 
 /* Page-specific */
 aside#user {width: 180px; height: 240px; padding: 5px}
@@ -225,13 +233,13 @@ aside#user {width: 180px; height: 240px; padding: 5px}
 .studying {font-style: italic}
 
 /* Icons */
-#content aside ul li.home {background-image: url('../images/icons/home.png')}
-#content aside ul li.group {background-image: url('../images/icons/group.png')}
-#content aside ul li.files {background-image: url('../images/icons/upcoming-work.png')}
-#content aside ul li.mail {background-image: url('../images/icons/email.png')}
-#content aside ul li.report {background-image: url('../images/icons/report.png')}
-#content aside ul li.statistics {background-image: url('../images/icons/statistics.png')}
-#content aside ul li.calendar {background-image: url('../images/icons/calendar.png')}
+#content aside ul li.home {background-image: url(<%= asset_path 'icons/home.png' %>)}
+#content aside ul li.group {background-image: url(<%= asset_path 'icons/group.png' %>)}
+#content aside ul li.files {background-image: url(<%= asset_path 'icons/upcoming-work.png' %>)}
+#content aside ul li.mail {background-image: url(<%= asset_path 'icons/email.png' %>)}
+#content aside ul li.report {background-image: url(<%= asset_path 'icons/report.png' %>)}
+#content aside ul li.statistics {background-image: url(<%= asset_path 'icons/statistics.png' %>)}
+#content aside ul li.calendar {background-image: url(<%= asset_path 'icons/calendar.png' %>)}
 
 /* Panels */
 .panel-left, .panel-right {width: 48.25%; float: left}
@@ -240,14 +248,14 @@ aside#user {width: 180px; height: 240px; padding: 5px}
 
 /* Autocomplete */
 .ui-autocomplete-wrapper {
-  background-image: url('../images/icons/white/search.png');
+  background-image: url(<%= asset_path 'icons/white/search.png' %>);
   background-position: 12px center;
   background-repeat: no-repeat;
   padding: 0.5em 0.5em 0.5em 36px;
   
 }
 div.ui-autocomplete-loading {
-  background-image: url('../images/ajax-loader.gif');
+  background-image: url(<%= asset_path 'ajax-loader.gif' %>);
 }
 .ui-autocomplete-error {
   background-color: #CC0000;

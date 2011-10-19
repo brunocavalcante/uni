@@ -8,8 +8,3 @@
 #   inflect.irregular 'person', 'people'
 #   inflect.uncountable %w( fish sheep )
 # end
-ActiveSupport::Inflector.inflections do |inflect|
-end
-#   inflect.singular /^(ox)en/i, '\1'
-#   inflect.irregular 'person', 'people'
-#   inflect.uncountable %w( fish sheep )
