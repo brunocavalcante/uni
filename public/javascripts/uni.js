@@ -28,8 +28,8 @@ function initTimePicker() {
   $('input.time').timePicker({
     show24Hours: true,
     separator: ':',
-    step: 15
-  })
+    step: 15, 
+  }).setMask('time');
 }
 
 function enableAddAnotherItem(removeName) {
@@ -50,22 +50,34 @@ function enableAddAnotherItem(removeName) {
 }
 
 function autocomplete(field, sourceUrl, removeName) {
-  $('#' + field).after('<input type="hidden" id="' + field + '" name="' + field + '" />');
+  var value = $('#' + field).val();
+  
+  $('#' + field).after('<input type="hidden" id="' + field + '" name="' + field + '" value="' + value + '" />');
   $('#' + field).remove()
   $('#' + field).hide()
-  $('#' + field).before('<ul id="' + field + '_autocomplete_list" />')
-  $('#' + field).after('<input type="text" id="' + field + '_autocomplete" />')
+  
+  $('#' + field).after(
+    '<div class="ui-autocomplete-wrapper"><input type="text" id="' + field + '_autocomplete" size="30" /></div>'
+  )
   
   $('#' + field + '_autocomplete').autocomplete({
     dataType: 'json', 
     source: sourceUrl, 
     select: function (event, ui) {
       $('#' + field + '').val(ui.item.id)
+      if ($('#' + field + '_autocomplete_list').size() == 0) {
+        $('#' + field).before('<ul id="' + field + '_autocomplete_list" />')  
+      }
+      
       $('#' + field + '_autocomplete_list li').remove()
       $('#' + field + '_autocomplete_list').append(
-          '<li>' + ui.item.label + ' <a href="#" id="' + field + '_autocomplete_remove">(' + removeName + ')</a></li>'
+        '<li>' + ui.item.label + ' <a href="#" id="' + field + '_autocomplete_remove">(' + removeName + ')</a></li>'
       )
       $('#' + field + '_autocomplete').val('')
+    }, 
+    loading: function (event) {
+      alert('oi')
+      $(this).parent().addClass('ui-autocomplete-loading')  
     }
   }).focus(function() {
     $(this).val('')
@@ -75,7 +87,13 @@ function autocomplete(field, sourceUrl, removeName) {
   
   $('#' + field + '_autocomplete_remove').live('click', function() {
     $('#' + field + '').val('')
+  
     $(this).parent().remove()
+    
+    if ($('#' + field + '_autocomplete_list li').size() == 0) {
+      $('#' + field + '_autocomplete_list').remove()
+    }
+    
     return false
   });
 }

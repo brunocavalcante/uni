@@ -8,9 +8,19 @@
   <p>
     <b><%= t 'Professor' %>:</b> <%= link_to @lecture.professor.name, user_path(@lecture.professor.person) %>
   </p>
+  <% if @lecture.lecture_time_slots.exists? %>
   <p>
-    <b><%= t 'TimeTable' %>:</b> SEG 19:00 - 20:40, QUA 19:00 - 20:40
+    <b><%= t 'TimeTable' %>:</b>
+    <ul>
+      <% for time_slot in @lecture.lecture_time_slots %>
+      <li>
+        <%= (t 'date.day_names')[time_slot.weekday] %> 
+        <%= time_slot.start_time_string %> - <%= time_slot.end_time_string %>
+      </li>
+      <% end %>
+    </ul>
   </p>
+  <% end %>
   
   <div class="panel-left">
     <h3><%= t 'LastMessages' %></h3>

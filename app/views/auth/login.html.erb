@@ -8,12 +8,12 @@
   <p id="alert"><%= t alert if alert %></p>
   <%= form_tag(authenticate_url) do %>
   <p>
-    <%= label_tag 'usuario', (t 'EmailOrStudentId') %><br/>
-    <%= text_field_tag 'username', nil, :autocomplete => 'off' %>
+    <%= label_tag :username, (t 'EmailOrStudentId') %><br/>
+    <%= text_field_tag :username, nil, :autocomplete => 'off' %>
   </p>
   <p>
-    <%= label_tag 'password', (t 'Password') %><br/>
-    <%= password_field_tag 'password' %>
+    <%= label_tag :password, (t 'Password') %><br/>
+    <%= password_field_tag :password %>
   </p>
   <div class="actions">
     <%= submit_tag (t 'LogIn') %>
@@ -23,3 +23,9 @@
   </p>
   <% end %>
 </article>
+
+<script language="JavaScript">
+  $(document).ready(function() {
+    $('#username').focus()
+  })
+</script>

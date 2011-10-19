@@ -239,17 +239,15 @@ aside#user {width: 180px; height: 240px; padding: 5px}
 .panel-right {margin-left: 1.75%}
 
 /* Autocomplete */
-.ui-autocomplete-input {
+.ui-autocomplete-wrapper {
   background-image: url('../images/icons/white/search.png');
-  background-position: 6px center;
+  background-position: 12px center;
   background-repeat: no-repeat;
-  padding-left: 28px;
+  padding: 0.5em 0.5em 0.5em 36px;
+  
 }
-.ui-autocomplete-loading {
+div.ui-autocomplete-loading {
   background-image: url('../images/ajax-loader.gif');
-}
-.ui-autocomplete-success {
-  background-image: url('../images/icons/check.png');
 }
 .ui-autocomplete-error {
   background-color: #CC0000;

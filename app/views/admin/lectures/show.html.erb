@@ -39,7 +39,7 @@
     <b><%= t 'Version' %>:</b> <%= @lecture.discipline.version_fullname %>
   </p>
   
-  <% if @lecture.lecture_time_slots %>
+  <% if @lecture.lecture_time_slots.exists? %>
   <h3><%= t 'TimeTable' %></h3>
   <ul>
     <% for time_slot in @lecture.lecture_time_slots %>

@@ -355,6 +355,9 @@ pt:
   AddSelected: "Adicionar Itens Selecionados"
   Add: "Adicionar"
   Places: "Vagas"
+  Change: "Alterar"
+  Current: "Atual"
+  TimeTableAdminNotice: "Se o quadro de horários for informado, o sistema não irá permitir que um aluno se matricule em duas turmas que compartilham um mesmo horário."
   
   url:
     uni: "Uni"
