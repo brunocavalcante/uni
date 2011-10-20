@@ -118,6 +118,7 @@ en:
   Subject: "Subject"
   Description: "Description"
   Messages: "Menssages"
+  Wall: "Wall"
   Type: "Type"
   Size: "Size"
   AddSelected: "Add Selected Items"
@@ -126,6 +127,7 @@ en:
   Change: "Change"
   Current: "Current"
   TimeTableAdminNotice: "If the timetable is informed, the system will not allow a student to register in two classes that share the same schedule."
+  TimeOn: "on"
   
   url:
     uni: "Uni"

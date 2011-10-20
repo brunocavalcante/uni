@@ -13,6 +13,11 @@ class Student::LecturesController < ApplicationController
   end
   
   def show
+    @wall = Wall.paginate :conditions => ['lecture_id = ?', params[:id]], 
+                          :include => [{:message => :person}], 
+                          :page => params[:page], 
+                          :order => 'created_at DESC'
+    @updates = @wall
   end
   
   def students
@@ -25,7 +30,7 @@ class Student::LecturesController < ApplicationController
   def files
   end
   
-  def messages
+  def wall
   end
   
   def tests_and_abscences

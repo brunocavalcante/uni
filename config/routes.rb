@@ -55,7 +55,7 @@ Uni::Application.routes.draw do
       member do 
         get :students
         get :files
-        get :messages
+        get :wall
         get :students
         get 'tests-and-abscences', :action => :tests_and_abscences, :as => 'tests_and_abscences'
       end 

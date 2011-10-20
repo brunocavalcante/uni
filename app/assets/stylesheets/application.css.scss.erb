@@ -423,3 +423,44 @@ div.ui-autocomplete-loading {
 .ui-autocomplete-error {
   background-color: #CC0000;
 }
+
+/* Wall */
+.wall {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+.wall li {
+	position: relative;
+	margin-bottom: 2em;
+}
+.wall .photo {
+	position: absolute;
+	left: 0;
+	top: 0;
+	float: left;
+	width: 75px;
+}
+.wall .title {
+	background: white url(<%= asset_path 'commentArrow.png' %>) no-repeat 1em 100%;
+	padding-bottom: 10px;
+	margin-bottom: 0;
+}
+.wall .item {
+	margin-left: 90px;
+	background: #DDD;
+	min-height: 75px;
+}
+.wall .item .content p {
+	margin: 0.5em 0;
+}
+.wall .item h4 {
+	margin: 0 0 0.5em;
+}
+.wall .content {
+	padding: 0.75em 1em;
+}
+.wall .date {
+	color: #999;
+	font-style: italic;
+}

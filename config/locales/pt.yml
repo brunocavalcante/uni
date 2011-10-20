@@ -360,6 +360,7 @@ pt:
   Subject: "Assunto"
   Description: "Descrição"
   Messages: "Mensagens"
+  Wall: "Mural"
   Type: "Tipo"
   Size: "Tamanho"
   AddSelected: "Adicionar Itens Selecionados"
@@ -368,6 +369,7 @@ pt:
   Change: "Alterar"
   Current: "Atual"
   TimeTableAdminNotice: "Se o quadro de horários for informado, o sistema não irá permitir que um aluno se matricule em duas turmas que compartilham um mesmo horário."
+  TimeOn: "em"
   
   url:
     uni: "Uni"
@@ -391,6 +393,7 @@ pt:
     classes: "Turmas"
     files: "Arquivos"
     messages: "Mensagens"
+    wall: "Mural"
     tests_and_abscences: "Notas e Faltas"
     transcripts: "Histórico Escolar"
     timetable: "Quadro de Horários"
