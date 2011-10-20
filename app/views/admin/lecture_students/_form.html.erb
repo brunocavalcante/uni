@@ -6,7 +6,7 @@
     <%= text_field_tag :student_code %>
   </p>
   
-  <% if (@lecture_student.id): %>
+  <% if (@lecture_student.id) %>
   <p>
     <%= f.label :grade, (t 'Grade') %><br />
     <%= f.text_field :grade %>

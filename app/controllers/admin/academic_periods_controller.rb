@@ -3,8 +3,6 @@ class Admin::AcademicPeriodsController < ApplicationController
   def index
     @academic_periods = AcademicPeriod.paginate :page => params[:page]
     
-    throw RUBY_VERSION
-    
     respond_to do |format|
       format.html # show.html.erb
       format.xml { render :xml => @academic_periods }

@@ -1,4 +1,4 @@
-class Student::ClassesController < ApplicationController
+class Student::LecturesController < ApplicationController
   before_filter :load_lecture
   
   def load_lecture

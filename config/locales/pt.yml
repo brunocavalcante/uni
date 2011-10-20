@@ -219,6 +219,7 @@ pt:
       curriculum: "Grade Curricular"
       curriculum_student: "Aluno"
       lecture: "Turma"
+      lecture_student: "Aluno"
     attributes:
       course:
         code: "Código"

@@ -51,7 +51,7 @@ Uni::Application.routes.draw do
         get :transcripts, :timetable
       end
     end
-    resources :classes do
+    resources :lectures do
       member do 
         get :students
         get :files
