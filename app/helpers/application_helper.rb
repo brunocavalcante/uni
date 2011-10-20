@@ -15,7 +15,7 @@ module ApplicationHelper
           breadcrumb += elements[i]
           end
         else
-          breadcrumb += link_to_if(i != elements.size - 1, (I18n.t 'url.' + elements[i].gsub("-", "_")), so_far)
+          breadcrumb += link_to_if(i != elements.size - 1, (I18n.t 'url.' + elements[i].gsub("-", "_").gsub(/\?.*/, '')), so_far)
         end
 
         breadcrumb += " &raquo; " if i != elements.size - 1
@@ -25,12 +25,4 @@ module ApplicationHelper
       'Not available'
     end
   end
-
-  #include WillPaginate::ViewHelpers
-
-  #def will_paginate_with_i18n(collection, options = {})
-  #  will_paginate_without_i18n(collection, options.merge(:previous_label => I18n.t(:previous), :next_label => I18n.t(:next)))
-  #end
-
-  #alias_method_chain :will_paginate, :i18n*/
 end

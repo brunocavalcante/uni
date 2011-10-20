@@ -7,12 +7,12 @@ class AcademicPeriod < ActiveRecord::Base
   validate :validate_registrationInterval
   
   def validate_registration
-    errors.add(:registration_start, "período de matrícula inválido") if (registration_start == nil) ^ (registration_end == nil) 
+    errors.add(:registration_start, "periodo de matricula invalido") if (registration_start == nil) ^ (registration_end == nil) 
   end
   
   def validate_registrationInterval
     if registration_start and registration_end and registration_start > registration_end
-      errors.add('Início da Matrícula', " deve ser anterior ao fim")
+      errors.add('Inicio da Matricula', " deve ser anterior ao fim")
     end
   end
 end

@@ -24,6 +24,8 @@ gem 'dynamic_form'
 
 gem 'jquery-rails'
 
+gem 'sass'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

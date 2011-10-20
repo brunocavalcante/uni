@@ -4,7 +4,10 @@ pt:
   # formatos de data e hora
   date:
     input:
-      formats: [:default, :long, :short]
+      formats:
+        :default
+        :long
+        :short
     formats:
       default: "%d/%m/%Y"
       short: "%d de %B"
@@ -22,7 +25,12 @@ pt:
   
   time:
     input:
-      formats: [:long, :medium, :short, :default, :time]
+      formats: 
+        :long
+        :medium
+        :short
+        :default
+        :time
     formats:
       default: "%A, %d de %B de %Y, %H:%M h"
       short: "%d/%m, %H:%M h"
@@ -236,8 +244,9 @@ pt:
         person: 
           name: "Nome"
       
-  previous: "Página anterior"
-  next: "Próxima página"
+  will_paginate:
+    previous_label: "&larr; Página Anterior"
+    next_label: "Próxima Página &rarr;"
   
   # Uni-specific
   Start: "Início"
