@@ -128,6 +128,8 @@ en:
   Current: "Current"
   TimeTableAdminNotice: "If the timetable is informed, the system will not allow a student to register in two classes that share the same schedule."
   TimeOn: "on"
+  Updates: "Updates"
+  Details: "Details"
   
   url:
     uni: "Uni"
@@ -156,3 +158,4 @@ en:
     timetable: "Timetable"
     lectures: "Classes"
     lecture_students: "Students"
+    details: "Details"

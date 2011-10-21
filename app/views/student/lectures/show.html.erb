@@ -8,19 +8,6 @@
   <p>
     <b><%= t 'Professor' %>:</b> <%= link_to @lecture.professor.name, user_path(@lecture.professor.person) %>
   </p>
-  <% if @lecture.lecture_time_slots.exists? %>
-  <p>
-    <b><%= t 'TimeTable' %>:</b>
-    <ul>
-      <% for time_slot in @lecture.lecture_time_slots %>
-      <li>
-        <%= (t 'date.day_names')[time_slot.weekday] %> 
-        <%= time_slot.start_time_string %> - <%= time_slot.end_time_string %>
-      </li>
-      <% end %>
-    </ul>
-  </p>
-  <% end %>
   
   <% if @updates %>
   <h3><%= t 'Updates' %></h3>
@@ -37,8 +24,8 @@
 	  	</div>
 	  	<div class="item">
 	  		<p class="title">
-	  			<%= link_to update.message.person.name, user_path(update.message.person) %>, 
-	  			<%= t 'TimeOn' %> <%= l update.created_at, :format => :long %>:
+	  			<%= link_to update.message.person.name, user_path(update.message.person) %> 
+	  			<%= t 'TimeOn' %> <%= l update.created_at, :format => :short %>:
 	  		</p>
 	  		<div class="content">
 		  		<% if update.message.subject %>

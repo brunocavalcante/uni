@@ -38,7 +38,7 @@
   <% if student.current_lectures %>
   <ul>
     <% for lecture in student.current_lectures %>
-    <li><%= link_to lecture.discipline.name, {:controller => 'student/classes', :action => 'show', :id => lecture.id} %></li>
+    <li><%= link_to lecture.discipline.name, {:controller => 'student/lectures', :action => 'show', :id => lecture.id} %></li>
     <% end %>
   </ul>
   <% end%>

@@ -1,0 +1,39 @@
+<h1><%= @lecture.name %></h1>
+<%= render :partial => 'menu' %>
+<article>
+  <h2><%= t 'Details' %></h2>
+  <p>
+    <b><%= t 'ClassCode' %>:</b> <%= @lecture.code %>
+  </p>
+  <p>
+    <b><%= t 'Professor' %>:</b> <%= link_to @lecture.professor.name, user_path(@lecture.professor.person) %>
+  </p>
+  <p>
+    <b><%= t 'AcademicPeriod' %>:</b> <%= @lecture.academic_period.name %>
+  </p>
+  <% if @lecture.lecture_time_slots.exists? %>
+  <h3><%= t 'TimeTable' %></h3>
+    <ul>
+      <% for time_slot in @lecture.lecture_time_slots %>
+      <li>
+        <%= (t 'date.day_names')[time_slot.weekday] %> 
+        <%= time_slot.start_time_string %> - <%= time_slot.end_time_string %>
+      </li>
+      <% end %>
+    </ul>
+  <% end %>
+  
+  <h3><%= t 'Discipline' %></h3>
+  <p>
+    <b><%= t 'Code' %>:</b> <%= @lecture.discipline.code %>
+  </p>
+  <p>
+    <b><%= t 'Name' %>:</b> <%= @lecture.name %>
+  </p>
+  <p>
+    <b><%= t 'Version' %>:</b> <%= @lecture.discipline.version_fullname %>
+  </p>
+  <p>
+    <b><%= t 'Course' %>:</b> <%= @lecture.discipline.course.code %>
+  </p>
+</article>

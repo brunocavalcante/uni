@@ -370,6 +370,8 @@ pt:
   Current: "Atual"
   TimeTableAdminNotice: "Se o quadro de horários for informado, o sistema não irá permitir que um aluno se matricule em duas turmas que compartilham um mesmo horário."
   TimeOn: "em"
+  Updates: "Atualizações"
+  Details: "Detalhes"
   
   url:
     uni: "Uni"
@@ -399,3 +401,4 @@ pt:
     timetable: "Quadro de Horários"
     lectures: "Turmas"
     lecture_students: "Alunos"
+    details: "Detalhes"

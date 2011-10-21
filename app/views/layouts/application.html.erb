@@ -16,7 +16,7 @@
       <section id="user">
         <% if session[:user] %>
           <%= t "LoggedInAs" %> <%= link_to @user.name, user_index_url %> |
-          <%= t "Role" %>: <%= session[:role].name %> <%= link_to (t 'SwitchRole') %> |
+          <%= t "Role" %>: <%= t session[:role].name %> |
           <%= link_to (t 'Logout'), logout_path, :class => 'logout' %>
         <% end %>
       </section>

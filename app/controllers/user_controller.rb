@@ -4,6 +4,10 @@ class UserController < ApplicationController
   end
   
   def show
+    if (params[:id].to_i == @user.id)
+      redirect_to :action => :index  
+    end
+    
     @person = Person.find(params[:id])
     @student = Student.find_by_person_id(@person.id)
   end
