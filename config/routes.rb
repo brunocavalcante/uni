@@ -58,6 +58,7 @@ Uni::Application.routes.draw do
         get :wall
         get :students
         get 'tests-and-abscences', :action => :tests_and_abscences, :as => 'tests_and_abscences'
+        get :details
       end 
     end
   end

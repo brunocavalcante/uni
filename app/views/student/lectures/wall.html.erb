@@ -2,33 +2,35 @@
 <%= render :partial => 'menu' %>
 <article>
   <h2><%= t 'Wall' %></h2>
-  <table>
-    <thead>
-      <tr>
-        <th><%= t 'Subject' %></th>
-        <th><%= t 'Date' %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><%= link_to 'Dia 14/06 não haverá aula' %></td>
-        <td>11/06/2011</td>
-      </tr>
-      <tr>
-        <td><%= link_to 'Lista 2 disponibilizada' %></td>
-        <td>07/06/2011</td>
-      </tr>
-      <tr class="small-relevance">
-        <td><%= link_to 'Dia 14/05 não haverá aula' %></td>
-        <td>11/05/2011</td>
-      </tr>
-      <tr class="small-relevance">
-        <td><%= link_to 'Lista 1 disponibilizada' %></td>
-        <td>07/05/2011</td>
-      </tr>
-      <tr class="small-relevance">
-        <td><%= link_to 'Dia 14/04 não haverá aula' %></td>
-        <td>11/04/2011</td>
-      </tr>
-    </table>
+  
+  <% if @wall %>
+  <ul class="wall">
+	  <% for update in @wall %>
+	  <li>
+	  	<div class="photo">
+	  		<% if update.message.person.photo.exists? %>
+	  		<%= image_tag update.message.person.photo.url(:small) %>
+	  		<% else %>
+	  		<%= image_tag 'no-picture-small.png' %>
+	  		<% end %>
+	  	</div>
+	  	<div class="item">
+	  		<p class="title">
+	  			<%= link_to update.message.person.name, user_path(update.message.person) %> 
+	  			<%= t 'TimeOn' %> <%= l update.created_at, :format => :short %>:
+	  		</p>
+	  		<div class="content">
+		  		<% if update.message.subject %>
+		  		<h4><%= update.message.subject %></h4>
+		  		<% end %>
+		  		
+		  		<%= update.message.content %>
+		  	</div>
+	  	</div>
+	  </li>
+	  <% end %>
+	</ul>
+  <% end %>
+  
+  <%= will_paginate @wall %>
 </article>

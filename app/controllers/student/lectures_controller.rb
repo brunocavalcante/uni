@@ -19,6 +19,10 @@ class Student::LecturesController < ApplicationController
                           :order => 'created_at DESC'
     @updates = @wall
   end
+
+  def details
+    
+  end
   
   def students
     @lecture_students = LectureStudent.paginate :conditions => ['lecture_id = ?', params[:id]], 
@@ -31,6 +35,10 @@ class Student::LecturesController < ApplicationController
   end
   
   def wall
+    @wall = Wall.paginate :conditions => ['lecture_id = ?', params[:id]], 
+                          :include => [{:message => :person}], 
+                          :page => params[:page], 
+                          :order => 'created_at DESC'
   end
   
   def tests_and_abscences
