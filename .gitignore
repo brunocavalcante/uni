@@ -5,3 +5,4 @@ tmp/
 doc/modelo_de_dados.dia~
 public/system/
 *~
+*.DS_*

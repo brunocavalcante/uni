@@ -1,6 +1,7 @@
 class UserController < ApplicationController
   def index
     @student = Student.find_by_person_id(@user.id)
+    @professor = Professor.find_by_person_id(@user.id)
   end
   
   def show
@@ -10,6 +11,7 @@ class UserController < ApplicationController
     
     @person = Person.find(params[:id])
     @student = Student.find_by_person_id(@person.id)
+    @professor = Professor.find_by_person_id(@person.id)
   end
   
   def edit

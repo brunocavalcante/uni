@@ -1,0 +1,2 @@
+module Professor::LecturesHelper
+end

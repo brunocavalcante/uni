@@ -1,0 +1,36 @@
+<h1><%= @lecture.name %></h1>
+<%= render :partial => 'menu' %>
+<article>
+  <h2><%= t 'Wall' %></h2>
+  
+  <% if @wall %>
+  <ul class="wall">
+	  <% for update in @wall %>
+	  <li>
+	  	<div class="photo">
+	  		<% if update.message.person.photo.exists? %>
+	  		<%= image_tag update.message.person.photo.url(:small) %>
+	  		<% else %>
+	  		<%= image_tag 'no-picture-small.png' %>
+	  		<% end %>
+	  	</div>
+	  	<div class="item">
+	  		<p class="title">
+	  			<%= link_to update.message.person.name, user_path(update.message.person) %> 
+	  			<%= t 'TimeOn' %> <%= l update.created_at, :format => :short %>:
+	  		</p>
+	  		<div class="content">
+		  		<% if update.message.subject %>
+		  		<h4><%= update.message.subject %></h4>
+		  		<% end %>
+		  		
+		  		<%= update.message.content %>
+		  	</div>
+	  	</div>
+	  </li>
+	  <% end %>
+	</ul>
+  <% end %>
+  
+  <%= will_paginate @wall %>
+</article>

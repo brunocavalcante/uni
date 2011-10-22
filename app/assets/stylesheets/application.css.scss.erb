@@ -139,10 +139,9 @@ header section {
 	width: 100%;
 }
 #content header h1, #content header h2 {
-  padding: 0 0 0.2em 0;
-  margin-bottom: 24px;
+  padding: 0;
+  margin-bottom: 0;
   background: none;
-  min-height: 0;
 }
 #content article {
 	float: left;
@@ -197,11 +196,12 @@ footer, footer a, footer a:active, a:visited, footer a:link {
   float: left;
   list-style-type: none;
   display: block;
-  margin: -24px 0 0 0;
+  margin: 0;
   padding: 0;
   background: $defaultBoxBg;
   width: 100%;  
   border-bottom: 1px solid $defaultBorderColor;
+  clear: both;
 }
 #toolbar li {
 	float: left;
@@ -402,6 +402,12 @@ aside#user {
 }
 #content aside ul li.details {
 	background-image: url(<%= asset_path 'icons/attibutes.png' %>);
+}
+#content aside ul li.tests {
+	background-image: url(<%= asset_path 'icons/issue.png' %>);
+}
+#content aside ul li.abscences {
+	background-image: url(<%= asset_path 'icons/order.png' %>);
 }
 
 /* Panels */

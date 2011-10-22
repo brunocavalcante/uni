@@ -1,0 +1,13 @@
+<aside>
+    <nav>
+        <ul>
+            <li class="home"><%= link_to (t 'Home'), {:action => :show, :id => 1} %></li>
+            <li class="details"><%= link_to (t 'Details'), {:action => :details, :id => 1} %></li>
+            <li class="group"><%= link_to (t 'Students'), {:action => :students, :id => 1} %></li>
+            <li class="files"><%= link_to (t 'Files'), {:action => :files} %></li>
+            <li class="mail"><%= link_to (t 'Wall'), {:action => :wall} %></li>
+            <li class="tests"><%= link_to (t 'Tests') %></li>
+            <li class="abscences"><%= link_to (t 'Abscences') %></li>
+        </ul>
+    </nav>
+</aside>

@@ -1,0 +1,19 @@
+<h1><%= t 'Lectures' %></h1>
+<table>
+  <thead>
+    <tr>
+      <th><%= t 'Code' %></th>
+      <th><%= t 'Name' %></th>
+      <th><%= t 'Course' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for lecture in @lectures do %>
+    <tr>
+      <td><%= lecture.code %></td>
+      <td><%= link_to lecture.name, {:action => 'show', :id => lecture.id} %></td>
+      <td><%= lecture.discipline.course.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

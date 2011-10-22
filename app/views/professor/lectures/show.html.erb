@@ -1,0 +1,42 @@
+<h1><%= @lecture.name %></h1>
+<%= render :partial => 'menu' %>
+<article>
+  <h2><%= t 'Home' %></h2>
+  <p>
+    <b><%= t 'ClassCode' %>:</b> <%= @lecture.code %>
+  </p>
+  
+  <% if @updates %>
+  <h3><%= t 'Updates' %></h3>
+  <ul class="wall">
+	  <% for update in @updates %>
+	  <% if update.is_a?(Wall) %>
+	  <li>
+	  	<div class="photo">
+	  		<% if update.message.person.photo.exists? %>
+	  		<%= image_tag update.message.person.photo.url(:small) %>
+	  		<% else %>
+	  		<%= image_tag 'no-picture-small.png' %>
+	  		<% end %>
+	  	</div>
+	  	<div class="item">
+	  		<p class="title">
+	  			<%= link_to update.message.person.name, user_path(update.message.person) %> 
+	  			<%= t 'TimeOn' %> <%= l update.created_at, :format => :short %>:
+	  		</p>
+	  		<div class="content">
+		  		<% if update.message.subject %>
+		  		<h4><%= update.message.subject %></h4>
+		  		<% end %>
+		  		
+		  		<%= update.message.content %>
+		  	</div>
+	  	</div>
+	  </li>
+	  <% else %>
+	  <li class="file">This is supposed to be a file upload update</li>
+	  <% end %>
+	  <% end %>
+	</ul>
+  <% end %>
+</article>
