@@ -13,7 +13,7 @@ class Admin::StudentsController < ApplicationController
     
     @students_hash = []
     @students.each do |student|
-      @students_hash << {"id" => student.code, "label" => student.code + ' - ' + student.name}
+      @students_hash << {"id" => student.id, "label" => student.code + ' - ' + student.name}
     end
     
     respond_to do |format|

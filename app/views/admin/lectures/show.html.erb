@@ -21,9 +21,20 @@
     <b><%= t 'Places' %>:</b> <%= @lecture.places %>
   </p>
   
+  <% if @lecture.professors.size == 1 %>
   <p>
-    <b><%= t 'Professor' %>:</b> <%= @lecture.professor.person.name %>
+    <b><%= t 'Professor' %>:</b> <%= @lecture.professors[0].person.name %>
   </p>
+  <% else %>
+  <p>
+    <b><%= t 'Professors' %>:</b> 
+    <ul>
+    	<% for professor in @lecture.professors %>
+    	<li><%= professor.person.name %></li>
+    	<% end %>
+    </ul>
+  </p>
+  <% end %>
   
   <h3><%= t 'Discipline' %></h3>
   

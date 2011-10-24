@@ -1,7 +1,8 @@
 class Professor < ActiveRecord::Base
   belongs_to :person
   belongs_to :scholarity
-  has_many :lectures, :dependent => :destroy
+  has_many :lecture_professors, :dependent => :destroy
+  has_many :lectures, :through => :lecture_professors
 
   accepts_nested_attributes_for :person
   

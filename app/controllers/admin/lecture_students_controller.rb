@@ -17,7 +17,6 @@ class Admin::LectureStudentsController < ApplicationController
   def create
     @lecture_student = LectureStudent.new(params[:lecture_student])
     @lecture_student.lecture = @lecture
-    @lecture_student.student = Student.find_by_code(params[:student_code])
     
     respond_to do |format|
       if @lecture_student.save

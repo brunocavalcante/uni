@@ -7,23 +7,13 @@
   </p>
   
   <p>
-    <%= label_tag :discipline_code, (@lecture.id ? ((t 'Change') + ' ' + (t 'Discipline')) : (t 'Discipline')) %><br />
-    <%= text_field_tag :discipline_code, @lecture.discipline ? @lecture.discipline.code : nil %>
-    
-    <% if @lecture.discipline_id %>
-    <br/>
-    <small><%= t 'Current' %> <%= t 'Discipline'%>: <%= @lecture.discipline.name %></small>
-    <% end %>
+    <%= label_tag :discipline_id, (t 'Discipline') %><br />
+    <%= f.collection_select :discipline_id, @lecture.discipline ? [@lecture.discipline] : [], :id, :name %>
   </p>
   
   <p>
-    <%= f.label :professor_id, (@lecture.id ? ((t 'Change') + ' ' + (t 'Professor')) : (t 'Professor')) %><br />
-    <%= f.text_field :professor_id %>
-    
-    <% if @lecture.professor_id %>
-    <br/>
-    <small><%= t 'Current' %> <%= t 'Professor'%>: <%= @lecture.professor.name %></small>
-    <% end %>
+    <%= f.label :professor_ids, (t 'Professors') %><br />
+    <%= f.collection_select :professor_ids, @lecture.professors, :id, :name, {}, {:multiple => true} %>
   </p>
   
   <p>
@@ -36,6 +26,7 @@
     <small><%= t 'TimeTableAdminNotice' %></small>
   </p>
   
+  <% if @lecture.lecture_time_slots.exists? %>
   <% for time_slot in @lecture.lecture_time_slots %>
   <p>
     <%= select_tag 'weekday[]', options_for_select(get_day_names_map, time_slot.weekday) %>
@@ -43,6 +34,7 @@
     <%= text_field_tag 'end_time[]', time_slot.end_time_string, :class => 'time' %>
     <%= submit_tag (t 'Remove'), {:class => 'remove-item', :type => 'button'} %>
   </p>
+  <% end %>
   <% end %>
   
   <p>
@@ -59,8 +51,8 @@
 
 <script language="JavaScript">
   $(document).ready(function() {
-    autocomplete('discipline_code', '<%= disciplines_path %>.js', '<%= t "Remove" %>')
-    autocomplete('lecture_professor_id', '<%= professors_path %>.js', '<%= t "Remove" %>')
+    autocomplete('lecture_discipline_id', '<%= disciplines_path %>.js', '<%= t "Remove" %>', false)
+    autocomplete('lecture_professor_ids', '<%= professors_path %>.js', '<%= t "Remove" %>', true)
     enableAddAnotherItem('<%= t "Remove" %>')
   });
 </script>

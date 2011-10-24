@@ -20,6 +20,17 @@
     </ul>
   <% end %>
   
+  <% if @lecture.professors.size > 1 %>
+  <p>
+    <b><%= t 'Professors' %>:</b> 
+    <ul>
+    	<% for professor in @lecture.professors %>
+    	<li><%= professor.person.name %></li>
+    	<% end %>
+    </ul>
+  </p>
+  <% end %>
+  
   <h3><%= t 'Discipline' %></h3>
   <p>
     <b><%= t 'Code' %>:</b> <%= @lecture.discipline.code %>

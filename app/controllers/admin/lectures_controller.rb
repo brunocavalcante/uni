@@ -23,18 +23,17 @@ class Admin::LecturesController < ApplicationController
   def create
     @lecture = Lecture.new(params[:lecture])
     @lecture.academic_period_id = params[:academic_period_id]
-    @lecture.discipline = Discipline.find_by_code(params[:discipline_code])
-    @lecture.professor = Professor.find_by_id(params[:lecture_professor_id])
     
     @time_slots = []
     for i in 0..params[:weekday].size - 1
-      @time_slot = LectureTimeSlot.new
-      @time_slot.weekday = params[:weekday][i]
-      @time_slot.start_time = params[:start_time][i].delete ":"
-      @time_slot.end_time = params[:end_time][i].delete ":"
-      @time_slots << @time_slot
+      if params[:weekday][i] && params[:start_time][i] != '' && params[:end_time][i] != ''
+        @time_slot = LectureTimeSlot.new
+        @time_slot.weekday = params[:weekday][i]
+        @time_slot.start_time = params[:start_time][i].delete ":"
+        @time_slot.end_time = params[:end_time][i].delete ":"
+        @time_slots << @time_slot
+      end
     end
-    
     @lecture.lecture_time_slots = @time_slots
     
     respond_to do |format|
@@ -67,23 +66,24 @@ class Admin::LecturesController < ApplicationController
   
   def update
     @lecture = Lecture.find(params[:id])
-    @lecture.discipline = Discipline.find_by_code(params[:discipline_code])
-    @lecture.professor = Professor.find_by_id(params[:lecture_professor_id])
+    @lecture.attributes = params[:lecture]
     
     @time_slots = []
     for i in 0..params[:weekday].size - 1
-      @time_slot = LectureTimeSlot.new
-      @time_slot.weekday = params[:weekday][i]
-      @time_slot.start_time = params[:start_time][i].delete ":"
-      @time_slot.end_time = params[:end_time][i].delete ":"
-      @time_slots << @time_slot
+      if params[:weekday][i] && params[:start_time][i] != '' && params[:end_time][i] != ''
+        @time_slot = LectureTimeSlot.new
+        @time_slot.weekday = params[:weekday][i]
+        @time_slot.start_time = params[:start_time][i].delete ":"
+        @time_slot.end_time = params[:end_time][i].delete ":"
+        @time_slots << @time_slot
+      end
     end
     
     @lecture.lecture_time_slots = @time_slots
     
     respond_to do |format|
       if @lecture.save
-        format.html { redirect_to(@lecture, :notice => 'Object was successfully updated.') }
+        format.html { redirect_to({:action => :show}, :notice => 'Object was successfully updated.') }
         format.xml  { render :xml => @lecture, :status => :created, :location => @lecture }
       else
         format.html { render :action => "new" }

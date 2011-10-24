@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -12,6 +14,11 @@ Role.create([{ :name => 'Administrator' }, { :name => 'Professor' }, { :name => 
 Scholarity.create([{ :name => 'Bacharel' }, { :name => 'Mestre' }, { :name => 'Doutor' }, { :name => 'Especialista' }])
 CourseCategory.create([{ :name => 'Graduação' }, { :name => 'Pós-Graduação' }])
 
+# Roles
+@administrator = Role.find_by_name('Administrator');
+@professor = Role.find_by_name('Professor');
+@student = Role.find_by_name('Student');
+
 # Courses
 Course.create([{ :code => 'SI', :name => 'Sistemas de Informação', :course_category => CourseCategory.first },
               { :code => 'AD', :name => 'Administração', :course_category => CourseCategory.first },
@@ -24,7 +31,11 @@ Course.create([{ :code => 'SI', :name => 'Sistemas de Informação', :course_cat
               { :code => 'NI', :name => 'Negócios Imobiliários', :course_category => CourseCategory.first }, 
               { :code => 'DG', :name => 'Design Gráfico', :course_category => CourseCategory.first }])
 @si = Course.find_by_name('Sistemas de Informação');
+
+# Curriculum
 Curriculum.create([{ :code => '20081', :name => '2008.1', :course => @si }])
+
+# Disciplines
 Discipline.create([{ :code => 'N011', :name => 'Cálculo Diferencial e Integral', :course => @si, :version => 1, :curriculums => [Curriculum.first] }, 
                    { :code => 'T009', :name => 'Computação Básica', :course => @si, :version => 1, :curriculums => [Curriculum.first] }, 
                    { :code => 'T019', :name => 'Fundamentos de Sistemas de Informação', :course => @si, :version => 1, :curriculums => [Curriculum.first] }, 
@@ -69,41 +80,40 @@ Discipline.create([{ :code => 'N011', :name => 'Cálculo Diferencial e Integral'
                    { :code => 'T037', :name => 'Trabalho de Conclusão de Course II', :course => @si, :version => 1, :curriculums => [Curriculum.first] },
                    { :code => 'T017', :name => 'Estágio Supervisionado IV', :course => @si, :version => 1, :curriculums => [Curriculum.first] },
                    { :code => 'T029', :name => 'Sistemas de Apoio à Decisão', :course => @si, :version => 1, :curriculums => [Curriculum.first] }])
-Professor.create([{ :person => Person.create({ :name => 'Antônio de Barros Serra' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Alexandre Silva Cavalcante' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Ciro Carneiro Coelho' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Cristiano Therrien' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Daniel Capelo Borges' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Danielle da Costa Filgueiras Albuquerque' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Eduardo Mendes de Oliveira' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Fabiana Nogueira Holanda' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Fláudio José Gonçalves' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Francisco Ivan de Oliveira' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Francisco Cristino de França Júnior' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Francisco A. Tavares F. Silva' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Glauber Ferreira Cintra' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Leandro da Silva Toledo' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Luiz Humberto Sucupira Júnior' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Luciano Comin Nunes' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Marum Simão Filho' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Marcelo Bezerra de Alcântara' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Mariana Aguiar Alcântara Brito' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Raimundo Sales Neto e Azevedo' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Rafael Leão Fonseca' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Régis Patrick Silva Simão' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Renato Barros da Costa' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Renato Simões' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Ricardo Aquino Coimbra' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Ricardo Bezerra de Menezes' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Rodrigo Pordeus Nascimento' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Tarciane de Castro Andrade' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Tiago Seixas' }), :scholarity => Scholarity.first }])
-Professor.create([{ :person => Person.create({ :name => 'Wamberg Glaucon Chaves de Oliveira' }), :scholarity => Scholarity.first }])
+                   
+# Professors
+Professor.create([{ :person => Person.create({ :name => 'Antônio de Barros Serra', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Alexandre Silva Cavalcante', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Ciro Carneiro Coelho', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Cristiano Therrien', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Daniel Capelo Borges', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Danielle da Costa Filgueiras Albuquerque', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Eduardo Mendes de Oliveira', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Fabiana Nogueira Holanda', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Fláudio José Gonçalves', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Francisco Ivan de Oliveira', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Francisco Cristino de França Júnior', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Francisco A. Tavares F. Silva', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Glauber Ferreira Cintra', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Leandro da Silva Toledo', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Luiz Humberto Sucupira Júnior', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Luciano Comin Nunes', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Marum Simão Filho', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Marcelo Bezerra de Alcântara', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Mariana Aguiar Alcântara Brito', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Raimundo Sales Neto e Azevedo', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Rafael Leão Fonseca', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Régis Patrick Silva Simão', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Renato Barros da Costa', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Renato Simões', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Ricardo Aquino Coimbra', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Ricardo Bezerra de Menezes', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Rodrigo Pordeus Nascimento', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Tarciane de Castro Andrade', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Tiago Seixas', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Wamberg Glaucon Chaves de Oliveira', :roles => [@professor] }), :scholarity => Scholarity.first }])
 
 # Users
-@administrator = Role.find_by_name('Administrator');
-@professor = Role.find_by_name('Professor');
-@student = Role.find_by_name('Student');
 Person.create([{ :name => 'Administrator', :email => 'admin@uni.com.br', :password => '21232f297a57a5a743894a0e4a801fc3', :roles => [@administrator] }])
 Professor.create([{ :person => Person.create({ :name => 'Professor de Teste', :email => 'professor@uni.com.br', :password => '3f9cd3c7b11eb1bae99dddb3d05da3c5', :roles => [@professor] }), :scholarity => Scholarity.first }])
 Student.create([{ :person => Person.create({ :name => 'Aluno de Teste', :email => 'aluno@uni.com.br', :password => 'ca0cd09a12abade3bf0777574d9f987f', :roles => [@student] }), :code => '12345', :curriculums => [Curriculum.first] }])

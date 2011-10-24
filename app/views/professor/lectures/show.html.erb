@@ -5,6 +5,16 @@
   <p>
     <b><%= t 'ClassCode' %>:</b> <%= @lecture.code %>
   </p>
+  <% if @lecture.professors.size > 1 %>
+  <p>
+    <b><%= t 'Professors' %>:</b> 
+    <ul>
+    	<% for professor in @lecture.professors %>
+    	<li><%= professor.person.name %></li>
+    	<% end %>
+    </ul>
+  </p>
+  <% end %>
   
   <% if @updates %>
   <h3><%= t 'Updates' %></h3>
