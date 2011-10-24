@@ -13,6 +13,6 @@
 
 <script language="JavaScript">
   $(document).ready(function() {
-    autocomplete('student_code', '<%= admin_students_path %>.js', '<%= t "Remove" %>')
+    Application.autocomplete('student_code', '<%= admin_students_path %>.js', '<%= t "Remove" %>', false)
   });
 </script>

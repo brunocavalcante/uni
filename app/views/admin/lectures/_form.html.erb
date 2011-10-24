@@ -51,8 +51,8 @@
 
 <script language="JavaScript">
   $(document).ready(function() {
-    autocomplete('lecture_discipline_id', '<%= disciplines_path %>.js', '<%= t "Remove" %>', false)
-    autocomplete('lecture_professor_ids', '<%= professors_path %>.js', '<%= t "Remove" %>', true)
-    enableAddAnotherItem('<%= t "Remove" %>')
+    Application.autocomplete('lecture_discipline_id', '<%= disciplines_path %>.js', '<%= t "Remove" %>', false)
+    Application.autocomplete('lecture_professor_ids', '<%= professors_path %>.js', '<%= t "Remove" %>', true)
+    Application.enableAddAnotherItem('<%= t "Remove" %>')
   });
 </script>
