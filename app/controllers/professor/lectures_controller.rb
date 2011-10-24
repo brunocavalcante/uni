@@ -33,11 +33,4 @@ class Professor::LecturesController < ApplicationController
   
   def files
   end
-  
-  def wall
-    @wall = Wall.paginate :conditions => ['lecture_id = ?', params[:id]], 
-                          :include => [{:message => :person}], 
-                          :page => params[:page], 
-                          :order => 'created_at DESC'
-  end
 end

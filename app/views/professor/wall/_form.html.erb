@@ -1,0 +1,18 @@
+<%= form_for(@wall, :url => professor_lecture_wall_index_path(@lecture)) do |f| %>
+  <%= f.error_messages %>
+
+	<%= f.fields_for :message do |m| %>
+  <p>
+    <%= m.label :subject, (t 'Subject') %><br />
+    <%= m.text_field :subject %>
+  </p>
+  <p>
+    <%= m.label :content, (t 'Message') %><br />
+    <%= m.text_area :content %>
+  </p>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

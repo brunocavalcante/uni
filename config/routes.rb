@@ -45,11 +45,11 @@ Uni::Application.routes.draw do
       member do 
         get :students
         get :files
-        get :wall
         get :students
         get 'tests-and-abscences', :action => :tests_and_abscences, :as => 'tests_and_abscences'
         get :details
-      end 
+      end
+      resources :wall
     end
   end
   
