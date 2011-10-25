@@ -1,4 +1,4 @@
-<%= form_for(@wall, :url => professor_lecture_wall_index_path(@lecture)) do |f| %>
+<%= form_for(@wall, :url => submit_url) do |f| %>
   <%= f.error_messages %>
 
 	<%= f.fields_for :message do |m| %>

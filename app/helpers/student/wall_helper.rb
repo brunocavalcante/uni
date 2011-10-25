@@ -1,0 +1,2 @@
+module Student::WallHelper
+end

@@ -1,0 +1,20 @@
+<h2><%= t 'Students' %></h2>
+  
+<table class="people">
+  <tbody>
+    <% for lecture_student in @lecture_students do %>
+    <tr>
+    	<td class="photo">
+    		<% if lecture_student.student.person.photo.exists? %>
+	  		<%= image_tag lecture_student.student.person.photo.url(:small) %>
+	  		<% else %>
+	  		<%= image_tag 'no-picture-small.png' %>
+	  		<% end %>
+    	</td>
+      <td><%= link_to lecture_student.name, user_path(lecture_student.student.person) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= will_paginate @lecture_students %>

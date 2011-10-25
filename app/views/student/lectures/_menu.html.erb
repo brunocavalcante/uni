@@ -1,12 +1,12 @@
 <aside>
     <nav>
         <ul>
-            <li class="home"><%= link_to (t 'Home'), {:action => :show} %></li>
-            <li class="details"><%= link_to (t 'Details'), {:action => :details} %></li>
-            <li class="group"><%= link_to (t 'Students'), {:action => :students} %></li>
-            <li class="files"><%= link_to (t 'Files'), {:action => :files} %></li>
-            <li class="mail"><%= link_to (t 'Wall'), {:action => :wall} %></li>
-            <li class="statistics"><%= link_to (t 'TestsAndAbscences'), {:action => :tests_and_abscences} %></li>
+            <li class="home"><%= link_to (t 'Home'), student_lecture_path(@lecture) %></li>
+            <li class="details"><%= link_to (t 'Details'), details_student_lecture_path(@lecture) %></li>
+            <li class="group"><%= link_to (t 'Students'), students_student_lecture_path(@lecture) %></li>
+            <li class="files"><%= link_to (t 'Files'), files_student_lecture_path(@lecture) %></li>
+            <li class="mail"><%= link_to (t 'Wall'), student_lecture_wall_index_path(@lecture) %></li>
+            <li class="statistics"><%= link_to (t 'TestsAndAbscences'), tests_and_abscences_student_lecture_path(@lecture) %></li>
         </ul>
     </nav>
 </aside>
