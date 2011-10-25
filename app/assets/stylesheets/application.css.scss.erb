@@ -209,7 +209,7 @@ footer, footer a, footer a:active, a:visited, footer a:link {
 	margin-left: 1.5em;
 	padding: 0.5em 0;
 }
-#toolbar a, #toolbar input {
+#toolbar a, #toolbar input, .item input.delete {
   background: none;
   padding: 0;
   margin: 0;
@@ -219,10 +219,11 @@ footer, footer a, footer a:active, a:visited, footer a:link {
   text-shadow: none;
   font-size: 1em;
 }
-#toolbar a:hover, #toolbar input:hover {
+#toolbar a:hover, #toolbar input:hover, .item input.delete:hover {
 	text-decoration: none;
+	cursor: pointer;
 }
-#toolbar .edit, #toolbar .delete, #toolbar .back, #toolbar .new, #toolbar .show, #toolbar .person {
+#toolbar .edit, #toolbar .delete, #toolbar .back, #toolbar .new, #toolbar .show, #toolbar .person, .item input.delete {
   padding-left: 24px;
   background-repeat: no-repeat;
   background-position: 0 50%;
@@ -236,7 +237,7 @@ footer, footer a, footer a:active, a:visited, footer a:link {
 #toolbar .edit {
 	background-image: url(<%= asset_path 'icons/edit.png' %>);
 }
-#toolbar .delete {
+#toolbar .delete, .item input.delete {
 	background-image: url(<%= asset_path 'icons/delete.png' %>);
 }
 #toolbar .show {
@@ -285,6 +286,10 @@ input, select, textarea {
 }
 button, input[type=submit], input[type=reset] {
 	padding: 0.5em 2em;
+}
+
+.item input.delete {
+	margin-top: 1em;
 }
 
 /* Essas classes são do scaffold do Ruby - Depois ajeitamos. */

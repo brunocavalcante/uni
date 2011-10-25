@@ -12,7 +12,16 @@ class LecturesController < ApplicationController
                           :include => [{:message => :person}], 
                           :page => params[:page], 
                           :order => 'created_at DESC'
-    @updates = @wall
+                          
+    @files = LectureFile.paginate :conditions => ['lecture_id = ?', params[:id]], 
+                                  :include => [:person], 
+                                  :page => params[:page], 
+                                  :order => 'created_at DESC'
+                          
+    @updates = @wall | @files
+    
+    @updates.sort! { |a,b| a.created_at <=> b.created_at }
+    @updates.reverse!
   end
   
   def details

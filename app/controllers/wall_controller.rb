@@ -37,4 +37,14 @@ class WallController < ApplicationController
       end
     end
   end
+  
+  def destroy
+    @wall = Wall.find(params[:id])
+    @wall.destroy
+
+    respond_to do |format|
+      format.html { redirect_to({:action => "index"}) }
+      format.xml  { head :ok }
+    end
+  end
 end

@@ -3,6 +3,7 @@
 <%= render :partial => 'form', :locals => {:submit_url => submit_url} %>
 
 <% if @walls %>
+<h3><%= t 'WallPublications' %></h3>
 <ul class="wall">
   <% for update in @walls %>
   <li>
@@ -16,7 +17,7 @@
   	<div class="item">
   		<p class="title">
   			<%= link_to update.message.person.name, user_path(update.message.person) %> 
-  			<%= t 'TimeOn' %> <%= l update.created_at, :format => :short %>:
+  			<%= t 'TimeOn' %> <%= l update.created_at, :format => :short %>
   		</p>
   		<div class="content">
 	  		<% if update.message.subject %>
@@ -24,6 +25,10 @@
 	  		<% end %>
 	  		
 	  		<%= simple_format(update.message.content) %>
+	  		
+	  		<% if @user.id == update.message.person.id || @professor %>
+	  	  <%= button_to (t 'DeleteThisPublication'), {:action => :show, :id => update.id}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %>
+	  		<% end %>
 	  	</div>
   	</div>
   </li>

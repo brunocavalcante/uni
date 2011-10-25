@@ -1,0 +1,2 @@
+module Professor::FilesHelper
+end

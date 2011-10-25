@@ -372,6 +372,11 @@ pt:
   TimeOn: "em"
   Updates: "Atualizações"
   Details: "Detalhes"
+  DeleteThisPublication: "Excluir esta publicação"
+  NewWallPublication: "Nova Publicação no Mural"
+  WallPublications: "Publicações no Mural"
+  UploadedANewFile: "enviou um novo arquivo"
+  Title: "Título"
   
   url:
     uni: "Uni"
