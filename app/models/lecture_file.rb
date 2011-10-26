@@ -1,4 +1,5 @@
 class LectureFile < ActiveRecord::Base
+  belongs_to :lecture
   belongs_to :person
   
   def title_or_name

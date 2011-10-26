@@ -8,6 +8,10 @@
 	</div>
 	<div class="item">
 		<p class="title">
+			<% if !@lecture %>
+			[<%= link_to wall.lecture.name, {:controller => :lectures, :action => :show, :id => wall.lecture_id} %>] 
+			<% end %>
+			
 			<%= link_to wall.message.person.name, user_path(wall.message.person) %> 
 			<%= t 'TimeOn' %> <%= l wall.created_at, :format => :short %>
 		</p>

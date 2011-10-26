@@ -32,7 +32,7 @@ class LecturesController < ApplicationController
     @lecture_students = LectureStudent.paginate :conditions => ['lecture_id = ?', params[:id]], 
                                                 :include => [{:student => :person}], 
                                                 :page => params[:page], 
-                                                :order => 'students.name ASC'
+                                                :order => 'people.name ASC'
   end
   
   def files

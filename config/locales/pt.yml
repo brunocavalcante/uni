@@ -32,9 +32,9 @@ pt:
         :default
         :time
     formats:
-      default: "%A, %d de %B de %Y, %H:%Mh"
-      short: "%d/%m, %H:%Mh"
-      long: "%A, %d de %B de %Y, %H:%Mh"
+      default: "%A, %d de %B de %Y às %H:%Mh"
+      short: "%d/%m às %H:%Mh"
+      long: "%A, %d de %B de %Y às %H:%Mh"
     am: ''
     pm: ''
 
@@ -370,7 +370,7 @@ pt:
   Current: "Atual"
   TimeTableAdminNotice: "Se o quadro de horários for informado, o sistema não irá permitir que um aluno se matricule em duas turmas que compartilham um mesmo horário."
   TimeOn: "em"
-  Updates: "Atualizações"
+  LatestUpdates: "Últimas Atualizações"
   Details: "Detalhes"
   DeleteThisPublication: "Excluir esta publicação"
   NewWallPublication: "Nova Publicação no Mural"

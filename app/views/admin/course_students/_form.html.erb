@@ -2,8 +2,8 @@
   <%= f.error_messages %>
 
   <p>
-    <%= label_tag :student_code, (t 'Student') %><br/>
-    <%= text_field_tag :student_code %><br />
+    <%= f.label :student_id, (t 'Student') %><br/>
+    <%= f.collection_select :student_id, @curriculum_student.student ? [@curriculum_student.student] : [], :student_id, :name %>
   </p>
   
   <p>

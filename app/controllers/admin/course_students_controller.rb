@@ -23,7 +23,6 @@ class Admin::CourseStudentsController < ApplicationController
   
   def create
     @curriculum_student = CurriculumStudent.new(params[:curriculum_student])
-    @curriculum_student.student = Student.find_by_code(params[:student_code])
     
     respond_to do |format|
       if @curriculum_student.save

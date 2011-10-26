@@ -128,7 +128,7 @@ en:
   Current: "Current"
   TimeTableAdminNotice: "If the timetable is informed, the system will not allow a student to register in two classes that share the same schedule."
   TimeOn: "on"
-  Updates: "Updates"
+  LatestUpdates: "Latest Updates"
   Details: "Details"
   DeleteThisPublication: "Delete this publication"
   UploadedANewFile: "uploaded a new file"
