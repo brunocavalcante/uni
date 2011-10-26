@@ -133,6 +133,8 @@ en:
   DeleteThisPublication: "Delete this publication"
   UploadedANewFile: "uploaded a new file"
   Title: "Title"
+  DeleteThisFile: "Delete this file"
+  Message: "Message"
   
   url:
     uni: "Uni"

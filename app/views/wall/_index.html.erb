@@ -5,33 +5,8 @@
 <% if @walls %>
 <h3><%= t 'WallPublications' %></h3>
 <ul class="wall">
-  <% for update in @walls %>
-  <li>
-  	<div class="photo">
-  		<% if update.message.person.photo.exists? %>
-  		<%= image_tag update.message.person.photo.url(:small) %>
-  		<% else %>
-  		<%= image_tag 'no-picture-small.png' %>
-  		<% end %>
-  	</div>
-  	<div class="item">
-  		<p class="title">
-  			<%= link_to update.message.person.name, user_path(update.message.person) %> 
-  			<%= t 'TimeOn' %> <%= l update.created_at, :format => :short %>
-  		</p>
-  		<div class="content">
-	  		<% if update.message.subject %>
-	  		<h4><%= update.message.subject %></h4>
-	  		<% end %>
-	  		
-	  		<%= simple_format(update.message.content) %>
-	  		
-	  		<% if @user.id == update.message.person.id || @professor %>
-	  	  <%= button_to (t 'DeleteThisPublication'), {:action => :show, :id => update.id}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %>
-	  		<% end %>
-	  	</div>
-  	</div>
-  </li>
+  <% for wall in @walls %>
+  <%= render :partial => 'wall', :locals => {:wall => wall} %>
   <% end %>
 </ul>
 <% end %>

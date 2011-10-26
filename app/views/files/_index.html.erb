@@ -6,27 +6,7 @@
   <h3><%= t 'Files' %></h3>
   <ul class="wall">
 	  <% for file in @files %>
-	  <li class="file">
-	  	<div class="photo">
-	  		<% if file.person.photo.exists? %>
-	  		<%= image_tag file.person.photo.url(:small) %>
-	  		<% else %>
-	  		<%= image_tag 'no-picture-small.png' %>
-	  		<% end %>
-	  	</div>
-	  	<div class="item">
-	  		<p class="title">
-	  			<%= link_to file.person.name, user_path(file.person) %> 
-	  			<%= t 'UploadedANewFile' %>  
-	  			<%= t 'TimeOn' %> <%= l file.created_at, :format => :short %>:
-	  		</p>
-	  		<div class="content">
-		  		<h4><%= link_to file.title_or_name, {:action => :download, :id => file.id} %></h4>
-		  		
-		  		<%= file.description %>
-		  	</div>
-	  	</div>
-	  </li>
+	  <%= render :partial => 'file', :locals => {:file => file} %>
 	  <% end %>
 	</ul>
 	

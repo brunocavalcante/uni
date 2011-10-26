@@ -32,9 +32,9 @@ pt:
         :default
         :time
     formats:
-      default: "%A, %d de %B de %Y, %H:%M h"
-      short: "%d/%m, %H:%M h"
-      long: "%A, %d de %B de %Y, %H:%M h"
+      default: "%A, %d de %B de %Y, %H:%Mh"
+      short: "%d/%m, %H:%Mh"
+      long: "%A, %d de %B de %Y, %H:%Mh"
     am: ''
     pm: ''
 
@@ -377,6 +377,8 @@ pt:
   WallPublications: "Publicações no Mural"
   UploadedANewFile: "enviou um novo arquivo"
   Title: "Título"
+  DeleteThisFile: "Excluir este arquivo"
+  Message: "Mensagem"
   
   url:
     uni: "Uni"

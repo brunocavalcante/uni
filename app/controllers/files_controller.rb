@@ -52,4 +52,14 @@ class FilesController < ApplicationController
     @file = LectureFile.find(params[:id])
     send_file "public/system/lecture_files/#{@lecture.id}/#{@file.name}", :x_sendfile=>true
   end
+  
+  def destroy
+    @file = LectureFile.find(params[:id])
+    @file.destroy
+
+    respond_to do |format|
+      format.html { redirect_to({:action => "index"}) }
+      format.xml  { head :ok }
+    end
+  end
 end

@@ -1,5 +1,5 @@
 <h1><%= @lecture.name %></h1>
-<%= render :partial => 'professor/lectures/menu' %>
+<%= render :partial => 'student/lectures/menu' %>
 <article>
   <%= render :partial => 'files/index', :locals => {:submit_url => student_lecture_files_path(@lecture)} %>
 </article>

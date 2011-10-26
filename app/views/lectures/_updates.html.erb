@@ -3,50 +3,9 @@
 <ul class="wall">
   <% for update in @updates %>
   <% if update.is_a?(Wall) %>
-  <li>
-  	<div class="photo">
-  		<% if update.message.person.photo.exists? %>
-  		<%= image_tag update.message.person.photo.url(:small) %>
-  		<% else %>
-  		<%= image_tag 'no-picture-small.png' %>
-  		<% end %>
-  	</div>
-  	<div class="item">
-  		<p class="title">
-  			<%= link_to update.message.person.name, user_path(update.message.person) %> 
-  			<%= t 'TimeOn' %> <%= l update.created_at, :format => :short %>:
-  		</p>
-  		<div class="content">
-	  		<% if update.message.subject %>
-	  		<h4><%= update.message.subject %></h4>
-	  		<% end %>
-	  		
-	  		<%= simple_format(update.message.content) %>
-	  	</div>
-  	</div>
-  </li>
+  <%= render :partial => 'wall/wall', :locals => {:wall => update} %>
   <% else %>
-  <li class="update">
-  	<div class="photo">
-  		<% if update.person.photo.exists? %>
-  		<%= image_tag update.person.photo.url(:small) %>
-  		<% else %>
-  		<%= image_tag 'no-picture-small.png' %>
-  		<% end %>
-  	</div>
-  	<div class="item">
-  		<p class="title">
-  			<%= link_to update.person.name, user_path(update.person) %> 
-  			<%= t 'UploadedANewFile' %>  
-  			<%= t 'TimeOn' %> <%= l update.created_at, :format => :short %>:
-  		</p>
-  		<div class="content">
-	  		<h4><%= link_to update.title_or_name, {:controller => :files, :action => :download, :lecture_id => @lecture.id, :id => update.id} %></h4>
-	  		
-	  		<%= update.description %>
-	  	</div>
-  	</div>
-  </li>
+  <%= render :partial => 'files/file', :locals => {:file => update} %>
   <% end %>
   <% end %>
 </ul>

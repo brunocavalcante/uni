@@ -288,10 +288,6 @@ button, input[type=submit], input[type=reset] {
 	padding: 0.5em 2em;
 }
 
-.item input.delete {
-	margin-top: 1em;
-}
-
 /* Essas classes são do scaffold do Ruby - Depois ajeitamos. */
 #notice {
 	color: green;
@@ -390,7 +386,7 @@ aside#user {
 #content aside ul li.group {
 	background-image: url(<%= asset_path 'icons/group.png' %>);
 }
-#content aside ul li.files {
+#content aside ul li.files, .wall a.file {
 	background-image: url(<%= asset_path 'icons/upcoming-work.png' %>);
 }
 #content aside ul li.mail {
@@ -464,7 +460,7 @@ div.ui-autocomplete-loading {
 	margin-bottom: 0;
 }
 .wall .item {
-	margin-left: 90px;
+	margin-left: 95px;
 }
 .wall .item .content p {
 	margin: 0.5em 0;
@@ -477,9 +473,18 @@ div.ui-autocomplete-loading {
 	padding: 0.75em 1em;
 	background: #DDD;
 }
-.wall .date {
-	color: #999;
-	font-style: italic;
+.wall .title {
+	color: #4C4C4C;
+}
+.wall a.file {
+	padding-left: 1.5em;
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+}
+.wall .content form {
+	border-top: 1px solid #BBB;
+	margin-top: 1em;
+	padding-top: 0.5em;
 }
 
 /* People Tables */

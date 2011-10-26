@@ -31,15 +31,11 @@ class ApplicationController < ActionController::Base
   def check_permission
     module_name = self.class.name.split('::')[0..-2].join('::')
     
-    if (module_name == 'Professor' && session[:role].id != Role::PROFESSOR)
+    if module_name == 'Professor' && session[:role].id != Role::PROFESSOR
       redirect_to(root_url)
-    end
-    
-    if (module_name == 'Student' && session[:role].id != Role::STUDENT)
+    elsif module_name == 'Student' && session[:role].id != Role::STUDENT
       redirect_to(root_url)
-    end
-    
-    if (module_name == 'Admin' && session[:role].id != Role::ADMINISTRATOR)
+    elsif module_name == 'Admin' && session[:role].id != Role::ADMINISTRATOR
       redirect_to(root_url)
     end
   end
