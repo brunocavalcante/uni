@@ -4,6 +4,8 @@ class CreateLectureStudents < ActiveRecord::Migration
       t.integer :lecture_id
       t.integer :student_id
       t.string :grade
+      t.integer :attendance
+      t.integer :lecture_situation_id
 
       t.timestamps
     end

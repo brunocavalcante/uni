@@ -1,0 +1,14 @@
+class Student::LectureStudentsController < ApplicationController
+  before_filter :load_lecture
+  
+  def load_lecture
+    @lecture = Lecture.find(params[:lecture_id])
+  end
+  
+  def index
+    @lecture_students = LectureStudent.paginate :conditions => ['lecture_id = ?', params[:lecture_id]], 
+                                                :include => [{:student => :person}], 
+                                                :page => params[:page], 
+                                                :order => 'people.name ASC'
+  end
+end

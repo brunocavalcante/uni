@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lecture_absence_id: 1
+  lecture_student_id: 1
+  ammount: 1
+
+two:
+  lecture_absence_id: 1
+  lecture_student_id: 1
+  ammount: 1

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111025170032) do
+ActiveRecord::Schema.define(:version => 20111027214816) do
 
   create_table "academic_periods", :force => true do |t|
     t.string   "name"
@@ -78,6 +78,13 @@ ActiveRecord::Schema.define(:version => 20111025170032) do
     t.datetime "updated_at"
   end
 
+  create_table "lecture_absences", :force => true do |t|
+    t.integer  "lecture_id"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lecture_files", :force => true do |t|
     t.integer  "lecture_id"
     t.string   "name"
@@ -95,10 +102,27 @@ ActiveRecord::Schema.define(:version => 20111025170032) do
     t.datetime "updated_at"
   end
 
+  create_table "lecture_situations", :force => true do |t|
+    t.string   "name"
+    t.boolean  "approved"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lecture_student_absences", :force => true do |t|
+    t.integer  "lecture_absence_id"
+    t.integer  "lecture_student_id"
+    t.integer  "ammount"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "lecture_students", :force => true do |t|
     t.integer  "lecture_id"
     t.integer  "student_id"
     t.string   "grade"
+    t.integer  "attendance"
+    t.integer  "lecture_situation_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

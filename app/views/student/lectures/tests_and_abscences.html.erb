@@ -4,48 +4,10 @@
   <h2><%= t 'TestsAndAbscences' %></h2>
   
   <h3><%= t 'Tests' %></h3>
-  <table class="grid">
-    <thead>
-      <tr>
-        <th>VP1 <span class="small-relevance">(12/08/2011)</span></th>
-        <th>VP2 <span class="small-relevance">(21/09/2011)</span></th>
-        <th>VF <span class="small-relevance">(10/11/2011)</span></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>80 <span class="small-relevance">/100</span></td>
-        <td>70 <span class="small-relevance">/100</span></td>
-        <td></span></td>
-      </tr>
-    </tbody>
-  </table>
+  <%= render :partial => 'lectures/tests' %>
   
   <br />
   
   <h3><%= t 'Abscences' %></h3>
-  <table class="grid">
-    <thead>
-      <tr>
-        <th>Jan</th>
-        <th>Feb</th>
-        <th>Mar</th>
-        <th>Abr</th>
-        <th>Mai</th>
-        <th>Jun</th>
-        <th>Total</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>0</td>
-        <td>2</td>
-        <td>2</td>
-        <td>2</td>
-        <td>2</td>
-        <td>4</td>
-        <td>12</td>
-      </tr>
-    </tbody>
-  </table> 
+  <%= render :partial => 'lectures/abscences' %> 
 </article>

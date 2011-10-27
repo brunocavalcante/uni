@@ -82,7 +82,22 @@ Discipline.create([{ :code => 'N011', :name => 'Cálculo Diferencial e Integral'
                    { :code => 'T029', :name => 'Sistemas de Apoio à Decisão', :course => @si, :version => 1, :curriculums => [Curriculum.first] }])
 
 # Users
-Person.create([{ :name => 'Administrator', :email => 'admin@uni.com.br', :password => '21232f297a57a5a743894a0e4a801fc3', :roles => [@administrator] }])
-Professor.create([{ :person => Person.create({ :name => 'Professor de Teste', :email => 'professor@uni.com.br', :password => '3f9cd3c7b11eb1bae99dddb3d05da3c5', :roles => [@professor] }), :scholarity => Scholarity.first }])
-Student.create([{ :person => Person.create({ :name => 'Aluno de Teste', :email => 'aluno@uni.com.br', :password => 'ca0cd09a12abade3bf0777574d9f987f', :roles => [@student] }), :code => '12345', :curriculums => [Curriculum.first] }])
-Student.create([{ :person => Person.create({ :name => 'Aluno de Teste 2', :email => 'aluno2@uni.com.br', :password => 'ca0cd09a12abade3bf0777574d9f987f', :roles => [@student] }), :code => '54321', :curriculums => [Curriculum.first] }])
+Person.create([{ :name => 'Administrator', :email => 'admin@uni.com', :password => '21232f297a57a5a743894a0e4a801fc3', :roles => [@administrator] }])
+Professor.create([{ :person => Person.create({ :name => 'Professor', :email => 'professor@uni.com', :password => '3f9cd3c7b11eb1bae99dddb3d05da3c5', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Student.create([{ :person => Person.create({ :name => 'Student', :email => 'student@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'student', :curriculums => [Curriculum.first] }])
+Student.create([{ :person => Person.create({ :name => 'Jules', :email => 'jules@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'jules', :curriculums => [Curriculum.first] }])
+Student.create([{ :person => Person.create({ :name => 'Seth', :email => 'seth@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'seth', :curriculums => [Curriculum.first] }])
+Student.create([{ :person => Person.create({ :name => 'Becca', :email => 'becca@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'becca', :curriculums => [Curriculum.first] }])
+Student.create([{ :person => Person.create({ :name => 'Evan', :email => 'evan@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'evan', :curriculums => [Curriculum.first] }])
+Student.create([{ :person => Person.create({ :name => 'McLovin', :email => 'mclovin@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'mclovin', :curriculums => [Curriculum.first] }])
+
+# Academic Periods
+AcademicPeriod.create([{ :name => '2011.2', :start => '01/08/2011', :end => '20/12/2011' }])
+
+# Lectures
+Lecture.create([{ :code => 'T001', :discipline => Discipline.first, :academic_period => AcademicPeriod.first, :professors => [Professor.first], :students => Student.all }])
+
+# Lecture Situations
+LectureSituation.create([{ :name => 'Approved', :approved => true }])
+LectureSituation.create([{ :name => 'Disapproved', :approved => false }])
+LectureSituation.create([{ :name => 'Disapproved by Attendance', :approved => false }])

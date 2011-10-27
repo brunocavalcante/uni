@@ -1,26 +1,24 @@
 = Uni
 
-Uni é uma Plataforma Livre para Sistemas de Gestão Universitária, com os seguintes módulos:
+Uni is a Open Source Platform for Academic Management Systems, with the following features:
 
-* Administração: Controle de Cursos, Disciplinas, Alunos e Períodos Letivos
-* Matrícula: Criação de turmas, definição de horários e vagas
-* Professor: Gerência de suas turmas (avaliações, notas, arquivos e e-mail para os alunos)
-* Aluno: Acesso à suas turmas (avaliações, notas, arquivos e e-mail para os alunos e o professor)
-* Relatórios: Relatórios estatísticos por curso, aluno, professor e disciplina
-* Social: perfil do aluno/professor com links, turmas atuais e contato
-* Biblioteca: Controle do catálogo de livros/vídeos/revistas e suas locações.
+* Administration: Courses, Disciplines, Students and Academic Periods Management
+* Registration: Creation of Classes per Academic Period
+* Professor: Classes Management (grades, absences, files, messages for the students)
+* Student: Access to your current classes
+* Reports: Statistical reports per course, student, professor and discipline
+* Social: Student/Professor profile, with contact information and links, current courses and classes
+* Library: Management of the university's catalog of books and related, and their locations by the students/professors
 
-== Instalação
+== Instalation
   bundle install
   rake db:migrate:reset
   rake db:seed
 
-== Usuários Iniciais
+== Initial Users
 
-No formato usuário, senha
+User, Password
 
-* admin@uni.com.br, admin
-* professor@uni.com.br, professor
-* 12345, aluno
-
-Powered by Ruby on Rails
+* admin@uni.com, admin
+* professor@uni.com, professor
+* student@uni.com, student

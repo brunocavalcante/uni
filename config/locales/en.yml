@@ -106,7 +106,7 @@ en:
   Approved: "Approved"
   Failed: "Failed"
   Tests: "Tests"
-  Abscences: "Abscences"
+  Absences: "Abscences"
   Schedule: "Schedule"
   TimeTable: "Timetable"
   Grade: "Grade"
@@ -135,6 +135,9 @@ en:
   Title: "Title"
   DeleteThisFile: "Delete this file"
   Message: "Message"
+  FinishDiscipline: "Finish Discipline"
+  RegisterAbsences: "Register Absences"
+  Ammount: "Ammount"
   
   url:
     uni: "Uni"

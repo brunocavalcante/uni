@@ -43,16 +43,17 @@ Uni::Application.routes.draw do
     root :to => 'home#index'
     resources :lectures do
       member do 
-        get :students
         get 'tests-and-abscences', :action => :tests_and_abscences, :as => 'tests_and_abscences'
         get :details
       end
+      resources :lecture_students
       resources :wall
       resources :files do 
         member do
           get :download
         end
       end
+      resources :lecture_absences
     end
   end
   
@@ -66,10 +67,10 @@ Uni::Application.routes.draw do
     end
     resources :lectures do
       member do 
-        get :students
         get 'tests-and-abscences', :action => :tests_and_abscences, :as => 'tests_and_abscences'
         get :details
       end
+      resources :lecture_students
       resources :wall
       resources :files do
         member do

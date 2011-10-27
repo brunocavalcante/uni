@@ -1,0 +1,16 @@
+<h1><%= @lecture.name %></h1>
+<%= render :partial => 'professor/lectures/menu' %>
+<article>
+	<header>
+		<h2><%= t @lecture_student.name %></h2>
+		<ul id="toolbar">
+			<li><%= link_to (t 'Profile'), user_path(@lecture_student.student.person), :class => 'person' %></li>
+		</ul>
+	</header>
+	
+	<h3><%= 'Tests' %></h3>
+	<%= render :partial => 'lectures/tests' %>
+	
+	<h3><%= t 'Abscences' %></h3>
+	<%= render :partial => 'lectures/abscences' %>
+</article>

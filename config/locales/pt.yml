@@ -348,7 +348,7 @@ pt:
   Approved: "Aprovado"
   Failed: "Reprovado"
   Tests: "Avaliações"
-  Abscences: "Faltas"
+  Absences: "Faltas"
   Schedule: "Horário"
   TimeTable: "Quadro de Horários"
   Grade: "Nota"
@@ -379,6 +379,9 @@ pt:
   Title: "Título"
   DeleteThisFile: "Excluir este arquivo"
   Message: "Mensagem"
+  FinishDiscipline: "Concluir Disciplina"
+  RegisterAbsences: "Lançar Faltas"
+  Ammount: "Quantidade"
   
   url:
     uni: "Uni"
