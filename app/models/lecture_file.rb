@@ -3,7 +3,7 @@ class LectureFile < ActiveRecord::Base
   belongs_to :person
   
   def title_or_name
-    title ? title : name
+    title != '' ? title : name
   end
   
   def mimetype

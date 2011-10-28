@@ -138,6 +138,13 @@ en:
   FinishDiscipline: "Finish Discipline"
   RegisterAbsences: "Register Absences"
   Ammount: "Ammount"
+  AbsenceRegistry: "Absence Registry"
+  NoUpdatesAvailable: "We haven't found any updates for you. :("
+  Administrator: "Administrator"
+  ThisIsTheAdministrationArea: "This is the administration area of the system."
+  UniVersion: "System Version"
+  RailsVersion: "Rails Version"
+  RubyVersion: "Ruby Version"
   
   url:
     uni: "Uni"

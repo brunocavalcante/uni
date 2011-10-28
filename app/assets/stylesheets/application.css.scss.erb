@@ -12,6 +12,7 @@ $linkColor: #000000;
 $defaultBorderColor: #DDDDDD;
 $lighterBorderColor: #EEEEEE;
 $defaultBoxBg: #F2F2F2;
+$shadowColor: #A2C0DF;
 
 /* Basic */
 body {
@@ -79,6 +80,20 @@ header section {
 	top: 0;
 	right: 0;
 }
+header #user .details {
+	float: left;
+	line-height: 27px;
+	text-align: right;
+}
+header #user .photo {
+	margin-left: 1em;
+	float: right;
+}
+
+img.thumb {
+	border: 3px solid $defaultBoxBg;
+	box-shadow: 1px 1px 1px $shadowColor;
+}
 
 /* Main Menu */
 #main-nav {
@@ -88,7 +103,7 @@ header section {
   -moz-border-radius: 6px;
   border-radius: 6px;
   -moz-box-shadow: 0 2px 4px #CCC;
-  box-shadow: 0 2px 8px #CCC;
+  box-shadow: 1px 1px 3px $shadowColor;
   background-color: #575d62;
   background-image: -moz-linear-gradient(top, #575d62, #2c3135); /* FF3.6 */
   background-image: -ms-linear-gradient(top, #575d62, #2c3135); /* IE10 */

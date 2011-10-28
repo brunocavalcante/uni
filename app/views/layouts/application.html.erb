@@ -14,11 +14,20 @@
         <span><%= t 'UniversityManagementSystem' %></span>
       </h1>
       <section id="user">
-        <% if session[:user] %>
-          <%= t "LoggedInAs" %> <%= link_to @user.name, user_index_url %> |
-          <%= t "Role" %>: <%= t session[:role].name %> |
-          <%= link_to (t 'Logout'), logout_path, :class => 'logout' %>
-        <% end %>
+      	<% if session[:user] %>
+      	<div class="details">
+          <%= t "LoggedInAs" %> <%= link_to @user.name, user_index_url %><br/>
+          <%= t "Role" %>: <%= t session[:role].name %> | <%= link_to (t 'Logout'), logout_path, :class => 'logout' %>
+          
+        </div>
+        <div class="photo">
+        	<% if @user.photo.exists? %>
+		  		<%= image_tag @user.photo.url(:thumb), :class => 'thumb' %>
+		  		<% else %>
+		  		<%= image_tag 'no-picture-thumb.png', :class => 'thumb' %>
+		  		<% end %>
+		  	</div>
+		  	<% end %>
       </section>
     </header>
     <nav id="main-nav">

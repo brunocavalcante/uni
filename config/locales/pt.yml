@@ -382,6 +382,13 @@ pt:
   FinishDiscipline: "Concluir Disciplina"
   RegisterAbsences: "Lançar Faltas"
   Ammount: "Quantidade"
+  AbsenceRegistry: "Lançamento de Faltas"
+  NoUpdatesAvailable: "Não encontramos nenhuma atualização para você. :("
+  Administrator: "Administrador"
+  ThisIsTheAdministrationArea: "Esta é a área de administração do sistema."
+  UniVersion: "Versão do Sistema"
+  RailsVersion: "Versão do Rails"
+  RubyVersion: "Versão do Ruby"
   
   url:
     uni: "Uni"
