@@ -6,3 +6,4 @@ doc/modelo_de_dados.dia~
 public/system/
 *~
 *.DS_*
+*.sass-cache

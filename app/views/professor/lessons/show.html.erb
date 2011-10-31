@@ -1,0 +1,29 @@
+<h1><%= @lecture.name %></h1>
+<%= render :partial => 'professor/lectures/menu' %>
+<article>
+	<header>
+		<h2><%= t @lesson.name %></h2>
+		<ul id="toolbar">
+			<li><%= link_to (t 'Back'), professor_lecture_lessons_path(@lecture), :class => 'back' %></li>
+			<li><%= link_to (t 'Edit'), edit_professor_lecture_lesson_path(@lecture, @lesson), :class => 'edit' %></li>
+			<li><%= link_to (t 'Absences'), professor_lecture_lesson_absences_path(@lecture, @lesson), :class => 'absences' %></li>
+		</ul>
+	</header>
+	
+	<p>
+		<b><%= t 'Date' %>:</b> <%= l @lesson.date, :format => :long %>
+	</p>
+	
+	<p>
+		<b><%= t 'Title' %>:</b> <%= @lesson.title %>
+	</p>
+	
+	<p>
+		<b><%= t 'MaximumAbsences' %>:</b> <%= @lesson.maximum_absences %>
+	</p>
+	
+	<p>
+		<b><%= t 'Description' %>:</b><br />
+		<%= simple_format(@lesson.description) %>
+	</p>
+</article>

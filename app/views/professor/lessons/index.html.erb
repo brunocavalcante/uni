@@ -1,0 +1,31 @@
+<h1><%= @lecture.name %></h1>
+<%= render :partial => 'professor/lectures/menu' %>
+<article>
+	<header>
+		<h2><%= t 'Lessons' %></h2>
+		<ul id="toolbar">
+			<li><%= link_to (t 'New') + ' ' + (t 'Lesson'), new_professor_lecture_lesson_path(@lecture), :class => 'new' %></li>
+		</ul>
+	</header>
+	
+	<% if @lessons %>
+	<table>
+		<thead>
+			<tr>
+				<th><%= t 'Title' %></th>
+				<th><%= t 'Date' %></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for lesson in @lessons %>
+			<tr>
+				<td><%= link_to lesson.name, [:professor, @lecture, lesson] %></td>
+				<td><%= l lesson.date, :format => :long %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	
+	<%= will_paginate @lessons %>
+	<% end %>
+</article>

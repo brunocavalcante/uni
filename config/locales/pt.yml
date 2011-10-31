@@ -220,6 +220,8 @@ pt:
       curriculum_student: "Aluno"
       lecture: "Turma"
       lecture_student: "Aluno"
+      lecture_absence: "Faltas"
+      lesson: "Aula"
     attributes:
       course:
         code: "Código"
@@ -389,6 +391,13 @@ pt:
   UniVersion: "Versão do Sistema"
   RailsVersion: "Versão do Rails"
   RubyVersion: "Versão do Ruby"
+  Status: "Status"
+  InProgress: "Em Andamento"
+  Finished: "Encerrada"
+  Lesson: "Aula"
+  Lessons: "Aulas"
+  MaximumAbsences: "Número máximo de faltas por aluno"
+  MaximumAbsencesExplanation: "Se este valor for zero, não haverá controle de frequencia para esta aula."
   
   url:
     uni: "Uni"
@@ -420,3 +429,5 @@ pt:
     lecture_students: "Alunos"
     details: "Detalhes"
     professor: "Professor"
+    absences: "Faltas"
+    lessons: "Aulas"

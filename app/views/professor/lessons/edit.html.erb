@@ -1,0 +1,14 @@
+<h1><%= @lecture.name %></h1>
+<%= render :partial => 'professor/lectures/menu' %>
+<article>
+	<header>
+		<h2><%= t 'Editing' %> <%= t 'Lesson'%></h2>
+		<ul id="toolbar">
+			<li><%= link_to (t 'Back'), professor_lecture_lesson_path(@lecture, @lesson), :class => 'back' %></li>
+			<li><%= link_to (t 'Show'), professor_lecture_lesson_path(@lecture, @lesson), :class => 'show' %></li>
+		</ul>
+	</header>
+	
+	<%= render 'form' %>
+	
+</article>

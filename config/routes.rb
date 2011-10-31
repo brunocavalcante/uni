@@ -53,6 +53,9 @@ Uni::Application.routes.draw do
           get :download
         end
       end
+      resources :lessons do 
+        resources :absences
+      end
       resources :lecture_absences
     end
   end
@@ -72,6 +75,7 @@ Uni::Application.routes.draw do
       end
       resources :lecture_students
       resources :wall
+      resources :lessons
       resources :files do
         member do
           get :download

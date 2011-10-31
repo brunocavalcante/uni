@@ -1,0 +1,2 @@
+module Professor::AbsencesHelper
+end

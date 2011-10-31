@@ -238,7 +238,7 @@ footer, footer a, footer a:active, a:visited, footer a:link {
 	text-decoration: none;
 	cursor: pointer;
 }
-#toolbar .edit, #toolbar .delete, #toolbar .back, #toolbar .new, #toolbar .show, #toolbar .person, .item input.delete {
+#toolbar .edit, #toolbar .delete, #toolbar .back, #toolbar .new, #toolbar .show, #toolbar .person, .item input.delete, #toolbar .absences {
   padding-left: 24px;
   background-repeat: no-repeat;
   background-position: 0 50%;
@@ -422,11 +422,14 @@ aside#user {
 #content aside ul li.tests {
 	background-image: url(<%= asset_path 'icons/issue.png' %>);
 }
-#content aside ul li.abscences {
+#content aside ul li.abscences, #toolbar .absences {
 	background-image: url(<%= asset_path 'icons/order.png' %>);
 }
 #content aside ul li.finish {
 	background-image: url(<%= asset_path 'icons/check.png' %>);
+}
+#content aside ul li.lessons {
+	background-image: url(<%= asset_path 'icons/bookmark.png' %>);
 }
 
 /* Panels */

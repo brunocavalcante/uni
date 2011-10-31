@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lecture_id: 1
+  date: 2011-10-31
+  title: MyString
+  description: MyString
+  maximum_absences: 1
+
+two:
+  lecture_id: 1
+  date: 2011-10-31
+  title: MyString
+  description: MyString
+  maximum_absences: 1

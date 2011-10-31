@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Professor::LectureAbsencesControllerTest < ActionController::TestCase
+class Professor::LessonsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

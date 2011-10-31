@@ -145,6 +145,13 @@ en:
   UniVersion: "System Version"
   RailsVersion: "Rails Version"
   RubyVersion: "Ruby Version"
+  Status: "Status"
+  InProgress: "In Progress"
+  Finished: "Finished"
+  Lesson: "Lesson"
+  Lessons: "Lessons"
+  MaximumAbsences: "Maximum number of absences per student"
+  MaximumAbsencesExplanation: "If this is zero, it means this lesson won't have absences control."
   
   url:
     uni: "Uni"
@@ -176,3 +183,5 @@ en:
     details: "Details"
     professor: "Professor"
     wall: "Wall"
+    absences: "Absences"
+    lessons: "Lessons"

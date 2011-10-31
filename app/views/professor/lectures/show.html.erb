@@ -5,6 +5,11 @@
   <p>
     <b><%= t 'ClassCode' %>:</b> <%= @lecture.code %>
   </p>
+  
+  <p>
+    <b><%= t 'Status' %>:</b> <%= @lecture.end_date ? (t 'Finished') : (t 'InProgress') %>
+  </p>
+  
   <% if @lecture.professors.size > 1 %>
   <p>
     <b><%= t 'Professors' %>:</b> 
