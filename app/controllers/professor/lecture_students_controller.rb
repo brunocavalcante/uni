@@ -14,5 +14,6 @@ class Professor::LectureStudentsController < ApplicationController
   
   def show
     @lecture_student = LectureStudent.find params[:id]
+    @month_absences = @lecture_student.month_absences
   end
 end

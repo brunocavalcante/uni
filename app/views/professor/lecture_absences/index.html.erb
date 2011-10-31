@@ -8,6 +8,7 @@
 		</ul>
 	</header>
 	
+	<% if @lecture_absences %>
 	<table>
 		<thead>
 			<tr>
@@ -24,4 +25,5 @@
 	</table>
 	
 	<%= will_paginate @lecture_absences %>
+	<% end %>
 </article>

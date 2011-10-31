@@ -14,6 +14,11 @@ class Professor::LectureAbsencesController < ApplicationController
   def new
     @lecture_absence = LectureAbsence.new
     @lecture_absence.lecture_student_absences.build
+    
+    load_students
+  end
+  
+  def load_students
     @lecture_students = LectureStudent.all :conditions => ['lecture_id = ?', params[:lecture_id]], 
                                            :include => [{:student => :person}], 
                                            :order => ['people.name ASC']
@@ -28,7 +33,12 @@ class Professor::LectureAbsencesController < ApplicationController
         format.html { redirect_to({:action => "index"}, :notice => 'Object was successfully created.') }
         format.xml  { render :xml => @lecture_absence, :status => :created, :location => @lecture_absence }
       else
-        format.html { render :action => "index" }
+        format.html {
+          @lecture_absence.lecture_student_absences.build
+          load_students
+          
+          render :action => "new"
+        }
         format.xml  { render :xml => @lecture_absence.errors, :status => :unprocessable_entity }
       end
     end
@@ -37,8 +47,12 @@ class Professor::LectureAbsencesController < ApplicationController
   def show
     @lecture_absence = LectureAbsence.find(params[:id])
     
-    @lecture_student_absences = LectureStudentAbsence.all :conditions => ['lecture_absences.lecture_id = ?', params[:lecture_id]], 
-                                                          :include => [:lecture_absence, {:lecture_student => {:student => :person}}], 
+    @lecture_student_absences = LectureStudentAbsence.all :conditions => ['lecture_absences.lecture_id = ? AND 
+                                                                           lecture_absence_id = ?', 
+                                                                           params[:lecture_id], 
+                                                                           params[:id]], 
+                                                          :include => [:lecture_absence, 
+                                                                       {:lecture_student => {:student => :person}}], 
                                                           :order => ['people.name ASC']
   end
   
@@ -47,8 +61,10 @@ class Professor::LectureAbsencesController < ApplicationController
     @lecture_absence.lecture_student_absences.build
     @lecture_students = @lecture.students
     
-    @lecture_student_absences = LectureStudentAbsence.all :conditions => ['lecture_absences.lecture_id = ?', params[:lecture_id]], 
-                                                          :include => [:lecture_absence, {:lecture_student => {:student => :person}}], 
+    @lecture_student_absences = LectureStudentAbsence.all :conditions => ['lecture_absences.lecture_id = ?', 
+                                                                          params[:lecture_id]], 
+                                                          :include => [:lecture_absence, 
+                                                                       {:lecture_student => {:student => :person}}], 
                                                           :order => ['people.name ASC']
   end
   

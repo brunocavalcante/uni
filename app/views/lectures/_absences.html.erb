@@ -1,0 +1,18 @@
+<table class="grid">
+  <thead>
+  	<tr>
+  		<% for month, ammount in @month_absences %>
+      <th><%= (t 'date.abbr_month_names')[month] %></th>
+      <% end %>
+    	<th>Total</th>
+    <tr>
+  </thead>
+  <tbody>
+    <tr>
+    	<% for month, ammount in @month_absences %>
+      <td><%= ammount %></td>
+      <% end %>
+      <td><%= @month_absences.inject(0) {|sum, hash | sum + hash[1]} %></td>
+    </tr>
+  </tbody>
+</table> 
