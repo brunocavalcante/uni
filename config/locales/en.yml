@@ -154,6 +154,9 @@ en:
   MaximumAbsences: "Maximum number of absences per student"
   MaximumAbsencesExplanation: "If this is zero, it means this lesson won't have absences control."
   LessonFrom: "Lesson from"
+  GeneralInformation: "General Information"
+  ThisLessonDoesNotRequireYourPresence: "This lesson is non-presential."
+  Content: "Content"
   
   url:
     uni: "Uni"
