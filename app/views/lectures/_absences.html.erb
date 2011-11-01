@@ -12,7 +12,7 @@
     	<% for month, ammount in @month_absences %>
       <td><%= ammount %></td>
       <% end %>
-      <td><%= @month_absences.inject(0) {|sum, hash | sum + hash[1]} %></td>
+      <td><%= @month_absences.delete_if {|k, v| v == nil}.inject(0) {|sum, hash| sum + hash.last} %></td>
     </tr>
   </tbody>
 </table> 
