@@ -222,6 +222,7 @@ pt:
       lecture_student: "Aluno"
       lecture_absence: "Faltas"
       lesson: "Aula"
+      wall: "Publicação"
     attributes:
       course:
         code: "Código"
@@ -388,6 +389,7 @@ pt:
   NoUpdatesAvailable: "Não encontramos nenhuma atualização para você. :("
   Administrator: "Administrador"
   ThisIsTheAdministrationArea: "Esta é a área de administração do sistema."
+  SystemInformation: "Informações do Sistema"
   UniVersion: "Versão do Sistema"
   RailsVersion: "Versão do Rails"
   RubyVersion: "Versão do Ruby"
@@ -398,6 +400,10 @@ pt:
   Lessons: "Aulas"
   MaximumAbsences: "Número máximo de faltas por aluno"
   MaximumAbsencesExplanation: "Se este valor for zero, não haverá controle de frequencia para esta aula."
+  LessonFrom: "Aula de"
+  GeneralInformation: "Dados Gerais"
+  ThisLessonDoesNotRequireYourPresence: "Esta aula não é presencial."
+  Content: "Conteúdo"
   
   url:
     uni: "Uni"

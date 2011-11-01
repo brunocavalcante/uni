@@ -6,6 +6,6 @@ class Lesson < ActiveRecord::Base
   validates_presence_of :date
   
   def name
-    return title ? title : (l date, :format => :long)
+    return title != '' ? title : (I18n.t 'LessonFrom') + ' ' + (I18n.l date, :format => :long)
   end
 end

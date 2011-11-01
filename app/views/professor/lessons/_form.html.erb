@@ -3,7 +3,7 @@
 
 	<p>
 		<%= f.label :date, (t 'Date') %><br/>
-		<%= f.date_select :date %>
+		<%= f.datetime_select :date %>
 	</p>
 	
 	<p>
@@ -18,7 +18,7 @@
 	
 	<p>
 		<%= f.label :maximum_absences, (t 'MaximumAbsences') %><br/>
-		<%= f.text_field :maximum_absences %><br />
+		<%= f.text_field :maximum_absences, :value => @lesson.maximum_absences ? @lesson.maximum_absences : 0 %><br />
 		<small><%= t 'MaximumAbsencesExplanation' %></small>
 	</p>
 

@@ -142,6 +142,7 @@ en:
   NoUpdatesAvailable: "We haven't found any updates for you. :("
   Administrator: "Administrator"
   ThisIsTheAdministrationArea: "This is the administration area of the system."
+  SystemInformation: "System Information"
   UniVersion: "System Version"
   RailsVersion: "Rails Version"
   RubyVersion: "Ruby Version"
@@ -152,6 +153,7 @@ en:
   Lessons: "Lessons"
   MaximumAbsences: "Maximum number of absences per student"
   MaximumAbsencesExplanation: "If this is zero, it means this lesson won't have absences control."
+  LessonFrom: "Lesson from"
   
   url:
     uni: "Uni"

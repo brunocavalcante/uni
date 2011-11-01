@@ -1,5 +1,5 @@
 <h1><%= @lecture.name %></h1>
-<%= render :partial => 'professor/lectures/menu' %>
+<%= render :partial => 'student/lectures/menu' %>
 <article>
 	<header>
 		<h2><%= t @lesson.name %></h2>
@@ -8,16 +8,20 @@
 		</ul>
 	</header>
 	
+	<h3><%= t 'GeneralInformation' %></h3>
+	
 	<p>
 		<b><%= t 'Date' %>:</b> <%= l @lesson.date, :format => :long %>
 	</p>
 	
+	<% if @lesson.maximum_absences == 0 %>
 	<p>
-		<b><%= t 'Title' %>:</b> <%= @lesson.title %>
+		<%= t 'ThisLessonDoesNotRequireYourPresence' %>
 	</p>
-	
-	<p>
-		<b><%= t 'Description' %>:</b><br />
-		<%= simple_format(@lesson.description) %>
-	</p>
+	<% end %>
+
+	<% if @lesson.description != '' %>
+	<h3><%= t 'Content' %></h3>
+	<%= simple_format(@lesson.description) %>
+	<% end %>
 </article>
