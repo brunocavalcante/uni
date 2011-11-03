@@ -11,26 +11,18 @@
       </tr>
     </thead>
     <tbody>
+    	<% for lecture in @lectures %>
       <tr>
-        <td>SI036 - Matemática</td>
-        <td>SEG 19:00 - 20:40, QUA 19:00 - 20:40</td>
+        <td><%= lecture.discipline.name %></td>
+        <td>
+          <% lecture.lecture_time_slots.each_with_index do |t, i| %>
+          <%= ', ' if i > 0 %>
+          <%= (t 'date.day_names')[t.weekday] %> 
+          <%= t.start_time_string %> - <%= t.end_time_string %>
+          <% end %>
+        </td>
       </tr>
-      <tr>
-        <td>AD015 - Português</td>
-        <td>SEG 21:00 - 22:40, QUA 21:00 - 22:40</td>
-      </tr>
-      <tr>
-        <td>SI036 - Geografia</td>
-        <td>TER 19:00 - 20:40, QUI 19:00 - 20:40</td>
-      </tr>
-      <tr>
-        <td>SI036 - História</td>
-        <td>TER 21:00 até 22:40, QUI 21:00 - 22:40</td>
-      </tr>
-      <tr>
-        <td>SI036 - Biologia</td>
-        <td>SAB 08:00 - 09:40, SAB 10:00 - 11:40</td>
-      </tr>
+      <% end %>
     </tbody>
   </table>
 </article>

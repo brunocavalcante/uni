@@ -33,4 +33,8 @@ class LectureStudent < ActiveRecord::Base
     
     return @month_absences
   end
+  
+  def situation_description
+    I18n.t (lecture_situation_id ? lecture_situation.name : 'InProgress')
+  end
 end
