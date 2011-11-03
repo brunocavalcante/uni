@@ -157,6 +157,9 @@ en:
   GeneralInformation: "General Information"
   ThisLessonDoesNotRequireYourPresence: "This lesson is non-presential."
   Content: "Content"
+  FinalGrade: "Final Grade"
+  FinalAttendance: "Final Attendance"
+  FinalSituation: "Final Situation"
   
   url:
     uni: "Uni"

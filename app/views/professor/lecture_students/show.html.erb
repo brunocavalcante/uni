@@ -4,9 +4,24 @@
 	<header>
 		<h2><%= t @lecture_student.name %></h2>
 		<ul id="toolbar">
+			<li><%= link_to (t 'Edit'), edit_professor_lecture_lecture_student_path(@lecture, @lecture_student), :class => 'edit' %></li>
 			<li><%= link_to (t 'Profile'), user_path(@lecture_student.student.person), :class => 'person' %></li>
 		</ul>
 	</header>
+	
+	<p>
+		<b><%= t 'Situation' %>:</b> <%= @lecture_student.lecture_situation_id ? (t @lecture_student.lecture_situation.name) : (t 'InProgress') %>
+	</p>
+	
+	<% if @lecture_student.lecture_situation_id %>
+	<p>
+		<b><%= t 'FinalGrade' %>:</b> <%= @lecture_student.grade %>
+	</p>
+	
+	<p>
+		<b><%= t 'FinalAttendance' %>:</b> <%= @lecture_student.attendance %>%
+	</p>
+	<% end %>
 	
 	<h3><%= t 'Tests' %></h3>
 	<%= render :partial => 'lectures/tests' %>

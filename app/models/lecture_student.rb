@@ -1,11 +1,16 @@
 class LectureStudent < ActiveRecord::Base
   belongs_to :lecture
   belongs_to :student
+  belongs_to :lecture_situation
   
-  has_many :lecture_student_absences
+  has_many :lesson_absences
   
   validates :lecture_id, :presence => true
   validates :student_id, :presence => true
+  
+  validates_presence_of :grade, :if => :lecture_situation_id?
+  validates_presence_of :attendance, :if => :lecture_situation_id?
+  validates_presence_of :lecture_situation_id, :if => :grade? || :attendance?
   
   def name
     student.name

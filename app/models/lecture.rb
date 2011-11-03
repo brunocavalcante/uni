@@ -13,6 +13,8 @@ class Lecture < ActiveRecord::Base
   
   has_many :lecture_absences
   
+  has_many :lessons
+  
   validates :code, :presence => true
   validates :discipline_id, :presence => true
   validates :professor_ids, :presence => true

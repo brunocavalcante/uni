@@ -1,6 +1,14 @@
 class Student::LecturesController < LecturesController
-  def index
+  before_filter :load_lecture_student
+  
+  def load_lecture_student
     @student = Student.find_by_person_id(@user.id)
+    if params[:id]
+      @lecture_student = LectureStudent.find_by_lecture_id_and_student_id(params[:id], @student.id)
+    end
+  end
+  
+  def index
     @lectures = @student.current_lectures
   end
   

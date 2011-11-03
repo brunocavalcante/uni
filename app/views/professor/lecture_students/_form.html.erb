@@ -1,0 +1,23 @@
+<%= form_for([:professor, @lecture, @lecture_student]) do |f| %>
+  <%= f.error_messages %>
+
+	<p>
+		<%= f.label :grade %><br/>
+		<%= f.text_field :grade %>
+	</p>
+	
+	<p>
+		<%= f.label :attendance %> (%)<br/>
+		<%= f.text_field :attendance %><br />
+		<small><%= t 'Suggestion' %>: <%= @suggested_attendance %>%</small>
+	</p>
+	
+	<p>
+		<%= f.label :lecture_situation_id %><br/>
+		<%= f.select :lecture_situation_id, LectureSituation.all.collect {|p| [ (t p.name), p.id ]}, {:include_blank => ''} %>
+	</p>
+	
+	<div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

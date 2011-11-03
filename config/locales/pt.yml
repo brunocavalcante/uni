@@ -221,6 +221,7 @@ pt:
       lecture: "Turma"
       lecture_student: "Aluno"
       lecture_absence: "Faltas"
+      lecture_situation: "Situação"
       lesson: "Aula"
       wall: "Publicação"
     attributes:
@@ -247,6 +248,10 @@ pt:
       professor:
         person: 
           name: "Nome"
+      lecture_student:
+        lecture_situation_id: "Situação Final"
+        grade: "Nota Final"
+        attendance: "Frequência Final"
       
   will_paginate:
     previous_label: "&larr; Página Anterior"
@@ -349,6 +354,8 @@ pt:
   Situation: "Situação"
   Studying: "Cursando"
   Approved: "Aprovado"
+  Disapproved: "Reprovado"
+  Disapproved by Attendance: "Reprovado por Faltas"
   Failed: "Reprovado"
   Tests: "Avaliações"
   Absences: "Faltas"
@@ -404,6 +411,9 @@ pt:
   GeneralInformation: "Dados Gerais"
   ThisLessonDoesNotRequireYourPresence: "Esta aula não é presencial."
   Content: "Conteúdo"
+  FinalGrade: "Nota Final"
+  FinalAttendance: "Frequência Final"
+  FinalSituation: "Situação Final"
   
   url:
     uni: "Uni"
