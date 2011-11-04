@@ -15,17 +15,30 @@ class Admin::LectureStudentsController < ApplicationController
   end
   
   def create
-    @lecture_student = LectureStudent.new(params[:lecture_student])
-    @lecture_student.lecture = @lecture
-    
-    respond_to do |format|
-      if @lecture_student.save
-        format.html { redirect_to([:admin, @academic_period, @lecture], :notice => 'Student was successfully created.') }
-        format.xml  { render :xml => @lecture_student, :status => :created, :location => @discipline }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @lecture_student.errors, :status => :unprocessable_entity }
+    begin
+      for i in params[:lecture_student][:student_id]
+        next if LectureStudent.find_by_lecture_id_and_student_id(@lecture.id, i)
+        
+        @lecture_student = LectureStudent.new
+        @lecture_student.student_id = i
+        @lecture_student.lecture = @lecture
+        @lecture_student.save
       end
+      
+      redirect_to([:admin, @academic_period, @lecture], :notice => 'Students were successfully added to the lecture.')
+    rescue
+      @lecture_student = LectureStudent.new
+      render :action => "new"
+    end
+  end
+  
+  def destroy
+    @lecture_student = LectureStudent.find(params[:id])
+    @lecture_student.destroy
+
+    respond_to do |format|
+      format.html { redirect_to([:admin, @academic_period, @lecture], :notice => 'Student was successfully removed.') }
+      format.xml  { head :ok }
     end
   end
 end

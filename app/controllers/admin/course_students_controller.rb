@@ -38,4 +38,14 @@ class Admin::CourseStudentsController < ApplicationController
   def show
     
   end
+  
+  def destroy
+    @curriculum_student = CurriculumStudent.find(params[:id])
+    @curriculum_student.destroy
+
+    respond_to do |format|
+      format.html { redirect_to({:action => "index"}, :notice => 'Student was successfully removed.') }
+      format.xml  { head :ok }
+    end
+  end
 end

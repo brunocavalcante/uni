@@ -6,6 +6,8 @@ class AcademicPeriod < ActiveRecord::Base
   validate :validate_registration
   validate :validate_registrationInterval
   
+  has_many :lectures, :dependent => :destroy
+  
   def validate_registration
     errors.add(:registration_start, "periodo de matricula invalido") if (registration_start == nil) ^ (registration_end == nil) 
   end

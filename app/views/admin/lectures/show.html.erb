@@ -7,7 +7,7 @@
       <li><%= link_to (t 'Back'), {:action => 'index'}, :class => 'back' %></li>
       <li><%= link_to (t 'Edit'), {:action => 'edit', :id => @lecture.id}, :class => 'edit' %></li>
       <li><%= button_to (t 'Delete'), [:admin, @academic_period, @lecture], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
-      <li><%= link_to (t 'Add') + ' ' + (t 'Student'), new_admin_academic_period_lecture_lecture_student_path(@academic_period, @lecture), :class => 'new' %></li>
+      <li><%= link_to (t 'Add') + ' ' + (t 'Students'), new_admin_academic_period_lecture_lecture_student_path(@academic_period, @lecture), :class => 'new' %></li>
     </ul>
   </header>
 
@@ -70,6 +70,7 @@
       <tr>
         <th><%= t 'Code' %></th>
         <th><%= t 'Name' %></th>
+        <th><%= t 'Remove' %></th>
       </tr>
     </thead>
 
@@ -78,6 +79,15 @@
       <tr>
         <td><%= lecture_student.student.code %></td>
         <td><%= link_to lecture_student.student.person.name, admin_student_path(lecture_student.student) %></td>
+        <td>
+        	<%= button_to (t 'Remove'), {:controller => :lecture_students, 
+        															 :action => :show, 
+        															 :lecture_id => @lecture.id, 
+        															 :id => lecture_student.id}, 
+        															 :confirm => (t 'AreYouSure'), 
+        															 :method => :delete, 
+        															 :class => 'delete' %>
+				</td>
       </tr>
       <% end %>
     </tbody>

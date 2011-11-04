@@ -3,7 +3,7 @@
 
   <p>
     <%= label_tag :student_id, (t 'Student') %><br />
-    <%= f.collection_select :student_id, @lecture_student.student ? [@lecture_student.student] : [], :student_id, :name %>
+    <%= f.collection_select :student_id, @lecture_student.student ? [@lecture_student.student] : [], :student_id, :name, {}, {:multiple => true} %>
   </p>
   
   <% if (@lecture_student.id) %>

@@ -3,6 +3,8 @@ class Curriculum < ActiveRecord::Base
   has_many :curriculum_disciplines, :dependent => :destroy
   has_many :disciplines, :through => :curriculum_disciplines
   
+  has_many :curriculum_students, :dependent => :destroy
+  
   validates :code, :presence => true
   validates :name, :presence => true
   
