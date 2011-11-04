@@ -5,6 +5,8 @@ class Student::LecturesController < LecturesController
     @student = Student.find_by_person_id(@user.id)
     if params[:id]
       @lecture_student = LectureStudent.find_by_lecture_id_and_student_id(params[:id], @student.id)
+      
+      redirect_to({:controller => :home}, :alert => 'YouDontHaveAccessToThisLecture') unless @lecture_student
     end
   end
   

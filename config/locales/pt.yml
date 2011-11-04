@@ -414,6 +414,7 @@ pt:
   FinalGrade: "Nota Final"
   FinalAttendance: "Frequência Final"
   FinalSituation: "Situação Final"
+  YouDontHaveAccessToThisLecture: "Desculpe, você não possui acesso à esta turma."
   
   url:
     uni: "Uni"
