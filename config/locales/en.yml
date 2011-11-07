@@ -185,6 +185,12 @@ en:
   ScholarityUpdated: "Scholarity successfully updated."
   ScholarityDeleted: "Scholarity successfully deleted."
   
+  LectureStudentsAdded: "Students successfully added to the lecture."
+  LectureStudentRemoved: "Student successfully removed from the lecture."
+ 
+  WallCreated: "Publication sucessfully created."
+  WallDeleted: "Publication successfully deleted."
+  
   url:
     uni: "Uni"
     admin: "Administration"

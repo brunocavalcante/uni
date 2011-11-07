@@ -25,7 +25,7 @@ class Admin::LectureStudentsController < ApplicationController
         @lecture_student.save
       end
       
-      redirect_to([:admin, @academic_period, @lecture], :notice => 'Students were successfully added to the lecture.')
+      redirect_to([:admin, @academic_period, @lecture], :notice => I18n.t('LectureStudentsAdded'))
     rescue
       @lecture_student = LectureStudent.new
       render :action => "new"
@@ -37,7 +37,7 @@ class Admin::LectureStudentsController < ApplicationController
     @lecture_student.destroy
 
     respond_to do |format|
-      format.html { redirect_to([:admin, @academic_period, @lecture], :notice => 'Student was successfully removed.') }
+      format.html { redirect_to([:admin, @academic_period, @lecture], :notice => I18n.t('LectureStudentRemoved')) }
       format.xml  { head :ok }
     end
   end

@@ -222,6 +222,7 @@ pt:
       lecture_student: "Aluno"
       lecture_absence: "Faltas"
       lecture_situation: "Situação"
+      lecture_file: "Arquivo"
       lesson: "Aula"
       wall: "Publicação"
     attributes:
@@ -444,6 +445,12 @@ pt:
   ScholarityCreated: "Escolaridade criada com sucesso."
   ScholarityUpdated: "Escolaridade atualizada com sucesso."
   ScholarityDeleted: "Escolaridade excluída com sucesso."
+  
+  LectureStudentsAdded: "Alunos adicionados à turma com sucesso."
+  LectureStudentRemoved: "Alunos removidos da turma com sucesso."
+  
+  WallCreated: "Publicação realizada com sucesso."
+  WallDeleted: "Publicação excluída com sucesso."
   
   url:
     uni: "Uni"

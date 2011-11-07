@@ -26,7 +26,7 @@ class WallController < ApplicationController
     
     respond_to do |format|
       if @wall.save
-        format.html { redirect_to({:action => "index"}, :notice => 'Object was successfully created.') }
+        format.html { redirect_to({:action => "index"}, :notice => I18n.t('WallCreated')) }
         format.xml  { render :xml => @wall, :status => :created, :location => @wall }
       else
         format.html {
@@ -43,7 +43,7 @@ class WallController < ApplicationController
     @wall.destroy
 
     respond_to do |format|
-      format.html { redirect_to({:action => "index"}) }
+      format.html { redirect_to({:action => "index", :notice => I18n.t('WallDeleted')}) }
       format.xml  { head :ok }
     end
   end
