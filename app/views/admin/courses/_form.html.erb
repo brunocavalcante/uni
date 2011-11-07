@@ -2,15 +2,15 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label (t 'Code') %><br />
+    <%= f.label :code %><br />
     <%= f.text_field :code %>
   </p>
   <p>
-    <%= f.label (t 'Name') %><br />
+    <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label (t 'CourseCategory') %><br />
+    <%= f.label :course_category_id %><br />
     <%= f.select :course_category_id, CourseCategory.all.collect {|c| [ c.name, c.id ] } %>
   </p>
   <div class="actions">

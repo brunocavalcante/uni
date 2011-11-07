@@ -228,6 +228,7 @@ pt:
       course:
         code: "Código"
         name: "Nome"
+        course_category_id: "Categoria do Curso"
       discipline:
         code: "Código"
         name: "Nome"
@@ -243,15 +244,19 @@ pt:
       scholarity:
         name: "Nome"
       student:
-        person: 
-          name: "Nome"
+        code: "Código"
       professor:
         person: 
           name: "Nome"
+          email: "E-mail"
+        scholarity_id: "Escolaridade"
       lecture_student:
         lecture_situation_id: "Situação Final"
         grade: "Nota Final"
         attendance: "Frequência Final"
+      person:
+        name: "Nome"
+        email: "E-mail"
       
   will_paginate:
     previous_label: "&larr; Página Anterior"
@@ -415,6 +420,30 @@ pt:
   FinalAttendance: "Frequência Final"
   FinalSituation: "Situação Final"
   YouDontHaveAccessToThisLecture: "Desculpe, você não possui acesso à esta turma."
+  
+  CourseCreated: "Curso criado com sucesso."
+  CourseUpdated: "Curso atualizado com sucesso."
+  CourseDeleted: "Curso excluído com sucesso."
+  
+  ProfessorCreated: "Professor criado com sucesso."
+  ProfessorUpdated: "Professor atualizado com sucesso."
+  ProfessorDeleted: "Professor excluído com sucesso."
+  
+  StudentCreated: "Aluno criado com sucesso."
+  StudentUpdated: "Aluno atualizado com sucesso."
+  StudentDeleted: "Aluno excluído com sucesso."
+  
+  AcademicPeriodCreated: "Período Letivo criado com sucesso."
+  AcademicPeriodUpdated: "Período Letivo atualizado com sucesso."
+  AcademicPeriodDeleted: "Período Letivo excluído com sucesso."
+  
+  CourseCategoryCreated: "Categoria de Curso criada com sucesso."
+  CourseCategoryUpdated: "Categoria de Curso atualizada com sucesso."
+  CourseCategoryDeleted: "Categoria de Curso excluída com sucesso."
+  
+  ScholarityCreated: "Escolaridade criada com sucesso."
+  ScholarityUpdated: "Escolaridade atualizada com sucesso."
+  ScholarityDeleted: "Escolaridade excluída com sucesso."
   
   url:
     uni: "Uni"

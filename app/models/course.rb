@@ -6,4 +6,6 @@ class Course < ActiveRecord::Base
   
   validates :code, :presence => true
   validates :name, :presence => true
+  
+  validates_uniqueness_of :code
 end

@@ -54,7 +54,7 @@ class Admin::StudentsController < ApplicationController
     
     respond_to do |format|
       if @student.save
-        format.html { redirect_to([:admin, @student], :notice => 'Record was successfully created.') }
+        format.html { redirect_to([:admin, @student], :notice => I18n.t('StudentCreated')) }
         format.xml  { render :xml => @student, :status => :created, :location => @course }
       else
         format.html { render :action => "new" }
@@ -73,7 +73,7 @@ class Admin::StudentsController < ApplicationController
     end
 
     if @student.update_attributes(params[:student])
-      redirect_to([:admin, @student], :notice => 'Student was successfully updated.')
+      redirect_to([:admin, @student], :notice => I18n.t('StudentUpdated'))
     else
       redirect_to :action => "edit"
     end
@@ -84,6 +84,9 @@ class Admin::StudentsController < ApplicationController
     @student = Student.find_by_code(params[:id])
     @student.destroy
 
-    redirect_to(admin_students_url)
+    respond_to do |format|
+      format.html { redirect_to(admin_students_url, :notice => I18n.t('StudentDeleted')) }
+      format.xml  { head :ok }
+    end
   end
 end

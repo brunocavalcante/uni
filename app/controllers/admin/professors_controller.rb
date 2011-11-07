@@ -42,7 +42,7 @@ class Admin::ProfessorsController < ApplicationController
     
     respond_to do |format|
       if @professor.save
-        format.html { redirect_to([:admin, @professor], :notice => 'Record was successfully created.') }
+        format.html { redirect_to([:admin, @professor], :notice => I18n.t('ProfessorCreated')) }
         format.xml  { render :xml => @professor, :status => :created, :location => @professor }
       else
         format.html { render :action => "new" }
@@ -56,7 +56,7 @@ class Admin::ProfessorsController < ApplicationController
     @professor = Professor.find(params[:id])
 
     if @professor.update_attributes(params[:professor])
-      redirect_to([:admin, @professor], :notice => 'Professor was successfully updated.')
+      redirect_to([:admin, @professor], :notice => I18n.t('ProfessorUpdated'))
     else
       redirect_to :action => "edit"
     end
@@ -67,6 +67,9 @@ class Admin::ProfessorsController < ApplicationController
     @professor = Professor.find(params[:id])
     @professor.destroy
 
-    redirect_to(admin_professors_url)
+    respond_to do |format|
+      format.html { redirect_to(admin_professors_url, :notice => I18n.t('ProfessorDeleted')) }
+      format.xml  { head :ok }
+    end
   end
 end

@@ -46,7 +46,7 @@ class Admin::CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to([:admin, @course], :notice => 'Course was successfully created.') }
+        format.html { redirect_to([:admin, @course], :notice => I18n.t('CourseCreated')) }
         format.xml  { render :xml => @course, :status => :created, :location => @course }
       else
         format.html { render :action => "new" }
@@ -62,7 +62,7 @@ class Admin::CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.update_attributes(params[:course])
-        format.html { redirect_to([:admin, @course], :notice => 'Course was successfully updated.') }
+        format.html { redirect_to([:admin, @course], :notice => I18n.t('CourseUpdated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -78,7 +78,7 @@ class Admin::CoursesController < ApplicationController
     @course.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_courses_url) }
+      format.html { redirect_to(admin_courses_url, :notice => I18n.t('CourseDeleted')) }
       format.xml  { head :ok }
     end
   end

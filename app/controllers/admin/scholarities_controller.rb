@@ -31,7 +31,7 @@ class Admin::ScholaritiesController < ApplicationController
     @scholarity = Scholarity.new(params[:scholarity])
 
     if @scholarity.save
-        redirect_to([:admin, @scholarity], :notice => 'Scholarity was successfully created.')
+        redirect_to([:admin, @scholarity], :notice => I18n.t('ScholarityCreated'))
     else
         render :action => "new"
     end
@@ -41,7 +41,7 @@ class Admin::ScholaritiesController < ApplicationController
     @scholarity = Scholarity.find(params[:id])
 
     if @scholarity.update_attributes(params[:scholarity])
-        redirect_to([:admin, @scholarity], :notice => 'Scholarity was successfully updated.')
+        redirect_to([:admin, @scholarity], :notice => I18n.t('ScholarityUpdated'))
     else
         render :action => "edit"
     end
@@ -51,6 +51,9 @@ class Admin::ScholaritiesController < ApplicationController
     @scholarity = Scholarity.find(params[:id])
     @scholarity.destroy
 
-    redirect_to :action => 'index'
+    respond_to do |format|
+      format.html { redirect_to({:action => 'index'}, :notice => I18n.t('ScholarityDeleted')) }
+      format.xml  { head :ok }
+    end
   end
 end

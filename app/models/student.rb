@@ -6,6 +6,8 @@ class Student < ActiveRecord::Base
   has_many :lecture_students, :dependent => :destroy
   has_many :lectures, :through => :lecture_students
   
+  validates_uniqueness_of :code
+  
   accepts_nested_attributes_for :person
     
   def to_param

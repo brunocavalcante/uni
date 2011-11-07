@@ -161,6 +161,30 @@ en:
   FinalAttendance: "Final Attendance"
   FinalSituation: "Final Situation"
   
+  CourseCreated: "Course successfully created."
+  CourseUpdated: "Course successfully updated."
+  CourseDeleted: "Course successfully deleted."
+  
+  ProfessorCreated: "Professor successfully created."
+  ProfessorUpdated: "Professor successfully updated."
+  ProfessorDeleted: "Professor successfully deleted."
+  
+  StudentCreated: "Student successfully created."
+  StudentUpdated: "Student successfully updated."
+  StudentDeleted: "Student successfully deleted."
+  
+  AcademicPeriodCreated: "Academic Period successfully created."
+  AcademicPeriodUpdated: "Academic Period successfully updated."
+  AcademicPeriodDeleted: "Academic Period successfully deleted."
+  
+  CourseCategoryCreated: "Course Category successfully created."
+  CourseCategoryUpdated: "Course Category successfully updated."
+  CourseCategoryDeleted: "Course Category successfully deleted."
+  
+  ScholarityCreated: "Scholarity successfully created."
+  ScholarityUpdated: "Scholarity successfully updated."
+  ScholarityDeleted: "Scholarity successfully deleted."
+  
   url:
     uni: "Uni"
     admin: "Administration"

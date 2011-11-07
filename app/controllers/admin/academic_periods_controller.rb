@@ -37,7 +37,7 @@ class Admin::AcademicPeriodsController < ApplicationController
     
     respond_to do |format|
       if @academic_period.save
-        format.html { redirect_to([:admin, @academic_period], :notice => 'Academic Period was successfully created.') }
+        format.html { redirect_to([:admin, @academic_period], :notice => I18n.t('AcademicPeriodCreated')) }
         format.xml  { render :xml => @academic_period, :status => :created, :location => @academic_period }
       else
         format.html { render :action => "new" }
@@ -52,7 +52,7 @@ class Admin::AcademicPeriodsController < ApplicationController
 
     respond_to do |format|
       if @academic_period.update_attributes(params[:academic_period])
-        format.html { redirect_to([:admin, @academic_period], :notice => 'Academic Period was successfully updated.') }
+        format.html { redirect_to([:admin, @academic_period], :notice => I18n.t('AcademicPeriodUpdated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -66,6 +66,9 @@ class Admin::AcademicPeriodsController < ApplicationController
     @academic_period = AcademicPeriod.find(params[:id])
     @academic_period.destroy
 
-    redirect_to(admin_academic_periods_url)
+    respond_to do |format|
+      format.html { redirect_to(admin_academic_periods_url, :notice => I18n.t('AcademicPeriodDeleted')) }
+      format.xml  { head :ok }
+    end
   end
 end

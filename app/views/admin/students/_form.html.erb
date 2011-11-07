@@ -2,16 +2,16 @@
   <%= f.error_messages %>
   
   <p>
-    <%= f.label :code, (t 'Code') %><br />
+    <%= f.label :code %><br />
     <%= f.text_field :code %>
   </p>
   <%= f.fields_for :person do |p| %>
   <p>
-    <%= p.label :name, (t 'Name') %><br />
+    <%= p.label :name %><br />
     <%= p.text_field :name %>
   </p>
   <p>
-    <%= p.label :email, (t 'Email') %><br />
+    <%= p.label :email %><br />
     <%= p.text_field :email %>
   </p>
   
