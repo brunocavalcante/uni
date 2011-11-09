@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lecture_id: 1
+  name: MyString
+  scheduled_date: 2011-11-09 19:15:35
+
+two:
+  lecture_id: 1
+  name: MyString
+  scheduled_date: 2011-11-09 19:15:35

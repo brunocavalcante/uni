@@ -1,0 +1,32 @@
+<h1><%= @lecture.name %></h1>
+<%= render :partial => 'professor/lectures/menu' %>
+<article>
+	<header>
+		<h2><%= t 'AbsenceRegistry' %>: <%= l @lecture_absence.date, :format => :short %></h2>
+		<ul id="toolbar">
+			<li><%= link_to (t 'Back'), professor_lecture_lecture_absences_path(@lecture), :class => 'back' %></li>
+			<li><%= link_to (t 'Edit'), edit_professor_lecture_lecture_absence_path(@lecture, @lecture_absence), :class => 'edit' %></li>
+		</ul>
+	</header>
+	
+	<table>
+		<thead>
+			<tr>
+				<th><%= t 'Student' %></th>
+				<th><%= t 'Ammount' %></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for lecture_student_absence in @lecture_student_absences %>
+			<tr>
+			  <td>
+			    <%= link_to lecture_student_absence.lecture_student.name %>
+			  </td>
+			  <td>
+			    <%= lecture_student_absence.ammount %>
+			  </td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</article>

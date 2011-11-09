@@ -1,0 +1,33 @@
+<h1><%= @lecture.name %></h1>
+<%= render :partial => 'professor/lectures/menu' %>
+<article>
+	<header>
+		<h2><%= t 'Tests' %></h2>
+		<ul id="toolbar">
+			<li><%= link_to (t 'New') + ' ' + (t 'Test'), new_professor_lecture_test_path(@lecture), :class => 'new' %></li>
+		</ul>
+	</header>
+	
+	<p id="notice"><%= notice %></p>
+	
+	<% if @tests %>
+	<table>
+		<thead>
+			<tr>
+				<th><%= t 'Title' %></th>
+				<th><%= t 'Date' %></th>
+			</tr>
+		</thead>
+		<tbody>
+			<% for test in @tests %>
+			<tr>
+				<td><%= link_to test.name, [:professor, @lecture, test] %></td>
+				<td><%= l test.scheduled_date, :format => :long %></td>
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+	
+	<%= will_paginate @tests %>
+	<% end %>
+</article>

@@ -106,6 +106,7 @@ en:
   Approved: "Approved"
   Failed: "Failed"
   Tests: "Tests"
+  Test: "Test"
   Absences: "Abscences"
   Schedule: "Schedule"
   TimeTable: "Timetable"
@@ -170,6 +171,7 @@ en:
   PasswordWillBeTheStudentCode: "The new password will be the student's code."
   PasswordWillBeTheProfessorEmail: "The new password will be the professor's email."
   YouAreInactiveInThisCourse: "Sorry, your registration in the course \"%{course}\" is inactive."
+  Results: "Results"
   
   CourseCreated: "Course successfully created."
   CourseUpdated: "Course successfully updated."
@@ -236,3 +238,5 @@ en:
     wall: "Wall"
     absences: "Absences"
     lessons: "Lessons"
+    tests: "Tests"
+    test_results: "Test Results"

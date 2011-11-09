@@ -10,7 +10,7 @@ class Student::LecturesController < LecturesController
       
       @course = @lecture_student.lecture.discipline.course
       @curriculum_student = CurriculumStudent.first :conditions => ['curriculum_id IN (?) AND student_id = ?', 
-                                                                   @course.curriculums.map(&:id), @student.id]
+                                                                    @course.curriculums.map(&:id), @student.id]
       
       if @curriculum_student && @curriculum_student.active == false
         redirect_to({:controller => :home}, :alert => I18n.t('YouAreInactiveInThisCourse', :course => @course.name))

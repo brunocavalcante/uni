@@ -1,0 +1,23 @@
+<h1><%= @lecture.name %></h1>
+<%= render :partial => 'professor/lectures/menu' %>
+<article>
+	<header>
+		<h2><%= t @test.name %></h2>
+		<ul id="toolbar">
+			<li><%= link_to (t 'Back'), professor_lecture_tests_path(@lecture), :class => 'back' %></li>
+			<li><%= link_to (t 'Edit'), edit_professor_lecture_test_path(@lecture, @test), :class => 'edit' %></li>
+			<li><%= link_to (t 'Results'), professor_lecture_test_test_results_path(@lecture, @test), :class => 'absences' %></li>
+			<li><%= button_to (t 'Delete'), [:professor, @lecture, @test], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
+		</ul>
+	</header>
+	
+	<p id="notice"><%= notice %></p>
+	
+	<p>
+		<b><%= t 'activerecord.attributes.test.name' %>:</b> <%= @test.name %>
+	</p>
+	
+	<p>
+		<b><%= t 'activerecord.attributes.test.scheduled_date' %>:</b> <%= l @test.scheduled_date, :format => :long %>
+	</p>
+</article>

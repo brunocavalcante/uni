@@ -1,0 +1,52 @@
+<%= form_for([:professor, @lecture, @lesson, @absence]) do |f| %>
+  <%= f.error_messages %>
+
+	<p>
+		<%= f.label :date, (t 'Date') %><br/>
+		<%= f.date_select :date %>
+	</p>
+
+	<table>
+		<thead>
+			<tr>
+				<th><%= t 'Student' %></th>
+				<th><%= t 'Ammount' %></th>
+			</tr>
+		</thead>
+		<tbody>
+		<% if !@lecture_absence.id %>
+			<% for lecture_student in @lecture_students %>
+				<%= f.fields_for :lecture_student_absences do |l| %>
+			<tr>
+			  <td>
+			    <%= l.label :lecture_student_id, lecture_student.name %>
+			    <%= l.hidden_field :lecture_student_id, :value => lecture_student.id %>
+			  </td>
+			  <td>
+			    <%= l.text_field :ammount, :value => 0 %>
+			  </td>
+			</tr>
+				<% end %>
+			<% end %>
+		<% else %>
+		  <% for lecture_student_absence in @lecture_student_absences %>
+				<%= f.fields_for :lecture_student_absences, lecture_student_absence do |l| %>
+			<tr>
+			  <td>
+			    <%= l.label :lecture_student_id, lecture_student_absence.lecture_student.name %>
+			    <%= l.hidden_field :lecture_student_id %>
+			  </td>
+			  <td>
+			    <%= l.text_field :ammount %>
+			  </td>
+			</tr>
+				<% end %>
+			<% end %>
+		<% end %>
+		</tbody>
+	</table>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,44 @@
+<h1><%= @lecture.name %></h1>
+<%= render :partial => 'professor/lectures/menu' %>
+<article>
+	<header>
+		<h2><%= @test.name %>: <%= t 'Results' %></h2>
+		<ul id="toolbar">
+			<li><%= link_to (t 'Back'), professor_lecture_test_path(@lecture, @test), :class => 'back' %></li>
+		</ul>
+	</header>
+	
+	<p id="notice"><%= notice %></p>
+	
+	<%= form_tag({:action => :create}) do %>
+	<table>
+		<thead>
+			<tr>
+				<th><%= t 'Student' %></th>
+				<th><%= t 'activerecord.attributes.test_result.rating' %></th>
+				<th><%= t 'activerecord.attributes.test_result.date' %></th>
+			</tr>
+		</thead>
+		<tbody>
+		<% for lecture_student in @lecture_students %>
+		<tr>
+		  <td>
+		    <%= lecture_student.name %>
+		    <%= hidden_field_tag 'lecture_student_id[]', lecture_student.id %>
+		  </td>
+		  <td>
+		    <%= text_field_tag 'lecture_student_rating[]', @results[lecture_student.id][:rating] %>
+		  </td>
+		  <td>
+		    <%= datetime_select nil, nil, {:default => @results[lecture_student.id][:date], :prefix => 'lecture_student_date[]'} %>
+		  </td>
+		</tr>
+		<% end %>
+		</tbody>
+	</table>
+	
+	<div class="actions">
+    <%= submit_tag %>
+  </p>
+	<% end %>
+</article>

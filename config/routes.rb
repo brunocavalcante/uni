@@ -57,6 +57,9 @@ Uni::Application.routes.draw do
         resources :absences
       end
       resources :lecture_absences
+      resources :tests do 
+        resources :test_results
+      end
     end
   end
   

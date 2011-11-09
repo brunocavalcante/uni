@@ -1,0 +1,2 @@
+module Professor::TestsHelper
+end

@@ -1,0 +1,17 @@
+<%= form_for([:professor, @lecture, @test]) do |f| %>
+  <%= f.error_messages %>
+
+	<p>
+		<%= f.label :name %><br/>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.label :scheduled_date %><br/>
+		<%= f.datetime_select :scheduled_date %>
+	</p>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

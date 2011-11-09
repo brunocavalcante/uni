@@ -5,6 +5,8 @@ class LectureStudent < ActiveRecord::Base
   
   has_many :lesson_absences, :dependent => :destroy
   
+  has_many :test_results, :dependent => :destroy
+  
   validates :lecture_id, :presence => true
   validates :student_id, :presence => true
   

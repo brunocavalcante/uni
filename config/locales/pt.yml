@@ -225,6 +225,7 @@ pt:
       lecture_file: "Arquivo"
       lesson: "Aula"
       wall: "Publicação"
+      test: "Avaliação"
     attributes:
       course:
         code: "Código"
@@ -260,6 +261,12 @@ pt:
       person:
         name: "Nome"
         email: "E-mail"
+      test:
+        name: "Nome"
+        scheduled_date: "Data Prevista"
+      test_result:
+        rating: "Avaliação"
+        date: "Data"
       
   will_paginate:
     previous_label: "&larr; Página Anterior"
@@ -366,6 +373,7 @@ pt:
   Disapproved by Attendance: "Reprovado por Faltas"
   Failed: "Reprovado"
   Tests: "Avaliações"
+  Test: "Avaliação"
   Absences: "Faltas"
   Schedule: "Horário"
   TimeTable: "Quadro de Horários"
@@ -433,6 +441,7 @@ pt:
   PasswordWillBeTheStudentCode: "A nova senha será a matrícula do aluno."
   PasswordWillBeTheProfessorEmail: "A nova senha será o email do professor."
   YouAreInactiveInThisCourse: "Desculpe, seu cadastro no curso \"%{course}\" está inativo."
+  Results: "Resultados"
   
   CourseCreated: "Curso criado com sucesso."
   CourseUpdated: "Curso atualizado com sucesso."
@@ -471,6 +480,10 @@ pt:
   CurriculumStudentAdded: "Aluno adicionado ao curso com sucesso."
   CurriculumStudentRemoved: "Aluno removido do curso com sucesso."
   
+  TestCreated: "Avaliação criada com sucesso."
+  TestUpdated: "Avaliação atualizada com sucesso."
+  TestDeleted: "Avaliação excluída com sucesso."
+  
   url:
     uni: "Uni"
     admin: "Administração"
@@ -503,3 +516,5 @@ pt:
     professor: "Professor"
     absences: "Faltas"
     lessons: "Aulas"
+    tests: "Avaliações"
+    test_results: "Resultados"
