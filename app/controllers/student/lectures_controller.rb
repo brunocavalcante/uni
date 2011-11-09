@@ -6,7 +6,15 @@ class Student::LecturesController < LecturesController
     if params[:id]
       @lecture_student = LectureStudent.find_by_lecture_id_and_student_id(params[:id], @student.id)
       
-      redirect_to({:controller => :home}, :alert => 'YouDontHaveAccessToThisLecture') unless @lecture_student
+      redirect_to({:controller => :home}, :alert => I18n.t('YouDontHaveAccessToThisLecture')) unless @lecture_student
+      
+      @course = @lecture_student.lecture.discipline.course
+      @curriculum_student = CurriculumStudent.first :conditions => ['curriculum_id IN (?) AND student_id = ?', 
+                                                                   @course.curriculums.map(&:id), @student.id]
+      
+      if @curriculum_student && @curriculum_student.active == false
+        redirect_to({:controller => :home}, :alert => I18n.t('YouAreInactiveInThisCourse', :course => @course.name))
+      end
     end
   end
   

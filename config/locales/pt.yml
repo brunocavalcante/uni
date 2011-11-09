@@ -432,6 +432,7 @@ pt:
   ResetPassword: "Redefinir a Senha?"
   PasswordWillBeTheStudentCode: "A nova senha será a matrícula do aluno."
   PasswordWillBeTheProfessorEmail: "A nova senha será o email do professor."
+  YouAreInactiveInThisCourse: "Desculpe, seu cadastro no curso \"%{course}\" está inativo."
   
   CourseCreated: "Curso criado com sucesso."
   CourseUpdated: "Curso atualizado com sucesso."

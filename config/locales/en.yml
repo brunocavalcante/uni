@@ -169,6 +169,7 @@ en:
   ResetPassword: "Reset Password?"
   PasswordWillBeTheStudentCode: "The new password will be the student's code."
   PasswordWillBeTheProfessorEmail: "The new password will be the professor's email."
+  YouAreInactiveInThisCourse: "Sorry, your registration in the course \"%{course}\" is inactive."
   
   CourseCreated: "Course successfully created."
   CourseUpdated: "Course successfully updated."
