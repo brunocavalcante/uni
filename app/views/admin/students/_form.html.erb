@@ -17,11 +17,17 @@
   
   <% if @student.person.photo.exists? %>
   <p>
-    <%= label_tag (t 'DeleteCurrentPhoto')%>  
+    <%= label_tag (t 'DeleteCurrentPhoto') %>  
     <%= check_box_tag :delete_photo %>
   </p>
   <% end %>
   <% end %>
+  
+  <p>
+    <%= label_tag (t 'ResetPassword') %>  
+    <%= check_box_tag :reset_password %><br />
+    <small><%= t 'PasswordWillBeTheStudentCode' %></small>
+  </p>
 
   <div class="actions">
     <%= f.submit %>

@@ -22,6 +22,6 @@
 
 	<% if @lesson.description != '' %>
 	<h3><%= t 'Content' %></h3>
-	<%= simple_format(@lesson.description) %>
+	<%= raw(@lesson.description) %>
 	<% end %>
 </article>

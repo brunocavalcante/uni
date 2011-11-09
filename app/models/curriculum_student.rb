@@ -6,4 +6,8 @@ class CurriculumStudent < ActiveRecord::Base
   validates :student_id, :presence => true
   
   validates_uniqueness_of :student_id, :scope => :curriculum_id
+  
+  def name
+    student.name
+  end
 end

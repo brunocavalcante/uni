@@ -21,7 +21,7 @@ class Professor::LessonsController < ApplicationController
 
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to({ :action => "index" }, :notice => 'Object was successfully created.') }
+        format.html { redirect_to({ :action => "index" }, :notice => I18n.t('LessonCreated')) }
         format.xml  { render :xml => @lesson, :status => :created, :location => @lesson }
       else
         format.html { render :action => "new" }
@@ -43,12 +43,22 @@ class Professor::LessonsController < ApplicationController
     
     respond_to do |format|
       if @lesson.update_attributes(params[:lesson])
-        format.html { redirect_to({ :action => "show" }, :notice => 'Object was successfully created.') }
+        format.html { redirect_to({ :action => "show" }, :notice => I18n.t('LessonUpdated')) }
         format.xml  { render :xml => @lesson, :status => :created, :location => @lesson }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @lesson.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+  
+  def destroy
+    @lesson = Lesson.find(params[:id])
+    @lesson.destroy
+
+    respond_to do |format|
+      format.html { redirect_to({:action => "index"}, :notice => I18n.t('LessonDeleted')) }
+      format.xml  { head :ok }
     end
   end
 end

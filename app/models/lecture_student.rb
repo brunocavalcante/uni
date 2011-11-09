@@ -3,7 +3,7 @@ class LectureStudent < ActiveRecord::Base
   belongs_to :student
   belongs_to :lecture_situation
   
-  has_many :lesson_absences
+  has_many :lesson_absences, :dependent => :destroy
   
   validates :lecture_id, :presence => true
   validates :student_id, :presence => true

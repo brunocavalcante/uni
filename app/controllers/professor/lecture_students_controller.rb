@@ -32,7 +32,7 @@ class Professor::LectureStudentsController < ApplicationController
 
     respond_to do |format|
       if @lecture_student.update_attributes(params[:lecture_student])
-        format.html { redirect_to({:action => "show"}, :notice => 'Object was successfully updated.') }
+        format.html { redirect_to({:action => "show"}, :notice => I18n.t('StudentUpdated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

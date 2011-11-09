@@ -1,4 +1,4 @@
-class Admin::CourseStudentsController < ApplicationController
+class Admin::CurriculumStudentsController < ApplicationController
   before_filter :init
   
   def init
@@ -18,7 +18,8 @@ class Admin::CourseStudentsController < ApplicationController
   end
   
   def new
-    @curriculum_student = CurriculumStudent.new  
+    @curriculum_student = CurriculumStudent.new
+    @curriculum_student.active = true
   end
   
   def create
@@ -26,7 +27,7 @@ class Admin::CourseStudentsController < ApplicationController
     
     respond_to do |format|
       if @curriculum_student.save
-        format.html { redirect_to(:action => "index", :notice => 'Curriculum was successfully created.') }
+        format.html { redirect_to({:action => "index"}, :notice => (t 'CurriculumStudentAdded')) }
         format.xml  { render :xml => @curriculum_student, :status => :created, :location => @curriculum }
       else
         format.html { render :action => "new" }
@@ -36,7 +37,25 @@ class Admin::CourseStudentsController < ApplicationController
   end
   
   def show
+    @curriculum_student = CurriculumStudent.find params[:id]
+  end
+  
+  def edit
+    @curriculum_student = CurriculumStudent.find params[:id]
+  end
+  
+  def update
+    @curriculum_student = CurriculumStudent.find params[:id]
     
+    respond_to do |format|
+      if @curriculum_student.update_attributes params[:curriculum_student]
+        format.html { redirect_to({:action => "show"}, :notice => (t 'StudentUpdated')) }
+        format.xml  { render :xml => @curriculum_student, :status => :created, :location => @curriculum }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @curriculum_student.errors, :status => :unprocessable_entity }
+      end
+    end
   end
   
   def destroy
@@ -44,7 +63,7 @@ class Admin::CourseStudentsController < ApplicationController
     @curriculum_student.destroy
 
     respond_to do |format|
-      format.html { redirect_to({:action => "index"}, :notice => 'Student was successfully removed.') }
+      format.html { redirect_to({:action => "index"}, :notice => (t 'CurriculumStudentRemoved')) }
       format.xml  { head :ok }
     end
   end

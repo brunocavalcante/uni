@@ -71,6 +71,10 @@ class Admin::StudentsController < ApplicationController
       params[:photo] = nil
       @student.person.photo = nil
     end
+    
+    if params[:reset_password]
+      @student.person.password = Digest::MD5.hexdigest(@student.code)
+    end
 
     if @student.update_attributes(params[:student])
       redirect_to([:admin, @student], :notice => I18n.t('StudentUpdated'))

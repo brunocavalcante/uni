@@ -1,0 +1,27 @@
+<h1><%= @course.name %></h1>
+<%= render :partial => 'admin/courses/menu', :locals => { :course => @course } %>
+<article>
+  <header>
+    <h2><%= @curriculum_student.name %></h2>
+    <ul id="toolbar">
+    	<li><%= link_to (t 'Profile'), user_path(@curriculum_student.student.person), :class => 'person' %></li>
+      <li><%= link_to (t 'Edit'), edit_admin_course_curriculum_student_path(@course, @curriculum_student), :class => 'edit'  %></li>
+      <li><%= button_to (t 'Remove'), {:action => "show"}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
+    </ul>
+  </header>
+  
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+  	<b><%= t 'activerecord.attributes.person.name' %></b>: <%= @curriculum_student.name %>
+  </p>
+  
+  <p>
+  	<b><%= t 'activerecord.models.curriculum' %></b>: <%= link_to @curriculum_student.curriculum.name, [:admin, @course, @curriculum_student.curriculum] %>
+  </p>
+  
+  <p>
+  	<b><%= t 'activerecord.attributes.curriculum_student.active' %></b>: <%= @curriculum_student.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %>
+  </p>
+  	
+</article>

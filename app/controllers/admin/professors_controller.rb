@@ -55,6 +55,10 @@ class Admin::ProfessorsController < ApplicationController
   def update
     @professor = Professor.find(params[:id])
 
+    if params[:reset_password]
+      @professor.person.password = Digest::MD5.hexdigest(@professor.person.email)
+    end
+
     if @professor.update_attributes(params[:professor])
       redirect_to([:admin, @professor], :notice => I18n.t('ProfessorUpdated'))
     else

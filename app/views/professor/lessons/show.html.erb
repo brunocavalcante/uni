@@ -7,8 +7,11 @@
 			<li><%= link_to (t 'Back'), professor_lecture_lessons_path(@lecture), :class => 'back' %></li>
 			<li><%= link_to (t 'Edit'), edit_professor_lecture_lesson_path(@lecture, @lesson), :class => 'edit' %></li>
 			<li><%= link_to (t 'Absences'), professor_lecture_lesson_absences_path(@lecture, @lesson), :class => 'absences' %></li>
+			<li><%= button_to (t 'Delete'), [:professor, @lecture, @lesson], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
 		</ul>
 	</header>
+	
+	<p id="notice"><%= notice %></p>
 	
 	<p>
 		<b><%= t 'Date' %>:</b> <%= l @lesson.date, :format => :long %>
@@ -24,6 +27,6 @@
 	
 	<p>
 		<b><%= t 'Description' %>:</b><br />
-		<%= simple_format(@lesson.description) %>
+		<%= raw(@lesson.description) %>
 	</p>
 </article>

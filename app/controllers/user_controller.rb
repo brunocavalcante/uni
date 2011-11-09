@@ -33,8 +33,18 @@ class UserController < ApplicationController
         @user.photo = nil
       end
       
-      if @user.update_attributes(params[:user])
-        format.html { redirect_to({:action => 'index'}, :notice => 'User was successfully updated.') }
+      if params[:password][:new] != ''
+        if Digest::MD5.hexdigest(params[:password][:current]) != @user.password
+          @user.errors.add :password
+        elsif params[:password][:new] != params[:password][:repeat]
+          @user.errors.add :password, I18n.t('PleaseRepeatNewPassword')
+        else
+          params[:user][:password] = Digest::MD5.hexdigest(params[:password][:new])
+        end
+      end
+      
+      if @user.errors.size == 0 && @user.update_attributes(params[:user])
+        format.html { redirect_to({:action => 'index'}, :notice => I18n.t('UserUpdated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

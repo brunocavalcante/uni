@@ -15,6 +15,11 @@
     <%= f.label :scholarity_id %><br />
     <%= f.select :scholarity_id, Scholarity.all.collect {|it| [it.name, it.id]} %>
   </p>
+  <p>
+    <%= label_tag (t 'ResetPassword') %>  
+    <%= check_box_tag :reset_password %><br />
+    <small><%= t 'PasswordWillBeTheProfessorEmail' %></small>
+  </p>
   <div class="actions">
     <%= f.submit %>
   </div>

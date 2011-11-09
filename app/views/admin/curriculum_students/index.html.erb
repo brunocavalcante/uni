@@ -4,9 +4,11 @@
   <header>
     <h2><%= t 'Students' %></h2>
     <ul id="toolbar">
-      <li><%= link_to ((t 'Add') + ' ' + (t 'Student')), new_admin_course_course_student_path, :class => 'new'  %></li>
+      <li><%= link_to ((t 'Add') + ' ' + (t 'Student')), new_admin_course_curriculum_student_path, :class => 'new'  %></li>
     </ul>
   </header>
+  
+  <p id="notice"><%= notice %></p>
   
   <form>
     <p>
@@ -21,7 +23,6 @@
         <th><%= t 'Code' %></th>
         <th><%= t 'Name' %></th>
         <th><%= t 'Curriculum' %></th>
-        <th><%= t 'Remove' %></td>
       </tr>
     </thead>
 
@@ -29,16 +30,8 @@
       <% @curriculum_students.each do |curriculum_student| %>
       <tr>
         <td><%= curriculum_student.student.code %></td>
-        <td><%= link_to curriculum_student.student.person.name, admin_student_path(curriculum_student.student) %></td>
+        <td><%= link_to curriculum_student.student.person.name, admin_course_curriculum_student_path(@course, curriculum_student) %></td>
         <td><%= link_to curriculum_student.curriculum.name, admin_course_curriculum_path(@course, curriculum_student.curriculum) %></td>
-        <td>
-        	<%= button_to (t 'Remove'), {:action => :show, 
-        															 :course_id => @course.id, 
-        															 :id => curriculum_student.id}, 
-        															 :confirm => (t 'AreYouSure'), 
-        															 :method => :delete, 
-        															 :class => 'delete' %>
-				</td>
       </tr>
       <% end %>
     </tbody>

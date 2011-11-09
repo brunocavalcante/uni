@@ -5,7 +5,10 @@
   </ul>
 </header>
 <p id="notice"><%= notice %></p>
-<%= form_tag({:action => 'update'}, :multipart => true) do %>
+<%= form_for(@user, :url => {:action => "update"}, :method => "post", :html => { :multipart => true }) do |f| %>
+	
+	<%= f.error_messages %>
+  
   <p>
     <%= label_tag (t 'Name') %><br />
     <%= text_field(:user, :name) %>
@@ -44,6 +47,21 @@
     <%= text_field_tag 'sites[][url]', nil, :size => '60' %> 
     <%= submit_tag (t 'AddAnother'), {:class => 'add-another-item', :type => 'button'} %>
   </p>
+  
+  <h3><%= t 'ChangePassword' %></h3>
+  <p>
+  	<%= label_tag (t 'CurrentPassword') %><br />
+  	<%= password_field(:password, :current) %>
+  </p>
+  <p>
+  	<%= label_tag (t 'NewPassword') %><br />
+  	<%= password_field(:password, :new) %>
+  </p>
+  <p>
+  	<%= label_tag (t 'NewPassword') %> (<%= t 'Repeat'%>)<br />
+  	<%= password_field(:password, :repeat) %>
+  </p>
+  
   <div class="actions">
     <%= submit_tag %>
   </div>

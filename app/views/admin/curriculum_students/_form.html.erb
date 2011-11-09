@@ -1,14 +1,21 @@
-<%= form_for(@curriculum_student, :url => admin_course_course_students_path) do |f| %>
+<%= form_for([:admin, @course, @curriculum_student]) do |f| %>
   <%= f.error_messages %>
 
+	<% if @curriculum_student.id == nil %>
   <p>
     <%= f.label :student_id, (t 'Student') %><br/>
     <%= f.collection_select :student_id, @curriculum_student.student ? [@curriculum_student.student] : [], :student_id, :name %>
   </p>
+  <% end %>
   
   <p>
-    <%= f.label :curriculum_id, (t 'Curriculum') %><br/>
+    <%= f.label :curriculum_id %><br/>
     <%= f.select :curriculum_id, options_from_collection_for_select(@course.curriculums, "id", "name") %>
+  </p>
+  
+  <p>
+    <%= f.label :active %><br/>
+    <%= f.check_box :active %>
   </p>
   
   <div class="actions">

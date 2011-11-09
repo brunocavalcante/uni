@@ -160,6 +160,15 @@ en:
   FinalGrade: "Final Grade"
   FinalAttendance: "Final Attendance"
   FinalSituation: "Final Situation"
+  ChangePassword: "Change Password"
+  CurrentPassword: "Current Password"
+  NewPassword: "New Password"
+  Repeat: "Repeat"
+  PleaseRepeatNewPassword: "Please, repeat your new password correctly."
+  UserUpdated: "User successfully updated."
+  ResetPassword: "Reset Password?"
+  PasswordWillBeTheStudentCode: "The new password will be the student's code."
+  PasswordWillBeTheProfessorEmail: "The new password will be the professor's email."
   
   CourseCreated: "Course successfully created."
   CourseUpdated: "Course successfully updated."
@@ -190,6 +199,9 @@ en:
  
   WallCreated: "Publication sucessfully created."
   WallDeleted: "Publication successfully deleted."
+  
+  CurriculumStudentAdded: "Student successfully added to the course."
+  CurriculumStudentRemoved: "Student successfully removed from the course."
   
   url:
     uni: "Uni"

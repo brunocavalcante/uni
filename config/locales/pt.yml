@@ -238,6 +238,8 @@ pt:
         name: "Nome"
       curriculum_student:
         student_id: "Aluno"
+        active: "Ativo"
+        curriculum_id: "Grade Curricular"
       academic_period:
         name: "Nome"
       course_category:
@@ -421,6 +423,15 @@ pt:
   FinalAttendance: "Frequência Final"
   FinalSituation: "Situação Final"
   YouDontHaveAccessToThisLecture: "Desculpe, você não possui acesso à esta turma."
+  ChangePassword: "Alterar Senha"
+  CurrentPassword: "Senha Atual"
+  NewPassword: "Nova Senha"
+  Repeat: "Repita"
+  PleaseRepeatNewPassword: "Por favor, repita a nova senha corretamente."
+  UserUpdated: "Usuário atualizado com sucesso."
+  ResetPassword: "Redefinir a Senha?"
+  PasswordWillBeTheStudentCode: "A nova senha será a matrícula do aluno."
+  PasswordWillBeTheProfessorEmail: "A nova senha será o email do professor."
   
   CourseCreated: "Curso criado com sucesso."
   CourseUpdated: "Curso atualizado com sucesso."
@@ -452,6 +463,13 @@ pt:
   WallCreated: "Publicação realizada com sucesso."
   WallDeleted: "Publicação excluída com sucesso."
   
+  LessonCreated: "Aula criada com sucesso."
+  LessonUpdated: "Aula atualizada com sucesso."
+  LessonDeleted: "Aula excluída com sucesso."
+  
+  CurriculumStudentAdded: "Aluno adicionado ao curso com sucesso."
+  CurriculumStudentRemoved: "Aluno removido do curso com sucesso."
+  
   url:
     uni: "Uni"
     admin: "Administração"
@@ -462,7 +480,7 @@ pt:
     edit: "Editar"
     professors: "Professores"
     disciplines: "Disciplinas"
-    course_students: "Alunos"
+    curriculum_students: "Alunos"
     students: "Alunos"
     user: "Usuário"
     academic_periods: "Períodos Letivos"
