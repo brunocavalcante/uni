@@ -1,7 +1,7 @@
 <header>
   <h1><%= t 'Students' %></h1>
   <ul id="toolbar">
-    <li><%= link_to ((t 'New') + ' ' + (t 'Student')), new_admin_student_path, :class => 'new' %></li>
+    <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.student')), new_admin_student_path, :class => 'new' %></li>
   </ul>
 </header>
 
@@ -10,8 +10,8 @@
 <table>
   <thead>
     <tr>
-      <th><%= t 'Code' %></th>
-      <th><%= t 'Name' %></th>
+      <th><%= t 'activerecord.attributes.student.code' %></th>
+      <th><%= t 'activerecord.attributes.person.name' %></th>
     </tr>
   </thead>
 

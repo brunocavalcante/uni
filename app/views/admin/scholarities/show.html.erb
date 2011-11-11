@@ -2,10 +2,10 @@
 <%= render :partial => 'admin/parameters/menu' %>
 <article>
   <header>
-    <h2><%= t 'Scholarity' %></h2>
+    <h2><%= t 'activerecord.models.scholarity' %></h2>
     <ul id="toolbar">
       <li><%= link_to (t 'Edit'), {:action => 'edit', :id => @scholarity.id}, :class => 'edit' %></li>
-      <li><%= button_to (t 'Delete'), [:admin, @scholarity], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li>
+      <li><%= button_to (t 'Delete'), [:admin, @scholarity], :confirm => 'AreYouSure', :method => :delete, :class => 'delete' %></li>
       <li><%= link_to (t 'Back'), {:action => 'index'}, :class => 'back' %></li>
     </ul>
   </header>
@@ -13,7 +13,7 @@
   <p id="notice"><%= notice %></p>
   
   <p>
-    <b><%= t 'Name' %>:</b>
+    <b><%= t 'activerecord.attributes.scholarity.name' %>:</b>
     <%= @scholarity.name %>
   </p>
 </article>

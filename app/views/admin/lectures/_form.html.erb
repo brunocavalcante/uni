@@ -2,12 +2,12 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :code, (t 'Code') %><br />
+    <%= f.label :code %><br />
     <%= f.text_field :code, :disabled => (@lecture.id) %>
   </p>
   
   <p>
-    <%= label_tag :discipline_id, (t 'Discipline') %><br />
+    <%= f.label :discipline_id %><br />
     <%= f.collection_select :discipline_id, @lecture.discipline ? [@lecture.discipline] : [], :id, :name %>
   </p>
   
@@ -17,7 +17,7 @@
   </p>
   
   <p>
-    <%= f.label :places, (t 'Places') %><br />
+    <%= f.label :places %><br />
     <%= f.text_field :places %>
   </p>
   

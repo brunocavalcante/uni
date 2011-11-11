@@ -41,7 +41,10 @@ class Student::ReportsController < ApplicationController
   end
   
   def tests_and_abscences
+    @lecture_students = @student.current_lecture_students
     
+    @month_absences = []
+    @lecture_students.each {|lecture_student| @month_absences << lecture_student.month_absences}
   end
   
   def timetable

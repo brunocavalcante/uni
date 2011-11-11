@@ -1,7 +1,7 @@
 <header>
   <h1><%= t 'AcademicPeriods' %></h1>
   <ul id="toolbar">
-    <li><%= link_to (t 'New') + ' ' + (t 'AcademicPeriod'), new_admin_academic_period_path, :class => 'new'  %></li>
+    <li><%= link_to (t 'New') + ' ' + (t 'activerecord.models.academic_period'), new_admin_academic_period_path, :class => 'new'  %></li>
   </ul>
 </header>
 
@@ -10,17 +10,15 @@
 <table>
   <thead>
     <tr>
-      <th><%= t 'Name' %></th>
-      <th><%= t 'Start' %></th>
-      <th><%= t 'End' %></th>
+      <th><%= t 'activerecord.attributes.academic_period.name' %></th>
+      <th><%= t 'activerecord.attributes.academic_period.start' %></th>
     </tr>
   </thead>
   <tbody>
     <% @academic_periods.each do |period| %>
     <tr>
       <td><%= link_to period.name, [:admin, period] %></td>
-      <td><%= l period.start %></td>
-      <td><%= l period.end %></td>
+      <td><%= l period.start %> <%= t 'until' %> <%= l period.end %></td>
     </tr>
     <% end %>
   </tbody>

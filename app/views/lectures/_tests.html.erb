@@ -1,16 +1,19 @@
 <table class="grid">
   <thead>
     <tr>
-      <th>VP1 <span class="small-relevance">(12/08/2011)</span></th>
-      <th>VP2 <span class="small-relevance">(21/09/2011)</span></th>
-      <th>VF <span class="small-relevance">(10/11/2011)</span></th>
+    	<% for key, value in @tests_and_results %>
+      <th>
+      	<%= value[:test].name %> 
+      	<span class="small-relevance">(<%= l value[:test].scheduled_date, :format => :short %>)</span>
+     	</th>
+      <% end %>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>80 <span class="small-relevance">/100</span></td>
-      <td>70 <span class="small-relevance">/100</span></td>
-      <td></span></td>
+    	<% for key, value in @tests_and_results %>
+      <td><%= value[:result].rating if value[:result] %></td>
+      <% end %>
     </tr>
   </tbody>
 </table>

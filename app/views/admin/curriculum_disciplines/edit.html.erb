@@ -2,7 +2,7 @@
 <%= render :partial => 'admin/courses/menu', :locals => { :course => @course } %>
 <article>
   <header>
-    <h2><%= t 'Editing' %> <%= t 'CurriculumDiscipline' %></h2>
+    <h2><%= t 'Editing' %> <%= t 'activerecord.models.curriculum_discipline' %></h2>
     <ul id="toolbar">
       <li><%= link_to  (t 'Show'), [:admin, @course, @discipline], :class => 'show' %></li>
       <li><%= button_to (t 'Delete'), [:admin, @course, @discipline], :confirm => 'Tem certeza disso?', :method => :delete, :class => 'delete' %></li> 

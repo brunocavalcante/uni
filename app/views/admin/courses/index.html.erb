@@ -1,7 +1,7 @@
 <header>
   <h1><%= t 'Courses' %></h1>
   <ul id="toolbar">
-    <li><%= link_to ((t 'New') + ' ' + (t 'Course')), new_admin_course_path, :class => 'new'  %></li>
+    <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.course')), new_admin_course_path, :class => 'new'  %></li>
   </ul>
 </header>
 
@@ -10,9 +10,9 @@
 <table>
   <thead>
     <tr>
-      <th><%= t 'Code' %></th>
-      <th><%= t 'Course' %></th>
-      <th><%= t 'Category' %></th>
+      <th><%= t 'activerecord.attributes.course.code' %></th>
+      <th><%= t 'activerecord.attributes.course.name' %></th>
+      <th><%= t 'activerecord.attributes.course.course_category_id' %></th>
     </tr>
   </thead>
   <tbody>

@@ -25,6 +25,8 @@ class Student::LecturesController < LecturesController
   def tests_and_abscences
     @student = Student.find_by_person_id(@user.id)
     @lecture_student = LectureStudent.find_by_lecture_id_and_student_id(@lecture.id, @student.id)
+    
     @month_absences = @lecture_student.month_absences
+    @tests_and_results = @lecture_student.tests_and_results
   end
 end

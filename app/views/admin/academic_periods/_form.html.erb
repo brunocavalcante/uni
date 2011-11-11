@@ -6,11 +6,11 @@
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :start, 'Aulas' %><br />
+    <%= f.label :start %><br />
     <%= f.date_select :start %> <%= t 'until' %> <%= f.date_select :end %>
   </p>
   <p>
-    <%= f.label :registration_start, 'Matrícula' %><br />
+    <%= f.label :registration_start %><br />
     <%= f.date_select :registration_start, :include_blank => true %> <%= t 'until' %> 
     <%= f.date_select :registration_end, :include_blank => true %><br/>
     <small><%= t 'InformationOfAbsenceOfRegistrationPeriod' %></small>

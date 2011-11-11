@@ -2,16 +2,16 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :code, (t 'Code') %><br />
+    <%= f.label :code %><br />
     <%= f.text_field :code %>
   </p>
   <p>
-    <%= f.label :name, (t 'Name') %><br />
+    <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
   <% if @curriculum.id %>
   <p>
-    <%= f.label :active, (t 'IsActive') %><br />
+    <%= f.label :active %><br />
     <%= f.check_box :active %>
   </p>
   <% end %>

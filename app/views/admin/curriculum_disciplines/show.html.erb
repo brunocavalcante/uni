@@ -10,24 +10,29 @@
   </header>
   
   <p>
-    <b><%= t 'Curriculum' %>:</b> <%= @curriculum.name %>
+    <b><%= t 'activerecord.attributes.curriculum_discipline.curriculum_id' %>:</b> 
+    <%= @curriculum.name %>
   </p>
   
   <p>
-    <b><%= t 'Module' %>:</b> <%= @curriculum_discipline.module %>
+    <b><%= t 'activerecord.attributes.curriculum_discipline.module' %>:</b> 
+    <%= @curriculum_discipline.module %>
   </p>
   
-  <h3><%= t 'Discipline' %></h3>
+  <h3><%= t 'activerecord.models.discipline' %></h3>
   
   <p>
-    <b><%= t 'Code' %>:</b> <%= @curriculum_discipline.discipline.code %>
-  </p>
-  
-  <p>
-    <b><%= t 'Name' %>:</b> <%= @curriculum_discipline.discipline.name %>
+    <b><%= t 'activerecord.attributes.discipline.code' %>:</b> 
+    <%= @curriculum_discipline.discipline.code %>
   </p>
   
   <p>
-    <b><%= t 'Version' %>:</b> <%= @curriculum_discipline.discipline.version_fullname %>
+    <b><%= t 'activerecord.attributes.discipline.name' %>:</b> 
+    <%= @curriculum_discipline.discipline.name %>
+  </p>
+  
+  <p>
+    <b><%= t 'activerecord.attributes.discipline.version' %>:</b> 
+    <%= @curriculum_discipline.discipline.version_fullname %>
   </p>
 </article>

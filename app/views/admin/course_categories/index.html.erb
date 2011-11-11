@@ -5,7 +5,7 @@
   <header>
     <h2><%= t 'CourseCategories' %></h2>
     <ul id="toolbar">
-      <li><%= link_to ((t 'New') + ' ' + (t 'CourseCategory')), {:action => 'new'}, :class => 'new' %></li>
+      <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.course_category')), {:action => 'new'}, :class => 'new' %></li>
     </ul>
   </header>
 
@@ -14,7 +14,7 @@
   <table>
     <thead>
       <tr>
-        <th><%= t 'Name' %></th>
+        <th><%= t 'activerecord.attributes.course_category.name' %></th>
       </tr>
     </thead>
   

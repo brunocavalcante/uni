@@ -1,5 +1,5 @@
 <header>
-  <h1><%= t 'Professor' %></h1>
+  <h1><%= t 'activerecord.models.professor' %></h1>
   <ul id="toolbar">
     <li><%= link_to (t 'Profile'), user_path(@professor.person), :class => 'person' %></li>
     <li><%= link_to (t 'Edit'), edit_admin_professor_path(@professor), :class => 'edit' %></li> 
@@ -11,16 +11,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b><%= t 'Name' %>:</b>
+  <b><%= t 'activerecord.attributes.person.name' %>:</b>
   <%= @professor.person.name %>
 </p>
 
 <p>
-  <b><%= t 'Email' %>:</b>
+  <b><%= t 'activerecord.attributes.person.email' %>:</b>
   <%= @professor.person.email %>
 </p>
 
 <p>
-  <b><%= t 'Scholarity' %>:</b>
+  <b><%= t 'activerecord.attributes.professor.scholarity_id' %>:</b>
   <%= @professor.scholarity.name %>
 </p>

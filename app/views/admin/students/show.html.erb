@@ -1,5 +1,5 @@
 <header>
-  <h1><%= t 'Student' %></h1>
+  <h1><%= t 'activerecord.models.student' %></h1>
   <ul id="toolbar">
     <li><%= link_to (t 'Profile'), user_path(@student.person), :class => 'person' %></li>
     <li><%= link_to (t 'Edit'), edit_admin_student_path(@student), :class => 'edit' %></li> 
@@ -11,16 +11,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b><%= t 'Code' %>:</b>
+  <b><%= t 'activerecord.attributes.student.code' %>:</b>
   <%= @student.code %>
 </p>
 
 <p>
-  <b><%= t 'Name' %>:</b>
+  <b><%= t 'activerecord.attributes.person.name' %>:</b>
   <%= @student.person.name %>
 </p>
 
 <p>
-  <b><%= t 'E-mail' %>:</b>
+  <b><%= t 'activerecord.attributes.person.email' %>:</b>
   <%= @student.person.email %>
 </p>

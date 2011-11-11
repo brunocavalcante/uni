@@ -4,17 +4,17 @@
   <header>
     <h2><%= t 'Disciplines' %></h2>
     <ul id="toolbar">
-      <li><%= link_to ((t 'New') + ' ' + (t 'Discipline')), new_admin_course_discipline_path(@course), :class => 'new' %></li>
+      <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.discipline')), new_admin_course_discipline_path(@course), :class => 'new' %></li>
     </ul>
   </header>
 
   <table>
     <thead>
       <tr>
-        <th><%= t 'Code' %></th>
-        <th><%= t 'Name' %></th>
-        <th><%= t 'Credits' %></th>
-        <th><%= t 'Version' %></th>
+        <th><%= t 'activerecord.attributes.discipline.code' %></th>
+        <th><%= t 'activerecord.attributes.discipline.name' %></th>
+        <th><%= t 'activerecord.attributes.discipline.credits' %></th>
+        <th><%= t 'activerecord.attributes.discipline.version' %></th>
       </tr>
     </thead>
     <tbody>

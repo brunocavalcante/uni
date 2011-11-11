@@ -39,4 +39,22 @@ class LectureStudent < ActiveRecord::Base
   def situation_description
     I18n.t (lecture_situation_id ? lecture_situation.name : 'InProgress')
   end
+  
+  def tests_and_results
+    @tests_and_results = {}
+    
+    @tests = Test.all :conditions => ['lecture_id = ?', lecture.id], :order => ['scheduled_date ASC']
+    @tests.each do |test|
+      @tests_and_results[test.id] = {}
+      @tests_and_results[test.id][:test] = test
+      @tests_and_results[test.id][:result] = nil
+    end
+    
+    @test_results = TestResult.all :conditions => ['lecture_student_id = ?', id]
+    @test_results.each do |test_result|
+      @tests_and_results[test_result.test_id][:result] = test_result
+    end
+    
+    return @tests_and_results
+  end
 end

@@ -13,15 +13,18 @@
   <p id="notice"><%= notice %></p>
   
   <p>
-  	<b><%= t 'activerecord.attributes.person.name' %></b>: <%= @curriculum_student.name %>
+  	<b><%= t 'activerecord.attributes.person.name' %></b>: 
+  	<%= @curriculum_student.name %>
   </p>
   
   <p>
-  	<b><%= t 'activerecord.models.curriculum' %></b>: <%= link_to @curriculum_student.curriculum.name, [:admin, @course, @curriculum_student.curriculum] %>
+  	<b><%= t 'activerecord.models.curriculum' %></b>: 
+  	<%= link_to @curriculum_student.curriculum.name, [:admin, @course, @curriculum_student.curriculum] %>
   </p>
   
   <p>
-  	<b><%= t 'activerecord.attributes.curriculum_student.active' %></b>: <%= @curriculum_student.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %>
+  	<b><%= t 'activerecord.attributes.curriculum_student.active' %></b>: 
+  	<%= @curriculum_student.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %>
   </p>
   	
 </article>

@@ -1,7 +1,7 @@
 <header>
   <h1><%= t 'Professors' %></h1>
   <ul id="toolbar">
-    <li><%= link_to ((t 'New') + ' ' + (t 'Professor')), new_admin_professor_path, :class => 'new' %></li>
+    <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.professor')), new_admin_professor_path, :class => 'new' %></li>
   </ul>
 </header>
 
@@ -10,8 +10,8 @@
 <table>
   <thead>
     <tr>
-      <th><%= t 'Name' %></th>
-      <th><%= t 'Scholarity' %></th>
+      <th><%= t 'activerecord.attributes.person.name' %></th>
+      <th><%= t 'activerecord.attributes.professor.scholarity_id' %></th>
     </tr>
   </thead>
   <tbody>

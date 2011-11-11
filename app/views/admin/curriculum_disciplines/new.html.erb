@@ -9,7 +9,7 @@
   
   <%= form_tag({:action => 'create'}) do %>
     <p>
-      <%= label_tag :module, (t 'Module') %><br />
+      <%= label_tag :module, (t 'activerecord.attributes.curriculum_discipline.name') %><br />
       <%= text_field_tag :module %>
     </p>
   
@@ -21,10 +21,10 @@
       <thead>
         <tr>
           <th></th>
-          <th><%= t 'Code' %></th>
-          <th><%= t 'Name' %></th>
-          <th><%= t 'Credits' %></th>
-          <th><%= t 'Version' %></th>
+          <th><%= t 'activerecord.attributes.discipline.code' %></th>
+          <th><%= t 'activerecord.attributes.discipline.name' %></th>
+          <th><%= t 'activerecord.attributes.discipline.credits' %></th>
+          <th><%= t 'activerecord.attributes.discipline.version' %></th>
         </tr>
       </thead>
       <tbody>

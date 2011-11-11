@@ -101,29 +101,4 @@ class Admin::DisciplinesController < ApplicationController
       format.xml  { head :ok }
     end
   end
-  
-  # GET /disciplines/search
-  def search
-    @disciplines = Discipline.paginate :include => ['coursedisciplines'], 
-                                       :conditions => ['course_disciplines.course_id <> ? and disciplines.id not in (?)', 
-                                                      params[:course_id], 
-                                                      @course.disciplines.size > 0 ? @course.disciplines.collect(&:id) : -1], 
-                                       :page => params[:page]
-                                       
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml { render :xml => @disciplines }
-      format.json { render :json => @disciplines }
-    end
-  end
-  
-  def add
-    @discipline = Discipline.find(params[:id])
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @discipline }
-      format.json { render :json => @discipline }
-    end
-  end
 end

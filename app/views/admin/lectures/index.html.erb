@@ -4,14 +4,14 @@
   <header>
     <h2><%= t 'Lectures' %></h2>
     <ul id="toolbar">
-      <li><%= link_to ((t 'New') + ' ' + (t 'Lecture')), {:action => 'new'}, :class => 'new' %></li>
+      <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.lecture')), {:action => 'new'}, :class => 'new' %></li>
   </header>
   <table>
     <thead>
       <tr>
-        <th><%= t 'Code' %></th>
-        <th><%= t 'Name' %></th>
-        <th><%= t 'Course' %></th>
+        <th><%= t 'activerecord.attributes.lecture.code' %></th>
+        <th><%= t 'activerecord.attributes.discipline.name' %></th>
+        <th><%= t 'activerecord.attributes.discipline.course_id' %></th>
       </tr>
     </thead>
     <tbody>

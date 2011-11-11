@@ -2,13 +2,13 @@
   <%= f.error_messages %>
 
   <p>
-    <%= label_tag :student_id, (t 'Student') %><br />
+    <%= label_tag :student_id %><br />
     <%= f.collection_select :student_id, @lecture_student.student ? [@lecture_student.student] : [], :student_id, :name, {}, {:multiple => true} %>
   </p>
   
   <% if (@lecture_student.id) %>
   <p>
-    <%= f.label :grade, (t 'Grade') %><br />
+    <%= f.label :grade %><br />
     <%= f.text_field :grade %>
   </p>
   <% end %>

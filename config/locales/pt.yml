@@ -210,50 +210,58 @@ pt:
       full_messages:
         format: "%{attribute}%{message}"
     models: 
-      course: "Curso"
-      student: "Aluno"
       academic_period: "Período Letivo"
+      course: "Curso"
       course_category: "Categoria de Curso"
-      scholarity: "Escolaridade"
-      discipline: "Disciplina"
       curriculum: "Grade Curricular"
+      curriculum_discipline: "Disciplina"
       curriculum_student: "Aluno"
+      discipline: "Disciplina"
       lecture: "Turma"
-      lecture_student: "Aluno"
-      lecture_absence: "Faltas"
-      lecture_situation: "Situação"
       lecture_file: "Arquivo"
+      lecture_situation: "Situação"
+      lecture_student: "Aluno"
       lesson: "Aula"
-      wall: "Publicação"
+      lesson_absence: "Falta"
+      professor: "Professor"
+      scholarity: "Escolaridade"
+      student: "Aluno"
       test: "Avaliação"
+      wall: "Publicação"
     attributes:
+      academic_period:
+        name: "Nome"
+        start: "Aulas"
+        end: "Aulas (Fim)"
+        registration_start: "Matrícula"
+        registration_end: "Matrícula (Fim)"
       course:
         code: "Código"
         name: "Nome"
         course_category_id: "Categoria do Curso"
-      discipline:
-        code: "Código"
+      course_category:
         name: "Nome"
       curriculum:
         code: "Código"
         name: "Nome"
+        active: "Ativo"
+      curriculum_discipline:
+        curriculum_id: "Grade Curricular"
+        module: "Módulo"
       curriculum_student:
         student_id: "Aluno"
         active: "Ativo"
         curriculum_id: "Grade Curricular"
-      academic_period:
-        name: "Nome"
-      course_category:
-        name: "Nome"
-      scholarity:
-        name: "Nome"
-      student:
+      discipline:
         code: "Código"
-      professor:
-        person: 
-          name: "Nome"
-          email: "E-mail"
-        scholarity_id: "Escolaridade"
+        name: "Nome"
+        version: "Versão"
+        credits: "Créditos"
+        course_id: "Curso"
+      lecture:
+        code: "Código"
+        places: "Vagas"
+        discipline_id: "Disciplina"
       lecture_student:
         lecture_situation_id: "Situação Final"
         grade: "Nota Final"
@@ -261,6 +269,15 @@ pt:
       person:
         name: "Nome"
         email: "E-mail"
+      professor:
+        person: 
+          name: "Nome"
+          email: "E-mail"
+        scholarity_id: "Escolaridade"
+      scholarity:
+        name: "Nome"
+      student:
+        code: "Código"
       test:
         name: "Nome"
         scheduled_date: "Data Prevista"
@@ -274,17 +291,11 @@ pt:
   
   # Uni-specific
   Start: "Início"
-  Course: "Curso"
   Courses: "Cursos"
-  Professor: "Professor"
   Professors: "Professores"
-  Student: "Aluno"
   Students: "Alunos"
   AcademicPeriods: "Períodos Letivos"
-  AcademicPeriod: "Período Letivo"
   Reports: "Relatórios"
-  Contract: "Contrato"
-  Contracts: "Contratos"
   Parameters: "Parâmetros"
   UniversityManagementSystem: "Plataforma de Gestão Acadêmica"
   LoggedInAs: "Logado como"
@@ -294,7 +305,6 @@ pt:
   ThisWorkIsLicensedUnderALicense: "Este trabalho está licenciado sob a licença"
   Locale: "Idioma"
   System: "Sistema"
-  Scholarity: "Escolaridade"
   Scholarities: "Escolaridades"
   Name: "Nome"
   Category: "Categoria"
@@ -302,9 +312,7 @@ pt:
   Back: "Voltar"
   Show: "Exibir"
   Delete: "Excluir"
-  Discipline: "Disciplina"
   Disciplines: "Disciplinas"
-  Curriculum: "Grade Curricular"
   Curriculums: "Grades Curriculares"
   About: "Sobre"
   Login: "Login"
@@ -317,7 +325,6 @@ pt:
   TestsAndAbscences: "Notas e Faltas"
   ForgotYourPassword: "Esqueceu a senha?"
   Lectures: "Turmas"
-  Lecture: "Turma"
   Registration: "Matrícula"
   Welcome: "Bem-vindo!"
   EmailOrStudentId: "E-mail ou Matrícula"
@@ -327,7 +334,6 @@ pt:
   End: "Fim"
   until: "até"
   InformationOfAbsenceOfRegistrationPeriod: "Se o período de matrícula não for informado, a matrícula não será aberta para os estudantes."
-  CourseCategory: "Categoria do Curso"
   CourseCategories: "Categorias de Curso"
   AreYouSure: "Tem certeza disso?"
   CurrentCourses: "Cursos atuais"
@@ -351,19 +357,14 @@ pt:
   AddDiscipline: "Adicionar Disciplina"
   Active: "Ativo"
   IsActive: "Ativo?"
-  Yes: "Sim"
-  No: "Não"
   BooleanYes: "Sim"
   BooleanNo: "Não"
   AddDisciplineToCurriculum: "Adicionar Disciplina à Grade Curricular"
   UserPasswordNotFound: "Usuário/Senha não encontrados"
-  Credits: "Créditos"
-  Version: "Versão"
   Versions: "Versões"
   Previous: "Anterior"
   Next: "Próxima"
   Date: "Data"
-  Module: "Módulo"
   Profile: "Perfil"
   ClassCode: "Código da Turma"
   Situation: "Situação"
@@ -373,7 +374,6 @@ pt:
   Disapproved by Attendance: "Reprovado por Faltas"
   Failed: "Reprovado"
   Tests: "Avaliações"
-  Test: "Avaliação"
   Absences: "Faltas"
   Schedule: "Horário"
   TimeTable: "Quadro de Horários"
@@ -419,7 +419,6 @@ pt:
   Status: "Status"
   InProgress: "Em Andamento"
   Finished: "Encerrada"
-  Lesson: "Aula"
   Lessons: "Aulas"
   MaximumAbsences: "Número máximo de faltas por aluno"
   MaximumAbsencesExplanation: "Se este valor for zero, não haverá controle de frequencia para esta aula."

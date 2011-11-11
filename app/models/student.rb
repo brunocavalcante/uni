@@ -26,4 +26,11 @@ class Student < ActiveRecord::Base
                                 @today], 
                 :include => [:academic_period, :discipline]
   end
+  
+  def current_lecture_students
+    @today = Date.today.to_s
+    LectureStudent.all :conditions => ['student_id = ? AND academic_periods.start <= ? AND academic_periods.end >= ?', 
+                                       id, @today, @today], 
+                       :include => [{:lecture => [:academic_period, :discipline]}]
+  end
 end
