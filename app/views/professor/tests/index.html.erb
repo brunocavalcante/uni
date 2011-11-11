@@ -4,7 +4,7 @@
 	<header>
 		<h2><%= t 'Tests' %></h2>
 		<ul id="toolbar">
-			<li><%= link_to (t 'New') + ' ' + (t 'Test'), new_professor_lecture_test_path(@lecture), :class => 'new' %></li>
+			<li><%= link_to (t 'New') + ' ' + (t 'activerecord.models.test'), new_professor_lecture_test_path(@lecture), :class => 'new' %></li>
 		</ul>
 	</header>
 	
@@ -14,8 +14,8 @@
 	<table>
 		<thead>
 			<tr>
-				<th><%= t 'Title' %></th>
-				<th><%= t 'Date' %></th>
+				<th><%= t 'activerecord.attributes.test.name' %></th>
+				<th><%= t 'activerecord.attributes.test.scheduled_date' %></th>
 			</tr>
 		</thead>
 		<tbody>

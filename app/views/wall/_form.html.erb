@@ -3,11 +3,11 @@
 
 	<%= f.fields_for :message do |m| %>
   <p>
-    <%= m.label :subject, (t 'Subject') %><br />
+    <%= m.label :subject %><br />
     <%= m.text_field :subject %>
   </p>
   <p>
-    <%= m.label :content, (t 'Message') %><br />
+    <%= m.label :content %><br />
     <%= m.text_area :content, :rows => 10 %>
   </p>
   <% end %>

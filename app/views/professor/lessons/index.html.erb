@@ -4,7 +4,7 @@
 	<header>
 		<h2><%= t 'Lessons' %></h2>
 		<ul id="toolbar">
-			<li><%= link_to (t 'New') + ' ' + (t 'Lesson'), new_professor_lecture_lesson_path(@lecture), :class => 'new' %></li>
+			<li><%= link_to (t 'New') + ' ' + (t 'activerecord.models.lesson'), new_professor_lecture_lesson_path(@lecture), :class => 'new' %></li>
 		</ul>
 	</header>
 	
@@ -14,8 +14,8 @@
 	<table>
 		<thead>
 			<tr>
-				<th><%= t 'Title' %></th>
-				<th><%= t 'Date' %></th>
+				<th><%= t 'activerecord.attributes.lesson.title' %></th>
+				<th><%= t 'activerecord.attributes.lesson.date' %></th>
 			</tr>
 		</thead>
 		<tbody>

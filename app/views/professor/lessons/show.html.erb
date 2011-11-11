@@ -14,19 +14,22 @@
 	<p id="notice"><%= notice %></p>
 	
 	<p>
-		<b><%= t 'Date' %>:</b> <%= l @lesson.date, :format => :long %>
+		<b><%= t 'activerecord.attributes.lesson.date' %>:</b> 
+		<%= l @lesson.date, :format => :long %>
 	</p>
 	
 	<p>
-		<b><%= t 'MaximumAbsences' %>:</b> <%= @lesson.maximum_absences %>
+		<b><%= t 'activerecord.attributes.lesson.maximum_absences' %>:</b> 
+		<%= @lesson.maximum_absences %>
 	</p>
 	
 	<p>
-		<b><%= t 'Title' %>:</b> <%= @lesson.title %>
+		<b><%= t 'activerecord.attributes.lesson.title' %>:</b> 
+		<%= @lesson.title %>
 	</p>
 	
 	<p>
-		<b><%= t 'Description' %>:</b><br />
+		<b><%= t 'activerecord.attributes.lesson.description' %>:</b><br />
 		<%= raw(@lesson.description) %>
 	</p>
 </article>

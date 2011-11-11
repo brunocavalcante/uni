@@ -3,7 +3,7 @@
   <b><%= t 'ClassCode' %>:</b> <%= @lecture.code %>
 </p>
 <p>
-  <b><%= t 'AcademicPeriod' %>:</b> <%= @lecture.academic_period.name %>
+  <b><%= t 'activerecord.models.academic_period' %>:</b> <%= @lecture.academic_period.name %>
 </p>
 <% if @lecture.professors.size == 1 %>
 <p>
@@ -32,16 +32,20 @@
   </ul>
 <% end %>
 
-<h3><%= t 'Discipline' %></h3>
+<h3><%= t 'activerecord.models.discipline' %></h3>
 <p>
-  <b><%= t 'Code' %>:</b> <%= @lecture.discipline.code %>
+  <b><%= t 'activerecord.attributes.discipline.code' %>:</b> 
+  <%= @lecture.discipline.code %>
 </p>
 <p>
-  <b><%= t 'Name' %>:</b> <%= @lecture.name %>
+  <b><%= t 'activerecord.attributes.discipline.name' %>:</b> 
+  <%= @lecture.name %>
 </p>
 <p>
-  <b><%= t 'Version' %>:</b> <%= @lecture.discipline.version_fullname %>
+  <b><%= t 'activerecord.attributes.discipline.version' %>:</b> 
+  <%= @lecture.discipline.version_fullname %>
 </p>
 <p>
-  <b><%= t 'Course' %>:</b> <%= @lecture.discipline.course.code %>
+  <b><%= t 'activerecord.attributes.discipline.course_id' %>:</b> 
+  <%= @lecture.discipline.course.code %>
 </p>

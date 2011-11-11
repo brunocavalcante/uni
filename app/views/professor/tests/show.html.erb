@@ -14,10 +14,12 @@
 	<p id="notice"><%= notice %></p>
 	
 	<p>
-		<b><%= t 'activerecord.attributes.test.name' %>:</b> <%= @test.name %>
+		<b><%= t 'activerecord.attributes.test.name' %>:</b> 
+		<%= @test.name %>
 	</p>
 	
 	<p>
-		<b><%= t 'activerecord.attributes.test.scheduled_date' %>:</b> <%= l @test.scheduled_date, :format => :long %>
+		<b><%= t 'activerecord.attributes.test.scheduled_date' %>:</b> 
+		<%= l @test.scheduled_date, :format => :long %>
 	</p>
 </article>
