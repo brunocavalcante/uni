@@ -4,16 +4,16 @@
   <h2><%= t 'Transcripts' %></h2>
   
   <p>
-    <b><%= t 'Course' %>:</b> <%= @curriculum_student.curriculum.course.name %>
+    <b><%= t 'activerecord.models.course' %>:</b> <%= @curriculum_student.curriculum.course.name %>
   </p>
   <p>
-    <b><%= t 'Situation' %>:</b> <%= t 'Active' %>
+    <b><%= t 'activerecord.attributes.curriculum_student.active' %>:</b> <%= t 'Active' %>
   </p>
   <p>
     <b><%= t 'EntranceDate' %>:</b> <%= l @curriculum_student.created_at, :format => :long %>
   </p>
   <p>
-    <b><%= t 'Curriculum' %>:</b> <%= @curriculum_student.curriculum.name %>
+    <b><%= t 'activerecord.models.curriculum' %>:</b> <%= @curriculum_student.curriculum.name %>
   </p>
   
   <h3><%= t 'Disciplines' %></h3>
@@ -21,12 +21,12 @@
   <table class="grid">
     <thead>
       <tr>
-        <th><%= t 'Discipline' %></th>
+        <th><%= t 'activerecord.models.discipline' %></th>
         <th><%= t 'Situation' %></th>
-        <th><%= t 'AcademicPeriod' %></th>
-        <th><%= t 'Grade' %></th>
-        <th><%= t 'Absences' %></th>
-        <th><%= t 'Credits' %></th>
+        <th><%= t 'activerecord.models.academic_period' %></th>
+        <th><%= t 'activerecord.attributes.lecture_student.grade' %></th>
+        <th><%= t 'activerecord.attributes.lecture_student.attendance' %></th>
+        <th><%= t 'activerecord.attributes.discipline.credits' %></th>
       </tr>
     </thead>
     <tbody>

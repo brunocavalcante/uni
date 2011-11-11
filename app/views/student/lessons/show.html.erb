@@ -11,7 +11,7 @@
 	<h3><%= t 'GeneralInformation' %></h3>
 	
 	<p>
-		<b><%= t 'Date' %>:</b> <%= l @lesson.date, :format => :long %>
+		<b><%= t 'activerecord.attributes.lesson.date' %>:</b> <%= l @lesson.date, :format => :long %>
 	</p>
 	
 	<% if @lesson.maximum_absences == 0 %>
@@ -21,7 +21,7 @@
 	<% end %>
 
 	<% if @lesson.description != '' %>
-	<h3><%= t 'Content' %></h3>
+	<h3><%= t 'activerecord.attributes.lesson.description' %></h3>
 	<%= raw(@lesson.description) %>
 	<% end %>
 </article>
