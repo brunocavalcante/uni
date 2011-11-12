@@ -1,9 +1,0 @@
-# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
-
-one:
-  curriculum_discipline_id: 1
-  curriculum_discipline_prerequisite_id: 1
-
-two:
-  curriculum_discipline_id: 1
-  curriculum_discipline_prerequisite_id: 1

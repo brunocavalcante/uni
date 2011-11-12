@@ -4,16 +4,20 @@
   <h2><%= t 'Transcripts' %></h2>
   
   <p>
-    <b><%= t 'activerecord.models.course' %>:</b> <%= @curriculum_student.curriculum.course.name %>
+    <b><%= t 'activerecord.models.course' %>:</b> 
+    <%= @curriculum_student.curriculum.course.name %>
   </p>
   <p>
-    <b><%= t 'activerecord.attributes.curriculum_student.active' %>:</b> <%= t 'Active' %>
+    <b><%= t 'activerecord.attributes.curriculum_student.active' %>:</b> 
+    <%= @curriculum_student.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %>
   </p>
   <p>
-    <b><%= t 'EntranceDate' %>:</b> <%= l @curriculum_student.created_at, :format => :long %>
+    <b><%= t 'EntranceDate' %>:</b> 
+    <%= l @curriculum_student.created_at, :format => :long %>
   </p>
   <p>
-    <b><%= t 'activerecord.models.curriculum' %>:</b> <%= @curriculum_student.curriculum.name %>
+    <b><%= t 'activerecord.models.curriculum' %>:</b> 
+    <%= @curriculum_student.curriculum.name %>
   </p>
   
   <h3><%= t 'Disciplines' %></h3>
@@ -35,7 +39,7 @@
         <td>
         	<%= transcript[:discipline].name %>
         </td>
-        <% if transcript[:lecture_student] &&  %>
+        <% if transcript[:lecture_student] %>
         <td>
         	<span class="<%= situation_class transcript[:lecture_student] %>">
         		<%= transcript[:lecture_student].situation_description %>
@@ -44,6 +48,15 @@
         <td><%= transcript[:lecture_student].lecture.academic_period.name %></td>
         <td><%= transcript[:lecture_student].grade %></td>
         <td><%= transcript[:lecture_student].attendance.to_s + '%' if transcript[:lecture_student].attendance %></td>
+        <% elsif transcript[:transferred_discipline] %>
+        <td>
+        	<span class="approved">
+        		<%= t 'TransferredDisciplineSituation'%>
+        	</span>
+        </td>
+        <td></td>
+        <td><%= transcript[:transferred_discipline].grade %></td>
+        <td><%= transcript[:transferred_discipline].attendance.to_s + '%' if transcript[:transferred_discipline].attendance %></td>
         <% else %>
         <td></td>
         <td></td>

@@ -227,6 +227,7 @@ pt:
       scholarity: "Escolaridade"
       student: "Aluno"
       test: "Avaliação"
+      transferred_discipline: "Disciplina Aproveitada"
       wall: "Publicação"
     attributes:
       academic_period:
@@ -296,6 +297,10 @@ pt:
         lecture_student_id: "Aluno"
         rating: "Avaliação"
         date: "Data"
+      transferred_discipline:
+        discipline_id: "Disciplina"
+        grade: "Nota"
+        attendance: "Frequência"
       
   will_paginate:
     previous_label: "&larr; Página Anterior"
@@ -437,6 +442,8 @@ pt:
   PasswordWillBeTheProfessorEmail: "A nova senha será o email do professor."
   YouAreInactiveInThisCourse: "Desculpe, seu cadastro no curso \"%{course}\" está inativo."
   Results: "Resultados"
+  TransferredDisciplines: "Disciplinas Aproveitadas"
+  TransferredDisciplineSituation: "Aproveitamento"
   
   CourseCreated: "Curso criado com sucesso."
   CourseUpdated: "Curso atualizado com sucesso."
@@ -479,6 +486,10 @@ pt:
   TestUpdated: "Avaliação atualizada com sucesso."
   TestDeleted: "Avaliação excluída com sucesso."
   
+  TransferredDisciplineCreated: "Disciplina Aproveitada criada com sucesso."
+  TransferredDisciplineUpdated: "Disciplina Aproveitada atualizada com sucesso."
+  TransferredDisciplineDeleted: "Disciplina Aproveitada excluída com sucesso."
+  
   url:
     uni: "Uni"
     admin: "Administração"
@@ -513,3 +524,4 @@ pt:
     lessons: "Aulas"
     tests: "Avaliações"
     test_results: "Resultados"
+    transferred_disciplines: "Disciplinas Aproveitadas"

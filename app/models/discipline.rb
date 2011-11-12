@@ -3,6 +3,8 @@ class Discipline < ActiveRecord::Base
   has_many :curriculum_disciplines, :dependent => :destroy
   has_many :curriculums, :through => :curriculum_disciplines
   
+  has_many :transferred_disciplines, :dependent => :destroy
+  
   default_scope :order => 'name ASC'
   
   validates :code, :presence => true

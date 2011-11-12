@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  curriculum_student_id: 1
+  discipline_id: 1
+  grade: MyString
+  attendance: 1
+
+two:
+  curriculum_student_id: 1
+  discipline_id: 1
+  grade: MyString
+  attendance: 1

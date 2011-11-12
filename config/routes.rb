@@ -14,7 +14,9 @@ Uni::Application.routes.draw do
         resources :curriculums do 
           resources :curriculum_disciplines
         end
-        resources :curriculum_students
+        resources :curriculum_students do 
+          resources :transferred_disciplines
+        end
     end
     resources :professors
     resources :students
