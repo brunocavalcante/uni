@@ -261,6 +261,7 @@ pt:
         credits: "Créditos"
         course_id: "Curso"
         syllabus: "Ementa"
+        prerequisites: "Pré-requisitos"
       lecture:
         code: "Código"
         places: "Vagas"

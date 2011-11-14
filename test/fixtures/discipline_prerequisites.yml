@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  discipline_id: 1
+  dependent_discipline_id: 1
+
+two:
+  discipline_id: 1
+  dependent_discipline_id: 1

@@ -5,6 +5,16 @@ class Discipline < ActiveRecord::Base
   
   has_many :transferred_disciplines, :dependent => :destroy
   
+  # Discipline that have this one as a prerequisite
+  has_many :discipline_prerequisites_dependencies, 
+    :foreign_key => 'dependent_discipline_id', :class_name => 'DisciplinePrerequisite', :dependent => :destroy                             
+  has_many :prerequisites_dependencies, :through => :discipline_prerequisites_dependencies, :source => :discipline
+
+  # This discipline's prerequisites
+  has_many :discipline_prerequisites, 
+    :foreign_key => 'discipline_id', :class_name => 'DisciplinePrerequisite', :dependent => :destroy                             
+  has_many :prerequisites, :through => :discipline_prerequisites, :source => :dependent_discipline
+  
   default_scope :order => 'name ASC'
   
   validates :code, :presence => true
