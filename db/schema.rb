@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111111231332) do
+ActiveRecord::Schema.define(:version => 20111114184258) do
 
   create_table "academic_periods", :force => true do |t|
     t.string   "name"
@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20111111231332) do
     t.integer  "credits"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "syllabus"
   end
 
   create_table "lecture_files", :force => true do |t|

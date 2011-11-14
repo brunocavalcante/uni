@@ -1,10 +1,12 @@
 <%= form_for([:admin, @course, @curriculum_student, @transferred_discipline]) do |f| %>
   <%= f.error_messages %>
 
+	<% if @transferred_discipline.id == nil %>
 	<p>
     <%= f.label :discipline_id %><br/>
     <%= f.select :discipline_id, options_from_collection_for_select(@curriculum.disciplines, "id", "name") %>
   </p>
+  <% end %>
   
   <p>
     <%= f.label :grade %><br/>

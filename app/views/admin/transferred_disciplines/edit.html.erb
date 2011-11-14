@@ -2,11 +2,16 @@
 <%= render :partial => 'admin/courses/menu', :locals => { :course => @course } %>
 <article>
   <header>
-    <h2><%= t 'Editing' %> <%= t 'activerecord.models.curriculum_student' %>: <%= @curriculum_student.name %></h2>
+    <h2><%= @curriculum_student.name %>: <%= t 'Editing' %> <%= t 'activerecord.models.transferred_discipline' %></h2>
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), admin_course_curriculum_student_path(@course, @curriculum_student), :class => 'back'  %></li>
     </ul>
   </header>
+  
+  <p>
+  	<b><%= t 'activerecord.attributes.discipline.name' %></b>: 
+  	<%= @transferred_discipline.name %>
+  </p>
   
   <%= render 'form' %>
   	

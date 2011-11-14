@@ -253,12 +253,14 @@ pt:
         student_id: "Aluno"
         active: "Ativo"
         curriculum_id: "Grade Curricular"
+        created_at: "Data de Ingresso"
       discipline:
         code: "Código"
         name: "Nome"
         version: "Versão"
         credits: "Créditos"
         course_id: "Curso"
+        syllabus: "Ementa"
       lecture:
         code: "Código"
         places: "Vagas"
@@ -308,6 +310,9 @@ pt:
   
   # Uni-specific
   Start: "Início"
+  Professor: "Professor"
+  Student: "Aluno"
+  Administrator: "Administrador"
   Courses: "Cursos"
   Professors: "Professores"
   Students: "Alunos"
@@ -444,6 +449,10 @@ pt:
   Results: "Resultados"
   TransferredDisciplines: "Disciplinas Aproveitadas"
   TransferredDisciplineSituation: "Aproveitamento"
+  
+  DisciplineCreated: "Disciplina criada com sucesso."
+  DisciplineUpdated: "Disciplina atualizada com sucesso."
+  DisciplineDeleted: "Disciplina excluída com sucesso."
   
   CourseCreated: "Curso criado com sucesso."
   CourseUpdated: "Curso atualizado com sucesso."

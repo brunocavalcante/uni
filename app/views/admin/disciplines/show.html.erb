@@ -32,6 +32,11 @@
     <%= @discipline.version_fullname %>
   </p>
   
+  <% if @discipline.syllabus != nil && @discipline.syllabus != '' %>
+  <h3><%= t 'activerecord.attributes.discipline.syllabus' %></h3>
+  <%= raw @discipline.syllabus %>
+  <% end %>
+  
   <h3><%= t 'Versions' %></h3>
   <ul>
     <% @discipline.versions.each do |discipline| %>

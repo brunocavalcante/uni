@@ -20,4 +20,8 @@ class Discipline < ActiveRecord::Base
   def version_fullname
     "#{version.to_s} (#{I18n.l(created_at)})"
   end
+  
+  def get(attr)
+    self.send(attr)
+  end
 end

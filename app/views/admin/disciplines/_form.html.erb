@@ -5,13 +5,20 @@
     <%= f.label :code %><br />
     <%= f.text_field :code, :disabled => (@discipline.id) %>
   </p>
+  
   <p>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </p>
+  
   <p>
     <%= f.label :credits %><br />
     <%= f.text_field :credits %>
+  </p>
+  
+  <p>
+    <%= f.label :syllabus %><br />
+    <%= f.text_area :syllabus %>
   </p>
   
   <div class="actions">

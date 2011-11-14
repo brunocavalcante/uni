@@ -61,7 +61,7 @@ class Admin::DisciplinesController < ApplicationController
     
     respond_to do |format|
       if @discipline.save
-        format.html { redirect_to([:admin, @course, @discipline], :notice => 'Discipline was successfully created.') }
+        format.html { redirect_to([:admin, @course, @discipline], :notice => I18n.t('DisciplineCreated')) }
         format.xml  { render :xml => @discipline, :status => :created, :location => @discipline }
       else
         format.html { render :action => "new" }
@@ -79,13 +79,23 @@ class Admin::DisciplinesController < ApplicationController
     @new_discipline.course = @discipline.course
     @new_discipline.version = @discipline.version + 1
 
+    @changed = false
+    for field_to_check in ['syllabus', 'credits', 'name']
+      @changed = true if @new_discipline.get(field_to_check) != @discipline.get(field_to_check)
+    end
+
     respond_to do |format|
-      if @new_discipline.save
-        format.html { redirect_to([:admin, @course, @new_discipline], :notice => 'Discipline was successfully updated.') }
-        format.xml  { head :ok }
+      if @changed
+        if @new_discipline.save
+          format.html { redirect_to([:admin, @course, @new_discipline], :notice => I18n.t('DisciplineUpdated')) }
+          format.xml  { head :ok }
+        else
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @discipline.errors, :status => :unprocessable_entity }
+        end
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @discipline.errors, :status => :unprocessable_entity }
+        format.html { redirect_to([:admin, @course, @discipline]) }
+        format.xml  { head :ok }
       end
     end
   end
@@ -97,7 +107,7 @@ class Admin::DisciplinesController < ApplicationController
     @discipline.destroy
     
     respond_to do |format|
-      format.html { redirect_to(admin_course_disciplines_url(@course)) }
+      format.html { redirect_to(admin_course_disciplines_url(@course), :notice => I18n.t('DisciplineDeleted')) }
       format.xml  { head :ok }
     end
   end

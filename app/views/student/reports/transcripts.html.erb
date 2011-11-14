@@ -12,7 +12,7 @@
     <%= @curriculum_student.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %>
   </p>
   <p>
-    <b><%= t 'EntranceDate' %>:</b> 
+    <b><%= t 'activerecord.attributes.curriculum_student.created_at' %>:</b> 
     <%= l @curriculum_student.created_at, :format => :long %>
   </p>
   <p>

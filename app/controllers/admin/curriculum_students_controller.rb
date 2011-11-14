@@ -6,7 +6,14 @@ class Admin::CurriculumStudentsController < ApplicationController
   end
   
   def index
-    @curriculum_students = CurriculumStudent.paginate :conditions => ['curriculums.course_id = ?', params[:course_id]], 
+    @conditions = ['curriculums.course_id = ?', params[:course_id]]
+    
+    if params[:search]
+      @conditions = ['curriculums.course_id = ? AND (people.name ILIKE ? OR students.code = ?)', 
+                     params[:course_id], "%#{params[:search]}%", params[:search]]
+    end
+    
+    @curriculum_students = CurriculumStudent.paginate :conditions => @conditions, 
                                                       :include => [:curriculum, {:student => :person}], 
                                                       :page => params[:page]
                                                       

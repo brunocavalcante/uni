@@ -2,11 +2,10 @@
 <%= render :partial => 'admin/courses/menu', :locals => { :course => @course } %>
 <article>
   <header>
-    <h2><%= @curriculum_student.name %></h2>
+    <h2><%= @curriculum_student.name %>: <%= t 'activerecord.models.transferred_discipline' %></h2>
     <ul id="toolbar">
-    	<li><%= link_to (t 'Profile'), user_path(@curriculum_student.student.person), :class => 'person' %></li>
-      <li><%= link_to (t 'Edit'), edit_admin_course_curriculum_student_path(@course, @curriculum_student), :class => 'edit'  %></li>
-      <li><%= link_to (t 'TransferredDisciplines'), admin_course_curriculum_student_transferred_disciplines_path(@course, @curriculum_student), :class => 'show'  %></li>
+    	<li><%= link_to (t 'Back'), admin_course_curriculum_student_transferred_disciplines_path(@course, @curriculum_student), :class => 'back' %></li>
+      <li><%= link_to (t 'Edit'), {:action => "edit"}, :class => 'edit'  %></li>
       <li><%= button_to (t 'Remove'), {:action => "show"}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
     </ul>
   </header>
@@ -14,18 +13,18 @@
   <p id="notice"><%= notice %></p>
   
   <p>
-  	<b><%= t 'activerecord.attributes.person.name' %></b>: 
-  	<%= @curriculum_student.name %>
+  	<b><%= t 'activerecord.attributes.discipline.name' %></b>: 
+  	<%= @transferred_discipline.name %>
   </p>
   
   <p>
-  	<b><%= t 'activerecord.models.curriculum' %></b>: 
-  	<%= link_to @curriculum_student.curriculum.name, [:admin, @course, @curriculum_student.curriculum] %>
+  	<b><%= t 'activerecord.attributes.transferred_discipline.grade' %></b>: 
+  	<%= @transferred_discipline.grade %>
   </p>
   
   <p>
-  	<b><%= t 'activerecord.attributes.curriculum_student.active' %></b>: 
-  	<%= @curriculum_student.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %>
+  	<b><%= t 'activerecord.attributes.transferred_discipline.attendance' %></b>: 
+  	<%= @transferred_discipline.attendance %>%
   </p>
   	
 </article>
