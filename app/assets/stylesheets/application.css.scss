@@ -3,6 +3,7 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
+ *= require vendor
  *= require_tree . 
 */
 
@@ -19,50 +20,50 @@ body {
   color: $textColor;
   font-size: 100%;
   margin: 0;
-  background: white url(<%= asset_path 'html-bg.png' %>) repeat-x;
+  background: white url('/assets/html-bg.png') repeat-x;
 }
 body, input, select, button {
   font-family: 'Ubuntu', 'Helvetica', sans-serif;
 }
 
 body a, body a:visited, body a:active {
-	color: $linkColor;
+  color: $linkColor;
 }
 a:hover {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 h1, h2, h3 {
-	text-shadow: 1px 1px 0px white;
+  text-shadow: 1px 1px 0px white;
 }
 h1 {
-	font-size: 2.25em;
+  font-size: 2.25em;
 }
 h2 {
-	font-size: 1.75em;
+  font-size: 1.75em;
 }
 h3 {
-	font-size: 1.25em;
-	border-bottom: 1px dotted #CCC;
-	padding-bottom: 0.2em;
+  font-size: 1.25em;
+  border-bottom: 1px dotted #CCC;
+  padding-bottom: 0.2em;
 }
 
 /* Headers */
 header {
-	margin: 1.5% 2.5%;
+  margin: 1.5% 2.5%;
 }
 header h1 {
-  background: url(<%= asset_path 'logouni48.png' %>) no-repeat 0 0;
+  background: url('/assets/logouni48.png') no-repeat 0 0;
   padding: 0;
   min-height: 50px;
   position: relative;
   margin: 0; 
 }
 header h1 a {
-	text-decoration: none;
-	color: $linkColor;
-	text-indent: -9999px;
-	display: block;
+  text-decoration: none;
+  color: $linkColor;
+  text-indent: -9999px;
+  display: block;
 }
 header h1 span {
   margin-left: 97px;
@@ -73,26 +74,26 @@ header h1 span {
   bottom: 0em;
 }
 header {
-	position: relative;
+  position: relative;
 }
 header section {
-	position: absolute;
-	top: 0;
-	right: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 header #user .details {
-	float: left;
-	line-height: 27px;
-	text-align: right;
+  float: left;
+  line-height: 27px;
+  text-align: right;
 }
 header #user .photo {
-	margin-left: 1em;
-	float: right;
+  margin-left: 1em;
+  float: right;
 }
 
 img.thumb {
-	border: 3px solid $defaultBoxBg;
-	box-shadow: 1px 1px 1px $shadowColor;
+  border: 3px solid $defaultBoxBg;
+  box-shadow: 1px 1px 1px $shadowColor;
 }
 
 /* Main Menu */
@@ -114,12 +115,12 @@ img.thumb {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#575d62', EndColorStr='#2c3135'); /* IE6–IE9 */
 }
 #main-nav li.active, #main-nav a {
-	color: white;
-	text-decoration: none;
-	text-shadow: 1px 1px 0px #000;
+  color: white;
+  text-decoration: none;
+  text-shadow: 1px 1px 0px #000;
 }
 #main-nav a:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 #main-nav ul {
   margin: 0;
@@ -130,28 +131,28 @@ img.thumb {
   width: 96%;
 }
 #main-nav ul li {
-	float: left;
-	padding: 0.5em 1.75em;
-	border-right: 1px solid #666;
+  float: left;
+  padding: 0.5em 1.75em;
+  border-right: 1px solid #666;
 }
 
 /* Content */
 #content {
-	float: left;
-	width: 95%;
-	margin: 1.5% 2.5%;
+  float: left;
+  width: 95%;
+  margin: 1.5% 2.5%;
 }
 #content h1, #content article h2 {
-	border-bottom: 1px solid $defaultBorderColor;
+  border-bottom: 1px solid $defaultBorderColor;
 }
 #content h1, #content article h2, #content header {
-	padding-bottom: 0.2em;
-	margin: 0 0 1.5%;
+  padding-bottom: 0.2em;
+  margin: 0 0 1.5%;
 }
 #content header {
-	position: relative;
-	float: left;
-	width: 100%;
+  position: relative;
+  float: left;
+  width: 100%;
 }
 #content header h1, #content header h2 {
   padding: 0;
@@ -159,8 +160,8 @@ img.thumb {
   background: none;
 }
 #content article {
-	float: left;
-	width: 75%;
+  float: left;
+  width: 75%;
 }
 #content aside {
   float: left;
@@ -177,10 +178,10 @@ img.thumb {
 #content aside ul li {
   border-bottom: 1px solid $defaultBorderColor;
   padding: 1em 1.5em 1em 2.5em;
-  background: url(<%= asset_path 'icons/bullet_black.png' %>) no-repeat 1em 50%;
+  background: url('/assets/icons/bullet_black.png') no-repeat 1em 50%;
 }
 #content h3 {
-	margin-top: 1.5em;
+  margin-top: 1.5em;
 }
 #breadcrumbs, #breadcrumbs a {
   color: #666;
@@ -197,13 +198,13 @@ footer {
   margin: 0 2% 2%;
 }
 footer {
-	font-size: small;
+  font-size: small;
 }
 footer, footer a, footer a:active, a:visited, footer a:link {
-	color: #666;
+  color: #666;
 }
 #license {
-	margin-top: 0.20em;
+  margin-top: 0.20em;
 }
 
 /* Toolbar */
@@ -219,10 +220,10 @@ footer, footer a, footer a:active, a:visited, footer a:link {
   clear: both;
 }
 #toolbar li {
-	float: left;
-	display: block;
-	margin-left: 1.5em;
-	padding: 0.5em 0;
+  float: left;
+  display: block;
+  margin-left: 1.5em;
+  padding: 0.5em 0;
 }
 #toolbar a, #toolbar input, .item input.delete {
   background: none;
@@ -235,8 +236,8 @@ footer, footer a, footer a:active, a:visited, footer a:link {
   font-size: 1em;
 }
 #toolbar a:hover, #toolbar input:hover, .item input.delete:hover {
-	text-decoration: none;
-	cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 #toolbar .edit, #toolbar .delete, #toolbar .back, #toolbar .new, #toolbar .show, #toolbar .person, .item input.delete, #toolbar .absences {
   padding-left: 24px;
@@ -244,71 +245,71 @@ footer, footer a, footer a:active, a:visited, footer a:link {
   background-position: 0 50%;
 }
 #toolbar .new {
-	background-image: url(<%= asset_path 'icons/add.png' %>);
+  background-image: url('/assets/icons/add.png');
 }
 #toolbar .back {
-	background-image: url(<%= asset_path 'icons/back.png' %>);
+  background-image: url('/assets/icons/back.png');
 }
 #toolbar .edit {
-	background-image: url(<%= asset_path 'icons/edit.png' %>);
+  background-image: url('/assets/icons/edit.png');
 }
 #toolbar .delete, .item input.delete {
-	background-image: url(<%= asset_path 'icons/delete.png' %>);
+  background-image: url('/assets/icons/delete.png');
 }
 #toolbar .show {
-	background-image: url(<%= asset_path 'icons/full_page.png' %>);
+  background-image: url('/assets/icons/full_page.png');
 }
 #toolbar .person {
-	background-image: url(<%= asset_path 'icons/user.png' %>);
+  background-image: url('/assets/icons/user.png');
 }
 
 /* Tables */
 table {
-	border-spacing: 0;
-	width: 100%;
-	border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border-collapse: collapse;
 }
 tbody tr:nth-child(even) {
-	background: #FAFAFA;
+  background: #FAFAFA;
 }
 th, td {
-	padding: 0.75em 1em;
-	text-align: left;
+  padding: 0.75em 1em;
+  text-align: left;
 }
 thead th {
-	font-size: 0.75em;
-	text-transform: uppercase;
-	padding-left: 1.3em;
+  font-size: 0.75em;
+  text-transform: uppercase;
+  padding-left: 1.3em;
 }
 tbody td {
-	border-top: 1px solid $lighterBorderColor;
+  border-top: 1px solid $lighterBorderColor;
 }
 div.pagination {
-	margin-top: 0.75em;
+  margin-top: 0.75em;
 }
 
 table.grid tbody td, table.grid thead th {
-	border: 1px solid $lighterBorderColor;
+  border: 1px solid $lighterBorderColor;
 }
 table.grid tbody td {
-	font-size: 0.8em;
+  font-size: 0.8em;
 }
 
 /* Forms */
 input, select, textarea {
-	padding: 0.25em 0.5em;
-	font-size: 0.9em;
+  padding: 0.25em 0.5em;
+  font-size: 0.9em;
 }
 button, input[type=submit], input[type=reset] {
-	padding: 0.5em 2em;
+  padding: 0.5em 2em;
 }
 
 /* Essas classes são do scaffold do Ruby - Depois ajeitamos. */
 #notice {
-	color: green;
+  color: green;
 }
 #alert {
-	color: red;
+  color: red;
 }
 .field_with_errors {
   padding: 2px;
@@ -337,19 +338,19 @@ button, input[type=submit], input[type=reset] {
   margin-left: 1.5em;
 }
 #error_explanation ul li, .errorExplanation ul li {
-	list-style: square;
+  list-style: square;
 }
 
 /* Login */
 article#login, aside#login-splash {
-	margin-top: 2%;
-	margin-bottom: 1%;
+  margin-top: 2%;
+  margin-bottom: 1%;
 }
 article#login {
-	width: 48%;
+  width: 48%;
 }
 article#login h1 {
-	width: 16em;
+  width: 16em;
   font-size: 1.5em;
 }
 aside#login-splash {
@@ -370,92 +371,92 @@ aside#login-splash {
 }
 
 #login #username {
-	background-image: url(<%= asset_path 'icons/user.png' %>);
+  background-image: url('/assets/icons/user.png');
 }
 #login #password {
-	background-image: url(<%= asset_path 'icons/lock.png' %>);
+  background-image: url('/assets/icons/lock.png');
 }
 
 /* Page-specific */
 aside#user {
-	width: 180px;
-	height: 240px;
-	padding: 5px;
+  width: 180px;
+  height: 240px;
+  padding: 5px;
 }
 
 /* Text */
 .small-relevance, body .small-relevance a {
-	color: #999;
+  color: #999;
 }
 .approved {
-	color:#008000;
+  color:#008000;
 }
 .failed {
-	color:#CC0000;
+  color:#CC0000;
 }
 .studying {
-	font-style: italic;
+  font-style: italic;
 }
 
 /* Icons */
 #content aside ul li.home {
-	background-image: url(<%= asset_path 'icons/home.png' %>);
+  background-image: url('/assets/icons/home.png');
 }
 #content aside ul li.group {
-	background-image: url(<%= asset_path 'icons/group.png' %>);
+  background-image: url('/assets/icons/group.png');
 }
 #content aside ul li.files, .wall a.file {
-	background-image: url(<%= asset_path 'icons/upcoming-work.png' %>);
+  background-image: url('/assets/icons/upcoming-work.png');
 }
 #content aside ul li.mail {
-	background-image: url(<%= asset_path 'icons/email.png' %>);
+  background-image: url('/assets/icons/email.png');
 }
 #content aside ul li.report {
-	background-image: url(<%= asset_path 'icons/report.png' %>);
+  background-image: url('/assets/icons/report.png');
 }
 #content aside ul li.statistics {
-	background-image: url(<%= asset_path 'icons/statistics.png' %>);
+  background-image: url('/assets/icons/statistics.png');
 }
 #content aside ul li.calendar {
-	background-image: url(<%= asset_path 'icons/calendar.png' %>);
+  background-image: url('/assets/icons/calendar.png');
 }
 #content aside ul li.details {
-	background-image: url(<%= asset_path 'icons/attibutes.png' %>);
+  background-image: url('/assets/icons/attibutes.png');
 }
 #content aside ul li.tests {
-	background-image: url(<%= asset_path 'icons/issue.png' %>);
+  background-image: url('/assets/icons/issue.png');
 }
 #content aside ul li.abscences, #toolbar .absences {
-	background-image: url(<%= asset_path 'icons/order.png' %>);
+  background-image: url('/assets/icons/order.png');
 }
 #content aside ul li.finish {
-	background-image: url(<%= asset_path 'icons/check.png' %>);
+  background-image: url('/assets/icons/check.png');
 }
 #content aside ul li.lessons {
-	background-image: url(<%= asset_path 'icons/bookmark.png' %>);
+  background-image: url('/assets/icons/bookmark.png');
 }
 
 /* Panels */
 .panel-left, .panel-right {
-	width: 48.25%;
-	float: left;
+  width: 48.25%;
+  float: left;
 }
 .panel-left {
-	margin-right: 1.75%;
+  margin-right: 1.75%;
 }
 .panel-right {
-	margin-left: 1.75%;
+  margin-left: 1.75%;
 }
 
 /* Autocomplete */
 .ui-autocomplete-wrapper {
-  background-image: url(<%= asset_path 'icons/white/search.png' %>);
+  background-image: url('/assets/icons/white/search.png');
   background-position: 12px center;
   background-repeat: no-repeat;
   padding: 0.5em 0.5em 0.5em 36px;  
 }
 div.ui-autocomplete-loading {
-  background-image: url(<%= asset_path 'ajax-loader.gif' %>);
+  background-image: url('/assets/ajax-loader.gif');
 }
 .ui-autocomplete-error {
   background-color: #CC0000;
@@ -463,75 +464,75 @@ div.ui-autocomplete-loading {
 
 /* Wall */
 .wall {
-	margin-left: 0;
-	padding-left: 0;
-	list-style-type: none;
+  margin-left: 0;
+  padding-left: 0;
+  list-style-type: none;
 }
 .wall li {
-	position: relative;
-	margin-bottom: 2em;
+  position: relative;
+  margin-bottom: 2em;
 }
 .wall .photo {
-	position: absolute;
-	left: 0;
-	top: 0;
-	float: left;
-	width: 75px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  float: left;
+  width: 75px;
 }
 .wall .title {
-	background: white url(<%= asset_path 'commentArrow.png' %>) no-repeat 1em 100%;
-	padding-bottom: 10px;
-	margin-bottom: 0;
+  background: white url('/assets/commentArrow.png') no-repeat 1em 100%;
+  padding-bottom: 10px;
+  margin-bottom: 0;
 }
 .wall .item {
-	margin-left: 95px;
+  margin-left: 95px;
 }
 .wall .item .content p {
-	margin: 0.5em 0;
+  margin: 0.5em 0;
 }
 .wall .item .content p:last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 .wall .item h4 {
-	margin: 0 0 0.5em;
+  margin: 0 0 0.5em;
 }
 .wall .content {
-	border-radius: 10px;
-	padding: 0.75em 1em;
-	background: #DDD;
+  border-radius: 10px;
+  padding: 0.75em 1em;
+  background: #DDD;
 }
 .wall .title {
-	color: #4C4C4C;
+  color: #4C4C4C;
 }
 .wall a.file {
-	padding-left: 1.5em;
-	background-repeat: no-repeat;
-	background-position: 0 50%;
+  padding-left: 1.5em;
+  background-repeat: no-repeat;
+  background-position: 0 50%;
 }
 .wall .content form {
-	border-top: 1px solid #BBB;
-	margin-top: 1em;
-	padding-top: 0.5em;
+  border-top: 1px solid #BBB;
+  margin-top: 1em;
+  padding-top: 0.5em;
 }
 
 /* People Tables */
 table.people tbody td {
-	border: none;
+  border: none;
 }
 td.photo, th.photo {
-	width: 48px;
+  width: 48px;
 }
 
 form#search {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }
 
 form#search p {
-	float: left;
-	margin-top: 0;
-	margin-right: 1em;
+  float: left;
+  margin-top: 0;
+  margin-right: 1em;
 }
 
 form#search .actions {
-	clear: both;
+  clear: both;
 }
