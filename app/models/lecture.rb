@@ -24,4 +24,16 @@ class Lecture < ActiveRecord::Base
   def name
     discipline.name
   end
+  
+  def to_xml(options = {})
+    options[:include] ||= {:discipline => {:include => {:course => {:include => :course_category}}}}
+    
+    super(options)
+  end
+  
+  def as_json(options = {})
+    options[:include] ||= {:discipline => {:include => {:course => {:include => :course_category}}}}
+    
+    super(options)
+  end
 end

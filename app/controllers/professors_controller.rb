@@ -17,7 +17,7 @@ class ProfessorsController < ApplicationController
     
     respond_to do |format|
       format.xml { render :xml => @professors }
-      format.json { render :json => @professors.to_json(:include => [:person]) }
+      format.json { render :json => @professors }
       format.js { render :json => @professors_hash }
     end
   end

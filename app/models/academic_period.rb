@@ -17,4 +17,9 @@ class AcademicPeriod < ActiveRecord::Base
       errors.add('Inicio da Matricula', " deve ser anterior ao fim")
     end
   end
+  
+  def has_open_registration_period?
+    @today = Date.today.to_s
+    AcademicPeriod.all(:conditions => ['academic_periods.start >= ? AND academic_periods.end <= ?', @today, @today]).size > 0
+  end
 end

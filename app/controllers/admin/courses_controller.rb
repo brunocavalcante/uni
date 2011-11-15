@@ -17,8 +17,8 @@ class Admin::CoursesController < ApplicationController
     
     respond_to do |format|
       format.html # show.html.erb
-      format.xml { render :xml => @courses }
-      format.json { render :json => @courses }
+      format.xml { render :xml => @courses.to_xml(:include => :course_category) }
+      format.json { render :json => @courses.to_json(:include => :course_category) }
     end
   end
 

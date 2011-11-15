@@ -20,6 +20,12 @@ class Student::LecturesController < LecturesController
   
   def index
     @lectures = @student.current_lectures
+    
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml { render :xml => @lectures }
+      format.json { render :json => @lectures }
+    end
   end
   
   def tests_and_abscences

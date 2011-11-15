@@ -25,4 +25,16 @@ class Professor < ActiveRecord::Base
                                 @today], 
                 :include => [:academic_period, :discipline]
   end
+  
+  def as_xml(options = {})
+    options[:include] ||= {:person => {:except => :password}}
+    
+    super(options)
+  end
+  
+  def as_json(options = {})
+    options[:include] ||= {:person => {:except => :password}}
+    
+    super(options)
+  end
 end
