@@ -15,6 +15,16 @@ class Discipline < ActiveRecord::Base
     :foreign_key => 'discipline_id', :class_name => 'DisciplinePrerequisite', :dependent => :destroy                             
   has_many :prerequisites, :through => :discipline_prerequisites, :source => :dependent_discipline
   
+  # Discipline that have this one as a equivalent
+  has_many :discipline_equivalents_dependencies, 
+    :foreign_key => 'equivalent_discipline_id', :class_name => 'DisciplineEquivalent', :dependent => :destroy                             
+  has_many :equivalents_dependencies, :through => :discipline_equivalents_dependencies, :source => :discipline
+
+  # This discipline's equivalents
+  has_many :discipline_equivalents, 
+    :foreign_key => 'discipline_id', :class_name => 'DisciplineEquivalent', :dependent => :destroy                             
+  has_many :equivalents, :through => :discipline_equivalents, :source => :equivalent_discipline
+
   default_scope :order => 'name ASC'
   
   validates :code, :presence => true

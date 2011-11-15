@@ -262,6 +262,7 @@ pt:
         course_id: "Curso"
         syllabus: "Ementa"
         prerequisites: "Pré-requisitos"
+        equivalences: "Equivalências"
       lecture:
         code: "Código"
         places: "Vagas"

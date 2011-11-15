@@ -45,6 +45,15 @@
     <% end %>
   </ul>
   <% end %>
+
+  <% if @discipline.equivalents.size > 0 %>
+  <h3><%= t 'activerecord.attributes.discipline.equivalents' %></h3>
+  <ul>
+    <% @discipline.equivalents.each do |discipline| %>
+    <li><%= link_to discipline.name, [:admin, @course, discipline] %></li>
+    <% end %>
+  </ul>
+  <% end %>
   
   <h3><%= t 'Versions' %></h3>
   <ul>

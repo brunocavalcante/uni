@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111114211536) do
+ActiveRecord::Schema.define(:version => 20111114233817) do
 
   create_table "academic_periods", :force => true do |t|
     t.string   "name"
@@ -19,13 +19,6 @@ ActiveRecord::Schema.define(:version => 20111114211536) do
     t.date     "end"
     t.date     "registration_start"
     t.date     "registration_end"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "contracts", :force => true do |t|
-    t.integer  "student_id"
-    t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -65,6 +58,13 @@ ActiveRecord::Schema.define(:version => 20111114211536) do
     t.string   "name"
     t.boolean  "active"
     t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "discipline_equivalents", :force => true do |t|
+    t.integer  "discipline_id"
+    t.integer  "equivalent_discipline_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -190,13 +190,6 @@ ActiveRecord::Schema.define(:version => 20111114211536) do
   create_table "person_roles", :force => true do |t|
     t.integer  "person_id"
     t.integer  "role_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "prerequisites", :force => true do |t|
-    t.integer  "curriculum_discipline_id"
-    t.integer  "curriculum_discipline_prerequisite_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
