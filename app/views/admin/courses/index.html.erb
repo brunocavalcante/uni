@@ -7,6 +7,25 @@
 
 <p id="notice"><%= notice %></p>
 
+<form id="search">
+	<h3><%= t 'Search' %></h3>
+	<p>
+		<%= t 'activerecord.attributes.course.code' %>/<%= t 'activerecord.attributes.course.name' %><br />
+		<%= text_field_tag :search, params[:search] %> 
+  </p>
+  
+  <p>
+  	<%= t 'activerecord.attributes.course.course_category_id' %><br />
+	  <%= select_tag :course_category_id, 
+  							 options_from_collection_for_select(CourseCategory.all, :id, :name, params[:course_category_id]), 
+  							 :include_blank => true %> 
+  </p>
+  
+  <div class="actions">
+  	<%= submit_tag (t 'Search') %>
+  </div>
+</form>	
+
 <table>
   <thead>
     <tr>

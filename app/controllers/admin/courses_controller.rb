@@ -2,7 +2,18 @@ class Admin::CoursesController < ApplicationController
   # GET /courses
   # GET /courses.xml
   def index
-    @courses = Course.paginate :page => params[:page]
+    @conditions = []
+    if params[:search] || params[:course_category_id]
+      if params[:search] != '' && params[:course_category_id] != ''
+        @conditions = ['(code = ? OR name LIKE ?) AND course_category_id = ?', params[:search], "%#{params[:search]}%", params[:course_category_id]]
+      elsif params[:search] != '' && params[:course_category_id] == ''
+        @conditions = ['code = ? or name LIKE ?', params[:search], params[:search]]
+      elsif params[:search] == '' && params[:course_category_id] != ''
+        @conditions = ['course_category_id = ?', params[:course_category_id]]
+      end
+    end
+    
+    @courses = Course.paginate :conditions => @conditions, :page => params[:page]
     
     respond_to do |format|
       format.html # show.html.erb

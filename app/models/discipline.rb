@@ -21,6 +21,8 @@ class Discipline < ActiveRecord::Base
   validates :name, :presence => true
   validates :version, :presence => true
   
+  validates_associated :prerequisites
+  
   validates_uniqueness_of :code, :scope => :version
   
   def versions
