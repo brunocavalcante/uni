@@ -304,7 +304,7 @@ pt:
         code: "Código"
       test:
         name: "Nome"
-        scheduled_date: "Data Prevista"
+        date: "Data"
       test_result:
         lecture_student_id: "Aluno"
         rating: "Avaliação"

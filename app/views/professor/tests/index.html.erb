@@ -15,14 +15,14 @@
 		<thead>
 			<tr>
 				<th><%= t 'activerecord.attributes.test.name' %></th>
-				<th><%= t 'activerecord.attributes.test.scheduled_date' %></th>
+				<th><%= t 'activerecord.attributes.test.date' %></th>
 			</tr>
 		</thead>
 		<tbody>
 			<% for test in @tests %>
 			<tr>
 				<td><%= link_to test.name, [:professor, @lecture, test] %></td>
-				<td><%= l test.scheduled_date, :format => :long %></td>
+				<td><%= l test.date, :format => :long if test.date %></td>
 			</tr>
 			<% end %>
 		</tbody>

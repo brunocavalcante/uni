@@ -42,7 +42,6 @@ class Student < ActiveRecord::Base
     
     @lectures = self.current_lectures
     
-    
     for lecture in @lectures
       # Lessons
       @lessons = Lesson.all :conditions => ["lecture_id = ? AND date >= ? AND date <= ?", 
@@ -50,20 +49,19 @@ class Student < ActiveRecord::Base
                                             @today.to_s, 
                                             @limit_date.to_s], 
                                             :order => 'date ASC'
-      for lesson in @lessons
-        @schedule[lesson.date.strftime("%Y-%m-%d")] = [] if @schedule[lesson.date.strftime("%Y-%m-%d")] == nil
-        @schedule[lesson.date.strftime("%Y-%m-%d")] << {:date => lesson.date, :event => lesson}
-      end
-      
       # Tests
-      @tests = Test.all :conditions => ["lecture_id = ? AND scheduled_date >= ? AND scheduled_date <= ?", 
+      @tests = Test.all :conditions => ["lecture_id = ? AND date >= ? AND date <= ?", 
                                         lecture.id, 
                                         @today.to_s, 
                                         @limit_date.to_s], 
-                                        :order => ['scheduled_date ASC']
-      for test in @tests
-        @schedule[test.scheduled_date.strftime("%Y-%m-%d")] = [] if @schedule[test.scheduled_date.strftime("%Y-%m-%d")] == nil
-        @schedule[test.scheduled_date.strftime("%Y-%m-%d")] << {:date => test.scheduled_date, :event => test}
+                                        :order => ['date ASC']
+      
+      @events = @lessons + @tests
+      
+      for event in @events
+        event_day = event.date.strftime("%Y-%m-%d") 
+        @schedule[event_day] = [] if @schedule[event_day] == nil
+        @schedule[event_day] << event
       end
     end
     
@@ -73,7 +71,7 @@ class Student < ActiveRecord::Base
     
     # Ordering the events by their time
     for day, events in @schedule
-      events.sort_by! { |event| event[:date] }
+      events.sort_by! { |event| event.date }
     end
     
     return @schedule 

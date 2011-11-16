@@ -19,7 +19,7 @@
 	</p>
 	
 	<p>
-		<b><%= t 'activerecord.attributes.test.scheduled_date' %>:</b> 
-		<%= l @test.scheduled_date, :format => :long %>
+		<b><%= t 'activerecord.attributes.test.date' %>:</b> 
+		<%= l @test.date, :format => :long if @test.date %>
 	</p>
 </article>

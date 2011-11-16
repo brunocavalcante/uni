@@ -8,7 +8,7 @@ class Professor::TestsController < ApplicationController
   def index
     @tests = Test.paginate :conditions => ['lecture_id = ?', @lecture.id], 
                                :page => params[:page], 
-                               :order => ['scheduled_date ASC, name ASC']
+                               :order => ['date ASC, name ASC']
   end
   
   def new
