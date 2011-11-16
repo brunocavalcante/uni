@@ -19,6 +19,15 @@
     <%= @curriculum_discipline.module %>
   </p>
   
+  <% if @curriculum_discipline.prerequisites.size > 0 %>
+  <h3><%= t 'activerecord.attributes.curriculum_discipline.prerequisites' %></h3>
+  <ul>
+  	<% @curriculum_discipline.prerequisites.each do |curriculum_discipline| %>
+    <li><%= link_to curriculum_discipline.name, [:admin, @course, @curriculum, curriculum_discipline] %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  
   <h3><%= t 'activerecord.models.discipline' %></h3>
   
   <p>

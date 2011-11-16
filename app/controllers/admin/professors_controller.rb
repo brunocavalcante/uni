@@ -7,7 +7,7 @@ class Admin::ProfessorsController < ApplicationController
     
     respond_to do |format|
       format.html # show.html.erb
-      format.xml { render :xml => @professors.to_xml(:include => {:person => {:except => [:password]}}) }
+      format.xml { render :xml => @professors }
       format.json { render :json => @professors }
     end
   end

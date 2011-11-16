@@ -8,4 +8,16 @@ class Course < ActiveRecord::Base
   validates :name, :presence => true
   
   validates_uniqueness_of :code
+  
+  def to_xml(options = {})
+    options[:include] ||= :course_category
+    
+    super(options)
+  end
+  
+  def as_json(options = {})
+    options[:include] ||= :course_category
+    
+    super(options)
+  end
 end

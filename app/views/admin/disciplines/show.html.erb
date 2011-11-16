@@ -37,15 +37,6 @@
   <%= raw @discipline.syllabus %>
   <% end %>
   
-  <% if @discipline.prerequisites.size > 0 %>
-  <h3><%= t 'activerecord.attributes.discipline.prerequisites' %></h3>
-  <ul>
-  	<% @discipline.prerequisites.each do |discipline| %>
-    <li><%= link_to discipline.name, [:admin, @course, discipline] %></li>
-    <% end %>
-  </ul>
-  <% end %>
-  
   <h3><%= t 'Versions' %></h3>
   <ul>
     <% @discipline.versions.each do |discipline| %>

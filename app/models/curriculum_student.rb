@@ -64,4 +64,16 @@ class CurriculumStudent < ActiveRecord::Base
     
     return @transcripts
   end
+  
+  def to_xml(options = {})
+    options[:include] ||= {:student => {:include => :person}}
+    
+    super(options)
+  end
+  
+  def as_json(options = {})
+    options[:include] ||= {:student => {:include => :person}}
+    
+    super(options)
+  end
 end

@@ -209,6 +209,11 @@ pt:
 
       full_messages:
         format: "%{attribute}%{message}"
+      models:
+        curriculum_discipline:
+          attributes:
+            curriculum_id: 
+              active: "Não é possível alterar essa disciplina, pois a grade curricular está ativa."
     models: 
       academic_period: "Período Letivo"
       course: "Curso"
@@ -249,6 +254,7 @@ pt:
       curriculum_discipline:
         curriculum_id: "Grade Curricular"
         module: "Módulo"
+        prerequisites: "Pré-requisitos"
       curriculum_student:
         student_id: "Aluno"
         active: "Ativo"
@@ -261,7 +267,6 @@ pt:
         credits: "Créditos"
         course_id: "Curso"
         syllabus: "Ementa"
-        prerequisites: "Pré-requisitos"
       lecture:
         code: "Código"
         places: "Vagas"
@@ -303,7 +308,7 @@ pt:
       transferred_discipline:
         discipline_id: "Disciplina"
         grade: "Nota"
-        attendance: "Frequência"
+        attendance: "Frequência" 
       
   will_paginate:
     previous_label: "&larr; Página Anterior"
@@ -458,6 +463,10 @@ pt:
   CourseCreated: "Curso criado com sucesso."
   CourseUpdated: "Curso atualizado com sucesso."
   CourseDeleted: "Curso excluído com sucesso."
+  
+  CurriculumCreated: "Grade Curricular criada com sucesso."
+  CurriculumUpdated: "Grade Curricular atualizada com sucesso."
+  CurriculumDeleted: "Grade Curricular excluída com sucesso."
   
   ProfessorCreated: "Professor criado com sucesso."
   ProfessorUpdated: "Professor atualizado com sucesso."

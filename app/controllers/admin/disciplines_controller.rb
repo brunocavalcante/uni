@@ -80,7 +80,7 @@ class Admin::DisciplinesController < ApplicationController
     @new_discipline.version = @discipline.version + 1
     
     @changed = false
-    for field_to_check in ['syllabus', 'credits', 'name', 'prerequisite_ids']
+    for field_to_check in ['syllabus', 'credits', 'name']
       @changed = true if @new_discipline.get(field_to_check) != @discipline.get(field_to_check)
     end
 

@@ -1,6 +1,16 @@
 <%= form_for([:admin, @course, @curriculum, @curriculum_discipline]) do |f| %>
   <%= f.error_messages %>
 
+	<p>
+    <%= f.label :prerequisites %><br />
+    <%= f.collection_select :prerequisite_ids, 
+    												@curriculum.disciplines, 
+    												:id, 
+    												:name, 
+    												{}, 
+    												{:multiple => true} %>
+  </p>
+	
   <p>
     <%= f.label :module %><br />
     <%= f.text_field :module %>

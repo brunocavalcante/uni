@@ -58,7 +58,7 @@ class Admin::CurriculumsController < ApplicationController
     
     respond_to do |format|
       if @curriculum.save
-        format.html { redirect_to([:admin, @course, @curriculum], :notice => 'Curriculum was successfully created.') }
+        format.html { redirect_to([:admin, @course, @curriculum], :notice => I18n.t('CurriculumCreated')) }
         format.xml  { render :xml => @curriculum, :status => :created, :location => @curriculum }
       else
         format.html { render :action => "new" }
@@ -74,7 +74,7 @@ class Admin::CurriculumsController < ApplicationController
 
     respond_to do |format|
       if @curriculum.update_attributes(params[:curriculum])
-        format.html { redirect_to([:admin, @course, @curriculum], :notice => 'Curriculum was successfully updated.') }
+        format.html { redirect_to([:admin, @course, @curriculum], :notice => I18n.t('CurriculumUpdated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -90,7 +90,7 @@ class Admin::CurriculumsController < ApplicationController
     @curriculum.destroy
     
     respond_to do |format|
-      format.html { redirect_to(admin_course_curriculums_url(@course)) }
+      format.html { redirect_to(admin_course_curriculums_url(@course), :notice => I18n.t('CurriculumDeleted')) }
       format.xml  { head :ok }
     end
   end

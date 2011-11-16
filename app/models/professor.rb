@@ -26,7 +26,7 @@ class Professor < ActiveRecord::Base
                 :include => [:academic_period, :discipline]
   end
   
-  def as_xml(options = {})
+  def to_xml(options = {})
     options[:include] ||= {:person => {:except => :password}}
     
     super(options)
