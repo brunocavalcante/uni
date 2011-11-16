@@ -220,6 +220,7 @@ pt:
       course_category: "Categoria de Curso"
       curriculum: "Grade Curricular"
       curriculum_discipline: "Disciplina"
+      curriculum_module: "Módulo"
       curriculum_student: "Aluno"
       discipline: "Disciplina"
       lecture: "Turma"
@@ -253,8 +254,11 @@ pt:
         active: "Ativo"
       curriculum_discipline:
         curriculum_id: "Grade Curricular"
-        module: "Módulo"
+        curriculum_module_id: "Módulo"
         prerequisites: "Pré-requisitos"
+      curriculum_module:
+        name: "Nome"
+        order: "Ordem"
       curriculum_student:
         student_id: "Aluno"
         active: "Ativo"
@@ -455,6 +459,11 @@ pt:
   Results: "Resultados"
   TransferredDisciplines: "Disciplinas Aproveitadas"
   TransferredDisciplineSituation: "Aproveitamento"
+  CurriculumModules: "Módulos"
+  StudentSchedule: "Agenda"
+  Events: "Eventos"
+  Event: "Evento"
+  NextEvents: "Próximos Eventos"
   
   DisciplineCreated: "Disciplina criada com sucesso."
   DisciplineUpdated: "Disciplina atualizada com sucesso."
@@ -501,6 +510,10 @@ pt:
   CurriculumStudentAdded: "Aluno adicionado ao curso com sucesso."
   CurriculumStudentRemoved: "Aluno removido do curso com sucesso."
   
+  CurriculumModuleCreated: "Módulo criado com sucesso."
+  CurriculumModuleUpdated: "Módulo atualizado com sucesso."
+  CurriculumModuleDeleted: "Módulo excluído com sucesso."
+  
   TestCreated: "Avaliação criada com sucesso."
   TestUpdated: "Avaliação atualizada com sucesso."
   TestDeleted: "Avaliação excluída com sucesso."
@@ -515,6 +528,7 @@ pt:
     courses: "Cursos"
     curriculums: "Grades Curriculares"
     curriculum_disciplines: "Disciplinas"
+    curriculum_modules: "Módulos"
     new: "Adicionar"
     edit: "Editar"
     professors: "Professores"
@@ -544,3 +558,4 @@ pt:
     tests: "Avaliações"
     test_results: "Resultados"
     transferred_disciplines: "Disciplinas Aproveitadas"
+    schedule: "Agenda"

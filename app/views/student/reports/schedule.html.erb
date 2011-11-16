@@ -1,0 +1,58 @@
+<h1><%= t 'Reports' %></h1>
+<%= render :partial => 'menu' %>
+<article>
+  <h2><%= t 'StudentSchedule' %></h2>
+  
+  <h3><%= t 'TimeTable' %></h3>
+  
+  <table class="grid">
+    <thead>
+      <tr>
+        <th><%= t 'activerecord.models.discipline' %></th>
+        <th><%= t 'Schedule' %></th>
+      </tr>
+    </thead>
+    <tbody>
+    	<% for lecture in @lectures %>
+      <tr>
+        <td><%= lecture.discipline.name %></td>
+        <td>
+          <% lecture.lecture_time_slots.each_with_index do |t, i| %>
+          <%= ', ' if i > 0 %>
+          <%= (t 'date.day_names')[t.weekday] %> 
+          <%= t.start_time_string %> - <%= t.end_time_string %>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+  <h3><%= t 'NextEvents' %></h3>
+  
+  <ul class="student-schedule">
+  	<% for date, events in @schedule %>
+  	<li>
+  		<h4><%= l Date.parse date %></h4>
+  		<ul>
+  			<% for event in events %>
+  			<li>
+  				<%= event[:date].strftime("%H:%M") %> - 
+  				<% if event[:event].is_a? Lesson %>
+		  			<%= t 'activerecord.models.lesson' %>: 
+		  			<%= link_to event[:event].name, student_lecture_lesson_path(event[:event].lecture, event[:event]) %> 
+		  			[<%= link_to event[:event].lecture.name, student_lecture_path(event[:event].lecture) %>]
+	  			<% end %>
+	  			
+	  			<% if event[:event].is_a? Test %>
+	  				<%= t 'activerecord.models.test' %>: 
+		  			<%= event[:event].name %> 
+		  			[<%= link_to event[:event].lecture.name, student_lecture_path(event[:event].lecture) %>]
+	  			<% end %>
+  			</li>
+  			<% end %>
+  		</ul>
+  	</li>
+  	<% end %>
+  </ul>
+</article>

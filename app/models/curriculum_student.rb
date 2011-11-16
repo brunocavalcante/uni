@@ -14,9 +14,9 @@ class CurriculumStudent < ActiveRecord::Base
   end
   
   def transcripts
-    @curriculum_disciplines = CurriculumDiscipline.all :conditions => ['curriculum_id = ?', curriculum_id], 
-                                                       :include => [:discipline], 
-                                                       :order => ['module ASC, disciplines.name ASC']
+    @curriculum_disciplines = CurriculumDiscipline.all :conditions => {:curriculum_id => curriculum_id}, 
+                                                       :include => [:discipline, :curriculum_module], 
+                                                       :order => ['curriculum_modules.order ASC, disciplines.name ASC']
     
     @lecture_students = LectureStudent.all :conditions => ['student_id = ?', student.id], 
                                            :include => [{:lecture => [:discipline, :academic_period]}], 

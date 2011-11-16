@@ -1,0 +1,23 @@
+<h1><%= @course.name %></h1>
+<%= render :partial => 'admin/courses/menu', :locals => { :course => @course } %>
+<article>
+  <header>
+    <h2><%= @curriculum.name %>: <%= @curriculum_module.name %></h2>
+    <ul id="toolbar">
+      <li><%= link_to (t 'Back'), {:action => :index}, :class => 'back'  %></li>
+      <li><%= button_to (t 'Remove'), {:action => "show"}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
+    </ul>
+  </header>
+  
+  <p id="notice"><%= notice %></p>
+  
+  <p>
+  	<b><%= t 'activerecord.attributes.curriculum_module.name' %></b>: 
+  	<%= @curriculum_module.name %>
+  </p>
+  
+  <p>
+  	<b><%= t 'activerecord.attributes.curriculum_module.order' %></b>: 
+  	<%= @curriculum_module.order %>
+  </p>
+</article>

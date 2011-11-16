@@ -33,4 +33,49 @@ class Student < ActiveRecord::Base
                                        id, @today, @today], 
                        :include => [{:lecture => [:academic_period, :discipline]}]
   end
+  
+  def schedule
+    @schedule = {}
+    
+    @today = Date.today
+    @limit_date = @today >> 1.month
+    
+    @lectures = self.current_lectures
+    
+    
+    for lecture in @lectures
+      # Lessons
+      @lessons = Lesson.all :conditions => ["lecture_id = ? AND date >= ? AND date <= ?", 
+                                            lecture.id, 
+                                            @today.to_s, 
+                                            @limit_date.to_s], 
+                                            :order => 'date ASC'
+      for lesson in @lessons
+        @schedule[lesson.date.strftime("%Y-%m-%d")] = [] if @schedule[lesson.date.strftime("%Y-%m-%d")] == nil
+        @schedule[lesson.date.strftime("%Y-%m-%d")] << {:date => lesson.date, :event => lesson}
+      end
+      
+      # Tests
+      @tests = Test.all :conditions => ["lecture_id = ? AND scheduled_date >= ? AND scheduled_date <= ?", 
+                                        lecture.id, 
+                                        @today.to_s, 
+                                        @limit_date.to_s], 
+                                        :order => ['scheduled_date ASC']
+      for test in @tests
+        @schedule[test.scheduled_date.strftime("%Y-%m-%d")] = [] if @schedule[test.scheduled_date.strftime("%Y-%m-%d")] == nil
+        @schedule[test.scheduled_date.strftime("%Y-%m-%d")] << {:date => test.scheduled_date, :event => test}
+      end
+    end
+    
+    # Ordering by the day
+    @schedule.sort
+    @schedule = @schedule.sort { |a, b| Date.parse(a[0]) <=> Date.parse(b[0]) }
+    
+    # Ordering the events by their time
+    for day, events in @schedule
+      events.sort_by! { |event| event[:date] }
+    end
+    
+    return @schedule 
+  end
 end

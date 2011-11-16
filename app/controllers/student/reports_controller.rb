@@ -17,7 +17,8 @@ class Student::ReportsController < ApplicationController
     @lecture_students.each {|lecture_student| @month_absences << lecture_student.month_absences}
   end
   
-  def timetable
+  def schedule
     @lectures = @student.current_lectures
+    @schedule = @student.schedule
   end
 end

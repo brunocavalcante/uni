@@ -5,6 +5,8 @@ class Curriculum < ActiveRecord::Base
   
   has_many :curriculum_students, :dependent => :destroy
   
+  has_many :curriculum_modules, :dependent => :destroy
+  
   validates :code, :presence => true
   validates :name, :presence => true
   

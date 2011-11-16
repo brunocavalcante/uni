@@ -13,6 +13,7 @@ Uni::Application.routes.draw do
         end
         resources :curriculums do 
           resources :curriculum_disciplines
+          resources :curriculum_modules
         end
         resources :curriculum_students do 
           resources :transferred_disciplines
@@ -70,7 +71,7 @@ Uni::Application.routes.draw do
     resources :reports do
       collection do
         get 'tests-and-abscences', :action => :tests_and_abscences, :as => 'tests_and_abscences'
-        get :transcripts, :timetable
+        get :transcripts, :schedule
       end
     end
     resources :lectures do

@@ -1,0 +1,17 @@
+<%= form_for([:admin, @course, @curriculum, @curriculum_module]) do |f| %>
+  <%= f.error_messages %>
+  
+  <p>
+  	<%= f.label :name %><br/>
+  	<%= f.text_field :name %>
+  </p>
+  
+  <p>
+  	<%= f.label :order %><br/>
+  	<%= f.text_field :order %>
+  </p>
+  
+  <div class="actions">
+  	<%= f.submit %>
+  </div>
+<% end %>

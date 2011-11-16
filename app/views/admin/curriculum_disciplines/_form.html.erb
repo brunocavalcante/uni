@@ -12,8 +12,8 @@
   </p>
 	
   <p>
-    <%= f.label :module %><br />
-    <%= f.text_field :module %>
+    <%= f.label :curriculum_module_id %><br />
+    <%= f.collection_select :curriculum_module_id, @curriculum.curriculum_modules, :id, :name, :include_blank => true %>
   </p>
   
   <div class="actions">

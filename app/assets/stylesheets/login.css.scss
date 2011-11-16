@@ -1,0 +1,35 @@
+/* Login */
+article#login, aside#login-splash {
+  margin-top: 2%;
+  margin-bottom: 1%;
+}
+article#login {
+  width: 48%;
+}
+article#login h1 {
+  width: 16em;
+  font-size: 1.5em;
+}
+aside#login-splash {
+  width: 48%;
+  text-align: right;
+  background: none;
+}
+#login #username, #login #password {
+  background-position: 8px 50%;
+  background-repeat: no-repeat;
+  padding: 1.5em 1.5em 1.5em 2.75em;
+  background-color: #FBFBFB;
+  background-position: 1em 50%;
+  background-repeat: no-repeat;
+  border: 1px solid #E5E5E5;
+  width: 23em;
+  margin-top: 0.5em;
+}
+
+#login #username {
+  background-image: url('/assets/icons/user.png');
+}
+#login #password {
+  background-image: url('/assets/icons/lock.png');
+}
