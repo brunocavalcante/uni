@@ -17,5 +17,7 @@ class Student::HomeController < ApplicationController
     
     @updates.sort! { |a,b| a.created_at <=> b.created_at }
     @updates.reverse!
+    
+    @schedule = @student.schedule
   end
 end

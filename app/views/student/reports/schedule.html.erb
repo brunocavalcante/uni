@@ -29,30 +29,5 @@
   </table>
   
   <h3><%= t 'NextEvents' %></h3>
-  
-  <ul class="student-schedule">
-  	<% for date, events in @schedule %>
-  	<li>
-  		<h4><%= l Date.parse date %></h4>
-  		<ul>
-  			<% for event in events %>
-  			<li>
-  				<%= event.date.strftime("%H:%M") %> - 
-  				<% if event.is_a? Lesson %>
-		  			<%= t 'activerecord.models.lesson' %>: 
-		  			<%= link_to event.name, student_lecture_lesson_path(event.lecture, event) %> 
-		  			[<%= link_to event.lecture.name, student_lecture_path(event.lecture) %>]
-	  			<% end %>
-	  			
-	  			<% if event.is_a? Test %>
-	  				<%= t 'activerecord.models.test' %>: 
-		  			<%= event.name %> 
-		  			[<%= link_to event.lecture.name, student_lecture_path(event.lecture) %>]
-	  			<% end %>
-  			</li>
-  			<% end %>
-  		</ul>
-  	</li>
-  	<% end %>
-  </ul>
+  <%= render 'next_events' %>
 </article>

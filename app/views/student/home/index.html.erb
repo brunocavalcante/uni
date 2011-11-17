@@ -4,4 +4,12 @@
 
 <p id="alert"><%= alert %></p>
 
-<%= render :partial => 'lectures/updates' %>
+<aside class="aside-clean">
+	<h3 class="no-top-margin"><%= t 'NextEvents' %></h3>
+	<%= render 'student/reports/next_events' %>
+</aside>
+
+<article>
+	<h3 class="no-top-margin"><%= t 'LatestUpdates' %></h3>
+	<%= render :partial => 'lectures/updates' %>
+</article>

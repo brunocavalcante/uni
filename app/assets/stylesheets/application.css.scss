@@ -14,6 +14,9 @@ $defaultBorderColor: #DDDDDD;
 $lighterBorderColor: #EEEEEE;
 $defaultBoxBg: #F2F2F2;
 $shadowColor: #A2C0DF;
+$font-size: 100%;
+$font-small: 85%;
+$font-smaller: 80%;
 
 /* Mixins */
 @mixin background-gradient($colorA, $colorB) {
@@ -30,7 +33,7 @@ $shadowColor: #A2C0DF;
 /* Basic */
 body {
   color: $textColor;
-  font-size: 100%;
+  font-size: $font-size;
   margin: 0;
   background: white url('/assets/html-bg.png') repeat-x;
 }
@@ -206,6 +209,33 @@ img.thumb {
       }
     }
   }
+  
+  aside.aside-clean {
+    background: none;
+    
+    ul {
+      border-width: 0;
+      
+      li {
+        border-width: 0;
+        padding: 0;
+        background: none;
+        
+        ul {
+          padding-left: 2em;
+          list-style-type: disc;
+          
+          li {
+            
+          }
+        }
+      }
+    }
+  }
+  
+  .no-top-margin {
+    margin-top: 0;
+  }
 }
 
 #breadcrumbs, #breadcrumbs a {
@@ -318,16 +348,7 @@ table.grid tbody td, table.grid thead th {
   border: 1px solid $lighterBorderColor;
 }
 table.grid tbody td {
-  font-size: 0.8em;
-}
-
-/* Forms */
-input, select, textarea {
-  padding: 0.25em 0.5em;
-  font-size: 0.9em;
-}
-button, input[type=submit], input[type=reset] {
-  padding: 0.5em 2em;
+  font-size: $font-smaller;
 }
 
 /* Essas classes são do scaffold do Ruby - Depois ajeitamos. */
@@ -350,7 +371,7 @@ button, input[type=submit], input[type=reset] {
   width: 100%;
 }
 #content #error_explanation h2, .errorExplanation h2 {
-  font-size: 0.8em;
+  font-size: $font-small;
   text-align: left;
   font-weight: bold;
   margin: 0;
@@ -360,7 +381,7 @@ button, input[type=submit], input[type=reset] {
   padding: 0.5em 0.5em 0.5em 1.5em;
 }
 .errorExplanation p, .errorExplanation ul {
-  font-size: 0.8em;
+  font-size: $font-small;
   margin-left: 1.5em;
 }
 #error_explanation ul li, .errorExplanation ul li {
@@ -535,5 +556,19 @@ form#search {
   
   .actions {
     clear: both;
+  }
+}
+
+aside .student-schedule {
+  font-size: $font-small;
+  
+  .title, .group {
+    margin-top: 0.25em;
+    display: block;
+    clear: both;
+  }
+  
+  li ul li {
+    margin-bottom: 1em;
   }
 }

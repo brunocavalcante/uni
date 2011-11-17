@@ -70,9 +70,7 @@ class Student < ActiveRecord::Base
     @schedule = @schedule.sort { |a, b| Date.parse(a[0]) <=> Date.parse(b[0]) }
     
     # Ordering the events by their time
-    for day, events in @schedule
-      events.sort_by! { |event| event.date }
-    end
+    @schedule.each { |day, events| events.sort_by! { |event| event.date } }
     
     return @schedule 
   end
