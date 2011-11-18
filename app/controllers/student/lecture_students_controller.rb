@@ -6,9 +6,6 @@ class Student::LectureStudentsController < ApplicationController
   end
   
   def index
-    @lecture_students = LectureStudent.paginate :conditions => ['lecture_id = ?', params[:lecture_id]], 
-                                                :include => [{:student => :person}], 
-                                                :page => params[:page], 
-                                                :order => 'people.name ASC'
+    @lecture_students = @lecture.lecture_students.by_name.paginate :page => params[:page]
   end
 end

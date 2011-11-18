@@ -1,9 +1,10 @@
 class Discipline < ActiveRecord::Base
   belongs_to :course
+  
   has_many :curriculum_disciplines, :dependent => :destroy
   has_many :curriculums, :through => :curriculum_disciplines
-  
   has_many :transferred_disciplines, :dependent => :destroy
+  has_many :lectures, :dependent => :destroy
   
   default_scope :order => 'name ASC'
   

@@ -1,24 +1,18 @@
 class Admin::AcademicPeriodsController < ApplicationController
+  respond_to :html, :xml, :json
+  
   # GET /academic_periods
   def index
     @academic_periods = AcademicPeriod.paginate :page => params[:page]
     
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @academic_periods }
-      format.json { render :json => @academic_periods }
-    end
+    respond_with @academic_periods
   end
 
   # GET /academic_periods/1
   def show
     @academic_period = AcademicPeriod.find(params[:id])
     
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @academic_period }
-      format.json { render :json => @academic_period }
-    end
+    respond_with @academic_period
   end
 
   # GET /academic_periods/new
@@ -35,40 +29,25 @@ class Admin::AcademicPeriodsController < ApplicationController
   def create
     @academic_period = AcademicPeriod.new(params[:academic_period])
     
-    respond_to do |format|
-      if @academic_period.save
-        format.html { redirect_to([:admin, @academic_period], :notice => I18n.t('AcademicPeriodCreated')) }
-        format.xml  { render :xml => @academic_period, :status => :created, :location => @academic_period }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @academic_period.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('AcademicPeriodCreated') if @academic_period.save
+    
+    respond_with @academic_period, :location => [:admin, @academic_period]
   end
 
   # PUT /academic_periods/1
   def update
     @academic_period = AcademicPeriod.find(params[:id])
 
-    respond_to do |format|
-      if @academic_period.update_attributes(params[:academic_period])
-        format.html { redirect_to([:admin, @academic_period], :notice => I18n.t('AcademicPeriodUpdated')) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @academic_period.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('AcademicPeriodUpdated') if @academic_period.update_attributes(params[:academic_period])
+
+    respond_with @academic_period, :location => [:admin, @academic_period]
   end
 
   # DELETE /academic_periods/1
   def destroy
     @academic_period = AcademicPeriod.find(params[:id])
-    @academic_period.destroy
+    flash[:notice] = I18n.t('AcademicPeriodDeleted') if @academic_period.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(admin_academic_periods_url, :notice => I18n.t('AcademicPeriodDeleted')) }
-      format.xml  { head :ok }
-    end
+    respond_with @academic_period, :location => admin_academic_periods_url
   end
 end

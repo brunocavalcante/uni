@@ -6,9 +6,7 @@ class Student::LessonsController < ApplicationController
   end
   
   def index
-    @lessons = Lesson.paginate :conditions => ['lecture_id = ?', @lecture.id], 
-                               :page => params[:page], 
-                               :order => ['date DESC']
+    @lessons = @lecture.lessons.paginate :page => params[:page]
   end
   
   def show

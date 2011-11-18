@@ -1,6 +1,16 @@
 # encoding: UTF-8
 # pt-BR translations for Ruby on Rails
 pt:
+  flash:
+    actions:
+      create:
+        notice: '%{resource_name} was successfully created.'
+      update:
+        notice: '%{resource_name} was successfully updated.'
+      destroy:
+        notice: '%{resource_name} was successfully destroyed.'
+        alert: '%{resource_name} could not be destroyed.'
+  
   # formatos de data e hora
   date:
     input:

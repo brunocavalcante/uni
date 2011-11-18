@@ -1,8 +1,12 @@
 class Course < ActiveRecord::Base
+  belongs_to :course_category
+  
+  has_many :curriculums, :dependent => :destroy
+  has_many :disciplines, :dependent => :destroy
+  
   default_scope :order => 'name ASC'
   
-  belongs_to :course_category
-  has_many :curriculums, :dependent => :destroy
+  scope :with_category, includes(:course_category).order('name ASC')
   
   validates :code, :presence => true
   validates :name, :presence => true
