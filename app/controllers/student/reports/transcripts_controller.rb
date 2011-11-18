@@ -6,7 +6,7 @@ class Student::Reports::TranscriptsController < ApplicationController
   end
  
   def index
-    @curriculum_students = @student.curriculum_students
+    @curriculum_students = @student.curriculum_students.all_with_curriculum.paginate :page => params[:page]
     
     redirect_to({:action => :show, :id => @curriculum_students[0].id}) if @curriculum_students.size == 1
   end

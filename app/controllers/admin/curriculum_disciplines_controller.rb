@@ -16,17 +16,21 @@ class Admin::CurriculumDisciplinesController < ApplicationController
   end
   
   def create
-    params[:disciplines].each do |discipline_id|
+    params[:curriculum_discipline][:discipline_ids].each do |discipline_id|
       @curriculum_discipline = CurriculumDiscipline.new
       @curriculum_discipline.discipline_id = discipline_id
       @curriculum_discipline.curriculum_id = @curriculum.id
-      @curriculum_discipline.module = params[:module]
+      
+      if params[:curriculum_discipline][:curriculum_module_id] != ''
+        @curriculum_discipline.curriculum_module_id = params[:curriculum_discipline][:curriculum_module_id]
+      end
+      
       @curriculum.curriculum_disciplines << @curriculum_discipline
     end
     
     respond_to do |format|
       if @curriculum.save
-        format.html { redirect_to({:action => "new"}, :notice => 'Course was successfully created.') }
+        format.html { redirect_to([:admin, @course, @curriculum], :notice => I18n.t('CurriculumDisciplinesAdded')) }
         format.xml  { render :xml => @curriculum, :status => :created, :location => @curriculum }
       else
         format.html { render :action => "new" }
@@ -48,12 +52,22 @@ class Admin::CurriculumDisciplinesController < ApplicationController
     
     respond_to do |format|
       if @curriculum_discipline.update_attributes(params[:curriculum_discipline])
-        format.html { redirect_to([:admin, @course, @curriculum, @curriculum_discipline], :notice => 'Object was successfully updated.') }
+        format.html { redirect_to([:admin, @course, @curriculum, @curriculum_discipline], :notice => I18n.t('CurriculumDisciplineUpdated')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
         format.xml  { render :xml => @curriculum_discipline.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+  
+  def destroy
+    @curriculum_discipline = CurriculumDiscipline.find params[:id]
+    @curriculum_discipline.destroy
+
+    respond_to do |format|
+      format.html { redirect_to([:admin, @course, @curriculum], :notice => I18n.t('CurriculumDisciplineDeleted')) }
+      format.xml  { head :ok }
     end
   end
 end

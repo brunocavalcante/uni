@@ -6,8 +6,11 @@
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), admin_course_curriculum_path(@course, @curriculum), :class => 'back' %></li>
       <li><%= link_to (t 'Edit'), edit_admin_course_curriculum_curriculum_discipline_path(@course, @curriculum, @curriculum_discipline), :class => 'edit' %></li>
+      <li><%= button_to (t 'Delete'), {:action => :show}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
     </ul>
   </header>
+  
+  <p id="notice"><%= notice %></p>
   
   <p>
     <b><%= t 'activerecord.attributes.curriculum_discipline.curriculum_id' %>:</b> 

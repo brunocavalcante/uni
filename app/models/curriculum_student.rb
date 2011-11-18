@@ -7,6 +7,8 @@ class CurriculumStudent < ActiveRecord::Base
   
   has_many :transferred_disciplines, :dependent => :destroy
   
+  scope :all_with_curriculum, includes(:curriculum).order('curriculums.name ASC')
+  
   validates_uniqueness_of :student_id, :scope => :curriculum_id
   
   def name
@@ -14,10 +16,10 @@ class CurriculumStudent < ActiveRecord::Base
   end
   
   def transcripts
-    @curriculum_disciplines = CurriculumDiscipline.by_module.where(:curriculum_id => curriculum.id) 
-    @lecture_students = LectureStudent.by_date.where(:student_id => student.id) 
-    @transferred_disciplines = TransferredDiscipline.by_name.where(:curriculum_student_id => id)
-                                           
+    @curriculum_disciplines = curriculum.curriculum_disciplines.by_module 
+    @lecture_students = student.lecture_students.by_date 
+    @transferred_disciplines = transferred_disciplines.by_name
+                              
     @transcripts = []
     @curriculum_disciplines.each {|c| @transcripts << {:discipline => c.discipline}}
     
@@ -50,7 +52,9 @@ class CurriculumStudent < ActiveRecord::Base
     
     if @best_lecture_students.size > 0
       for lecture_student in @best_lecture_students
-        @transcripts << {:discipline => lecture_student.lecture.discipline, :lecture_student => lecture_student}
+        if lecture_student.is_a? LectureStudent
+          @transcripts << {:discipline => lecture_student.lecture.discipline, :lecture_student => lecture_student}
+        end
       end
     end
     

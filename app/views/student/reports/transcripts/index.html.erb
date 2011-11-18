@@ -1,0 +1,21 @@
+<h1><%= t 'Reports' %></h1>
+<%= render :partial => 'student/reports/menu' %>
+<article>
+  <h2><%= t 'Transcripts' %></h2>
+  
+  <table>
+    <thead>
+      <tr>
+        <th><%= t 'activerecord.attributes.curriculum.course_id' %></th>
+      </tr>
+    </thead>
+    <tbody>
+    	<% for curriculum_student in @curriculum_students %>
+    	<tr>
+        <td><%= link_to curriculum_student.curriculum.course.name, {:action => :show, :id => curriculum_student.id} %></td>
+      </tr>
+      <% end %>
+  </table>
+  
+  <%= will_paginate @curriculum_students %>
+</article>

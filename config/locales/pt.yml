@@ -252,8 +252,10 @@ pt:
         code: "Código"
         name: "Nome"
         active: "Ativo"
+        course_id: "Curso"
       curriculum_discipline:
         curriculum_id: "Grade Curricular"
+        discipline_id: "Disciplina"
         curriculum_module_id: "Módulo"
         prerequisites: "Pré-requisitos"
       curriculum_module:
@@ -506,6 +508,10 @@ pt:
   LessonCreated: "Aula criada com sucesso."
   LessonUpdated: "Aula atualizada com sucesso."
   LessonDeleted: "Aula excluída com sucesso."
+  
+  CurriculumDisciplineUpdated: "Disciplina atualizada com sucesso."
+  CurriculumDisciplineDeleted: "Disciplina removida da grade curricular com sucesso."
+  CurriculumDisciplinesAdded: "Disciplinas adicionadas à grade curricular com sucesso."
   
   CurriculumStudentAdded: "Aluno adicionado ao curso com sucesso."
   CurriculumStudentRemoved: "Aluno removido do curso com sucesso."

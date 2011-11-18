@@ -11,8 +11,6 @@ class Discipline < ActiveRecord::Base
   validates :name, :presence => true
   validates :version, :presence => true
   
-  validates_associated :prerequisites
-  
   validates_uniqueness_of :code, :scope => :version
   
   def versions
@@ -25,5 +23,9 @@ class Discipline < ActiveRecord::Base
   
   def get(attr)
     self.send(attr)
+  end
+  
+  def full_name
+    "#{code} - #{name} - #{course.name}" 
   end
 end

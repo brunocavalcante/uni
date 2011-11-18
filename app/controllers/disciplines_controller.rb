@@ -17,7 +17,7 @@ class DisciplinesController < ApplicationController
     
     @disciplines_hash = []
     @disciplines.each do |discipline|
-      @disciplines_hash << {"id" => discipline.id, "label" => discipline.code + ' - ' + discipline.name}
+      @disciplines_hash << {"id" => discipline.id, "label" => discipline.full_name}
     end
     
     respond_to do |format|
