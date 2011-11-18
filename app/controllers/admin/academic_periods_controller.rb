@@ -18,6 +18,8 @@ class Admin::AcademicPeriodsController < ApplicationController
   # GET /academic_periods/new
   def new
     @academic_period = AcademicPeriod.new
+    
+    respond_with @academic_period
   end
 
   # GET /academic_periods/1/edit

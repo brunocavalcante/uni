@@ -1,4 +1,5 @@
 class Admin::CurriculumModulesController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :load_curriculum
   
   def load_curriculum
@@ -7,31 +8,30 @@ class Admin::CurriculumModulesController < ApplicationController
   end  
   
   def index
-    @curriculum_modules = CurriculumModule.paginate :conditions => {:curriculum_id => params[:curriculum_id]}, 
-                                                    :page => params[:page]
+    @curriculum_modules = @curriculum.curriculum_modules.paginate :page => params[:page]
+    
+    respond_with @curriculum_modules
   end
   
   def new
     @curriculum_module = CurriculumModule.new
+    
+    respond_with @curriculum_module
   end
   
   def create
     @curriculum_module = CurriculumModule.new(params[:curriculum_module])
     @curriculum_module.curriculum = @curriculum
 
-    respond_to do |format|
-      if @curriculum_module.save
-        format.html { redirect_to([:admin, @course, @curriculum, @curriculum_module], :notice => I18n.t('CurriculumModuleCreated')) }
-        format.xml  { render :xml => @curriculum_module, :status => :created, :location => @curriculum_module }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @curriculum_module.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('CurriculumModuleCreated') if @curriculum_module.save
+    
+    respond_with @curriculum_module, :location => [:admin, @course, @curriculum, @curriculum_module]
   end
   
   def show
     @curriculum_module = CurriculumModule.find(params[:id])
+    
+    respond_with @curriculum_module
   end
   
   def edit
@@ -41,24 +41,16 @@ class Admin::CurriculumModulesController < ApplicationController
   def update
     @curriculum_module = CurriculumModule.find(params[:id])
 
-    respond_to do |format|
-      if @curriculum_module.update_attributes(params[:course])
-        format.html { redirect_to({:action => "show"}, :notice => I18n.t('CurriculumModuleUpdated')) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @curriculum_module.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('CurriculumModuleUpdated') if @curriculum_module.update_attributes(params[:curriculum_module])
+
+    respond_with @curriculum_module, :location => [:admin, @course, @curriculum, @curriculum_module]
   end
 
   def destroy
     @curriculum_module = CurriculumModule.find(params[:id])
-    @curriculum_module.destroy
 
-    respond_to do |format|
-      format.html { redirect_to({:action => "index"}, :notice => I18n.t('CurriculumModuleDeleted')) }
-      format.xml  { head :ok }
-    end
+    flash[:notice] = I18n.t('CurriculumModuleDeleted') if @curriculum_module.destroy
+
+    respond_with @curriculum_module, :location => {:action => "index"}
   end
 end

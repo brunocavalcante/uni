@@ -1,26 +1,22 @@
 class Admin::CourseCategoriesController < ApplicationController
+  respond_to :html, :xml, :json
+  
   def index
     @course_categories = CourseCategory.paginate :page => params[:page]
     
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @course_categories }
-      format.json { render :json => @course_categories }
-    end
+    respond_with @course_categories
   end
 
   def show
     @course_category = CourseCategory.find(params[:id])
     
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @course_category }
-      format.json { render :json => @course_category }
-    end
+    respond_with @course_category
   end
 
   def new
     @course_category = CourseCategory.new
+    
+    respond_with @course_category
   end
 
   def edit
@@ -30,30 +26,24 @@ class Admin::CourseCategoriesController < ApplicationController
   def create
     @course_category = CourseCategory.new(params[:course_category])
 
-    if @course_category.save
-        redirect_to([:admin, @course_category], :notice => I18n.t('CourseCategoryCreated'))
-    else
-        render :action => "new"
-    end
+    flash[:notice] = I18n.t('CourseCategoryCreated') if @course_category.save
+    
+    respond_with @course_category, :location => [:admin, @course_category]
   end
 
   def update
     @course_category = CourseCategory.find(params[:id])
 
-    if @course_category.update_attributes(params[:course_category])
-        redirect_to([:admin, @course_category], :notice => I18n.t('CourseCategoryUpdated'))
-    else
-        render :action => "edit"
-    end
+    flash[:notice] = I18n.t('CourseCategoryUpdated') if @course_category.update_attributes(params[:course_category])
+
+    respond_with @course_category, :location => [:admin, @course_category]
   end
 
   def destroy
     @course_category = CourseCategory.find(params[:id])
-    @course_category.destroy
+    
+    flash[:notice] = I18n.t('CourseCategoryDeleted') if @course_category.destroy
 
-    respond_to do |format|
-      format.html { redirect_to({:action => 'index'}, :notice => I18n.t('CourseCategoryDeleted')) }
-      format.xml  { head :ok }
-    end
+    respond_with @course_category, :location => {:action => 'index'}
   end
 end

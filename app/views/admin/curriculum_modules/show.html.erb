@@ -5,6 +5,7 @@
     <h2><%= @curriculum.name %>: <%= @curriculum_module.name %></h2>
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), {:action => :index}, :class => 'back'  %></li>
+      <li><%= link_to (t 'Edit'), {:action => :edit}, :class => 'edit'  %></li>
       <li><%= button_to (t 'Remove'), {:action => "show"}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
     </ul>
   </header>

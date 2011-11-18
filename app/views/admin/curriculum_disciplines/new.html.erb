@@ -10,12 +10,12 @@
   <%= form_tag({:action => 'create'}) do %>
     <p>
       <%= label_tag (t 'Disciplines') %><br />
-    	<%= collection_select :curriculum_discipline, :discipline_ids, [], :id, :name, {}, {:multiple => true} %>
+    	<%= collection_select :curriculum_disciplines, :discipline_ids, [], :id, :name, {}, {:multiple => true} %>
     </p>
   
   	<p>
       <%= label_tag (t 'activerecord.attributes.curriculum_discipline.curriculum_module_id') %><br />
-    	<%= collection_select :curriculum_discipline, :curriculum_module_id, @curriculum.curriculum_modules, :id, :name, :include_blank => true %>
+    	<%= collection_select :curriculum_disciplines, :curriculum_module_id, @curriculum.curriculum_modules, :id, :name, :include_blank => true %>
     </p>
   
     <div class="actions">
@@ -26,6 +26,6 @@
 
 <script language="Javascript">
   $(document).ready(function() {
-  	Application.autocomplete('curriculum_discipline_discipline_ids', '<%= disciplines_path %>.js', '<%= t "Remove" %>', true)
+  	Application.autocomplete('curriculum_disciplines_discipline_ids', '<%= disciplines_path %>.js', '<%= t "Remove" %>', true)
   })
 </script>

@@ -19,25 +19,12 @@ class Admin::CoursesController < ApplicationController
     respond_with @courses
   end
 
-  # GET /courses/1
-  # GET /courses/1.xml
-  def show
-    @course = Course.find(params[:id])
-
-    respond_with @course
-  end
-
   # GET /courses/new
   # GET /courses/new.xml
   def new
     @course = Course.new
 
     respond_with @course
-  end
-
-  # GET /courses/1/edit
-  def edit
-    @course = Course.find(params[:id])
   end
 
   # POST /courses
@@ -48,6 +35,19 @@ class Admin::CoursesController < ApplicationController
     flash[:notice] = I18n.t('CourseCreated') if @course.save
 
     respond_with @course, :location => [:admin, @course]
+  end
+  
+  # GET /courses/1
+  # GET /courses/1.xml
+  def show
+    @course = Course.find(params[:id])
+
+    respond_with @course
+  end
+  
+  # GET /courses/1/edit
+  def edit
+    @course = Course.find(params[:id])
   end
 
   # PUT /courses/1

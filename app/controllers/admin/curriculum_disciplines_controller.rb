@@ -1,4 +1,6 @@
 class Admin::CurriculumDisciplinesController < ApplicationController
+  respond_to :html, :xml, :json
+  
   before_filter :init
   
   def init
@@ -7,40 +9,33 @@ class Admin::CurriculumDisciplinesController < ApplicationController
   end
   
   def new
-    @curriculum_disciplines = @curriculum.disciplines
-    @disciplines = Discipline.paginate :conditions => ['course_id = ? AND id NOT IN (?)', 
-                                                       params[:course_id], 
-                                                       @curriculum_disciplines.size > 0 ? @curriculum_disciplines.map(&:id) : 0], 
-                                       :page => params[:page], 
-                                       :order => 'name ASC, version ASC'
+    @curriculum_discipline = CurriculumDiscipline.new
+    
+    respond_with @curriculum_discipline
   end
   
   def create
-    params[:curriculum_discipline][:discipline_ids].each do |discipline_id|
+    params[:curriculum_disciplines][:discipline_ids].each do |discipline_id|
       @curriculum_discipline = CurriculumDiscipline.new
       @curriculum_discipline.discipline_id = discipline_id
       @curriculum_discipline.curriculum_id = @curriculum.id
       
-      if params[:curriculum_discipline][:curriculum_module_id] != ''
-        @curriculum_discipline.curriculum_module_id = params[:curriculum_discipline][:curriculum_module_id]
+      if params[:curriculum_disciplines][:curriculum_module_id] != ''
+        @curriculum_discipline.curriculum_module_id = params[:curriculum_disciplines][:curriculum_module_id]
       end
       
       @curriculum.curriculum_disciplines << @curriculum_discipline
     end
     
-    respond_to do |format|
-      if @curriculum.save
-        format.html { redirect_to([:admin, @course, @curriculum], :notice => I18n.t('CurriculumDisciplinesAdded')) }
-        format.xml  { render :xml => @curriculum, :status => :created, :location => @curriculum }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @curriculum.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('CurriculumDisciplinesAdded') if @curriculum.save
+    
+    respond_with @curriculum, :location => [:admin, @course, @curriculum]
   end
   
   def show
     @curriculum_discipline = CurriculumDiscipline.find(params[:id])
+    
+    respond_with @curriculum_discipline
   end
   
   def edit
@@ -50,24 +45,16 @@ class Admin::CurriculumDisciplinesController < ApplicationController
   def update
     @curriculum_discipline = CurriculumDiscipline.find(params[:id])
     
-    respond_to do |format|
-      if @curriculum_discipline.update_attributes(params[:curriculum_discipline])
-        format.html { redirect_to([:admin, @course, @curriculum, @curriculum_discipline], :notice => I18n.t('CurriculumDisciplineUpdated')) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @curriculum_discipline.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('CurriculumDisciplineUpdated') if @curriculum_discipline.update_attributes(params[:curriculum_discipline])
+    
+    respond_with @curriculum_discipline, :location => [:admin, @course, @curriculum]
   end
   
   def destroy
     @curriculum_discipline = CurriculumDiscipline.find params[:id]
-    @curriculum_discipline.destroy
+    
+    flash[:notice] = I18n.t('CurriculumDisciplineDeleted') if @curriculum_discipline.destroy
 
-    respond_to do |format|
-      format.html { redirect_to([:admin, @course, @curriculum], :notice => I18n.t('CurriculumDisciplineDeleted')) }
-      format.xml  { head :ok }
-    end
+    respond_with @curriculum_discipline, :location => [:admin, @course, @curriculum]
   end
 end
