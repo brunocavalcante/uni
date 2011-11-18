@@ -4,5 +4,5 @@
   <% if AcademicPeriod.new.has_open_registration_period? %>
   <li><%= link_to (t 'Registration') %></li>
   <% end %>
-  <li><%= link_to (t 'Reports'), student_reports_url %></li>
+  <li><%= link_to (t 'Reports'), student_reports_home_index_path %></li>
 </ul>
