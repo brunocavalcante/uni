@@ -11,6 +11,6 @@ class Professor::LecturesController < LecturesController
   end
   
   def index
-    @lectures = @professor.current_lectures
+    @lectures = @professor.lectures.current
   end
 end

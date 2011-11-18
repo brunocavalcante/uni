@@ -18,29 +18,13 @@ class Student < ActiveRecord::Base
     person.name
   end
   
-  def current_lectures
-    @today = Date.today.to_s
-    Lecture.all :conditions => ['lectures.id IN (?) AND academic_periods.start <= ? AND academic_periods.end >= ?', 
-                                lectures.map(&:id), 
-                                @today, 
-                                @today], 
-                :include => [:academic_period, :discipline]
-  end
-  
-  def current_lecture_students
-    @today = Date.today.to_s
-    LectureStudent.all :conditions => ['student_id = ? AND academic_periods.start <= ? AND academic_periods.end >= ?', 
-                                       id, @today, @today], 
-                       :include => [{:lecture => [:academic_period, :discipline]}]
-  end
-  
   def schedule
     @schedule = {}
     
     @today = Date.today
     @limit_date = @today >> 1.month
     
-    @lectures = self.current_lectures
+    @lectures = self.lectures.current
     
     for lecture in @lectures
       # Lessons

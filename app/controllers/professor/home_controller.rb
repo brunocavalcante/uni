@@ -1,7 +1,7 @@
 class Professor::HomeController < ApplicationController
   def index
     @professor = Professor.find_by_person_id(@user.id)
-    @lectures = @professor.current_lectures
+    @lectures = @professor.lectures.current
     
     @wall = Wall.paginate :conditions => ['lecture_id IN (?)', @lectures.map(&:id)], 
                           :include => [{:message => :person}], 

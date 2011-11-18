@@ -13,6 +13,11 @@ class CurriculumDiscipline < ActiveRecord::Base
     :foreign_key => 'curriculum_discipline_id', :class_name => 'CurriculumDisciplinePrerequisite', :dependent => :destroy                             
   has_many :prerequisites, :through => :curriculum_discipline_prerequisites, :source => :dependent_curriculum_discipline
   
+  # Scopes
+  scope :by_module, includes([:discipline, :curriculum_module])
+                    .order('curriculum_modules.order ASC, disciplines.name ASC')
+  
+  # Validations
   validate :validate_curriculum
   
   def validate_curriculum

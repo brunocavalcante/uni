@@ -6,7 +6,7 @@ class Student::Reports::ScheduleController < ApplicationController
   end
   
   def index
-    @lectures = @student.current_lectures
+    @lectures = @student.lectures.current
     @schedule = @student.schedule
   end
 end

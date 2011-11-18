@@ -17,15 +17,6 @@ class Professor < ActiveRecord::Base
     person.name
   end
   
-  def current_lectures
-    @today = Date.today.to_s
-    Lecture.all :conditions => ['lectures.id IN (?) AND academic_periods.start <= ? AND academic_periods.end >= ?', 
-                                lectures.map(&:id), 
-                                @today, 
-                                @today], 
-                :include => [:academic_period, :discipline]
-  end
-  
   def to_xml(options = {})
     options[:include] ||= {:person => {:except => :password}}
     

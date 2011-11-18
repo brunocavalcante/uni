@@ -14,17 +14,9 @@ class CurriculumStudent < ActiveRecord::Base
   end
   
   def transcripts
-    @curriculum_disciplines = CurriculumDiscipline.all :conditions => {:curriculum_id => curriculum_id}, 
-                                                       :include => [:discipline, :curriculum_module], 
-                                                       :order => ['curriculum_modules.order ASC, disciplines.name ASC']
-    
-    @lecture_students = LectureStudent.all :conditions => ['student_id = ?', student.id], 
-                                           :include => [{:lecture => [:discipline, :academic_period]}], 
-                                           :order => ['academic_periods.start ASC']
-                                           
-    @transferred_disciplines = TransferredDiscipline.all :conditions => ['curriculum_student_id = ?', id], 
-                                           :include => [:discipline], 
-                                           :order => ['disciplines.name ASC']
+    @curriculum_disciplines = CurriculumDiscipline.by_module.where(:curriculum_id => curriculum.id) 
+    @lecture_students = LectureStudent.by_date.where(:student_id => student.id) 
+    @transferred_disciplines = TransferredDiscipline.by_name.where(:curriculum_student_id => id)
                                            
     @transcripts = []
     @curriculum_disciplines.each {|c| @transcripts << {:discipline => c.discipline}}

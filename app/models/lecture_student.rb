@@ -4,8 +4,11 @@ class LectureStudent < ActiveRecord::Base
   belongs_to :lecture_situation
   
   has_many :lesson_absences, :dependent => :destroy
-  
   has_many :test_results, :dependent => :destroy
+  
+  scope :by_date, includes([{:lecture => [:discipline, :academic_period]}]).order('academic_periods.start ASC') 
+  scope :current, where(['academic_periods.start <= ? AND academic_periods.end >= ?', Date.today.to_s, Date.today.to_s])
+                  .includes([{:lecture => [:academic_period, :discipline]}]) 
   
   validates :lecture_id, :presence => true
   validates :student_id, :presence => true
