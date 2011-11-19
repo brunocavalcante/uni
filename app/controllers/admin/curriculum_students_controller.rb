@@ -1,4 +1,5 @@
 class Admin::CurriculumStudentsController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :init
   
   def init
@@ -6,45 +7,39 @@ class Admin::CurriculumStudentsController < ApplicationController
   end
   
   def index
-    @conditions = ['curriculums.course_id = ?', params[:course_id]]
+    @curriculum_students = CurriculumStudent.all_with_person_and_curriculum
+                                            .where('curriculums.course_id = ?', params[:course_id])
     
-    if params[:search]
-      @conditions = ['curriculums.course_id = ? AND (people.name ILIKE ? OR students.code = ?)', 
-                     params[:course_id], "%#{params[:search]}%", params[:search]]
+    if params[:search] && params[:search] != ''
+      @curriculum_students = @curriculum_students.where(['people.name ILIKE ? OR students.code = ?', 
+                                                         "%#{params[:search]}%", 
+                                                         params[:search]]) 
     end
     
-    @curriculum_students = CurriculumStudent.paginate :conditions => @conditions, 
-                                                      :include => [:curriculum, {:student => :person}], 
-                                                      :page => params[:page]
-                                                      
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @curriculum_students }
-      format.json { render :json => @curriculum_students }
-    end
+    @curriculum_students = @curriculum_students.paginate :page => params[:page]
+
+    respond_with @curriculum_students
   end
   
   def new
     @curriculum_student = CurriculumStudent.new
     @curriculum_student.active = true
+    
+    respond_with @curriculum_student
   end
   
   def create
     @curriculum_student = CurriculumStudent.new(params[:curriculum_student])
     
-    respond_to do |format|
-      if @curriculum_student.save
-        format.html { redirect_to({:action => "index"}, :notice => (t 'CurriculumStudentAdded')) }
-        format.xml  { render :xml => @curriculum_student, :status => :created, :location => @curriculum }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @curriculum_student.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('CurriculumStudentAdded') if @curriculum_student.save
+    
+    respond_with @curriculum_student, :location => {:action => :index}
   end
   
   def show
     @curriculum_student = CurriculumStudent.find params[:id]
+    
+    respond_with @curriculum_student
   end
   
   def edit
@@ -54,24 +49,16 @@ class Admin::CurriculumStudentsController < ApplicationController
   def update
     @curriculum_student = CurriculumStudent.find params[:id]
     
-    respond_to do |format|
-      if @curriculum_student.update_attributes params[:curriculum_student]
-        format.html { redirect_to({:action => "show"}, :notice => (t 'StudentUpdated')) }
-        format.xml  { render :xml => @curriculum_student, :status => :created, :location => @curriculum }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @curriculum_student.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('StudentUpdated') if @curriculum_student.update_attributes params[:curriculum_student]
+    
+    respond_with @curriculum_student, :location => {:action => :show}
   end
   
   def destroy
     @curriculum_student = CurriculumStudent.find(params[:id])
-    @curriculum_student.destroy
+    
+    flash[:notice] = I18n.t('CurriculumStudentRemoved') if @curriculum_student.destroy
 
-    respond_to do |format|
-      format.html { redirect_to({:action => "index"}, :notice => (t 'CurriculumStudentRemoved')) }
-      format.xml  { head :ok }
-    end
+    respond_with @curriculum_student, :location => {:action => "index"}
   end
 end

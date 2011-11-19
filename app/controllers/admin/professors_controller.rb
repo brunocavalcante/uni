@@ -1,32 +1,28 @@
 require 'digest/md5'
 
 class Admin::ProfessorsController < ApplicationController
+  respond_to :html, :xml, :json
+  
   # GET /professors
   def index
-    @professors = Professor.paginate :page => params[:page], :include => ['person'], :order => 'people.name'
+    @professors = Professor.by_person.with_scholarity.paginate :page => params[:page]
     
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @professors }
-      format.json { render :json => @professors }
-    end
+    respond_with @professors
   end
 
   # GET /professors/1
   def show
     @professor = Professor.find(params[:id])
     
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @professor }
-      format.json { render :json => @professor }
-    end
+    respond_with @professor
   end
 
   # GET /professors/new
   def new
     @professor = Professor.new
     @professor.person = Person.new
+    
+    respond_with @professor
   end
 
   # GET /professors/1/edit
@@ -40,40 +36,27 @@ class Admin::ProfessorsController < ApplicationController
     @professor.person.password = Digest::MD5.hexdigest(@professor.person.email)
     @professor.person.roles = [Role.find_by_name('Professor')]
     
-    respond_to do |format|
-      if @professor.save
-        format.html { redirect_to([:admin, @professor], :notice => I18n.t('ProfessorCreated')) }
-        format.xml  { render :xml => @professor, :status => :created, :location => @professor }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @professor.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('ProfessorCreated') if @professor.save
+    
+    respond_with @professor, :location => [:admin, @professor]
   end
 
   # PUT /professors/1
   def update
     @professor = Professor.find(params[:id])
+    @professor.person.password = Digest::MD5.hexdigest(@professor.person.email) if params[:reset_password]
 
-    if params[:reset_password]
-      @professor.person.password = Digest::MD5.hexdigest(@professor.person.email)
-    end
-
-    if @professor.update_attributes(params[:professor])
-      redirect_to([:admin, @professor], :notice => I18n.t('ProfessorUpdated'))
-    else
-      redirect_to :action => "edit"
-    end
+    flash[:notice] = I18n.t('ProfessorUpdated') if @professor.update_attributes(params[:professor])
+    
+    respond_with @professor, :location => [:admin, @professor]
   end
 
   # DELETE /professors/1
   def destroy
     @professor = Professor.find(params[:id])
-    @professor.destroy
+    
+    flash[:notice] = I18n.t('ProfessorDeleted') if @professor.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(admin_professors_url, :notice => I18n.t('ProfessorDeleted')) }
-      format.xml  { head :ok }
-    end
+    respond_with @professor, :location => admin_professors_url
   end
 end

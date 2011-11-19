@@ -1,4 +1,5 @@
 class Professor::LessonsController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :load_lecture
   
   def load_lecture
@@ -6,28 +7,24 @@ class Professor::LessonsController < ApplicationController
   end
   
   def index
-    @lessons = Lesson.paginate :conditions => ['lecture_id = ?', @lecture.id], 
-                               :page => params[:page], 
-                               :order => ['date DESC']
+    @lessons = @lecture.lessons.paginate :page => params[:page]
+    
+    respond_with @lessons
   end
   
   def new
     @lesson = Lesson.new
+    
+    respond_with @lesson
   end
   
   def create
     @lesson = Lesson.new(params[:lesson])
     @lesson.lecture = @lecture
 
-    respond_to do |format|
-      if @lesson.save
-        format.html { redirect_to({ :action => "index" }, :notice => I18n.t('LessonCreated')) }
-        format.xml  { render :xml => @lesson, :status => :created, :location => @lesson }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @lesson.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('LessonCreated') if @lesson.save
+
+    respond_with @lesson, :location => {:action => :index}
   end
   
   def show
@@ -41,24 +38,16 @@ class Professor::LessonsController < ApplicationController
   def update
     @lesson = Lesson.find params[:id]
     
-    respond_to do |format|
-      if @lesson.update_attributes(params[:lesson])
-        format.html { redirect_to({ :action => "show" }, :notice => I18n.t('LessonUpdated')) }
-        format.xml  { render :xml => @lesson, :status => :created, :location => @lesson }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @lesson.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('LessonUpdated') if @lesson.update_attributes(params[:lesson])
+    
+    respond_with @lesson, {:action => :show}
   end
   
   def destroy
     @lesson = Lesson.find(params[:id])
-    @lesson.destroy
+    
+    flash[:notice] = I18n.t('LessonDeleted') if @lesson.destroy
 
-    respond_to do |format|
-      format.html { redirect_to({:action => "index"}, :notice => I18n.t('LessonDeleted')) }
-      format.xml  { head :ok }
-    end
+    respond_with @lesson, :location => {:action => :index}
   end
 end

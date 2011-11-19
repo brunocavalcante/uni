@@ -23,6 +23,7 @@ class Lecture < ActiveRecord::Base
   validates :discipline_id, :presence => true
   validates :professor_ids, :presence => true
   validates :academic_period_id, :presence => true
+  validates_uniqueness_of :code, :scope => :academic_period_id
   
   def name
     discipline.name

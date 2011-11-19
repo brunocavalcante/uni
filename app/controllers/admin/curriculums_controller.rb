@@ -1,4 +1,5 @@
 class Admin::CurriculumsController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :load_course
   
   def load_course
@@ -8,30 +9,18 @@ class Admin::CurriculumsController < ApplicationController
   # GET /curriculums
   # GET /curriculums.xml
   def index
-    @curriculums = Curriculum.paginate :conditions => ['course_id = ?', params[:course_id]], 
-                                       :page => params[:page]
+    @curriculums = @course.curriculums.paginate :page => params[:page]
     
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml { render :xml => @curriculums }
-      format.json { render :json => @curriculums }
-    end
+    respond_with @curriculums
   end
 
   # GET /curriculums/1
   # GET /curriculums/1.xml
   def show
     @curriculum = Curriculum.find(params[:id])
-    @curriculum_disciplines = CurriculumDiscipline.paginate :conditions => ['curriculum_disciplines.curriculum_id = ?', params[:id]],
-                                                            :include => [:discipline, :curriculum_module], 
-                                                            :page => params[:page], 
-                                                            :order => 'curriculum_modules.order ASC, disciplines.name ASC'
+    @curriculum_disciplines = @curriculum.curriculum_disciplines.by_module.paginate :page => params[:page]
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @curriculum }
-      format.json { render :json => @curriculum }
-    end
+    respond_with @curriculum
   end
 
   # GET /curriculums/new
@@ -39,10 +28,7 @@ class Admin::CurriculumsController < ApplicationController
   def new
     @curriculum = Curriculum.new
     
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml { render :xml => @curriculum }
-    end
+    respond_with @curriculum
   end
 
   # GET /curriculums/1/edit
@@ -56,15 +42,9 @@ class Admin::CurriculumsController < ApplicationController
     @curriculum = Curriculum.new(params[:curriculum])
     @curriculum.course = @course
     
-    respond_to do |format|
-      if @curriculum.save
-        format.html { redirect_to([:admin, @course, @curriculum], :notice => I18n.t('CurriculumCreated')) }
-        format.xml  { render :xml => @curriculum, :status => :created, :location => @curriculum }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @curriculum.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('CurriculumCreated') if @curriculum.save
+    
+    respond_with @curriculum, :location => [:admin, @course, @curriculum]
   end
 
   # PUT /curriculums/1
@@ -72,26 +52,18 @@ class Admin::CurriculumsController < ApplicationController
   def update
     @curriculum = Curriculum.find(params[:id])
 
-    respond_to do |format|
-      if @curriculum.update_attributes(params[:curriculum])
-        format.html { redirect_to([:admin, @course, @curriculum], :notice => I18n.t('CurriculumUpdated')) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @curriculum.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('CurriculumUpdated') if @curriculum.update_attributes(params[:curriculum])
+
+    respond_with @curriculum, :location => [:admin, @course, @curriculum]
   end
 
   # DELETE /curriculums/1
   # DELETE /curriculums/1.xml
   def destroy
     @curriculum = Curriculum.find(params[:id])
-    @curriculum.destroy
     
-    respond_to do |format|
-      format.html { redirect_to(admin_course_curriculums_url(@course), :notice => I18n.t('CurriculumDeleted')) }
-      format.xml  { head :ok }
-    end
+    flash[:notice] = I18n.t('CurriculumDeleted') if @curriculum.destroy
+    
+    respond_with @curriculum, :location => admin_course_curriculums_url(@course)
   end
 end

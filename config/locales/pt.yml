@@ -489,6 +489,10 @@ pt:
   CurriculumUpdated: "Grade Curricular atualizada com sucesso."
   CurriculumDeleted: "Grade Curricular excluída com sucesso."
   
+  LectureCreated: "Turma criada com sucesso."
+  LectureUpdated: "Turma atualizada com sucesso."
+  LectureDeleted: "Turma excluída com sucesso."
+  
   ProfessorCreated: "Professor criado com sucesso."
   ProfessorUpdated: "Professor atualizado com sucesso."
   ProfessorDeleted: "Professor excluído com sucesso."

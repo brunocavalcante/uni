@@ -6,6 +6,8 @@ class Student < ActiveRecord::Base
   has_many :lecture_students, :dependent => :destroy
   has_many :lectures, :through => :lecture_students
   
+  scope :by_name, includes(:person).order('people.name ASC')
+  
   validates_uniqueness_of :code
   
   accepts_nested_attributes_for :person

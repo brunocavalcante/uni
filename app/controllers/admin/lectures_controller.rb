@@ -1,4 +1,5 @@
 class Admin::LecturesController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :load_academic_period
   
   def load_academic_period
@@ -6,24 +7,28 @@ class Admin::LecturesController < ApplicationController
   end
   
   def index
-    @lectures = Lecture.paginate :conditions => ['academic_period_id = ?', params[:academic_period_id]], 
-                                 :page => params[:page]
+    @lectures = @academic_period.lectures.paginate :page => params[:page]
     
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml { render :xml => @lectures }
-      format.json { render :json => @lectures }
-    end
+    respond_with @lectures
   end
   
   def new
     @lecture = Lecture.new
+    
+    respond_with @lecture
   end
   
   def create
     @lecture = Lecture.new(params[:lecture])
     @lecture.academic_period_id = params[:academic_period_id]
+    @lecture.lecture_time_slots = timeslots_from_params
     
+    flash[:notice] = I18n.t('LectureCreated') if @lecture.save
+    
+    respond_with @lecture, :location => [:admin, @academic_period, @lecture]
+  end
+  
+  def timeslots_from_params
     @time_slots = []
     for i in 0..params[:weekday].size - 1
       if params[:weekday][i] && params[:start_time][i] != '' && params[:end_time][i] != ''
@@ -34,30 +39,15 @@ class Admin::LecturesController < ApplicationController
         @time_slots << @time_slot
       end
     end
-    @lecture.lecture_time_slots = @time_slots
     
-    respond_to do |format|
-      if @lecture.save
-        format.html { redirect_to({:action => "index"}, :notice => 'Object was successfully created.') }
-        format.xml  { render :xml => @lecture, :status => :created, :location => @lecture }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @lecture.errors, :status => :unprocessable_entity }
-      end
-    end
+    return @time_slots
   end
   
   def show
     @lecture = Lecture.find(params[:id])
-    @lecture_students = LectureStudent.paginate :conditions => ['lecture_id = ?', params[:id]], 
-                                       :include => [{:student => :person}],  
-                                       :page => params[:page]
+    @lecture_students = @lecture.lecture_students.by_name.paginate :page => params[:page]
     
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @lecture }
-      format.json { render :json => @lecture }
-    end
+    respond_with @lecture
   end
   
   def edit
@@ -67,38 +57,18 @@ class Admin::LecturesController < ApplicationController
   def update
     @lecture = Lecture.find(params[:id])
     @lecture.attributes = params[:lecture]
+    @lecture.lecture_time_slots = timeslots_from_params
     
-    @time_slots = []
-    for i in 0..params[:weekday].size - 1
-      if params[:weekday][i] && params[:start_time][i] != '' && params[:end_time][i] != ''
-        @time_slot = LectureTimeSlot.new
-        @time_slot.weekday = params[:weekday][i]
-        @time_slot.start_time = params[:start_time][i].delete ":"
-        @time_slot.end_time = params[:end_time][i].delete ":"
-        @time_slots << @time_slot
-      end
-    end
+    flash[:notice] = I18n.t('LectureUpdated') if @lecture.save
     
-    @lecture.lecture_time_slots = @time_slots
-    
-    respond_to do |format|
-      if @lecture.save
-        format.html { redirect_to({:action => :show}, :notice => 'Object was successfully updated.') }
-        format.xml  { render :xml => @lecture, :status => :created, :location => @lecture }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @lecture.errors, :status => :unprocessable_entity }
-      end
-    end
+    respond_with @lecture, :location => [:admin, @academic_period, @lecture]
   end
   
   def destroy
     @lecture = Lecture.find(params[:id])
-    @lecture.destroy
     
-    respond_to do |format|
-      format.html { redirect_to({:action => "index"}) }
-      format.xml  { head :ok }
-    end
+    flash[:notice] = I18n.t('LectureDeleted') if @lecture.destroy
+    
+    respond_with @lecture, :location => {:action => :index}
   end
 end

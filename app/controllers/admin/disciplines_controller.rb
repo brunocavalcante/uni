@@ -1,4 +1,5 @@
 class Admin::DisciplinesController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :load_course
   
   def load_course
@@ -8,20 +9,9 @@ class Admin::DisciplinesController < ApplicationController
   # GET /disciplines
   # GET /disciplines.xml
   def index
-    @disciplines = Discipline.paginate :conditions => ['course_id = ? AND 
-                                                       (version = (SELECT MAX(version) 
-                                                                  FROM disciplines d2 
-                                                                  WHERE d2.code = disciplines.code) OR 
-                                                        version IS NULL)', 
-                                                       params[:course_id]], 
-                                       :page => params[:page], 
-                                       :order => 'name ASC, version ASC'
+    @disciplines = @course.disciplines.latest_versions.paginate :page => params[:page] 
     
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml { render :xml => @disciplines }
-      format.json { render :json => @disciplines }
-    end
+    respond_with @disciplines
   end
 
   # GET /disciplines/1
@@ -29,11 +19,7 @@ class Admin::DisciplinesController < ApplicationController
   def show
     @discipline = Discipline.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @discipline }
-      format.json { render :json => @discipline }
-    end
+    respond_with @discipline
   end
 
   # GET /disciplines/new
@@ -41,10 +27,7 @@ class Admin::DisciplinesController < ApplicationController
   def new
     @discipline = Discipline.new
     
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml { render :xml => @discipline }
-    end
+    respond_with @discipline
   end
 
   # GET /disciplines/1/edit
@@ -59,15 +42,9 @@ class Admin::DisciplinesController < ApplicationController
     @discipline.course = @course
     @discipline.version = 1
     
-    respond_to do |format|
-      if @discipline.save
-        format.html { redirect_to([:admin, @course, @discipline], :notice => I18n.t('DisciplineCreated')) }
-        format.xml  { render :xml => @discipline, :status => :created, :location => @discipline }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @discipline.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('DisciplineCreated') if @discipline.save
+    
+    respond_with @discipline, :location => [:admin, @course, @discipline]
   end
 
   # PUT /disciplines/1
@@ -84,19 +61,12 @@ class Admin::DisciplinesController < ApplicationController
       @changed = true if @new_discipline.get(field_to_check) != @discipline.get(field_to_check)
     end
 
-    respond_to do |format|
-      if @changed
-        if @new_discipline.save
-          format.html { redirect_to([:admin, @course, @new_discipline], :notice => I18n.t('DisciplineUpdated')) }
-          format.xml  { head :ok }
-        else
-          format.html { render :action => "edit" }
-          format.xml  { render :xml => @discipline.errors, :status => :unprocessable_entity }
-        end
-      else
-        format.html { redirect_to([:admin, @course, @discipline]) }
-        format.xml  { head :ok }
-      end
+    if @changed
+      flash[:notice] = I18n.t('DisciplineUpdated') if @new_discipline.save
+    
+      respond_with @new_discipline, :location => [:admin, @course, @new_discipline]      
+    else
+      respond_with @discipline, :location => [:admin, @course, @discipline]
     end
   end
 
@@ -104,11 +74,9 @@ class Admin::DisciplinesController < ApplicationController
   # DELETE /disciplines/1.xml
   def destroy
     @discipline = Discipline.find(params[:id])
-    @discipline.destroy
     
-    respond_to do |format|
-      format.html { redirect_to(admin_course_disciplines_url(@course), :notice => I18n.t('DisciplineDeleted')) }
-      format.xml  { head :ok }
-    end
+    flash[:notice] = I18n.t('DisciplineDeleted') if @discipline.destroy
+    
+    respond_with @discipline, :location => admin_course_disciplines_url(@course)
   end
 end

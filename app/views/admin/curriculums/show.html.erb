@@ -8,6 +8,7 @@
       <li><%= link_to (t 'Edit'), {:action => 'edit', :id => @curriculum.id}, :class => 'edit' %></li>
       <li><%= link_to ((t 'Add') + ' ' + (t 'Disciplines')), new_admin_course_curriculum_curriculum_discipline_path(@course, @curriculum), :class => 'new' %></li>
       <li><%= link_to (t 'CurriculumModules'), admin_course_curriculum_curriculum_modules_path(@course, @curriculum), :class => 'show' %></li>
+      <li><%= button_to (t 'Delete'), {:action => :show}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
     </ul>
   </header>
 

@@ -8,6 +8,11 @@ class Discipline < ActiveRecord::Base
   
   default_scope :order => 'name ASC'
   
+  scope :latest_versions, where('version = (SELECT MAX(version) 
+                                            FROM disciplines d2 
+                                            WHERE d2.code = disciplines.code) 
+                                 OR version IS NULL').order('name ASC, version ASC')
+  
   validates :code, :presence => true
   validates :name, :presence => true
   validates :version, :presence => true

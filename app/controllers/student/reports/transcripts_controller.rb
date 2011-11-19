@@ -12,7 +12,7 @@ class Student::Reports::TranscriptsController < ApplicationController
   end
   
   def show
-    @curriculum_student = CurriculumStudent.find params[:id]
+    @curriculum_student = Transcript.find params[:id]
     @transcripts = @curriculum_student.transcripts
   end
 end
