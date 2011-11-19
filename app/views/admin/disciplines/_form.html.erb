@@ -17,6 +17,11 @@
   </p>
   
   <p>
+    <%= f.label :equivalences %><br />
+    <%= f.collection_select :equivalent_ids, @discipline.equivalents.size > 0 ? @discipline.equivalents : [], :id, :name, {}, {:multiple => true} %>
+  </p>
+
+  <p>
     <%= f.label :syllabus %><br />
     <%= f.text_area :syllabus %>
   </p>
@@ -25,3 +30,11 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script language="JavaScript">
+  $(document).ready(function() {
+    Application.autocomplete('discipline_prerequisite_ids', '<%= disciplines_path %>.js', '<%= t "Remove" %>', true)
+    Application.autocomplete('discipline_equivalent_ids',   '<%= disciplines_path %>.js', '<%= t "Remove" %>', true)
+  });
+</script>
+>>>>>>> equivalence

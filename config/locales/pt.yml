@@ -283,6 +283,7 @@ pt:
         credits: "Créditos"
         course_id: "Curso"
         syllabus: "Ementa"
+        equivalences: "Equivalências"
       lecture:
         code: "Código"
         places: "Vagas"
