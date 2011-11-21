@@ -1,4 +1,36 @@
 pt:
+  added: &added
+    create:
+      notice: '%{resource_name} adicionado com sucesso.'
+    update:
+      notice: '%{resource_name} atualizado com sucesso.'
+    destroy:
+      notice: '%{resource_name} removido com sucesso.'
+      alert: '%{resource_name} nâo pôde ser removido.'
+  added_plural: &added_plural
+    create:
+      notice: '%{resource_name} adicionados com sucesso.'
+    update:
+      notice: '%{resource_name} atualizado com sucesso.'
+    destroy:
+      notice: '%{resource_name} removido com sucesso.'
+      alert: '%{resource_name} nâo pôde ser removido.'
+  added_feminine: &added_feminine
+    create:
+      notice: '%{resource_name} adicionada com sucesso.'
+    update:
+      notice: '%{resource_name} atualizada com sucesso.'
+    destroy:
+      notice: '%{resource_name} removida com sucesso.'
+      alert: '%{resource_name} nâo pôde ser removida.'
+  added_plural_feminine: &added_plural_feminine
+    create:
+      notice: '%{resource_name} adicionadas com sucesso.'
+    update:
+      notice: '%{resource_name} atualizada com sucesso.'
+    destroy:
+      notice: '%{resource_name} removida com sucesso.'
+      alert: '%{resource_name} nâo pôde ser removida.'
   feminine: &feminine
     create:
       notice: '%{resource_name} criada com sucesso.'
@@ -19,6 +51,10 @@ pt:
     user:
       update:
         notice: "Usuário atualizado com sucesso."
+    professor:
+      absences:
+        create:
+          notice: 'Faltas atualizadas com sucesso.'
     admin:
       curriculums: *feminine
       disciplines: *feminine
@@ -28,32 +64,8 @@ pt:
       test: *feminine
       transferred_disciplines: *feminine
       wall: *feminine
-      lecture_students:
-        create:
-          notice: '%{resource_name} adicionados com sucesso.'
-        update:
-          notice: '%{resource_name} atualizado com sucesso.'
-        destroy:
-          notice: '%{resource_name} removido com sucesso.'
-          alert: '%{resource_name} nâo pôde ser removido.'
-      curriculum_disciplines:
-        create:
-          notice: '%{resource_name} adicionadas com sucesso.'
-        update:
-          notice: '%{resource_name} atualizada com sucesso.'
-        destroy:
-          notice: '%{resource_name} excluída com sucesso.'
-          alert: '%{resource_name} nâo pôde ser excluída.'
-      curriculum_students:
-        create:
-          notice: '%{resource_name} adicionado com sucesso.'
-        update:
-          notice: '%{resource_name} atualizado com sucesso.'
-        destroy:
-          notice: '%{resource_name} removido com sucesso.'
-          alert: '%{resource_name} nâo pôde ser removido.'
-    professor:
-      absences:
-        create:
-          notice: 'Faltas atualizadas com sucesso.'
+      lecture_students: *added_plural
+      curriculum_disciplines: *added_plural_feminine
+      curriculum_students: *added
+    
         
