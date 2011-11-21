@@ -23,13 +23,6 @@ ActiveRecord::Schema.define(:version => 20111116232551) do
     t.datetime "updated_at"
   end
 
-  create_table "contracts", :force => true do |t|
-    t.integer  "student_id"
-    t.string   "code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "course_categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -80,6 +73,13 @@ ActiveRecord::Schema.define(:version => 20111116232551) do
     t.string   "name"
     t.boolean  "active"
     t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "discipline_equivalents", :force => true do |t|
+    t.integer  "discipline_id"
+    t.integer  "equivalent_discipline_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -205,13 +205,6 @@ ActiveRecord::Schema.define(:version => 20111116232551) do
   create_table "person_roles", :force => true do |t|
     t.integer  "person_id"
     t.integer  "role_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "prerequisites", :force => true do |t|
-    t.integer  "curriculum_discipline_id"
-    t.integer  "curriculum_discipline_prerequisite_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
