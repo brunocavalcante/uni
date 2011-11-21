@@ -4,7 +4,7 @@
     	<% for key, value in @tests_and_results %>
       <th>
       	<%= value[:test].name %> 
-      	<span class="small-relevance">(<%= l value[:test].scheduled_date, :format => :short %>)</span>
+      	<span class="small-relevance">(<%= (l value[:test].date, :format => :short) if value[:test].date %>)</span>
      	</th>
       <% end %>
     </tr>

@@ -1,4 +1,5 @@
 class FilesController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :load_lecture
   
   def load_lecture
@@ -9,12 +10,12 @@ class FilesController < ApplicationController
     load_files
     
     @file = LectureFile.new
+    
+    respond_with @files
   end
   
   def load_files
-    @files = LectureFile.paginate :conditions => ['lecture_id = ?', params[:lecture_id]], 
-                                  :page => params[:page], 
-                                  :order => 'created_at DESC'
+    @files = @lecture.lecture_files.with_person.by_date.paginate :page => params[:page]
   end
   
   def create
@@ -34,32 +35,22 @@ class FilesController < ApplicationController
     # write the file
     File.open(path, "wb") { |f| f.write(params[:file][:upload].read) }
     
-    respond_to do |format|
-      if @file.save
-        format.html { redirect_to({:action => "index"}, :notice => 'Object was successfully created.') }
-        format.xml  { render :xml => @file, :status => :created, :location => @file }
-      else
-        format.html {
-          load_walls
-          render :action => "index"
-        }
-        format.xml  { render :xml => @file.errors, :status => :unprocessable_entity }
-      end
-    end
+    load_files
+    flash[:notice] = I18n.t('LectureFileCreated') if @file.save
+    
+    respond_with @file, :location => {:action => "index"}
   end
   
   def download
-    @file = LectureFile.find(params[:id])
+    @file = LectureFile.find params[:id]
     send_file "public/system/lecture_files/#{@lecture.id}/#{@file.name}", :x_sendfile=>true
   end
   
   def destroy
-    @file = LectureFile.find(params[:id])
-    @file.destroy
+    @file = LectureFile.find params[:id]
+    
+    flash[:notice] = I18n.t('LectureFileDeleted') if @file.destroy
 
-    respond_to do |format|
-      format.html { redirect_to({:action => "index"}) }
-      format.xml  { head :ok }
-    end
+    respond_with @file, :location => {:action => "index"}
   end
 end

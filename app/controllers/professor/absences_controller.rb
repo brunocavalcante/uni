@@ -1,4 +1,5 @@
 class Professor::AbsencesController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :load_lesson
   
   def load_lesson
@@ -11,13 +12,8 @@ class Professor::AbsencesController < ApplicationController
   end
   
   def load_students
-    @lecture_students = LectureStudent.all :conditions => ['lecture_id = ?', params[:lecture_id]], 
-                                           :include => [{:student => :person}], 
-                                           :order => ['people.name ASC']
-                                           
-    @lesson_absences = LessonAbsence.all  :conditions => ['lesson_id = ?', @lesson.id], 
-                                          :include => [{:lecture_student => {:student => :person}}], 
-                                          :order => ['people.name ASC']
+    @lecture_students = @lecture.lecture_students.by_name
+    @lesson_absences = @lesson.lesson_absences.by_student_name
                                           
     @absences = {}
     @lecture_students.each { |lecture_student| @absences[lecture_student.id] = 0 }
@@ -36,19 +32,8 @@ class Professor::AbsencesController < ApplicationController
     
     @lesson.lesson_absences = @lesson_absences
     
-    respond_to do |format|
-      if @lesson.save
-        format.html { redirect_to({:action => "index"}, :notice => 'Object was successfully created.') }
-        format.xml  { render :xml => @lecture_absence, :status => :created, :location => @lecture_absence }
-      else
-        format.html {
-          @lecture_absence.lecture_student_absences.build
-          load_students
-          
-          render :action => "new"
-        }
-        format.xml  { render :xml => @lecture_absence.errors, :status => :unprocessable_entity }
-      end
-    end
+    flash[:notice] = I18n.t('LessonAbsencesUpdated') if @lesson.save
+    
+    respond_with @lesson, :location => {:action => "index"}
   end
 end

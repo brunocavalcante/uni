@@ -47,7 +47,7 @@ class LectureStudent < ActiveRecord::Base
   def tests_and_results
     @tests_and_results = {}
     
-    @tests = Test.all :conditions => ['lecture_id = ?', lecture.id], :order => ['scheduled_date ASC']
+    @tests = Test.all :conditions => ['lecture_id = ?', lecture.id], :order => ['date ASC']
     @tests.each do |test|
       @tests_and_results[test.id] = {}
       @tests_and_results[test.id][:test] = test
@@ -60,5 +60,17 @@ class LectureStudent < ActiveRecord::Base
     end
     
     return @tests_and_results
+  end
+  
+  def to_xml(options = {})
+    options[:include] ||= {:student => {:include => :person}}
+    
+    super(options)
+  end
+  
+  def as_json(options = {})
+    options[:include] ||= {:student => {:include => :person}}
+    
+    super(options)
   end
 end

@@ -30,6 +30,16 @@ $font-smaller: 80%;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#{$colorA}, EndColorStr=#{$colorB}); /* IE6–IE9 */
 }
 
+/* Clearfix */
+#toolbar:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
 /* Basic */
 body {
   color: $textColor;
@@ -175,7 +185,6 @@ img.thumb {
   
   header {
     position: relative;
-    float: left;
     width: 100%;
     
     h1, h2 {
@@ -264,7 +273,6 @@ footer {
 
 /* Toolbar */
 #toolbar {
-  float: left;
   list-style-type: none;
   display: block;
   margin: 0;
@@ -352,8 +360,11 @@ table.grid tbody td {
 }
 
 /* Essas classes são do scaffold do Ruby - Depois ajeitamos. */
+#notice:first-line, #alert:first-line {
+  padding: 1% 2%;
+}
 #notice {
-  color: green;
+  color: darkgreen;
 }
 #alert {
   color: red;

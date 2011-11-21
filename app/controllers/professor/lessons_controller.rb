@@ -40,7 +40,7 @@ class Professor::LessonsController < ApplicationController
     
     flash[:notice] = I18n.t('LessonUpdated') if @lesson.update_attributes(params[:lesson])
     
-    respond_with @lesson, {:action => :show}
+    respond_with @lesson, :location => {:action => :show}
   end
   
   def destroy

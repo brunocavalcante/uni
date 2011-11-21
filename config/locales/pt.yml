@@ -523,6 +523,8 @@ pt:
   LessonUpdated: "Aula atualizada com sucesso."
   LessonDeleted: "Aula excluída com sucesso."
   
+  LessonAbsencesUpdated: "Faltas atualizadas com sucesso."
+  
   CurriculumDisciplineUpdated: "Disciplina atualizada com sucesso."
   CurriculumDisciplineDeleted: "Disciplina removida da grade curricular com sucesso."
   CurriculumDisciplinesAdded: "Disciplinas adicionadas à grade curricular com sucesso."

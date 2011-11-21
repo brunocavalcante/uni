@@ -1,4 +1,5 @@
 class Student::Reports::ScheduleController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :load_student
   
   def load_student
@@ -8,5 +9,7 @@ class Student::Reports::ScheduleController < ApplicationController
   def index
     @lectures = @student.lectures.current
     @schedule = @student.schedule
+    
+    respond_with @schedule
   end
 end

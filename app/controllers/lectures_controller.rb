@@ -1,4 +1,5 @@
 class LecturesController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :load_lecture
   
   def load_lecture
@@ -8,23 +9,12 @@ class LecturesController < ApplicationController
   end
   
   def show
-    @wall = Wall.paginate :conditions => ['lecture_id = ?', params[:id]], 
-                          :include => [{:message => :person}], 
-                          :page => params[:page], 
-                          :order => 'created_at DESC'
-                          
-    @files = LectureFile.paginate :conditions => ['lecture_id = ?', params[:id]], 
-                                  :include => [:person], 
-                                  :page => params[:page], 
-                                  :order => 'created_at DESC'
-                          
-    @updates = @wall | @files
+    @updates = Update::LectureUpdate.new.updates(@lecture)
     
-    @updates.sort! { |a,b| a.created_at <=> b.created_at }
-    @updates.reverse!
+    respond_with @lecture
   end
   
   def details
-    
+    respond_with @lecture
   end
 end

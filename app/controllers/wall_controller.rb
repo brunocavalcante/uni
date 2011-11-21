@@ -1,4 +1,5 @@
 class WallController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :load_lecture
     
   def load_lecture
@@ -10,13 +11,12 @@ class WallController < ApplicationController
     
     @wall = Wall.new
     @wall.message = Message.new
+    
+    respond_with @walls
   end
   
   def load_walls
-    @walls = Wall.paginate :conditions => ['lecture_id = ?', params[:lecture_id]], 
-                          :include => [{:message => :person}], 
-                          :page => params[:page], 
-                          :order => 'created_at DESC'
+    @walls = @lecture.walls.with_message.by_date.paginate :page => params[:page]
   end
   
   def create
@@ -24,27 +24,17 @@ class WallController < ApplicationController
     @wall.message.person = @user
     @wall.lecture_id = params[:lecture_id]
     
-    respond_to do |format|
-      if @wall.save
-        format.html { redirect_to({:action => "index"}, :notice => I18n.t('WallCreated')) }
-        format.xml  { render :xml => @wall, :status => :created, :location => @wall }
-      else
-        format.html {
-          load_walls
-          render :action => "index"
-        }
-        format.xml  { render :xml => @wall.errors, :status => :unprocessable_entity }
-      end
-    end
+    load_walls
+    flash[:notice] = I18n.t('WallCreated') if @wall.save
+    
+    respond_with @wall, :location => {:action => "index"}
   end
   
   def destroy
     @wall = Wall.find(params[:id])
-    @wall.destroy
-
-    respond_to do |format|
-      format.html { redirect_to({:action => "index", :notice => I18n.t('WallDeleted')}) }
-      format.xml  { head :ok }
-    end
+    
+    flash[:notice] = I18n.t('WallDeleted') if @wall.destroy
+    
+    respond_with @wall, :location => {:action => "index"}
   end
 end

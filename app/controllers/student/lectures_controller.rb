@@ -21,11 +21,7 @@ class Student::LecturesController < LecturesController
   def index
     @lectures = @student.lectures.current
     
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml { render :xml => @lecture_students }
-      format.json { render :json => @lecture_students }
-    end
+    respond_with @lectures
   end
   
   def tests_and_abscences
@@ -34,5 +30,7 @@ class Student::LecturesController < LecturesController
     
     @month_absences = @lecture_student.month_absences
     @tests_and_results = @lecture_student.tests_and_results
+    
+    respond_with [{:tests => @tests_and_results, :absences => @month_absences}]
   end
 end
