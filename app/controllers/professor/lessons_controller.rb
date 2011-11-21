@@ -21,8 +21,7 @@ class Professor::LessonsController < ApplicationController
   def create
     @lesson = Lesson.new(params[:lesson])
     @lesson.lecture = @lecture
-
-    flash[:notice] = I18n.t('LessonCreated') if @lesson.save
+    @lesson.save
 
     respond_with @lesson, :location => {:action => :index}
   end
@@ -37,16 +36,14 @@ class Professor::LessonsController < ApplicationController
   
   def update
     @lesson = Lesson.find params[:id]
-    
-    flash[:notice] = I18n.t('LessonUpdated') if @lesson.update_attributes(params[:lesson])
+    @lesson.update_attributes(params[:lesson])
     
     respond_with @lesson, :location => {:action => :show}
   end
   
   def destroy
     @lesson = Lesson.find(params[:id])
-    
-    flash[:notice] = I18n.t('LessonDeleted') if @lesson.destroy
+    @lesson.destroy
 
     respond_with @lesson, :location => {:action => :index}
   end

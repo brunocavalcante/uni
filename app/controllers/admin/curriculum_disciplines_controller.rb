@@ -27,7 +27,7 @@ class Admin::CurriculumDisciplinesController < ApplicationController
       @curriculum.curriculum_disciplines << @curriculum_discipline
     end
     
-    flash[:notice] = I18n.t('CurriculumDisciplinesAdded') if @curriculum.save
+    flash[:notice] = I18n.t('flash.admin.curriculum_disciplines.create.notice', :resource_name => I18n.t('Disciplines')) if @curriculum.save
     
     respond_with @curriculum, :location => [:admin, @course, @curriculum]
   end
@@ -44,16 +44,14 @@ class Admin::CurriculumDisciplinesController < ApplicationController
   
   def update
     @curriculum_discipline = CurriculumDiscipline.find(params[:id])
-    
-    flash[:notice] = I18n.t('CurriculumDisciplineUpdated') if @curriculum_discipline.update_attributes(params[:curriculum_discipline])
+    @curriculum_discipline.update_attributes(params[:curriculum_discipline])
     
     respond_with @curriculum_discipline, :location => [:admin, @course, @curriculum]
   end
   
   def destroy
     @curriculum_discipline = CurriculumDiscipline.find params[:id]
-    
-    flash[:notice] = I18n.t('CurriculumDisciplineDeleted') if @curriculum_discipline.destroy
+    @curriculum_discipline.destroy
 
     respond_with @curriculum_discipline, :location => [:admin, @course, @curriculum]
   end

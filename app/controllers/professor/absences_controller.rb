@@ -31,8 +31,7 @@ class Professor::AbsencesController < ApplicationController
     end
     
     @lesson.lesson_absences = @lesson_absences
-    
-    flash[:notice] = I18n.t('LessonAbsencesUpdated') if @lesson.save
+    @lesson.save
     
     respond_with @lesson, :location => {:action => "index"}
   end

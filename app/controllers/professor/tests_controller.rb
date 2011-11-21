@@ -18,16 +18,9 @@ class Professor::TestsController < ApplicationController
   def create
     @test = Test.new(params[:test])
     @test.lecture = @lecture
-
-    respond_to do |format|
-      if @test.save
-        format.html { redirect_to({ :action => "index" }, :notice => I18n.t('TestCreated')) }
-        format.xml  { render :xml => @test, :status => :created, :location => @test }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @test.errors, :status => :unprocessable_entity }
-      end
-    end
+    @test.save
+    
+    respond_with @test, :location => {:action => :index}
   end
   
   def show
@@ -40,25 +33,15 @@ class Professor::TestsController < ApplicationController
   
   def update
     @test = Test.find params[:id]
+    @test.update_attributes(params[:test])
     
-    respond_to do |format|
-      if @test.update_attributes(params[:test])
-        format.html { redirect_to({ :action => "show" }, :notice => I18n.t('TestUpdated')) }
-        format.xml  { render :xml => @test, :status => :created, :location => @test }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @test.errors, :status => :unprocessable_entity }
-      end
-    end
+    respond_with @test, :location => {:action => :index}
   end
   
   def destroy
     @test = Test.find(params[:id])
     @test.destroy
 
-    respond_to do |format|
-      format.html { redirect_to({:action => "index"}, :notice => I18n.t('TestDeleted')) }
-      format.xml  { head :ok }
-    end
+    respond_with @test, :location => {:action => :index}
   end
 end

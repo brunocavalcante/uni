@@ -31,8 +31,7 @@ class Admin::CoursesController < ApplicationController
   # POST /courses.xml
   def create
     @course = Course.new(params[:course])
-
-    flash[:notice] = I18n.t('CourseCreated') if @course.save
+    @course.save
 
     respond_with @course, :location => [:admin, @course]
   end
@@ -54,8 +53,7 @@ class Admin::CoursesController < ApplicationController
   # PUT /courses/1.xml
   def update
     @course = Course.find(params[:id])
-
-    flash[:notice] = I18n.t('CourseUpdated') if @course.update_attributes(params[:course])
+    @course.update_attributes(params[:course])
 
     respond_with @course, :location => [:admin, @course]
   end
@@ -64,8 +62,7 @@ class Admin::CoursesController < ApplicationController
   # DELETE /courses/1.xml
   def destroy
     @course = Course.find(params[:id])
-    
-    flash[:notice] = I18n.t('CourseDeleted') if @course.destroy
+    @course.destroy
 
     respond_with @course, :location => admin_courses_url
   end

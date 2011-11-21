@@ -22,8 +22,7 @@ class Admin::LecturesController < ApplicationController
     @lecture = Lecture.new(params[:lecture])
     @lecture.academic_period_id = params[:academic_period_id]
     @lecture.lecture_time_slots = timeslots_from_params
-    
-    flash[:notice] = I18n.t('LectureCreated') if @lecture.save
+    @lecture.save
     
     respond_with @lecture, :location => [:admin, @academic_period, @lecture]
   end
@@ -58,16 +57,14 @@ class Admin::LecturesController < ApplicationController
     @lecture = Lecture.find(params[:id])
     @lecture.attributes = params[:lecture]
     @lecture.lecture_time_slots = timeslots_from_params
-    
-    flash[:notice] = I18n.t('LectureUpdated') if @lecture.save
+    @lecture.save
     
     respond_with @lecture, :location => [:admin, @academic_period, @lecture]
   end
   
   def destroy
     @lecture = Lecture.find(params[:id])
-    
-    flash[:notice] = I18n.t('LectureDeleted') if @lecture.destroy
+    @lecture.destroy
     
     respond_with @lecture, :location => {:action => :index}
   end

@@ -19,6 +19,8 @@ class FilesController < ApplicationController
   end
   
   def create
+    load_files
+    
     @file = LectureFile.new(params[:lecture_file])
     @file.person = @user
     @file.lecture_id = params[:lecture_id]
@@ -35,8 +37,7 @@ class FilesController < ApplicationController
     # write the file
     File.open(path, "wb") { |f| f.write(params[:file][:upload].read) }
     
-    load_files
-    flash[:notice] = I18n.t('LectureFileCreated') if @file.save
+    @file.save
     
     respond_with @file, :location => {:action => "index"}
   end
@@ -48,8 +49,7 @@ class FilesController < ApplicationController
   
   def destroy
     @file = LectureFile.find params[:id]
-    
-    flash[:notice] = I18n.t('LectureFileDeleted') if @file.destroy
+    @file.destroy
 
     respond_with @file, :location => {:action => "index"}
   end

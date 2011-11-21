@@ -41,8 +41,7 @@ class Admin::DisciplinesController < ApplicationController
     @discipline = Discipline.new(params[:discipline])
     @discipline.course = @course
     @discipline.version = 1
-    
-    flash[:notice] = I18n.t('DisciplineCreated') if @discipline.save
+    @discipline.save
     
     respond_with @discipline, :location => [:admin, @course, @discipline]
   end
@@ -63,7 +62,7 @@ class Admin::DisciplinesController < ApplicationController
     end
 
     if @changed
-      flash[:notice] = I18n.t('DisciplineUpdated') if @new_discipline.save
+      flash[:notice] = I18n.t('flash.admin.disciplines.update.notice', :resource_name => 'discipline') if @new_discipline.save
     
       respond_with @new_discipline, :location => [:admin, @course, @new_discipline]      
     else
@@ -75,8 +74,7 @@ class Admin::DisciplinesController < ApplicationController
   # DELETE /disciplines/1.xml
   def destroy
     @discipline = Discipline.find(params[:id])
-    
-    flash[:notice] = I18n.t('DisciplineDeleted') if @discipline.destroy
+    @discipline.destroy
     
     respond_with @discipline, :location => admin_course_disciplines_url(@course)
   end

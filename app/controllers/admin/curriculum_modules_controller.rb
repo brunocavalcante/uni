@@ -22,8 +22,7 @@ class Admin::CurriculumModulesController < ApplicationController
   def create
     @curriculum_module = CurriculumModule.new(params[:curriculum_module])
     @curriculum_module.curriculum = @curriculum
-
-    flash[:notice] = I18n.t('CurriculumModuleCreated') if @curriculum_module.save
+    @curriculum_module.save
     
     respond_with @curriculum_module, :location => [:admin, @course, @curriculum, @curriculum_module]
   end
@@ -40,16 +39,14 @@ class Admin::CurriculumModulesController < ApplicationController
 
   def update
     @curriculum_module = CurriculumModule.find(params[:id])
-
-    flash[:notice] = I18n.t('CurriculumModuleUpdated') if @curriculum_module.update_attributes(params[:curriculum_module])
+    @curriculum_module.update_attributes(params[:curriculum_module])
 
     respond_with @curriculum_module, :location => [:admin, @course, @curriculum, @curriculum_module]
   end
 
   def destroy
     @curriculum_module = CurriculumModule.find(params[:id])
-
-    flash[:notice] = I18n.t('CurriculumModuleDeleted') if @curriculum_module.destroy
+    @curriculum_module.destroy
 
     respond_with @curriculum_module, :location => {:action => "index"}
   end

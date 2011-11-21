@@ -24,8 +24,7 @@ class Admin::TransferredDisciplinesController < ApplicationController
   def create
     @transferred_discipline = TransferredDiscipline.new(params[:transferred_discipline])
     @transferred_discipline.curriculum_student_id = @curriculum_student.id
-
-    flash[:notice] = I18n.t('TransferredDisciplineCreated') if @transferred_discipline.save
+    @transferred_discipline.save
 
     respond_with @transferred_disciplines, :location => {:action => :index}
   end
@@ -42,16 +41,14 @@ class Admin::TransferredDisciplinesController < ApplicationController
   
   def update
     @transferred_discipline = TransferredDiscipline.find params[:id]
-
-    flash[:notice] = I18n.t('TransferredDisciplineUpdated') if @transferred_discipline.update_attributes(params[:transferred_discipline])
+    @transferred_discipline.update_attributes(params[:transferred_discipline])
 
     respond_with @transferred_disciplines, :location => {:action => :show}
   end
 
   def destroy
     @transferred_discipline = TransferredDiscipline.find params[:id]
-    
-    flash[:notice] = I18n.t('TransferredDisciplineDeleted') if @transferred_discipline.destroy
+    @transferred_discipline.destroy
 
     respond_with @transferred_discipline, :location => {:action => :index}
   end

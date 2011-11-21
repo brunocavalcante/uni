@@ -2,7 +2,7 @@
   <%= f.error_messages %>
 
   <p>
-    <%= label_tag :student_id %><br />
+    <%= label_tag :student_id, (t 'Students') %><br />
     <%= f.collection_select :student_id, @lecture_student.student ? [@lecture_student.student] : [], :student_id, :name, {}, {:multiple => true} %>
   </p>
   

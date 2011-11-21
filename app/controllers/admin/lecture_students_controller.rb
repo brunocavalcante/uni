@@ -1,4 +1,5 @@
 class Admin::LectureStudentsController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :load_academic_period
   before_filter :load_lecture
   
@@ -25,7 +26,7 @@ class Admin::LectureStudentsController < ApplicationController
         @lecture_student.save
       end
       
-      redirect_to([:admin, @academic_period, @lecture], :notice => I18n.t('LectureStudentsAdded'))
+      redirect_to([:admin, @academic_period, @lecture], :notice => I18n.t('flash.admin.lecture_students.create.notice', :resource_name => I18n.t('Students')))
     rescue
       @lecture_student = LectureStudent.new
       render :action => "new"
@@ -36,9 +37,6 @@ class Admin::LectureStudentsController < ApplicationController
     @lecture_student = LectureStudent.find(params[:id])
     @lecture_student.destroy
 
-    respond_to do |format|
-      format.html { redirect_to([:admin, @academic_period, @lecture], :notice => I18n.t('LectureStudentRemoved')) }
-      format.xml  { head :ok }
-    end
+    respond_with @lecture_student, :location => [:admin, @academic_period, @lecture]
   end
 end

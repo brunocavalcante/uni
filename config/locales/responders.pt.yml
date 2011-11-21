@@ -1,0 +1,59 @@
+pt:
+  feminine: &feminine
+    create:
+      notice: '%{resource_name} criada com sucesso.'
+    update:
+      notice: '%{resource_name} atualizada com sucesso.'
+    destroy:
+      notice: '%{resource_name} excluída com sucesso.'
+      alert: '%{resource_name} nâo pôde ser excluída.'
+  flash:
+    actions:
+      create:
+        notice: '%{resource_name} criado com sucesso.'
+      update:
+        notice: '%{resource_name} atualizado com sucesso.'
+      destroy:
+        notice: '%{resource_name} excluído com sucesso.'
+        alert: '%{resource_name} nâo pôde ser excluído.'
+    user:
+      update:
+        notice: "Usuário atualizado com sucesso."
+    admin:
+      curriculums: *feminine
+      disciplines: *feminine
+      scholarities: *feminine
+      lectures: *feminine
+      lesson: *feminine
+      test: *feminine
+      transferred_disciplines: *feminine
+      wall: *feminine
+      lecture_students:
+        create:
+          notice: '%{resource_name} adicionados com sucesso.'
+        update:
+          notice: '%{resource_name} atualizado com sucesso.'
+        destroy:
+          notice: '%{resource_name} removido com sucesso.'
+          alert: '%{resource_name} nâo pôde ser removido.'
+      curriculum_disciplines:
+        create:
+          notice: '%{resource_name} adicionadas com sucesso.'
+        update:
+          notice: '%{resource_name} atualizada com sucesso.'
+        destroy:
+          notice: '%{resource_name} excluída com sucesso.'
+          alert: '%{resource_name} nâo pôde ser excluída.'
+      curriculum_students:
+        create:
+          notice: '%{resource_name} adicionado com sucesso.'
+        update:
+          notice: '%{resource_name} atualizado com sucesso.'
+        destroy:
+          notice: '%{resource_name} removido com sucesso.'
+          alert: '%{resource_name} nâo pôde ser removido.'
+    professor:
+      absences:
+        create:
+          notice: 'Faltas atualizadas com sucesso.'
+        

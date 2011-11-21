@@ -30,8 +30,7 @@ class Admin::CurriculumStudentsController < ApplicationController
   
   def create
     @curriculum_student = CurriculumStudent.new(params[:curriculum_student])
-    
-    flash[:notice] = I18n.t('CurriculumStudentAdded') if @curriculum_student.save
+    @curriculum_student.save
     
     respond_with @curriculum_student, :location => {:action => :index}
   end
@@ -48,16 +47,14 @@ class Admin::CurriculumStudentsController < ApplicationController
   
   def update
     @curriculum_student = CurriculumStudent.find params[:id]
-    
-    flash[:notice] = I18n.t('StudentUpdated') if @curriculum_student.update_attributes params[:curriculum_student]
+    @curriculum_student.update_attributes params[:curriculum_student]
     
     respond_with @curriculum_student, :location => {:action => :show}
   end
   
   def destroy
     @curriculum_student = CurriculumStudent.find(params[:id])
-    
-    flash[:notice] = I18n.t('CurriculumStudentRemoved') if @curriculum_student.destroy
+    @curriculum_student.destroy
 
     respond_with @curriculum_student, :location => {:action => "index"}
   end

@@ -28,6 +28,8 @@ gem 'sass'
 
 gem 'coffee-script'
 
+gem 'responders'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

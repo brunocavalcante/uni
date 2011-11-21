@@ -1,4 +1,5 @@
 class Professor::LectureStudentsController < ApplicationController
+  respond_to :html, :xml, :json
   before_filter :load_lecture
   
   def load_lecture
@@ -6,15 +7,16 @@ class Professor::LectureStudentsController < ApplicationController
   end
   
   def index
-    @lecture_students = LectureStudent.paginate :conditions => ['lecture_id = ?', params[:lecture_id]], 
-                                                :include => [{:student => :person}], 
-                                                :page => params[:page], 
-                                                :order => 'people.name ASC'
+    @lecture_students = @lecture.lecture_students.by_name.paginate :page => params[:page]
+    
+    respond_with @lecture_students
   end
   
   def show
     @lecture_student = LectureStudent.find params[:id]
     @month_absences = @lecture_student.month_absences
+    
+    respond_with @lecture_student
   end
   
   def edit
@@ -29,15 +31,8 @@ class Professor::LectureStudentsController < ApplicationController
   
   def update
     @lecture_student = LectureStudent.find(params[:id])
-
-    respond_to do |format|
-      if @lecture_student.update_attributes(params[:lecture_student])
-        format.html { redirect_to({:action => "show"}, :notice => I18n.t('StudentUpdated')) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @lecture_student.errors, :status => :unprocessable_entity }
-      end
-    end
+    @lecture_student.update_attributes(params[:lecture_student])
+    
+    respond_with @lecture_student, :location => {:action => :show}
   end
 end

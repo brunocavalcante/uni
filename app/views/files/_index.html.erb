@@ -1,5 +1,7 @@
 <h2><%= t 'Files' %></h2>
 
+<p id="notice"><%= notice %></p>
+
 <%= render :partial => 'form', :locals => {:submit_url => submit_url} %>
 
 <% if @files %>

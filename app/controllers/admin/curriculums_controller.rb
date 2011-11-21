@@ -41,8 +41,7 @@ class Admin::CurriculumsController < ApplicationController
   def create
     @curriculum = Curriculum.new(params[:curriculum])
     @curriculum.course = @course
-    
-    flash[:notice] = I18n.t('CurriculumCreated') if @curriculum.save
+    @curriculum.save
     
     respond_with @curriculum, :location => [:admin, @course, @curriculum]
   end
@@ -51,8 +50,7 @@ class Admin::CurriculumsController < ApplicationController
   # PUT /curriculums/1.xml
   def update
     @curriculum = Curriculum.find(params[:id])
-
-    flash[:notice] = I18n.t('CurriculumUpdated') if @curriculum.update_attributes(params[:curriculum])
+    @curriculum.update_attributes(params[:curriculum])
 
     respond_with @curriculum, :location => [:admin, @course, @curriculum]
   end
@@ -61,8 +59,7 @@ class Admin::CurriculumsController < ApplicationController
   # DELETE /curriculums/1.xml
   def destroy
     @curriculum = Curriculum.find(params[:id])
-    
-    flash[:notice] = I18n.t('CurriculumDeleted') if @curriculum.destroy
+    @curriculum.destroy
     
     respond_with @curriculum, :location => admin_course_curriculums_url(@course)
   end

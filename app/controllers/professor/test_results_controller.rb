@@ -11,13 +11,11 @@ class Professor::TestResultsController < ApplicationController
   end
   
   def load_students
-    @lecture_students = LectureStudent.all :conditions => ['lecture_id = ?', params[:lecture_id]], 
-                                           :include => [{:student => :person}], 
-                                           :order => ['people.name ASC']
+    @lecture_students = @lecture.lecture_students.by_name
                                            
     @test_results = TestResult.all  :conditions => ['test_id = ?', @test.id], 
-                                          :include => [{:lecture_student => {:student => :person}}], 
-                                          :order => ['people.name ASC']
+                                    :include => [{:lecture_student => {:student => :person}}], 
+                                    :order => ['people.name ASC']
                                           
     @results = {}
     
@@ -45,20 +43,8 @@ class Professor::TestResultsController < ApplicationController
     end
     
     @test.test_results = @test_results
+    @test.save
     
-    respond_to do |format|
-      if @test.save
-        format.html { redirect_to({:action => "index"}, :notice => I18n.t('TestUpdated')) }
-        format.xml  { render :xml => @lecture_result, :status => :created, :location => @lecture_result }
-      else
-        format.html {
-          @lecture_result.lecture_student_results.build
-          load_students
-          
-          render :action => "new"
-        }
-        format.xml  { render :xml => @lecture_result.errors, :status => :unprocessable_entity }
-      end
-    end
+    respond_with @test, :location => {:action => "index"}
   end
 end

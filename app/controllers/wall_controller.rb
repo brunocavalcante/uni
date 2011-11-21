@@ -20,20 +20,19 @@ class WallController < ApplicationController
   end
   
   def create
+    load_walls
+    
     @wall = Wall.new(params[:wall])
     @wall.message.person = @user
     @wall.lecture_id = params[:lecture_id]
-    
-    load_walls
-    flash[:notice] = I18n.t('WallCreated') if @wall.save
+    @wall.save
     
     respond_with @wall, :location => {:action => "index"}
   end
   
   def destroy
     @wall = Wall.find(params[:id])
-    
-    flash[:notice] = I18n.t('WallDeleted') if @wall.destroy
+    @wall.destroy
     
     respond_with @wall, :location => {:action => "index"}
   end

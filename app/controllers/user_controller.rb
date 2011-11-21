@@ -44,7 +44,7 @@ class UserController < ApplicationController
       end
       
       if @user.errors.size == 0 && @user.update_attributes(params[:user])
-        format.html { redirect_to({:action => 'index'}, :notice => I18n.t('UserUpdated')) }
+        format.html { redirect_to({:action => 'index'}, :notice => I18n.t('flash.user.update.notice')) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

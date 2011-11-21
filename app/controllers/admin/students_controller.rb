@@ -49,8 +49,7 @@ class Admin::StudentsController < ApplicationController
     @student = Student.new(params[:student])
     @student.person.password = Digest::MD5.hexdigest(@student.code)
     @student.person.roles = [Role.find_by_name('Student')]
-    
-    flash[:notice] = I18n.t('StudentCreated') if @student.save
+    @student.save
     
     respond_with @student, :location => [:admin, @student]
   end
@@ -60,8 +59,7 @@ class Admin::StudentsController < ApplicationController
     @student = Student.find_by_code(params[:id])
     @student.person.photo = nil if params[:delete_photo]
     @student.person.password = Digest::MD5.hexdigest(@student.code) if params[:reset_password]
-    
-    flash[:notice] = I18n.t('StudentUpdated') if @student.update_attributes(params[:student])
+    @student.update_attributes(params[:student])
     
     respond_with @student, :location => [:admin, @student]
   end
@@ -69,8 +67,7 @@ class Admin::StudentsController < ApplicationController
   # DELETE /students/1
   def destroy
     @student = Student.find_by_code(params[:id])
-    
-    flash[:notice] = I18n.t('StudentDeleted') if @student.destroy
+    @student.destroy
 
     respond_with @student, :location => admin_students_url
   end

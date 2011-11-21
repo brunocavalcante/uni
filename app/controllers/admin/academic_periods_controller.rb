@@ -30,8 +30,7 @@ class Admin::AcademicPeriodsController < ApplicationController
   # POST /academic_periods
   def create
     @academic_period = AcademicPeriod.new(params[:academic_period])
-    
-    flash[:notice] = I18n.t('AcademicPeriodCreated') if @academic_period.save
+    @academic_period.save
     
     respond_with @academic_period, :location => [:admin, @academic_period]
   end
@@ -39,8 +38,7 @@ class Admin::AcademicPeriodsController < ApplicationController
   # PUT /academic_periods/1
   def update
     @academic_period = AcademicPeriod.find(params[:id])
-
-    flash[:notice] = I18n.t('AcademicPeriodUpdated') if @academic_period.update_attributes(params[:academic_period])
+    @academic_period.update_attributes(params[:academic_period])
 
     respond_with @academic_period, :location => [:admin, @academic_period]
   end
@@ -48,7 +46,7 @@ class Admin::AcademicPeriodsController < ApplicationController
   # DELETE /academic_periods/1
   def destroy
     @academic_period = AcademicPeriod.find(params[:id])
-    flash[:notice] = I18n.t('AcademicPeriodDeleted') if @academic_period.destroy
+    @academic_period.destroy
 
     respond_with @academic_period, :location => admin_academic_periods_url
   end
