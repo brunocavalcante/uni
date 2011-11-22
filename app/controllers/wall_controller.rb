@@ -20,14 +20,15 @@ class WallController < ApplicationController
   end
   
   def create
-    load_walls
-    
     @wall = Wall.new(params[:wall])
     @wall.message.person = @user
     @wall.lecture_id = params[:lecture_id]
-    @wall.save
-    
-    respond_with @wall, :location => {:action => "index"}
+    if @wall.save
+      respond_with @wall, :location => {:action => "index"}
+    else
+      load_walls
+      render :index
+    end
   end
   
   def destroy

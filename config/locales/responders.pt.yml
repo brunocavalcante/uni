@@ -59,5 +59,9 @@ pt:
       lecture_students: *added_plural
       curriculum_disciplines: *added_plural_feminine
       curriculum_students: *added
+    professor:
+      wall: *feminine
+    student:
+      wall: *feminine
     
         

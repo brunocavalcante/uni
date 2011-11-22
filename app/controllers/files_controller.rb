@@ -19,27 +19,33 @@ class FilesController < ApplicationController
   end
   
   def create
-    load_files
+    
     
     @file = LectureFile.new(params[:lecture_file])
     @file.person = @user
     @file.lecture_id = params[:lecture_id]
-    @file.name = params[:file][:upload].original_filename
     
-    directory = "public/system/lecture_files/#{@lecture.id}"
+    if params[:file] && params[:file][:upload]
+      @file.name = params[:file][:upload].original_filename
+      
+      directory = "public/system/lecture_files/#{@lecture.id}"
+      
+      Dir.mkdir("public/system") unless File.exists?("public/system")
+      Dir.mkdir("public/system/lecture_files") unless File.exists?("public/system/lecture_files")
+      Dir.mkdir("public/system/lecture_files/#{@lecture.id}") unless File.exists?("public/system/lecture_files/#{@lecture.id}")
+      
+      # create the file path
+      path = File.join(directory, @file.name)
+      # write the file
+      File.open(path, "wb") { |f| f.write(params[:file][:upload].read) }
+    end
     
-    Dir.mkdir("public/system") unless File.exists?("public/system")
-    Dir.mkdir("public/system/lecture_files") unless File.exists?("public/system/lecture_files")
-    Dir.mkdir("public/system/lecture_files/#{@lecture.id}") unless File.exists?("public/system/lecture_files/#{@lecture.id}")
-    
-    # create the file path
-    path = File.join(directory, @file.name)
-    # write the file
-    File.open(path, "wb") { |f| f.write(params[:file][:upload].read) }
-    
-    @file.save
-    
-    respond_with @file, :location => {:action => "index"}
+    if @file.save
+      respond_with @file, :location => {:action => "index"}
+    else
+      load_files
+      render :index
+    end
   end
   
   def download

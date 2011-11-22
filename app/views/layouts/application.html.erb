@@ -48,6 +48,10 @@
     	<p id="notice"><%= notice %></p>
     	<% end %>
     	
+    	<% if alert %>
+    	<p id="alert"><%= alert %></p>
+    	<% end %>
+    	
       <% if session[:user] %>
       <div id="breadcrumbs">
         <%= get_bread_crumb(request.fullpath).html_safe %>

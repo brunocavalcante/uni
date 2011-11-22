@@ -243,6 +243,7 @@ pt:
       lecture_student: *student
       lesson: "Aula"
       lesson_absence: "Falta"
+      message: &message "Mensagem"
       person: &person "Usuário"
       professor: &professor "Professor"
       scholarity: &scholarity "Escolaridade"
@@ -296,6 +297,7 @@ pt:
       lecture_file:
         title: &title "Título"
         description: &description "Descrição"
+        name: "Arquivo"
       lecture_student:
         lecture_situation_id: "Situação Final"
         grade: "Nota Final"
@@ -310,7 +312,7 @@ pt:
         ammount: "Quantidade"
       message:
         subject: "Assunto"
-        content: "Mensagem"
+        content: *message
       person:
         name: *name
         email: "E-mail"
@@ -330,7 +332,10 @@ pt:
       transferred_discipline:
         discipline_id: *discipline
         grade: "Nota"
-        attendance: "Frequência" 
+        attendance: "Frequência"
+      wall:
+        message:
+          content: *message
   
   # Model Plurals
   Absences: &absences "Faltas"

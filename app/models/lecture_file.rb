@@ -6,6 +6,8 @@ class LectureFile < ActiveRecord::Base
   scope :with_person, includes(:person)
   scope :by_date, order('lecture_files.created_at DESC')
   
+  validates_presence_of :name
+  
   def title_or_name
     title != '' ? title : name
   end
