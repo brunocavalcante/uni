@@ -430,7 +430,6 @@ pt:
   AbsenceRegistry: "Lançamento de Faltas"
   LessonFrom: "Aula de"
   MaximumAbsencesExplanation: "Se este valor for zero, não haverá controle de frequencia para esta aula."
-  RegisterAbsences: "Lançar Faltas"
   ThisLessonDoesNotRequireYourPresence: "Esta aula não é presencial."
   
   # User Profile

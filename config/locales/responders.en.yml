@@ -1,10 +1,28 @@
 en:
+  added: &added
+    create:
+      notice: '%{resource_name} successfully added.'
+    update: *update
+    destroy: 
+      notice: '%{resource_name} successfully removed.'
+      alert: '%{resource_name} could not be removed.'
   flash:
     actions:
-      create:
+      create: &create
         notice: '%{resource_name} was successfully created.'
-      update:
+      update: &update
         notice: '%{resource_name} was successfully updated.'
-      destroy:
+      destroy: &destroy
         notice: '%{resource_name} was successfully destroyed.'
         alert: '%{resource_name} could not be destroyed.'
+    user:
+      update:
+        notice: "User successfully updated."
+    professor:
+      absences:
+        create:
+          notice: 'Absences successfully updated.'
+    admin:
+      lecture_students: *added
+      curriculum_disciplines: *added
+      curriculum_students: *added

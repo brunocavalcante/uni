@@ -14,348 +14,306 @@ en:
             curriculum_id: 
               active: "You cannot update this discipline, because its curriculum is active."
     models: 
-      academic_period: "Academic Period"
-      course: "Course"
-      course_category: "Course Category"
-      curriculum: "Curriculum"
-      curriculum_discipline: "Discipline"
-      curriculum_module: "Module"
-      curriculum_student: "Student"
-      discipline: "Discipline"
+      academic_period: &academic_period "Academic Period" 
+      course: &course "Course"
+      course_category: &course_category "Course Category"
+      curriculum: &curriculum "Curriculum"
+      curriculum_module: &curriculum_module "Module"
+      discipline: &discipline "Discipline"
+      message: &message "Message"
+      person: &person "User"
+      professor: &professor "Professor"
+      scholarity: &scholarity "Scholarity"
+      student: &student "Student"
+      
+      lecture_student: *student
+      curriculum_student: *student
+      curriculum_discipline: *discipline
+      
       lecture: "Class"
       lecture_file: "File"
       lecture_situation: "Situation"
-      lecture_student: "Student"
       lesson: "Lesson"
       lesson_absence: "Absence"
-      person: "User"
-      professor: "Professor"
-      scholarity: "Scholarity"
-      student: "Student"
-      test: "Rating"
+      test: "Test"
       transferred_discipline: "Transferred Discipline"
       wall: "Publication"
     attributes:
       academic_period:
-        name: "Name"
+        name: &name "Name" 
         start: "Classes"
         end: "Classes (End)"
         registration_start: "Registration"
         registration_end: "Registration (End)"
       course:
-        code: "Code"
-        name: "Name"
-        course_category_id: "Course Category"
+        code: &code "Code"
+        name: *name
+        course_category_id: *course_category
       course_category:
-        name: "Name"
+        name: *name
       curriculum:
-        code: "Code"
-        name: "Name"
-        active: "Active"
-        course_id: "Course"
+        code: *code
+        name: *name
+        active: &active "Active"
+        course_id: *course
       curriculum_discipline:
-        curriculum_id: "Curriculum"
-        discipline_id: "Discipline"
-        curriculum_module_id: "Module"
+        curriculum_id: *curriculum
+        discipline_id: *discipline
+        curriculum_module_id: *curriculum_module
         prerequisites: "Prerequisites"
       curriculum_module:
-        name: "Name"
+        name: *name
         order: "Order"
       curriculum_student:
-        student_id: "Student"
-        active: "Active"
-        curriculum_id: "Curriculum"
+        student_id: *student
+        active: *active
+        curriculum_id: *curriculum
         created_at: "Entrance Date"
       discipline:
-        code: "Code"
-        name: "Name"
+        code: *code
+        name: *name
         version: "Version"
         credits: "Credits"
-        course_id: "Course"
+        course_id: *course
         syllabus: "Syllabus"
         equivalents: "Equivalents"
       lecture:
-        code: "Code"
+        code: *code
         places: "Places"
-        discipline_id: "Discipline"
+        discipline_id: *discipline
       lecture_file:
-        title: "Title"
-        description: "Description"
+        title: &title "Title"
+        description: &description "Description"
+        name: "Arquivo"
       lecture_student:
         lecture_situation_id: "Final Situation"
         grade: "Final Grade"
         attendance: "Final Attendance"
       lesson:
-        title: "Title"
-        date: "Date"
-        description: "Description"
+        title: *title
+        date: &date "Date"
+        description: *description
         maximum_absences: "Maximum number of absences per student"
       lesson_absence:
-        lecture_student_id: "Student"
+        lecture_student_id: *student
         ammount: "Ammount"
       message:
         subject: "Subject"
-        content: "Message"
+        content: *message
       person:
-        name: "Name"
+        name: *name
         email: "Email"
       professor:
-        scholarity_id: "Scholarity"
+        scholarity_id: *scholarity
       scholarity:
-        name: "Name"
+        name: *name
       student:
-        code: "Code"
+        code: "Student ID"
       test:
-        name: "Name"
-        date: "Date"
+        name: *name
+        date: *date
       test_result:
-        lecture_student_id: "Student"
+        lecture_student_id: *student
         rating: "Grade"
-        date: "Date"
+        date: *date
       transferred_discipline:
-        discipline_id: "Discipline"
+        discipline_id: *discipline
         grade: "Grade"
-        attendance: "Attendance" 
+        attendance: "Attendance"
+      wall:
+        message:
+          content: *message
   
   # Model Plurals
-  Absences: "Absences"
-  AcademicPeriods: "Academic Periods"
-  Courses: "Courses"
-  CourseCategories: "Course Categories"
-  Curriculums: "Grades Curriculares"
-  CurriculumModules: "Modules"
-  Disciplines: "Disciplines"
-  Lectures: "Classes"
-  Lessons: "Lessons"
-  Files: "Files"
-  Messages: "Messages"
-  Professors: "Professors"
-  Scholarities: "Scholarities"
-  Students: "Students"
-  Tests: "Tests"
-  TransferredDisciplines: "Transferred Disciplines"
-  
-  # Model Flash Notices
-  AcademicPeriodCreated: "Academic Period successfully created."
-  AcademicPeriodUpdated: "Academic Period successfully updated."
-  AcademicPeriodDeleted: "Academic Period successfully deleted."
-  DisciplineCreated: "Disciplina criada com sucesso."
-  DisciplineUpdated: "Disciplina atualizada com sucesso."
-  DisciplineDeleted: "Disciplina excluída com sucesso."
-  CourseCreated: "Curso criado com sucesso."
-  CourseUpdated: "Curso atualizado com sucesso."
-  CourseDeleted: "Curso excluído com sucesso."
-  CourseCategoryCreated: "Categoria de Curso criada com sucesso."
-  CourseCategoryUpdated: "Categoria de Curso atualizada com sucesso."
-  CourseCategoryDeleted: "Categoria de Curso excluída com sucesso."
-  CurriculumCreated: "Grade Curricular criada com sucesso."
-  CurriculumUpdated: "Grade Curricular atualizada com sucesso."
-  CurriculumDeleted: "Grade Curricular excluída com sucesso."
-  CurriculumDisciplineUpdated: "Disciplina atualizada com sucesso."
-  CurriculumDisciplineDeleted: "Disciplina removida da grade curricular com sucesso."
-  CurriculumDisciplinesAdded: "Disciplinas adicionadas à grade curricular com sucesso."
-  CurriculumModuleCreated: "Módulo criado com sucesso."
-  CurriculumModuleUpdated: "Módulo atualizado com sucesso."
-  CurriculumModuleDeleted: "Módulo excluído com sucesso."
-  CurriculumStudentAdded: "Aluno adicionado ao curso com sucesso."
-  CurriculumStudentRemoved: "Aluno removido do curso com sucesso."
-  LectureCreated: "Turma criada com sucesso."
-  LectureUpdated: "Turma atualizada com sucesso."
-  LectureDeleted: "Turma excluída com sucesso."
-  LectureFileCreated: "Arquivo criado com sucesso."
-  LectureFileDeleted: "Arquivo excluído com sucesso."
-  LectureStudentsAdded: "Alunos adicionados à turma com sucesso."
-  LectureStudentRemoved: "Alunos removidos da turma com sucesso."
-  LessonCreated: "Aula criada com sucesso."
-  LessonUpdated: "Aula atualizada com sucesso."
-  LessonDeleted: "Aula excluída com sucesso."
-  LessonAbsencesUpdated: "Faltas atualizadas com sucesso."
-  ProfessorCreated: "Professor criado com sucesso."
-  ProfessorUpdated: "Professor atualizado com sucesso."
-  ProfessorDeleted: "Professor excluído com sucesso."
-  StudentCreated: "Aluno criado com sucesso."
-  StudentUpdated: "Aluno atualizado com sucesso."
-  StudentDeleted: "Aluno excluído com sucesso."
-  ScholarityCreated: "Escolaridade criada com sucesso."
-  ScholarityUpdated: "Escolaridade atualizada com sucesso."
-  ScholarityDeleted: "Escolaridade excluída com sucesso."
-  TestCreated: "Avaliação criada com sucesso."
-  TestUpdated: "Avaliação atualizada com sucesso."
-  TestDeleted: "Avaliação excluída com sucesso."
-  TransferredDisciplineCreated: "Disciplina Aproveitada criada com sucesso."
-  TransferredDisciplineUpdated: "Disciplina Aproveitada atualizada com sucesso."
-  TransferredDisciplineDeleted: "Disciplina Aproveitada excluída com sucesso."
-  WallCreated: "Publicação realizada com sucesso."
-  WallDeleted: "Publicação excluída com sucesso."
+  Absences: &absences "Absences"
+  AcademicPeriods: &academic_periods "Academic Periods"
+  Courses: &courses "Courses"
+  CourseCategories: &course_categories "Course Categories"
+  Curriculums: &curriculums "Curriculums"
+  CurriculumModules: &curriculum_modules "Modules"
+  Disciplines: &disciplines "Disciplines"
+  Lectures: &lectures "Classes"
+  Lessons: &lessons "Lessons"
+  Files: &files "Files"
+  Messages: &messages "Messages"
+  Professors: &professors "Professors"
+  Scholarities: &scholarities "Scholarities"
+  Students: &students "Students"
+  Tests: &tests "Tests"
+  Test_Results: &test_results "Results"
+  TransferredDisciplines: &transferred_disciplines "Transferred Disciplines"
   
   # Menu - Login
-  Start: "Início"
-  About: "Sobre"
+  Start: "Start"
+  About: "About"
   
   # Login Screen
-  Welcome: "Bem-vindo!"
-  EmailOrStudentId: "E-mail ou Matrícula"
-  Password: "Senha"
-  LogIn: "Entrar"
-  ForgotYourPassword: "Esqueceu a senha?"
-  UserPasswordNotFound: "Usuário/Senha não encontrados"
-  PasswordRecovery: "Recuperação de Senha"
-  SendMeMyPassword: "Envie-me a minha senha"
+  Welcome: "Welcome!"
+  EmailOrStudentId: "Email or Student ID"
+  Password: "Password"
+  LogIn: "Log In"
+  ForgotYourPassword: "Forgot your password?"
+  UserPasswordNotFound: "Username/Password not found"
+  PasswordRecovery: "Password Recovery"
+  SendMeMyPassword: "Send me my password"
   
   # Profiles
-  Professor: "Professor"
-  Student: "Aluno"
-  Administrator: "Administrador"
+  Professor: *professor
+  Student: *student
+  Administrator: "Administrator"
   
   # Layout
-  UniversityManagementSystem: "Plataforma de Gestão Acadêmica"
-  LoggedInAs: "Logado como"
-  SwitchRole: "Trocar perfil"
-  Role: "Perfil"
-  Logout: "Sair"
-  ThisWorkIsLicensedUnderALicense: "Este trabalho está licenciado sob a licença"
+  UniversityManagementSystem: "University Management Platform"
+  LoggedInAs: "Logged in as"
+  SwitchRole: "Switch perfile"
+  Role: "Role"
+  Logout: "Logout"
+  ThisWorkIsLicensedUnderALicense: "This work is licensed under the license"
   
   # Toolbar Defaults
-  New: "Criar"
-  Edit: "Editar"
-  Back: "Voltar"
-  Show: "Exibir"
-  Delete: "Excluir"
-  AreYouSure: "Tem certeza disso?"
-  Add: "Adicionar"
-  Remove: "Remover"
-  AddAnother: "Adicionar outro"
+  New: &new "New"
+  Edit: &edit "Edit"
+  Back: "Back"
+  Show: "Show"
+  Delete: "Delete"
+  AreYouSure: "Are you sure?"
+  Add: "Add"
+  Remove: "Remove"
+  AddAnother: "Add another"
   
   # Administration Home Page
-  ThisIsTheAdministrationArea: "Esta é a área de administração do sistema."
-  SystemInformation: "Informações do Sistema"
-  UniVersion: "Versão do Sistema"
-  RailsVersion: "Versão do Rails"
-  RubyVersion: "Versão do Ruby"
-  
-  # User Profile
-  CurrentCourses: "Cursos atuais"
-  CurrentClasses: "Turmas atuais"
+  ThisIsTheAdministrationArea: "This is the system administration area."
+  SystemInformation: "System Information"
+  UniVersion: "System Version"
+  RailsVersion: "Rails Version"
+  RubyVersion: "Ruby Version"
   
   # Password Update
-  ChangePassword: "Alterar Senha"
-  CurrentPassword: "Senha Atual"
-  NewPassword: "Nova Senha"
-  Repeat: "Repita"
-  PleaseRepeatNewPassword: "Por favor, repita a nova senha corretamente."
-  ResetPassword: "Redefinir a Senha?"
-  PasswordWillBeTheProfessorEmail: "A nova senha será o email do professor."
-  PasswordWillBeTheStudentCode: "A nova senha será a matrícula do aluno."
+  ChangePassword: "Change Password"
+  CurrentPassword: "Current Password"
+  NewPassword: "New Password"
+  Repeat: "Repeat"
+  PleaseRepeatNewPassword: "Please, repeat the new password correctly."
+  ResetPassword: "Reset Password?"
+  PasswordWillBeTheProfessorEmail: "The new password will be the professor's email."
+  PasswordWillBeTheStudentCode: "The new password will be the Student ID."
   
   # Situations
-  Finished: "Encerrada"
-  InProgress: "Em Andamento"
+  Finished: "Finished"
+  InProgress: "In Progress"
   
   # Student Situations
-  Approved: "Aprovado"
-  Disapproved: "Reprovado"
-  Disapproved by Attendance: "Reprovado por Faltas"
-  TransferredDisciplineSituation: "Aproveitamento"
+  Approved: "Approved"
+  Disapproved: "Disapproved"
+  Disapproved by Attendance: "Disapproved by Attendance"
+  TransferredDisciplineSituation: "Transferred"
+  
+  # Updates
+  DeleteThisFile: "Delete this file"
+  DeleteThisPublication: "Delete this publication"
+  LatestUpdates: "Latest Updates"
+  NoUpdatesAvailable: "Sorry, we have no updates for you. :("
+  UploadedANewFile: "sent a new file"
+  
+  # Lesson
+  AbsenceRegistry: "Absence Registry"
+  LessonFrom: "Lesson from "
+  MaximumAbsencesExplanation: "If this value equals zero, there will be no absence registry for this lesson."
+  ThisLessonDoesNotRequireYourPresence: "This lesson is not presential."
+  
+  # User Profile
+  CurrentCourses: "Current Courses"
+  CurrentClasses: "Current Classes"
+  DeleteCurrentPhoto: "Delete current picture?"
+  Name: *name
+  Photo: "Photo"
+  PhotoWillBeResizedTo180x240Px: "The photo will be resized to 180x240px."
+  Profile: "Profile"
+  ThisStudentIsNotRegisteredInAnyCourse: "This student is not registered in any course."
+  Url: "URL"
+  
+  # Reports
+  CurrentTestsAndAbscences: "Current Tests and Absences"
+  NextEvents: "Next Events"
+  PleaseChooseReportFromTheMenu: "Please, choose the desired report from the menu on your left."
+  Reports: &reports "Reports"
+  Schedule: &schedule "Schedule"
+  TimeTable: &timetable "Timetable"
+  Transcripts: &transcripts "Transcripts"
+  
+  # Lecture
+  ClassCode: "Class Code"
+  FinishDiscipline: "Finish Discipline"
+  GeneralInformation: "General Information"
+  TestsAndAbscences: &tests_and_absences "Tests and Absences"
+  TimeTableAdminNotice: "If the timetable is informed, the system will not allow a student to register for two classes that share the same timetable."
+  Wall: &wall "Wall"
+  WallPublications: "Wall Publications"
+  YouAreInactiveInThisCourse: "Sorry, your registration in the course \"%{course}\" is inactive."
+  YouDontHaveAccessToThisLecture: "Sorry, you don't have access to this class."
+  
+  # Parameters
+  Locale: "Locale"
+  Parameters: &parameters "Parameters"
+  System: "System"
+  
+  # Course/Curriculums
+  AddDisciplineToCurriculum: "Add Discipline to the Curriculum"
+  
+  # Academic Periods
+  InformationOfAbsenceOfRegistrationPeriod: "If the registration period is not informed, the registration won't be open to the students."
+  Registration: "Registration"
   
   # Other Translations
-  AbsenceRegistry: "Lançamento de Faltas"
-  AddDiscipline: "Adicionar Disciplina"
-  AddDisciplineFromAnotherCourse: "Adicionar Disciplina de outro Curso"
-  AddDisciplineToCurriculum: "Adicionar Disciplina à Grade Curricular"
-  AddSelected: "Adicionar Itens Selecionados"
-  BooleanNo: "Não"
-  BooleanYes: "Sim"
-  ClassCode: "Código da Turma"
-  CurrentTestsAndAbscences: "Notas e Faltas Atuais"
-  DeleteCurrentPhoto: "Excluir foto atual?"
-  DeleteThisFile: "Excluir este arquivo"
-  DeleteThisPublication: "Excluir esta publicação"
-  Details: "Detalhes"
-  Editing: "Editando"
-  EntranceDate: "Data de Ingresso"
-  FinalGrade: "Nota Final"
-  FinalAttendance: "Frequência Final"
-  FinalSituation: "Situação Final"
-  FinishDiscipline: "Concluir Disciplina"
-  GeneralInformation: "Dados Gerais"
-  Home: "Página Inicial"
-  InformationOfAbsenceOfRegistrationPeriod: "Se o período de matrícula não for informado, a matrícula não será aberta para os estudantes."
-  IsActive: "Ativo?"
-  LastMessages: "Últimas Mensagens"
-  LastFiles: "Últimos Arquivos"
-  LatestUpdates: "Últimas Atualizações"
-  LessonFrom: "Aula de"
-  Locale: "Idioma"
-  MaximumAbsencesExplanation: "Se este valor for zero, não haverá controle de frequencia para esta aula."
-  Name: "Nome"
-  NewWallPublication: "Nova Publicação no Mural"
-  NextEvents: "Próximos Eventos"
-  NoUpdatesAvailable: "Não encontramos nenhuma atualização para você. :("
-  Parameters: "Parâmetros"
-  Photo: "Foto"
-  PhotoWillBeResizedTo180x240Px: "A foto será redimensionada para 180x240px."
-  PleaseChooseReportFromTheMenu: "Por favor, escolha o relatório desejado do menu à esquerda."
-  Profile: "Perfil"
-  RegisterAbsences: "Lançar Faltas"
-  Registration: "Matrícula"
-  Reports: "Relatórios"
-  Results: "Resultados"
-  Schedule: "Horário"
-  Search: "Buscar"
-  Situation: "Situação"
+  AddSelected: "Add Selected Items"
+  BooleanNo: "No"
+  BooleanYes: "Yes"
+  Details: &details "Details"
+  Editing: "Editing"
+  Home: "Home"
+  IsActive: "Active?"
+  Search: "Search"
   Status: "Status"
-  StudentSchedule: "Agenda"
-  System: "Sistema"
-  TestsAndAbscences: "Notas e Faltas"
-  ThisLessonDoesNotRequireYourPresence: "Esta aula não é presencial."
-  ThisStudentIsNotRegisteredInAnyCourse: "Este estudante não está matriculado em nenhum curso."
-  TimeOn: "em"
-  TimeTable: "Quadro de Horários"
-  TimeTableAdminNotice: "Se o quadro de horários for informado, o sistema não irá permitir que um aluno se matricule em duas turmas que compartilham um mesmo horário."
-  Transcripts: "Histórico Escolar"
-  until: "até"
-  Upload: "Enviar"
-  UploadedANewFile: "enviou um novo arquivo"
-  Url: "URL"
-  Wall: "Mural"
-  WallPublications: "Publicações no Mural"
-  YouAreInactiveInThisCourse: "Desculpe, seu cadastro no curso \"%{course}\" está inativo."
-  YouDontHaveAccessToThisLecture: "Desculpe, você não possui acesso à esta turma."
+  TimeOn: "on"
+  until: "until"
+  Upload: "Upload"
   
   url:
-    absences: "Faltas"
-    academic_periods: "Períodos Letivos"
-    admin: "Administração"
-    classes: "Turmas"
-    course_categories: "Categorias de Curso"
-    courses: "Cursos"
-    curriculums: "Grades Curriculares"
-    curriculum_disciplines: "Disciplinas"
-    curriculum_modules: "Módulos"
-    curriculum_students: "Alunos"
-    details: "Detalhes"
-    disciplines: "Disciplinas"
-    edit: "Editar"
-    files: "Arquivos"
-    lectures: "Turmas"
-    lecture_students: "Alunos"
-    lessons: "Aulas"
-    messages: "Mensagens"
-    new: "Adicionar"
-    parameters: "Parâmetros"
-    professor: "Professor"
-    professors: "Professores"
-    reports: "Relatórios"
-    scholarities: "Escolaridades"
-    schedule: "Agenda"
-    student: "Aluno"
-    students: "Alunos"
-    test_results: "Resultados"
-    tests: "Avaliações"
-    tests_and_abscences: "Notas e Faltas"
-    timetable: "Quadro de Horários"
-    transcripts: "Histórico Escolar"
-    transferred_disciplines: "Disciplinas Aproveitadas"
+    absences: *absences
+    academic_periods: *academic_periods
+    admin: "Administration"
+    course_categories: *course_categories
+    courses: *courses
+    curriculums: *curriculums
+    curriculum_disciplines: *disciplines
+    curriculum_modules: *curriculum_modules
+    curriculum_students: *students
+    details: *details
+    disciplines: *disciplines
+    edit: *edit
+    files: *files
+    lectures: *lectures
+    lecture_students: *students
+    lessons: *lessons
+    new: *new
+    parameters: *parameters
+    professor: *professor
+    professors: *professors
+    reports: *reports
+    scholarities: *scholarities
+    schedule: *schedule
+    student: *student
+    students: *students
+    test_results: *test_results
+    tests: *tests
+    tests_and_abscences: *tests_and_absences
+    timetable: *timetable
+    transcripts: *transcripts
+    transferred_disciplines: *transferred_disciplines
     uni: "Uni"
-    user: "Usuário"
-    wall: "Mural"
+    user: *person
+    wall: *wall
+    
+  will_paginate:
+    previous_label: "&larr; Previous Page"
+    next_label: "Next Page &rarr;"
