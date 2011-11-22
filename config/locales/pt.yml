@@ -204,10 +204,6 @@ pt:
       odd: "deve ser ímpar"
       even: "deve ser par"
 
-  will_paginate:
-    previous_label: "&larr; Página Anterior"
-    next_label: "Próxima Página &rarr;"
-
   activerecord:
     errors:
       template:
@@ -233,21 +229,23 @@ pt:
       course: &course "Curso"
       course_category: &course_category "Categoria de Curso"
       curriculum: &curriculum "Grade Curricular"
-      curriculum_discipline: *discipline
       curriculum_module: &curriculum_module "Módulo"
-      curriculum_student: "Aluno"
       discipline: &discipline "Disciplina"
-      lecture: "Turma"
-      lecture_file: "Arquivo"
-      lecture_situation: "Situação"
-      lecture_student: *student
-      lesson: "Aula"
-      lesson_absence: "Falta"
       message: &message "Mensagem"
       person: &person "Usuário"
       professor: &professor "Professor"
       scholarity: &scholarity "Escolaridade"
       student: &student "Aluno"
+      
+      lecture_student: *student
+      curriculum_student: *student
+      curriculum_discipline: *discipline
+      
+      lecture: "Turma"
+      lecture_file: "Arquivo"
+      lecture_situation: "Situação"
+      lesson: "Aula"
+      lesson_absence: "Falta"
       test: "Avaliação"
       transferred_discipline: "Disciplina Aproveitada"
       wall: "Publicação"
@@ -401,10 +399,6 @@ pt:
   RailsVersion: "Versão do Rails"
   RubyVersion: "Versão do Ruby"
   
-  # User Profile
-  CurrentCourses: "Cursos atuais"
-  CurrentClasses: "Turmas atuais"
-  
   # Password Update
   ChangePassword: "Alterar Senha"
   CurrentPassword: "Senha Atual"
@@ -425,64 +419,76 @@ pt:
   Disapproved by Attendance: "Reprovado por Faltas"
   TransferredDisciplineSituation: "Aproveitamento"
   
-  # Other Translations
-  AbsenceRegistry: "Lançamento de Faltas"
-  AddDiscipline: "Adicionar Disciplina"
-  AddDisciplineFromAnotherCourse: "Adicionar Disciplina de outro Curso"
-  AddDisciplineToCurriculum: "Adicionar Disciplina à Grade Curricular"
-  AddSelected: "Adicionar Itens Selecionados"
-  BooleanNo: "Não"
-  BooleanYes: "Sim"
-  ClassCode: "Código da Turma"
-  CurrentTestsAndAbscences: "Notas e Faltas Atuais"
-  DeleteCurrentPhoto: "Excluir foto atual?"
+  # Updates
   DeleteThisFile: "Excluir este arquivo"
   DeleteThisPublication: "Excluir esta publicação"
-  Details: &details "Detalhes"
-  Editing: "Editando"
-  FinalGrade: "Nota Final"
-  FinalAttendance: "Frequência Final"
-  FinalSituation: "Situação Final"
-  FinishDiscipline: "Concluir Disciplina"
-  GeneralInformation: "Dados Gerais"
-  Home: "Página Inicial"
-  InformationOfAbsenceOfRegistrationPeriod: "Se o período de matrícula não for informado, a matrícula não será aberta para os estudantes."
-  IsActive: "Ativo?"
   LatestUpdates: "Últimas Atualizações"
-  LessonFrom: "Aula de"
-  Locale: "Idioma"
-  MaximumAbsencesExplanation: "Se este valor for zero, não haverá controle de frequencia para esta aula."
-  Name: *name
-  NewWallPublication: "Nova Publicação no Mural"
-  NextEvents: "Próximos Eventos"
   NoUpdatesAvailable: "Não encontramos nenhuma atualização para você. :("
-  Parameters: &parameters "Parâmetros"
+  UploadedANewFile: "enviou um novo arquivo"
+  
+  # Lesson
+  AbsenceRegistry: "Lançamento de Faltas"
+  LessonFrom: "Aula de"
+  MaximumAbsencesExplanation: "Se este valor for zero, não haverá controle de frequencia para esta aula."
+  RegisterAbsences: "Lançar Faltas"
+  ThisLessonDoesNotRequireYourPresence: "Esta aula não é presencial."
+  
+  # User Profile
+  CurrentCourses: "Cursos atuais"
+  CurrentClasses: "Turmas atuais"
+  DeleteCurrentPhoto: "Excluir foto atual?"
+  Name: *name
   Photo: "Foto"
   PhotoWillBeResizedTo180x240Px: "A foto será redimensionada para 180x240px."
-  PleaseChooseReportFromTheMenu: "Por favor, escolha o relatório desejado do menu à esquerda."
   Profile: "Perfil"
-  RegisterAbsences: "Lançar Faltas"
-  Registration: "Matrícula"
-  Reports: &reports "Relatórios"
-  Search: "Buscar"
-  Status: "Status"
-  Schedule: &schedule "Agenda"
-  System: "Sistema"
-  TestsAndAbscences: &tests_and_absences "Notas e Faltas"
-  ThisLessonDoesNotRequireYourPresence: "Esta aula não é presencial."
   ThisStudentIsNotRegisteredInAnyCourse: "Este estudante não está matriculado em nenhum curso."
-  TimeOn: "em"
-  TimeTable: &timetable "Quadro de Horários"
-  TimeTableAdminNotice: "Se o quadro de horários for informado, o sistema não irá permitir que um aluno se matricule em duas turmas que compartilham um mesmo horário."
-  Transcripts: &transcripts "Histórico Escolar"
-  until: "até"
-  Upload: "Enviar"
-  UploadedANewFile: "enviou um novo arquivo"
   Url: "URL"
+  
+  # Reports
+  CurrentTestsAndAbscences: "Notas e Faltas Atuais"
+  NextEvents: "Próximos Eventos"
+  PleaseChooseReportFromTheMenu: "Por favor, escolha o relatório desejado do menu à esquerda."
+  Reports: &reports "Relatórios"
+  Schedule: &schedule "Agenda"
+  TimeTable: &timetable "Quadro de Horários"
+  Transcripts: &transcripts "Histórico Escolar"
+  
+  # Lecture
+  ClassCode: "Código da Turma"
+  FinishDiscipline: "Concluir Disciplina"
+  GeneralInformation: "Dados Gerais"
+  TestsAndAbscences: &tests_and_absences "Notas e Faltas"
+  TimeTableAdminNotice: "Se o quadro de horários for informado, o sistema não irá permitir que um aluno se matricule em duas turmas que compartilham um mesmo horário."
   Wall: &wall "Mural"
   WallPublications: "Publicações no Mural"
   YouAreInactiveInThisCourse: "Desculpe, seu cadastro no curso \"%{course}\" está inativo."
   YouDontHaveAccessToThisLecture: "Desculpe, você não possui acesso à esta turma."
+  
+  # Parameters
+  Locale: "Idioma"
+  Parameters: &parameters "Parâmetros"
+  System: "Sistema"
+  
+  # Course/Curriculums
+  AddDisciplineToCurriculum: "Adicionar Disciplina à Grade Curricular"
+  
+  # Academic Periods
+  InformationOfAbsenceOfRegistrationPeriod: "Se o período de matrícula não for informado, a matrícula não será aberta para os estudantes."
+  Registration: "Matrícula"
+  
+  # Other Translations
+  AddSelected: "Adicionar Itens Selecionados"
+  BooleanNo: "Não"
+  BooleanYes: "Sim"
+  Details: &details "Detalhes"
+  Editing: "Editando"
+  Home: "Página Inicial"
+  IsActive: "Ativo?"
+  Search: "Buscar"
+  Status: "Status"
+  TimeOn: "em"
+  until: "até"
+  Upload: "Enviar"
   
   url:
     absences: *absences
@@ -519,3 +525,7 @@ pt:
     uni: "Uni"
     user: *person
     wall: *wall
+    
+  will_paginate:
+    previous_label: "&larr; Página Anterior"
+    next_label: "Próxima Página &rarr;"

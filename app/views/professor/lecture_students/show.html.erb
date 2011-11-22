@@ -16,16 +16,20 @@
 	
 	<% if @lecture_student.lecture_situation_id %>
 	<p>
-		<b><%= t 'FinalGrade' %>:</b> <%= @lecture_student.grade %>
+		<b><%= t 'activerecord.attributes.lecture_student.grade' %>:</b> 
+		<%= @lecture_student.grade %>
 	</p>
 	
 	<p>
-		<b><%= t 'FinalAttendance' %>:</b> <%= @lecture_student.attendance %>%
+		<b><%= t 'activerecord.attributes.lecture_student.attendance' %>:</b> 
+		<%= @lecture_student.attendance %>%
 	</p>
 	<% end %>
 	
+	<% if @tests_and_results -%>
 	<h3><%= t 'Tests' %></h3>
 	<%= render :partial => 'lectures/tests' %>
+	<% end %>
 	
 	<h3><%= t 'Absences' %></h3>
 	<%= render :partial => 'lectures/absences' %>

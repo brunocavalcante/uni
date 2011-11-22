@@ -22,15 +22,18 @@
   
   <% if @lecture_student.lecture_situation_id %>
   <p>
-  	<b><%= t 'FinalSituation' %>:</b> <%= t @lecture_student.lecture_situation.name %>
+  	<b><%= t 'activerecord.attributes.lecture_student.lecture_situation_id' %>:</b> 
+  	<%= t @lecture_student.lecture_situation.name %>
   </p>
   
   <p>
-  	<b><%= t 'FinalGrade' %>:</b> <%= t @lecture_student.grade %>
+  	<b><%= t 'activerecord.attributes.lecture_student.grade' %>:</b> 
+  	<%= t @lecture_student.grade %>
   </p>
   
   <p>
-  	<b><%= t 'FinalAttendance' %>:</b> <%= t @lecture_student.attendance %>%
+  	<b><%= t 'activerecord.attributes.lecture_student.attendance' %>:</b> 
+  	<%= t @lecture_student.attendance %>%
   </p>
   <% end %>
   
