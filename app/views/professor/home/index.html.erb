@@ -1,12 +1,4 @@
 <h1><%= t 'Welcome'%></h1>
 
-<% if notice %>
-<p id="notice"><%= t notice %></p>
-<% end %>
-
-<% if alert %>
-<p id="alert"><%= t alert %></p>
-<% end %>
-
 <h3><%= t 'LatestUpdates' %></h3>
 <%= render :partial => 'lectures/updates' %>

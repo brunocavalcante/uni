@@ -197,6 +197,10 @@ img.thumb {
   article {
     float: left;
     width: 75%;
+    
+    h2 {
+      padding-bottom: 0.2em;
+    }
   }
   
   aside {
@@ -359,16 +363,25 @@ table.grid tbody td {
   font-size: $font-smaller;
 }
 
-/* Essas classes são do scaffold do Ruby - Depois ajeitamos. */
-#notice:first-line, #alert:first-line {
-  padding: 1% 2%;
+/* Notices and Alerts */
+#notice, #alert {
+  margin-top: 0;
+  border-width: 1px 0;
+  border-color: #DDD;
+  border-style: solid;
+  padding: 0.5em 1.5em;
 }
+
 #notice {
-  color: darkgreen;
+  color: #000;
+  background: #F6F4DA;
 }
 #alert {
-  color: red;
+  background: #FFCCCC;
+  color: darkred;
 }
+
+/* Validations */
 .field_with_errors {
   padding: 2px;
   background-color: red;

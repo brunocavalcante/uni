@@ -9,10 +9,9 @@
 		</ul>
 	</header>
 	
-	<p id="notice"><%= notice %></p>
-	
 	<p>
-		<b><%= t 'Situation' %>:</b> <%= @lecture_student.lecture_situation_id ? (t @lecture_student.lecture_situation.name) : (t 'InProgress') %>
+		<b><%= t 'activerecord.attributes.lecture_student.lecture_situation_id' %>:</b> 
+		<%= @lecture_student.lecture_situation_id ? (t @lecture_student.lecture_situation.name) : (t 'InProgress') %>
 	</p>
 	
 	<% if @lecture_student.lecture_situation_id %>

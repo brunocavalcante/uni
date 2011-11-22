@@ -2,50 +2,42 @@ pt:
   added: &added
     create:
       notice: '%{resource_name} adicionado com sucesso.'
-    update:
-      notice: '%{resource_name} atualizado com sucesso.'
-    destroy:
-      notice: '%{resource_name} removido com sucesso.'
-      alert: '%{resource_name} nâo pôde ser removido.'
-  added_plural: &added_plural
-    create:
-      notice: '%{resource_name} adicionados com sucesso.'
-    update:
-      notice: '%{resource_name} atualizado com sucesso.'
-    destroy:
+    update: *update
+    destroy: &added_destroy
       notice: '%{resource_name} removido com sucesso.'
       alert: '%{resource_name} nâo pôde ser removido.'
   added_feminine: &added_feminine
     create:
       notice: '%{resource_name} adicionada com sucesso.'
-    update:
-      notice: '%{resource_name} atualizada com sucesso.'
-    destroy:
+    update: *feminine_update
+    destroy: &added_feminine_destroy
       notice: '%{resource_name} removida com sucesso.'
       alert: '%{resource_name} nâo pôde ser removida.'
+  added_plural: &added_plural
+    create:
+      notice: '%{resource_name} adicionados com sucesso.'
+    update: *update
+    destroy: *added_destroy
   added_plural_feminine: &added_plural_feminine
     create:
       notice: '%{resource_name} adicionadas com sucesso.'
-    update:
-      notice: '%{resource_name} atualizada com sucesso.'
-    destroy:
-      notice: '%{resource_name} removida com sucesso.'
-      alert: '%{resource_name} nâo pôde ser removida.'
+    update: *feminine_update
+    destroy: *added_feminine_destroy
   feminine: &feminine
-    create:
+    create: &feminine_create
       notice: '%{resource_name} criada com sucesso.'
-    update:
+    update: &feminine_update
       notice: '%{resource_name} atualizada com sucesso.'
-    destroy:
+    destroy: &feminine_destroy
       notice: '%{resource_name} excluída com sucesso.'
       alert: '%{resource_name} nâo pôde ser excluída.'
   flash:
     actions:
-      create:
+      create: &create
         notice: '%{resource_name} criado com sucesso.'
-      update:
+      update: &update
         notice: '%{resource_name} atualizado com sucesso.'
-      destroy:
+      destroy: &destroy
         notice: '%{resource_name} excluído com sucesso.'
         alert: '%{resource_name} nâo pôde ser excluído.'
     user:

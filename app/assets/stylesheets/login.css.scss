@@ -33,3 +33,10 @@ aside#login-splash {
 #login #password {
   background-image: url('/assets/icons/lock.png');
 }
+
+#login #notice, #login #alert {
+  background: none;
+  border-width: 0px;
+  padding: 0;
+  margin-top: 1em;
+}
