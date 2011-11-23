@@ -4,9 +4,9 @@
   <header>
     <h2><%= t 'activerecord.models.scholarity' %></h2>
     <ul id="toolbar">
+      <li><%= link_to (t 'Back'), {:action => 'index'}, :class => 'back' %></li>
       <li><%= link_to (t 'Edit'), {:action => 'edit', :id => @scholarity.id}, :class => 'edit' %></li>
       <li><%= button_to (t 'Delete'), [:admin, @scholarity], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
-      <li><%= link_to (t 'Back'), {:action => 'index'}, :class => 'back' %></li>
     </ul>
   </header>
 

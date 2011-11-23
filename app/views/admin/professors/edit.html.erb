@@ -1,8 +1,7 @@
 <header>
   <h1><%= t 'Editing' %> <%= t 'activerecord.models.professor' %></h1>
   <ul id="toolbar">
-    <li><%= link_to (t 'Show'), [:admin, @professor], :class => 'show' %></li>
-    <li><%= link_to (t 'Back'), admin_professors_path, :class => 'back' %></li>
+    <li><%= link_to (t 'Back'), [:admin, @professor], :class => 'back' %></li>
   </ul>
 </header>
 

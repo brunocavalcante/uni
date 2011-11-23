@@ -6,8 +6,8 @@
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), {:action => 'index'}, :class => 'back' %></li>
       <li><%= link_to (t 'Edit'), {:action => 'edit', :id => @lecture.id}, :class => 'edit' %></li>
-      <li><%= button_to (t 'Delete'), [:admin, @academic_period, @lecture], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
       <li><%= link_to (t 'Add') + ' ' + (t 'Students'), new_admin_academic_period_lecture_lecture_student_path(@academic_period, @lecture), :class => 'new' %></li>
+      <li><%= button_to (t 'Delete'), [:admin, @academic_period, @lecture], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
     </ul>
   </header>
 
