@@ -5,7 +5,9 @@ class Admin::ProfessorsController < ApplicationController
   
   # GET /professors
   def index
-    @professors = Professor.by_person.with_scholarity.paginate :page => params[:page]
+    @professors = Professor.by_person.with_scholarity
+    @professors = @professors.where('people.name ILIKE ?', "%#{params[:term]}%") if params[:term]
+    @professors = @professors.paginate :page => params[:page]
     
     respond_with @professors
   end

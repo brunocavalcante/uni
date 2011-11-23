@@ -4,6 +4,7 @@
   <header>
     <h2><%= @curriculum_student.name %></h2>
     <ul id="toolbar">
+    	<li><%= link_to (t 'Back'), {:action => :index}, :class => 'back' %></li>
     	<li><%= link_to (t 'Profile'), user_path(@curriculum_student.student.person), :class => 'person' %></li>
       <li><%= link_to (t 'Edit'), edit_admin_course_curriculum_student_path(@course, @curriculum_student), :class => 'edit'  %></li>
       <li><%= link_to (t 'TransferredDisciplines'), admin_course_curriculum_student_transferred_disciplines_path(@course, @curriculum_student), :class => 'show'  %></li>
@@ -22,8 +23,15 @@
   </p>
   
   <p>
+    <b><%= t 'activerecord.attributes.curriculum_student.created_at' %>:</b> 
+    <%= l @curriculum_student.created_at, :format => :long %>
+  </p>
+  
+  <p>
   	<b><%= t 'activerecord.attributes.curriculum_student.active' %></b>: 
   	<%= @curriculum_student.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %>
   </p>
+  
+  <%= render 'student/reports/transcripts/transcript' %>
   	
 </article>

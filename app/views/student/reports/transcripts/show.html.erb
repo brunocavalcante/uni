@@ -28,51 +28,5 @@
     <%= @curriculum_student.curriculum.name %>
   </p>
   
-  <h3><%= t 'Disciplines' %></h3>
-  
-  <table class="grid">
-    <thead>
-      <tr>
-        <th><%= t 'activerecord.models.discipline' %></th>
-        <th><%= t 'activerecord.models.lecture_situation' %></th>
-        <th><%= t 'activerecord.models.academic_period' %></th>
-        <th><%= t 'activerecord.attributes.lecture_student.grade' %></th>
-        <th><%= t 'activerecord.attributes.lecture_student.attendance' %></th>
-        <th><%= t 'activerecord.attributes.discipline.credits' %></th>
-      </tr>
-    </thead>
-    <tbody>
-    	<% for transcript in @transcripts %>
-    	<tr>
-        <td>
-        	<%= transcript[:discipline].name %>
-        </td>
-        <% if transcript[:lecture_student] %>
-        <td>
-        	<span class="<%= situation_class transcript[:lecture_student] %>">
-        		<%= transcript[:lecture_student].situation_description %>
-        	</span>
-        </td>
-        <td><%= transcript[:lecture_student].lecture.academic_period.name %></td>
-        <td><%= transcript[:lecture_student].grade %></td>
-        <td><%= transcript[:lecture_student].attendance.to_s + '%' if transcript[:lecture_student].attendance %></td>
-        <% elsif transcript[:transferred_discipline] %>
-        <td>
-        	<span class="approved">
-        		<%= t 'TransferredDisciplineSituation'%>
-        	</span>
-        </td>
-        <td></td>
-        <td><%= transcript[:transferred_discipline].grade %></td>
-        <td><%= transcript[:transferred_discipline].attendance.to_s + '%' if transcript[:transferred_discipline].attendance %></td>
-        <% else %>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <% end %>
-        <td><%= transcript[:discipline].credits %></td>
-      </tr>
-      <% end %>
-  </table>
+  <%= render 'transcript' %>
 </article>

@@ -37,6 +37,7 @@ class Admin::CurriculumStudentsController < ApplicationController
   
   def show
     @curriculum_student = CurriculumStudent.find params[:id]
+    @transcripts = Transcript.find(params[:id]).transcripts
     
     respond_with @curriculum_student
   end

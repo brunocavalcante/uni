@@ -10,7 +10,7 @@
   
   <form>
     <p>
-      <%= text_field_tag :search, params[:search] %> 
+      <%= text_field_tag :search, params[:search], :type => :search %> 
       <%= submit_tag (t 'Search') %>
     </p>
   </form>

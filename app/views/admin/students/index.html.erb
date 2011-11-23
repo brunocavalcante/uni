@@ -5,6 +5,13 @@
   </ul>
 </header>
 
+<form id="search">
+	<p>
+		<%= text_field_tag :term, params[:term], :type => :search %>
+		<%= submit_tag (t 'Search') %>
+  </p>
+</form>	
+
 <table>
   <thead>
     <tr>
