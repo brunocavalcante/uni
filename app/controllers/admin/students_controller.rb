@@ -26,7 +26,7 @@ class Admin::StudentsController < ApplicationController
 
   # GET /students/1
   def show
-    @student = Student.find_by_code(params[:id])
+    @student = Student.find params[:id]
     
     respond_with @student
   end
@@ -41,7 +41,7 @@ class Admin::StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
-    @student = Student.find_by_code(params[:id])
+    @student = Student.find params[:id]
   end
 
   # POST /students
@@ -56,7 +56,7 @@ class Admin::StudentsController < ApplicationController
 
   # PUT /students/1
   def update
-    @student = Student.find_by_code(params[:id])
+    @student = Student.find params[:id]
     @student.person.photo = nil if params[:delete_photo]
     @student.person.password = Digest::MD5.hexdigest(@student.code) if params[:reset_password]
     @student.update_attributes(params[:student])
@@ -66,7 +66,7 @@ class Admin::StudentsController < ApplicationController
 
   # DELETE /students/1
   def destroy
-    @student = Student.find_by_code(params[:id])
+    @student = Student.find params[:id]
     @student.destroy
 
     respond_with @student, :location => admin_students_url

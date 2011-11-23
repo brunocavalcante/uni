@@ -13,10 +13,6 @@ class Student < ActiveRecord::Base
   
   accepts_nested_attributes_for :person
     
-  def to_param
-    code
-  end
-
   def name
     person.name
   end
