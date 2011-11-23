@@ -75,6 +75,7 @@ pt:
         code: *code
         places: "Vagas"
         discipline_id: *discipline
+        professor_ids: &professors "Professores"
       lecture_file:
         title: &title "Título"
         description: &description "Descrição"
@@ -83,6 +84,7 @@ pt:
         lecture_situation_id: "Situação Final"
         grade: "Nota Final"
         attendance: "Frequência Final"
+        student_id: *student
       lesson:
         title: *title
         date: &date "Data"
@@ -96,13 +98,19 @@ pt:
         content: *message
       person:
         name: *name
-        email: "E-mail"
+        email: &email "E-mail"
       professor:
         scholarity_id: *scholarity
+        person:
+          name: *name
+          email: *email
       scholarity:
         name: *name
       student:
         code: "Matrícula"
+        person:
+          name: *name
+          email: *email
       test:
         name: *name
         date: *date
@@ -127,7 +135,7 @@ pt:
   Lessons: &lessons "Aulas"
   Files: &files "Arquivos"
   Messages: &messages "Mensagens"
-  Professors: &professors "Professores"
+  Professors: *professors
   Scholarities: &scholarities "Escolaridades"
   Students: &students "Alunos"
   Tests: &tests "Avaliações"

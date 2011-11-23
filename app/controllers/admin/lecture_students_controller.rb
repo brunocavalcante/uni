@@ -29,6 +29,7 @@ class Admin::LectureStudentsController < ApplicationController
       redirect_to([:admin, @academic_period, @lecture], :notice => I18n.t('flash.admin.lecture_students.create.notice', :resource_name => I18n.t('Students')))
     rescue
       @lecture_student = LectureStudent.new
+      @lecture_student.errors.add_on_empty [:student_id]
       render :action => "new"
     end
   end

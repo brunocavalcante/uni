@@ -75,6 +75,7 @@ fr:
         code: *code
         places: "Places"
         discipline_id: *discipline
+        professor_ids: &professors "Professores"
       lecture_file:
         title: &title "Title"
         description: &description "Description"
@@ -83,6 +84,7 @@ fr:
         lecture_situation_id: "Final Situation"
         grade: "Final Grade"
         attendance: "Final Attendance"
+        student_id: *student
       lesson:
         title: *title
         date: &date "Date"
@@ -96,13 +98,19 @@ fr:
         content: *message
       person:
         name: *name
-        email: "Email"
+        email: &email "Email"
       professor:
         scholarity_id: *scholarity
+        person:
+          name: *name
+          email: *email
       scholarity:
         name: *name
       student:
         code: "Student ID"
+        person:
+          name: *name
+          email: *email
       test:
         name: *name
         date: *date
@@ -127,7 +135,7 @@ fr:
   Lessons: &lessons "Leçons"
   Files: &files "Fichiers"
   Messages: &messages "Messages"
-  Professors: &professors "Professeurs"
+  Professors: *professors
   Scholarities: &scholarities "Scolarités"
   Students: &students "Élèves"
   Tests: &tests "Tests"

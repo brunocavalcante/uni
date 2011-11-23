@@ -8,6 +8,7 @@ class Student < ActiveRecord::Base
   
   scope :by_name, includes(:person).order('people.name ASC')
   
+  validates_presence_of :code
   validates_uniqueness_of :code
   
   accepts_nested_attributes_for :person
