@@ -6,13 +6,14 @@ class Student::LecturesController < LecturesController
     if params[:id]
       @lecture_student = LectureStudent.find_by_lecture_id_and_student_id(params[:id], @student.id)
       
-      redirect_to({:controller => :home}, :alert => I18n.t('YouDontHaveAccessToThisLecture')) unless @lecture_student
+      if !@lecture_student
+        redirect_to({:controller => :home}, :alert => I18n.t('YouDontHaveAccessToThisLecture'))
+      end
       
       @course = @lecture_student.lecture.discipline.course
-      @curriculum_student = CurriculumStudent.first :conditions => ['curriculum_id IN (?) AND student_id = ?', 
-                                                                    @course.curriculums.map(&:id), @student.id]
+      @curriculum_student = @student.curriculum_students.from_course(@course.id).first
       
-      if @curriculum_student && @curriculum_student.active == false
+      if @curriculum_student && !@curriculum_student.active?
         redirect_to({:controller => :home}, :alert => I18n.t('YouAreInactiveInThisCourse', :course => @course.name))
       end
     end
@@ -25,9 +26,6 @@ class Student::LecturesController < LecturesController
   end
   
   def tests_and_abscences
-    @student = Student.find_by_person_id(@user.id)
-    @lecture_student = LectureStudent.find_by_lecture_id_and_student_id(@lecture.id, @student.id)
-    
     @month_absences = @lecture_student.month_absences
     @tests_and_results = @lecture_student.tests_and_results
     
