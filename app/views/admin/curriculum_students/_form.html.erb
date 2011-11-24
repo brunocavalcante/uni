@@ -10,7 +10,7 @@
   
   <p>
     <%= f.label :curriculum_id %><br/>
-    <%= f.select :curriculum_id, options_from_collection_for_select(@course.curriculums, "id", "name") %>
+    <%= f.select :curriculum_id, options_from_collection_for_select(@course.curriculums.by_activeness, "id", "name") %>
   </p>
   
   <p>

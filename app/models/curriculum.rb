@@ -10,5 +10,7 @@ class Curriculum < ActiveRecord::Base
   validates :code, :presence => true
   validates :name, :presence => true
   
+  scope :by_activeness, order('curriculums.active ASC, curriculums.created_at DESC')
+  
   validates_uniqueness_of :code, :scope => :course_id
 end

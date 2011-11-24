@@ -10,7 +10,7 @@ pt:
         curriculum_student:
           attributes:
             student_id:
-              already_in_another_curriculum: "já está em outra grade curricular neste mesmo curso."
+              already_in_another_curriculum: "já está ativo em outra grade curricular neste mesmo curso."
     models: 
       academic_period: &academic_period "Período Letivo" 
       course: &course "Curso"
