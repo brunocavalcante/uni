@@ -16,8 +16,7 @@ class Lecture < ActiveRecord::Base
   has_many :lecture_files, :dependent => :destroy
   has_many :walls, :dependent => :destroy
   
-  scope :current, where(['academic_periods.start <= ? AND academic_periods.end >= ?', Date.today.to_s, Date.today.to_s])
-                  .includes([:academic_period, :discipline])
+  scope :current, where(['academic_periods.start <= ? AND academic_periods.end >= ?', Date.today.to_s, Date.today.to_s]).includes([:academic_period, :discipline])
                   
   scope :with_discipline, includes({:discipline => :course})
   scope :by_code, order('lectures.code')

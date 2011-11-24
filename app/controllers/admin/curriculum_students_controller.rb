@@ -7,8 +7,7 @@ class Admin::CurriculumStudentsController < ApplicationController
   end
   
   def index
-    @curriculum_students = CurriculumStudent.all_with_person_and_curriculum
-                                            .where('curriculums.course_id = ?', params[:course_id])
+    @curriculum_students = CurriculumStudent.all_with_person_and_curriculum.where('curriculums.course_id = ?', params[:course_id])
     
     if params[:search] && params[:search] != ''
       @curriculum_students = @curriculum_students.where(['people.name ILIKE ? OR students.code = ?', 

@@ -7,8 +7,7 @@ class LectureStudent < ActiveRecord::Base
   has_many :test_results, :dependent => :destroy
   
   scope :by_date, includes([{:lecture => [:discipline, :academic_period]}]).order('academic_periods.start ASC') 
-  scope :current, where(['academic_periods.start <= ? AND academic_periods.end >= ?', Date.today.to_s, Date.today.to_s])
-                  .includes([{:lecture => [:academic_period, :discipline]}]) 
+  scope :current, where(['academic_periods.start <= ? AND academic_periods.end >= ?', Date.today.to_s, Date.today.to_s]).includes([{:lecture => [:academic_period, :discipline]}]) 
   scope :by_name, includes({:student => :person}).order('people.name ASC')
   
   validates :lecture_id, :presence => true
