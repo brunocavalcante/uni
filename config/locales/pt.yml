@@ -7,6 +7,10 @@ pt:
           attributes:
             curriculum_id: 
               active: "Não é possível alterar essa disciplina, pois a grade curricular está ativa."
+        curriculum_student:
+          attributes:
+            student_id:
+              already_in_another_curriculum: "já está em outra grade curricular neste mesmo curso."
     models: 
       academic_period: &academic_period "Período Letivo" 
       course: &course "Curso"
@@ -275,12 +279,12 @@ pt:
   Editing: "Editando"
   Home: "Página Inicial"
   IsActive: "Ativo?"
+  Pending: &pending "Pendentes"
   Search: "Buscar"
   Status: "Status"
   TimeOn: "em"
   until: "até"
   Upload: "Enviar"
-  Pending: &pending "Pendentes"
   
   url:
     absences: *absences

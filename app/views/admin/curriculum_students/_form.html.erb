@@ -4,7 +4,7 @@
 	<% if @curriculum_student.id == nil %>
   <p>
     <%= f.label :student_id %><br/>
-    <%= f.collection_select :student_id, @curriculum_student.student ? [@curriculum_student.student] : [], :student_id, :name %>
+    <%= f.collection_select :student_id, [], :student_id, :name %>
   </p>
   <% end %>
   

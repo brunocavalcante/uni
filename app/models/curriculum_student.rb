@@ -11,6 +11,13 @@ class CurriculumStudent < ActiveRecord::Base
   validates :curriculum_id, :presence => true
   validates :student_id, :presence => true
   validates_uniqueness_of :student_id, :scope => :curriculum_id
+  validate :check_one_per_course
+  
+  def check_one_per_course
+    if student.curriculums.where(['curriculums.course_id = ? AND curriculums.id <> ?', self.curriculum.course_id, self.curriculum_id]).count > 0
+      self.errors.add(:student_id, :already_in_another_curriculum)
+    end
+  end
   
   def name
     student.name

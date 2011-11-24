@@ -7,6 +7,10 @@ en:
           attributes:
             curriculum_id: 
               active: "You cannot update this discipline, because its curriculum is active."
+        curriculum_student:
+          attributes:
+            student_id:
+              already_in_another_curriculum: "is already on another curriculum from this course."
     models: 
       academic_period: &academic_period "Academic Period" 
       course: &course "Course"
@@ -275,6 +279,7 @@ en:
   Editing: "Editing"
   Home: "Home"
   IsActive: "Active?"
+  Pending: &pending "Pending"
   Search: "Search"
   Status: "Status"
   TimeOn: "on"
@@ -300,6 +305,7 @@ en:
     lessons: *lessons
     new: *new
     parameters: *parameters
+    pending: *pending
     professor: *professor
     professors: *professors
     reports: *reports
