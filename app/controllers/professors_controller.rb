@@ -1,14 +1,8 @@
 class ProfessorsController < ApplicationController
   def index
-    @conditions = nil
-    if (params[:term])
-      @conditions = ['people.name ILIKE ?', '%' + params[:term] + '%']
-    end
-    
-    @professors = Professor.paginate :conditions => @conditions, 
-                                     :include => [:person], 
-                                     :page => params[:page], 
-                                     :order => 'people.name ASC'
+    @professors = Professor.by_person
+    @professors = @professors.where_name(params[:term]) if params[:term]
+    @professors = Professor.paginate :page => params[:page]
     
     @professors_hash = []
     @professors.each do |professor|

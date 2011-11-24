@@ -1,19 +1,8 @@
 class DisciplinesController < ApplicationController
   def index
-    @maximum_version_condition = "(version = (SELECT MAX(version) 
-                                              FROM disciplines d2 
-                                              WHERE d2.code = disciplines.code) OR 
-                                              version IS NULL)";
-    
-    @conditions = @maximum_version_condition
-    if (params[:term])
-      @conditions = ["(name ILIKE ? OR code = ?) AND #{@maximum_version_condition}", 
-                     '%' + params[:term] + '%', params[:term]]
-    end
-    
-    @disciplines = Discipline.paginate :conditions => @conditions, 
-                                       :page => params[:page], 
-                                       :order => 'name ASC, version ASC'
+    @disciplines = Discipline.latest_versions
+    @disciplines = @disciplines.where_code_or_name(params[:term]) if params[:term]
+    @disciplines = @disciplines.paginate :page => params[:page] 
     
     @disciplines_hash = []
     @disciplines.each do |discipline|

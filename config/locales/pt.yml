@@ -252,6 +252,8 @@ pt:
   WallPublications: "Publicações no Mural"
   YouAreInactiveInThisCourse: "Desculpe, seu cadastro no curso \"%{course}\" está inativo."
   YouDontHaveAccessToThisLecture: "Desculpe, você não possui acesso à esta turma."
+  LectureCloseToConclusionPendingStudentsNotice: "Atenção: o período letivo desta turma está próximo de acabar, e ainda restam alunos pendentes de aprovação/reprovação."
+  AcademicPeriodCloseToConclusionPendingStudentsNotice: "Atenção: o período letivo de uma ou mais de suas turmas está próximo de acabar, e ainda restam alunos pendentes de aprovação/reprovação."
   
   # Parameters
   Locale: "Idioma"
@@ -278,6 +280,7 @@ pt:
   TimeOn: "em"
   until: "até"
   Upload: "Enviar"
+  Pending: &pending "Pendentes"
   
   url:
     absences: *absences
@@ -298,6 +301,7 @@ pt:
     lessons: *lessons
     new: *new
     parameters: *parameters
+    pending: *pending
     professor: *professor
     professors: *professors
     reports: *reports

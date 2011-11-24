@@ -8,12 +8,11 @@ class Admin::LecturesController < ApplicationController
   
   def index
     @lectures = @academic_period.lectures.includes.with_discipline.by_code
-    if params[:term] && params[:term] != ''
-      @lectures = @lectures.where(['lectures.code = ? OR disciplines.name ILIKE ?', params[:term], "%#{params[:term]}%"])
-    end
+    @lectures = @lectures.where_code_or_name(params[:term]) if params[:term]
     if params[:course_id] && params[:course_id] != ''
-      @lectures = @lectures.where('disciplines.course_id = ?', params[:course_id])
+      @lectures = @lectures.where('disciplines.course_id = ?', params[:course_id]) if params[:course_id] && params[:course_id] != ''
     end
+    @lectures = @lectures.pending if params[:situation] && params[:situation] == 'pending'
     @lectures = @lectures.paginate :page => params[:page]
     
     respond_with @lectures

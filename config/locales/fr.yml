@@ -252,6 +252,8 @@ fr:
   WallPublications: "Wall Publications"
   YouAreInactiveInThisCourse: "Sorry, your registration in the course \"%{course}\" is inactive."
   YouDontHaveAccessToThisLecture: "Sorry, you don't have access to this class."
+  LectureCloseToConclusionPendingStudentsNotice: "Attention: the academic period of this class is close to ending, and there are still students with pending approval/disapproval."
+  AcademicPeriodCloseToConclusionPendingStudentsNotice: "Attention: the academic period of one or more of your classes is close to ending, and there are still students with pending approval/disapproval."
   
   # Parameters
   Locale: "Locale"
@@ -278,6 +280,7 @@ fr:
   TimeOn: "on"
   until: "until"
   Upload: "Upload"
+  Pending: &pending "Pending"
   
   url:
     absences: *absences
@@ -298,6 +301,7 @@ fr:
     lessons: *lessons
     new: *new
     parameters: *parameters
+    pending: *pending
     professor: *professor
     professors: *professors
     reports: *reports

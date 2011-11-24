@@ -6,6 +6,7 @@ class Professor < ActiveRecord::Base
 
   accepts_nested_attributes_for :person
   
+  scope :where_name, lambda {|term| where('people.name ILIKE ?', "%#{term}%") if term != ''}
   scope :by_person, includes(:person).order('people.name ASC')
   scope :with_scholarity, includes({:person => :scholarity})
   

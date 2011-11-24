@@ -252,6 +252,8 @@ en:
   WallPublications: "Wall Publications"
   YouAreInactiveInThisCourse: "Sorry, your registration in the course \"%{course}\" is inactive."
   YouDontHaveAccessToThisLecture: "Sorry, you don't have access to this class."
+  LectureCloseToConclusionPendingStudentsNotice: "Attention: the academic period of this class is close to ending, and there are still students with pending approval/disapproval."
+  AcademicPeriodCloseToConclusionPendingStudentsNotice: "Attention: the academic period of one or more of your classes is close to ending, and there are still students with pending approval/disapproval."
   
   # Parameters
   Locale: "Locale"

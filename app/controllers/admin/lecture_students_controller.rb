@@ -34,6 +34,24 @@ class Admin::LectureStudentsController < ApplicationController
     end
   end
   
+  def show
+    @lecture_student = LectureStudent.find params[:id]
+    @month_absences = @lecture_student.month_absences
+    
+    respond_with @lecture_student
+  end
+  
+  def edit
+    @lecture_student = LectureStudent.find params[:id]
+  end
+  
+  def update
+    @lecture_student = LectureStudent.find params[:id]
+    @lecture_student.update_attributes(params[:lecture_student])
+    
+    respond_with @lecture_student, :location => {:action => :show}
+  end
+  
   def destroy
     @lecture_student = LectureStudent.find(params[:id])
     @lecture_student.destroy

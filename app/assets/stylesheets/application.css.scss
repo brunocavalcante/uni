@@ -148,8 +148,12 @@ img.thumb {
     
     li {
       float: left;
-      padding: 0.5em 1.75em;
       border-right: 1px solid #666;
+      
+      a {
+        display: block;
+        padding: 0.5em 1.75em;
+      }
     }
   }
   
@@ -169,6 +173,7 @@ img.thumb {
   float: left;
   width: 95%;
   margin: 1.5% 2.5%;
+  min-width: 768px;
   
   h1, article h2 {
     border-bottom: 1px solid $defaultBorderColor;
@@ -217,8 +222,12 @@ img.thumb {
       
       li {
         border-bottom: 1px solid $defaultBorderColor;
-        padding: 1em 1.5em 1em 2.5em;
         background: url('/assets/icons/bullet_black.png') no-repeat 1em 50%;
+        
+        a {
+          padding: 1em 1.5em 1em 2.5em;
+          display: block;
+        }
       }
     }
   }
@@ -239,7 +248,10 @@ img.thumb {
           list-style-type: disc;
           
           li {
-            
+            a {
+              padding: 0;
+              display: inline;
+            }
           }
         }
       }
@@ -321,7 +333,7 @@ footer {
 #toolbar .edit {
   background-image: url('/assets/icons/edit.png');
 }
-#toolbar .delete, .item input.delete {
+#toolbar .delete, .item input.delete, .item input.delete:hover, #toolbar input.delete:hover {
   background-image: url('/assets/icons/delete.png');
 }
 #toolbar .show {
@@ -525,7 +537,7 @@ div.ui-autocomplete-loading {
   }
   
   .item .content p {
-    margin: 0.5em 0;
+    margin: 0 0 0.5em;
   }
   
   .item .content p:last-child {
@@ -553,7 +565,7 @@ div.ui-autocomplete-loading {
   }
   .content form {
     border-top: 1px solid #BBB;
-    margin-top: 1em;
+    margin-top: 0.5em;
     padding-top: 0.5em;
   }
 }

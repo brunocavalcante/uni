@@ -8,4 +8,11 @@ module Admin::LecturesHelper
     end
     return day_names.sort{|a,b| a[1] <=> b[1]}
   end
+  
+  def lecture_index_situations_options
+    @lecture_situations = []
+    @lecture_situations << [I18n.t('Pending'), 'pending']
+    
+    return @lecture_situations
+  end
 end

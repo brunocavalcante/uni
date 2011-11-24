@@ -22,4 +22,11 @@ class AcademicPeriod < ActiveRecord::Base
     @today = Date.today.to_s
     AcademicPeriod.all(:conditions => ['academic_periods.start >= ? AND academic_periods.end <= ?', @today, @today]).size > 0
   end
+  
+  def close_to_conclusion?
+    @today = Date.today
+    @end = self.end - 7
+    
+    return @today >= @end
+  end
 end

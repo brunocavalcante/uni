@@ -17,8 +17,12 @@ class Lecture < ActiveRecord::Base
   has_many :walls, :dependent => :destroy
   
   scope :current, where(['academic_periods.start <= ? AND academic_periods.end >= ?', Date.today.to_s, Date.today.to_s]).includes([:academic_period, :discipline])
-                  
   scope :with_discipline, includes({:discipline => :course})
+  scope :pending, where('(SELECT count(*) 
+                          FROM lecture_students 
+                          WHERE lecture_students.lecture_id = lectures.id 
+                                AND lecture_students.lecture_situation_id IS NULL) > 0')
+  scope :where_code_or_name, lambda {|term| where(['lectures.code = ? OR disciplines.name ILIKE ?', term, "%#{term}%"]) if term != ''}
   scope :by_code, order('lectures.code')
   
   validates :code, :presence => true
@@ -29,6 +33,10 @@ class Lecture < ActiveRecord::Base
   
   def name
     discipline.name
+  end
+  
+  def has_pending_student_situations?
+    lecture_students.pending.all.size > 0
   end
   
   def to_xml(options = {})

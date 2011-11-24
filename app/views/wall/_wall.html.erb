@@ -16,7 +16,7 @@
 			<%= t 'TimeOn' %> <%= l wall.created_at, :format => :short %>
 		</p>
 		<div class="content">
-  		<% if wall.message.subject %>
+  		<% if wall.message.subject != '' %>
   		<h4><%= wall.message.subject %></h4>
   		<% end %>
   		

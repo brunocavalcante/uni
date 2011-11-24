@@ -66,9 +66,9 @@
   <table>
     <thead>
       <tr>
-        <th><%= t 'activerecord.attributes.student.code' %></th>
+        <th><%= t 'activerecord.attributes.person.code' %></th>
         <th><%= t 'activerecord.attributes.person.name' %></th>
-        <th><%= t 'Remove' %></th>
+        <th><%= t 'activerecord.attributes.lecture_student.lecture_situation_id' %></th>
       </tr>
     </thead>
 
@@ -76,16 +76,8 @@
       <% @lecture_students.each do |lecture_student| %>
       <tr>
         <td><%= lecture_student.student.code %></td>
-        <td><%= link_to lecture_student.student.person.name, admin_student_path(lecture_student.student) %></td>
-        <td>
-        	<%= button_to (t 'Remove'), {:controller => :lecture_students, 
-        															 :action => :show, 
-        															 :lecture_id => @lecture.id, 
-        															 :id => lecture_student.id}, 
-        															 :confirm => (t 'AreYouSure'), 
-        															 :method => :delete, 
-        															 :class => 'delete' %>
-				</td>
+        <td><%= link_to lecture_student.name, [:admin, @academic_period, @lecture, lecture_student] %></td>
+        <td><%= t lecture_student.lecture_situation.name if lecture_student.lecture_situation %></td>
       </tr>
       <% end %>
     </tbody>

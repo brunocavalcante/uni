@@ -1,19 +1,20 @@
 <%= form_for([:admin, @academic_period, @lecture, @lecture_student]) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= label_tag :student_id, (t 'Students') %><br />
-    <%= f.collection_select :student_id, @lecture_student.student ? [@lecture_student.student] : [], :student_id, :name, {}, {:multiple => true} %>
-  </p>
-  
-  <% if (@lecture_student.id) %>
-  <p>
+	<p>
     <%= f.label :grade %><br />
     <%= f.text_field :grade %>
   </p>
-  <% end %>
+  <p>
+    <%= f.label :attendance %><br />
+    <%= f.text_field :attendance %>
+  </p>
+  <p>
+		<%= f.label :lecture_situation_id %><br/>
+		<%= f.select :lecture_situation_id, LectureSituation.all.collect {|p| [ (t p.name), p.id ]}, {:include_blank => ''} %>
+	</p>
   
   <div class="actions">
-    <%= f.submit (t 'Add') + ' ' + (t 'Students') %>
+    <%= f.submit %>
   </div>
 <% end %>

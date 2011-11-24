@@ -4,11 +4,7 @@ class Admin::StudentsController < ApplicationController
   # GET /students
   def index
     @students = Student.by_name
-    
-    if params[:term]
-      @students = @students.where(['people.name ILIKE ? OR code = ?', "%#{params[:term]}%", params[:term]])
-    end
-    
+    @students = @students.where_code_or_name(params[:term]) if params[:term]
     @students = @students.paginate :page => params[:page]
     
     @students_hash = []

@@ -5,6 +5,7 @@
     <h2><%= t 'Lectures' %></h2>
     <ul id="toolbar">
       <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.lecture')), {:action => 'new'}, :class => 'new' %></li>
+    </ul>
   </header>
   
   <form>
@@ -13,26 +14,10 @@
 	    <%= select_tag :course_id, 
 		  							 options_from_collection_for_select(Course.all, :id, :name, params[:course_id]), 
 		  							 :include_blank => true %> 
-	    <%= submit_tag (t 'Search') %>
+		  <%= select_tag :situation, options_for_select(lecture_index_situations_options, params[:situation]), :include_blank => true %> 
+		  <%= submit_tag (t 'Search') %>
 	  </p>
 	</form>
   
-  <table>
-    <thead>
-      <tr>
-        <th><%= t 'ClassCode' %></th>
-        <th><%= t 'activerecord.attributes.lecture.discipline_id' %></th>
-        <th><%= t 'activerecord.attributes.discipline.course_id' %></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @lectures.each do |lecture| %>
-      <tr>
-        <td><%= lecture.code %></td>
-        <td><%= link_to lecture.discipline.name, admin_academic_period_lecture_path(@academic_period, lecture) %></td>
-        <td><%= link_to lecture.discipline.course.name, admin_course_path(lecture.discipline.course) %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <%= render 'grid' %>
 </article>

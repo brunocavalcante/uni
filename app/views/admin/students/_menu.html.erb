@@ -1,8 +1,8 @@
 <aside>
-    <nav>
-        <ul>
-            <li><%= link_to 'Detalhes', admin_aluno_path(aluno) %></li>
-            <li><%= link_to 'Cadeiras', admin_aluno_path(aluno) %></li>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li><%= link_to (t 'Home'), admin_student_path(@student) %></li>
+      <li><%= link_to (t 'Lectures'), admin_student_lecture_students_path(@student) %></li>
+    </ul>
+  </nav>
 </aside>

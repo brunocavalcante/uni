@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <tr>
+      <th><%= t 'ClassCode' %></th>
+      <th><%= t 'activerecord.attributes.lecture.discipline_id' %></th>
+      <th><%= t 'activerecord.attributes.discipline.course_id' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @lectures.each do |lecture| %>
+    <tr>
+      <td><%= lecture.code %></td>
+      <td><%= link_to lecture.discipline.name, admin_academic_period_lecture_path(@academic_period, lecture) %></td>
+      <td><%= link_to lecture.discipline.course.name, admin_course_path(lecture.discipline.course) %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

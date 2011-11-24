@@ -6,6 +6,7 @@ class Student < ActiveRecord::Base
   has_many :lecture_students, :dependent => :destroy
   has_many :lectures, :through => :lecture_students
   
+  scope :where_code_or_name, lambda {|term| where(['people.name ILIKE ? OR code = ?', "%#{term}%", term]) if term != ''}
   scope :by_name, includes(:person).order('people.name ASC')
   
   validates_presence_of :code

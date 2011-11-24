@@ -3,6 +3,7 @@ class Update::StudentUpdate < Update::PersonUpdate
     @lectures = student.lectures
     @updates = lectures_updates(@lectures)
     order_updates(@updates)
+    @updates = crop(@updates)
     
     return @updates
   end

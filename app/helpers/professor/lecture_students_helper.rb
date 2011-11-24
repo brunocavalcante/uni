@@ -6,5 +6,4 @@ module Professor::LectureStudentsHelper
     
     return @lecture_situations
   end
-  
 end
