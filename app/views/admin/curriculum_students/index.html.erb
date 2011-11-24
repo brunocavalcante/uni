@@ -11,6 +11,9 @@
   <form>
     <p>
       <%= text_field_tag :search, params[:search], :type => :search %> 
+      <%= select_tag :curriculum_id, 
+		  							 options_from_collection_for_select(@course.curriculums, :id, :name, params[:curriculum_id]), 
+		  							 :include_blank => true %> 
       <%= submit_tag (t 'Search') %>
     </p>
   </form>

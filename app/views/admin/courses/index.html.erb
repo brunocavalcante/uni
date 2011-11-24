@@ -28,7 +28,7 @@
     <tr>
       <td><%= course.code %></td>
       <td><%= link_to course.name, [:admin, course] %></td>
-      <td><%= course.course_category.name %></td>
+      <td><%= course.course_category.name if course.course_category %></td>
     </tr>
     <% end %>
   </tbody>

@@ -99,11 +99,12 @@ en:
       person:
         name: *name
         email: &email "Email"
-      professor:
         scholarity_id: *scholarity
+      professor:
         person:
           name: *name
           email: *email
+          scholarity_id: *scholarity
       scholarity:
         name: *name
       student:
@@ -111,6 +112,7 @@ en:
         person:
           name: *name
           email: *email
+          scholarity_id: *scholarity
       test:
         name: *name
         date: *date

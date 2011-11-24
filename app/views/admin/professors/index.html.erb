@@ -6,24 +6,27 @@
 </header>
 
 <form>
-    <p>
-      <%= text_field_tag :term, params[:term], :type => :search %> 
-      <%= submit_tag (t 'Search') %>
-    </p>
-  </form>
+  <p>
+    <%= text_field_tag :term, params[:term], :type => :search %> 
+    <%= select_tag :scholarity_id, 
+		  						 options_from_collection_for_select(Scholarity.all, :id, :name, params[:scholarity_id]), 
+		  						 :include_blank => true %>
+    <%= submit_tag (t 'Search') %>
+  </p>
+</form>
 
 <table>
   <thead>
     <tr>
       <th><%= t 'activerecord.attributes.person.name' %></th>
-      <th><%= t 'activerecord.attributes.professor.scholarity_id' %></th>
+      <th><%= t 'activerecord.attributes.person.scholarity_id' %></th>
     </tr>
   </thead>
   <tbody>
     <% @professors.each do |professor| %>
     <tr>
       <td><%= link_to professor.name, [:admin, professor] %></td>
-      <td><%= professor.scholarity.name %></td>
+      <td><%= professor.person.scholarity.name if professor.person.scholarity %></td>
     </tr>
     <% end %>
   </tbody>

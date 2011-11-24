@@ -7,7 +7,14 @@ class Admin::LecturesController < ApplicationController
   end
   
   def index
-    @lectures = @academic_period.lectures.paginate :page => params[:page]
+    @lectures = @academic_period.lectures.includes.with_discipline.by_code
+    if params[:term] && params[:term] != ''
+      @lectures = @lectures.where(['lectures.code = ? OR disciplines.name ILIKE ?', params[:term], "%#{params[:term]}%"])
+    end
+    if params[:course_id] && params[:course_id] != ''
+      @lectures = @lectures.where('disciplines.course_id = ?', params[:course_id])
+    end
+    @lectures = @lectures.paginate :page => params[:page]
     
     respond_with @lectures
   end

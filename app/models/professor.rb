@@ -1,6 +1,5 @@
 class Professor < ActiveRecord::Base
   belongs_to :person, :dependent => :destroy
-  belongs_to :scholarity
   
   has_many :lecture_professors, :dependent => :destroy
   has_many :lectures, :through => :lecture_professors
@@ -8,10 +7,9 @@ class Professor < ActiveRecord::Base
   accepts_nested_attributes_for :person
   
   scope :by_person, includes(:person).order('people.name ASC')
-  scope :with_scholarity, includes(:scholarity)
+  scope :with_scholarity, includes({:person => :scholarity})
   
   validates_presence_of :email
-  validates_presence_of :scholarity
   
   def email
     person.email

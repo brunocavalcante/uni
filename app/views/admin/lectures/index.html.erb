@@ -6,11 +6,22 @@
     <ul id="toolbar">
       <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.lecture')), {:action => 'new'}, :class => 'new' %></li>
   </header>
+  
+  <form>
+	  <p>
+	    <%= text_field_tag :term, params[:term], :type => :search %> 
+	    <%= select_tag :course_id, 
+		  							 options_from_collection_for_select(Course.all, :id, :name, params[:course_id]), 
+		  							 :include_blank => true %> 
+	    <%= submit_tag (t 'Search') %>
+	  </p>
+	</form>
+  
   <table>
     <thead>
       <tr>
-        <th><%= t 'activerecord.attributes.lecture.code' %></th>
-        <th><%= t 'activerecord.attributes.discipline.name' %></th>
+        <th><%= t 'ClassCode' %></th>
+        <th><%= t 'activerecord.attributes.lecture.discipline_id' %></th>
         <th><%= t 'activerecord.attributes.discipline.course_id' %></th>
       </tr>
     </thead>

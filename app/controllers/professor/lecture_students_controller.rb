@@ -7,7 +7,21 @@ class Professor::LectureStudentsController < ApplicationController
   end
   
   def index
-    @lecture_students = @lecture.lecture_students.by_name.paginate :page => params[:page]
+    @lecture_students = @lecture.lecture_students.by_name
+    
+    if params[:term] && params[:term] != ''
+      @lecture_students = @lecture_students.where('people.name ILIKE ?', "#{params[:term]}")
+    end
+    
+    if params[:lecture_situation_id] && params[:lecture_situation_id] != ''
+      if params[:lecture_situation_id] == "0"
+        @lecture_students = @lecture_students.where('lecture_students.lecture_situation_id IS NULL')
+      else
+        @lecture_students = @lecture_students.where('lecture_students.lecture_situation_id = ?', params[:lecture_situation_id])
+      end
+    end
+    
+    @lecture_students = @lecture_students.paginate :page => params[:page]
     
     respond_with @lecture_students
   end

@@ -22,6 +22,10 @@ class Discipline < ActiveRecord::Base
                                             FROM disciplines d2 
                                             WHERE d2.code = disciplines.code) 
                                  OR version IS NULL').order('name ASC, version ASC')
+                                 
+  scope :where_code_or_name, lambda { |term| 
+    where(['disciplines.code = ? OR disciplines.name ILIKE ?', term, "%#{term}%"]) if term != ''
+  }
   
   validates :code, :presence => true
   validates :name, :presence => true

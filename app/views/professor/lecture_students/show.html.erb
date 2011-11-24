@@ -4,6 +4,7 @@
 	<header>
 		<h2><%= t @lecture_student.name %></h2>
 		<ul id="toolbar">
+			<li><%= link_to (t 'Back'), {:action => :index}, :class => 'back' %></li>
 			<li><%= link_to (t 'Edit'), edit_professor_lecture_lecture_student_path(@lecture, @lecture_student), :class => 'edit' %></li>
 			<li><%= link_to (t 'Profile'), user_path(@lecture_student.student.person), :class => 'person' %></li>
 		</ul>

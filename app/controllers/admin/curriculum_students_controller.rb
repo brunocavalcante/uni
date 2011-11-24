@@ -15,6 +15,9 @@ class Admin::CurriculumStudentsController < ApplicationController
                                                          "%#{params[:search]}%", 
                                                          params[:search]]) 
     end
+    if params[:curriculum_id] && params[:curriculum_id] != ''
+      @curriculum_students = @curriculum_students.where('curriculums.id = ?', params[:curriculum_id])
+    end
     
     @curriculum_students = @curriculum_students.paginate :page => params[:page]
 

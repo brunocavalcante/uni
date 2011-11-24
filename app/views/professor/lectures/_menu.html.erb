@@ -1,14 +1,13 @@
 <aside>
-    <nav>
-        <ul>
-            <li class="home"><%= link_to (t 'Home'), professor_lecture_path(@lecture) %></li>
-            <li class="details"><%= link_to (t 'Details'), details_professor_lecture_path(@lecture) %></li>
-            <li class="group"><%= link_to (t 'Students'), professor_lecture_lecture_students_path(@lecture) %></li>
-            <li class="files"><%= link_to (t 'Files'), professor_lecture_files_path(@lecture) %></li>
-            <li class="mail"><%= link_to (t 'Wall'), professor_lecture_wall_index_path(@lecture) %></li>
-            <li class="lessons"><%= link_to (t 'Lessons'), professor_lecture_lessons_path(@lecture) %></li>
-            <li class="tests"><%= link_to (t 'Tests'), professor_lecture_tests_path(@lecture) %></li>
-            <li class="finish"><%= link_to (t 'FinishDiscipline') %></li>
-        </ul>
-    </nav>
+  <nav>
+    <ul>
+      <li class="home"><%= link_to (t 'Home'), professor_lecture_path(@lecture) %></li>
+      <li class="details"><%= link_to (t 'Details'), details_professor_lecture_path(@lecture) %></li>
+      <li class="group"><%= link_to (t 'Students'), professor_lecture_lecture_students_path(@lecture) %></li>
+      <li class="files"><%= link_to (t 'Files'), professor_lecture_files_path(@lecture) %></li>
+      <li class="mail"><%= link_to (t 'Wall'), professor_lecture_wall_index_path(@lecture) %></li>
+      <li class="lessons"><%= link_to (t 'Lessons'), professor_lecture_lessons_path(@lecture) %></li>
+      <li class="tests"><%= link_to (t 'Tests'), professor_lecture_tests_path(@lecture) %></li>
+    </ul>
+  </nav>
 </aside>

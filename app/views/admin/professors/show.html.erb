@@ -20,5 +20,5 @@
 
 <p>
   <b><%= t 'activerecord.attributes.professor.scholarity_id' %>:</b>
-  <%= @professor.scholarity.name %>
+  <%= @professor.person.scholarity.name if @professor.person.scholarity %>
 </p>

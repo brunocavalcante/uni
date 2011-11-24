@@ -9,7 +9,9 @@ class Admin::DisciplinesController < ApplicationController
   # GET /disciplines
   # GET /disciplines.xml
   def index
-    @disciplines = @course.disciplines.latest_versions.paginate :page => params[:page] 
+    @disciplines = @course.disciplines.latest_versions
+    @disciplines = @disciplines.where_code_or_name(params[:term]) if params[:term]
+    @disciplines = @disciplines.paginate :page => params[:page] 
     
     respond_with @disciplines
   end

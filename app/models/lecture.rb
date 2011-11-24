@@ -18,6 +18,9 @@ class Lecture < ActiveRecord::Base
   
   scope :current, where(['academic_periods.start <= ? AND academic_periods.end >= ?', Date.today.to_s, Date.today.to_s])
                   .includes([:academic_period, :discipline])
+                  
+  scope :with_discipline, includes({:discipline => :course})
+  scope :by_code, order('lectures.code')
   
   validates :code, :presence => true
   validates :discipline_id, :presence => true
