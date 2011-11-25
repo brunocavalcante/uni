@@ -23,6 +23,11 @@
   <%= @student.person.email %>
 </p>
 
+<p>
+  <b><%= t 'activerecord.attributes.person.date_birth' %>:</b>
+  <%= l(@student.person.date_birth, :format => :long) if @student.person.date_birth %>
+</p>
+
 <h3><%= t 'Courses' %></h3>
 <% if @student.curriculums %>
 <ul>

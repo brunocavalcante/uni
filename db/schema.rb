@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111124003959) do
+ActiveRecord::Schema.define(:version => 20111125175324) do
 
   create_table "academic_periods", :force => true do |t|
     t.string   "name"
@@ -208,6 +208,7 @@ ActiveRecord::Schema.define(:version => 20111124003959) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.integer  "scholarity_id"
+    t.date     "date_birth"
   end
 
   create_table "person_roles", :force => true do |t|

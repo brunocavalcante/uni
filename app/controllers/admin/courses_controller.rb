@@ -7,7 +7,7 @@ class Admin::CoursesController < ApplicationController
     @courses = Course.with_category
     
     if params[:search] && params[:search] != ''
-      @courses = @courses.where(['(code = ? OR name LIKE ?)', params[:search], "%#{params[:search]}%"])
+      @courses = @courses.where(['(code = ? OR name ILIKE ?)', params[:search], "%#{params[:search]}%"])
     end
     
     if params[:course_category_id] && params[:course_category_id] != ''

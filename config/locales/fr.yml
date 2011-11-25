@@ -104,6 +104,7 @@ fr:
         name: *name
         email: &email "Email"
         scholarity_id: *scholarity
+        date_birth: "Date of Birth"
       professor:
         person:
           name: *name
@@ -219,6 +220,7 @@ fr:
   LatestUpdates: "Latest Updates"
   NoUpdatesAvailable: "Sorry, we have no updates for you. :("
   UploadedANewFile: "sent a new file"
+  NoNextEventsAvailable: "There are no next events for you."
   
   # Lesson
   AbsenceRegistry: "Absence Registry"
@@ -277,7 +279,7 @@ fr:
   BooleanYes: "Yes"
   Details: &details "Details"
   Editing: "Editing"
-  Home: "Home"
+  Home: &home "Home"
   IsActive: "Active?"
   Pending: &pending "Pending"
   Search: "Rechercher"
@@ -300,6 +302,7 @@ fr:
     disciplines: *disciplines
     edit: *edit
     files: *files
+    home: *home
     lectures: *lectures
     lecture_students: *students
     lessons: *lessons

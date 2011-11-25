@@ -104,6 +104,7 @@ pt:
         name: *name
         email: &email "E-mail"
         scholarity_id: *scholarity
+        date_birth: "Data de Nascimento"
       professor:
         person:
           name: *name
@@ -219,6 +220,7 @@ pt:
   LatestUpdates: "Últimas Atualizações"
   NoUpdatesAvailable: "Não encontramos nenhuma atualização para você. :("
   UploadedANewFile: "enviou um novo arquivo"
+  NoNextEventsAvailable: "Não existe nenhum evento próximo para você."
   
   # Lesson
   AbsenceRegistry: "Lançamento de Faltas"
@@ -277,7 +279,7 @@ pt:
   BooleanYes: "Sim"
   Details: &details "Detalhes"
   Editing: "Editando"
-  Home: "Página Inicial"
+  Home: &home "Página Inicial"
   IsActive: "Ativo?"
   Pending: &pending "Pendentes"
   Search: "Buscar"
@@ -285,6 +287,14 @@ pt:
   TimeOn: "em"
   until: "até"
   Upload: "Enviar"
+  
+  errors:
+    page_not_found:
+      title: "Página não encontrada!"
+      description: "Desculpe, a página que você procura não foi encontrada ou não existe."
+    exception:
+      title: "Algo deu errado!"
+      description: "Desculpe, houve algum problema no tratamento da sua requisição. Por favor, tente novamente ou contate o administrador do sistema."
   
   url:
     absences: *absences
@@ -300,6 +310,7 @@ pt:
     disciplines: *disciplines
     edit: *edit
     files: *files
+    home: *home
     lectures: *lectures
     lecture_students: *students
     lessons: *lessons

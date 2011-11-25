@@ -14,6 +14,10 @@
     <%= p.label :email %><br />
     <%= p.text_field :email %>
   </p>
+  <p>
+    <%= p.label :date_birth %><br />
+    <%= p.date_select :date_birth, :start_year => 1900, :include_blank => true %>
+  </p>
   
   <% if @student.person.photo.exists? %>
   <p>

@@ -1,3 +1,4 @@
+<% if @schedule && @schedule.size > 0 %>
 <ul class="student-schedule">
 	<% for date, events in @schedule %>
 	<li>
@@ -23,3 +24,8 @@
 	</li>
 	<% end %>
 </ul>
+<% else %>
+<p>
+	<%= t 'NoNextEventsAvailable' %>
+</p>
+<% end %>

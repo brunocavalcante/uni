@@ -22,6 +22,6 @@
   
   <p>
     <b><%= t 'activerecord.attributes.course.course_category_id' %>:</b>
-    <%= @course.course_category.name %>
+    <%= @course.course_category.name if @course.course_category %>
   </p>
 </article>

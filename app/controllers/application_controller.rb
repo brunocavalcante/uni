@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   before_filter :login_required
   before_filter :load_user
   before_filter :check_permission
-  
+    
   def set_locale
     # if params[:locale] is nil then I18n.default_locale will be used
     @localeParameter = Parameter.find_by_name('locale')

@@ -19,6 +19,20 @@
 </p>
 
 <p>
-  <b><%= t 'activerecord.attributes.professor.scholarity_id' %>:</b>
+  <b><%= t 'activerecord.attributes.person.scholarity_id' %>:</b>
   <%= @professor.person.scholarity.name if @professor.person.scholarity %>
 </p>
+
+<p>
+  <b><%= t 'activerecord.attributes.person.date_birth' %>:</b>
+  <%= l(@professor.person.date_birth, :format => :long) if @professor.person.date_birth %>
+</p>
+
+<h3><%= t 'CurrentClasses' %></h3>
+<% if @professor.lectures.current %>
+<ul>
+  <% for lecture in @professor.lectures.current %>
+  <li><%= link_to lecture.discipline.name, [:admin, lecture.academic_period, lecture] %></li>
+  <% end %>
+</ul>
+<% end%>
