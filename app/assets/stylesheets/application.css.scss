@@ -606,3 +606,8 @@ aside .student-schedule {
     margin-bottom: 1em;
   }
 }
+
+/* Chosen */
+.chzn-drop, .chzn-container, .chzn-choices .search-field {
+  min-width: 300px;
+}

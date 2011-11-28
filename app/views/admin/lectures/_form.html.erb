@@ -109,9 +109,8 @@
 	  $('#discipline_code').change(function() {
 	  	update_discipline_versions()
 	  });
-  	
-    //Application.autocomplete('lecture_discipline_id', '<%= disciplines_path %>.js', '<%= t "Remove" %>', false)
-    Application.autocomplete('lecture_professor_ids', '<%= professors_path %>.js', '<%= t "Remove" %>', true)
+	  
+	  Application.autocomplete('lecture_professor_ids', '<%= professors_path %>.js', '<%= t "Remove" %>', true)
     Application.enableAddAnotherItem('<%= t "Remove" %>')
     $('input[name*=places]').spinner({allowNull: true, min: 0, max: 10000})
   });

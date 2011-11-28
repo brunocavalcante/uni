@@ -14,7 +14,7 @@ class CurriculumStudent < ActiveRecord::Base
   validate :check_one_per_course
   
   def check_one_per_course
-    if student.curriculums.where(['curriculums.course_id = ? AND curriculums.id <> ? AND curriculum_students.active = ?', self.curriculum.course_id, self.curriculum_id, true]).count > 0
+    if student && student.curriculums.where(['curriculums.course_id = ? AND curriculums.id <> ? AND curriculum_students.active = ?', self.curriculum.course_id, self.curriculum_id, true]).count > 0
       self.errors.add(:student_id, :already_in_another_curriculum)
     end
   end
