@@ -17,7 +17,7 @@
   </p>
   
   <p>
-    <%= f.label :equivalences %><br />
+    <%= f.label :equivalents %><br />
     <%= f.collection_select :equivalent_ids, @discipline.equivalents.size > 0 ? @discipline.equivalents : [], :id, :name, {}, {:multiple => true} %>
   </p>
 

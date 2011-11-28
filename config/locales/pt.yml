@@ -75,6 +75,7 @@ pt:
         course_id: *course
         syllabus: "Ementa"
         equivalents: "Equivalências"
+        versions: "Versões"
       lecture:
         code: *code
         places: "Vagas"
@@ -284,6 +285,7 @@ pt:
   Pending: &pending "Pendentes"
   Search: "Buscar"
   Status: "Status"
+  Suggestion: "Sugestão"
   TimeOn: "em"
   until: "até"
   Upload: "Enviar"

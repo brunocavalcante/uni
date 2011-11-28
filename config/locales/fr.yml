@@ -75,6 +75,7 @@ fr:
         course_id: *course
         syllabus: "Syllabus"
         equivalents: "Equivalents"
+        versions: "Versions"
       lecture:
         code: *code
         places: "Places"
@@ -284,6 +285,7 @@ fr:
   Pending: &pending "Pending"
   Search: "Rechercher"
   Status: "Status"
+  Suggestion: "Suggestion"
   TimeOn: "on"
   until: "until"
   Upload: "Upload"

@@ -44,7 +44,7 @@
   </ul>
   <% end %>
   
-  <h3><%= t 'Versions' %></h3>
+  <h3><%= t 'activerecord.attributes.discipline.versions' %></h3>
   <ul>
     <% @discipline.versions.each do |discipline| %>
     <li><%= link_to discipline.version_fullname, [:admin, @course, discipline] %></li>
