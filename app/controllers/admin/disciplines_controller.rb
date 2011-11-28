@@ -80,4 +80,11 @@ class Admin::DisciplinesController < ApplicationController
     
     respond_with @discipline, :location => admin_course_disciplines_url(@course)
   end
+  
+  def versions
+    @discipline = Discipline.find(params[:id])
+    @versions = @discipline.versions
+    
+    respond_with @versions
+  end
 end

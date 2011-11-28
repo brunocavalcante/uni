@@ -34,11 +34,15 @@ class Discipline < ActiveRecord::Base
   validates_uniqueness_of :code, :scope => :version
   
   def versions
-    Discipline.find(:all, :conditions => ["code = ? and course_id = ?", code, course.id])
+    Discipline.find(:all, :conditions => ["code = ? and course_id = ?", code, course.id], :order => 'version DESC')
   end
   
   def version_fullname
     "#{version.to_s} (#{I18n.l(created_at)})"
+  end
+  
+  def version_shortname
+    "#{version.to_s} (#{I18n.l(created_at, :format => :short)})"
   end
   
   def get(attr)

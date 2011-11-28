@@ -8,7 +8,20 @@
   
   <p>
     <%= f.label :discipline_id %><br />
-    <%= f.collection_select :discipline_id, @lecture.discipline ? [@lecture.discipline] : [], :id, :name %>
+    <%= select_tag :course_id, 
+    							 options_from_collection_for_select(Course.all, :id, :name, @lecture.discipline ? @lecture.discipline.course_id : nil), 
+    							 :include_blank => true %> 
+    <% if @lecture.discipline %>
+    <%= select_tag :discipline_code, 
+    							 options_from_collection_for_select(@lecture.discipline.course.disciplines.latest_versions.all, 
+    							 																		:id, 
+    							 																		:name, 
+    							 																		@lecture.discipline_id), 
+    							 :include_blank => true %>
+		<% else %>
+		<%= select_tag :discipline_code, nil, :include_blank => true %>
+		<% end %>
+    <%= f.collection_select :discipline_id, @lecture.discipline ? @lecture.discipline.versions : [], :id, :version %> 
   </p>
   
   <p>
@@ -51,7 +64,53 @@
 
 <script language="JavaScript">
   $(document).ready(function() {
-    Application.autocomplete('lecture_discipline_id', '<%= disciplines_path %>.js', '<%= t "Remove" %>', false)
+	  function update_discipline_codes() {
+	  	$('#discipline_code option').remove()
+	  	$.ajax({
+	    	url: '<%= admin_courses_path %>/' + $('#course_id').val() + '/disciplines.json', 
+	    	success: function(data) {
+	    		$(data).each(function(i, item) {
+	    			$('#discipline_code').append('<option value="' + item.id + '">' + item.name + '</option>')
+	    		})
+	    	}, 
+	    	complete: function() {
+	    		$('#discipline_code').val($('#discipline_code option:first').val())
+	    		update_discipline_versions()
+	    	}
+	    })
+	    
+	    update_discipline_versions()
+	  }
+	  
+	  function update_discipline_versions() {
+	  	$('#lecture_discipline_id option').remove()
+	  	
+	  	if (!$('#discipline_code').val()) {
+	  		return true;
+	  	}
+	  	
+	  	$.ajax({
+	    	url: '<%= admin_courses_path %>/' + $('#course_id').val() + '/disciplines/' + $('#discipline_code').val() + '/versions.json', 
+	    	success: function(data) {
+	    		$(data).each(function(i, item) {
+	    			$('#lecture_discipline_id').append('<option value="' + item.id + '">' + item.version + '</option>')
+	    		})
+	    	},
+	    	complete: function(data) {
+	    		$('#lecture_discipline_id').val($('#lecture_discipline_id option:first').val())
+	    	}
+	    })
+	  }
+	  
+	  $('#course_id').change(function() {
+	  	update_discipline_codes()
+	  });
+	  
+	  $('#discipline_code').change(function() {
+	  	update_discipline_versions()
+	  });
+  	
+    //Application.autocomplete('lecture_discipline_id', '<%= disciplines_path %>.js', '<%= t "Remove" %>', false)
     Application.autocomplete('lecture_professor_ids', '<%= professors_path %>.js', '<%= t "Remove" %>', true)
     Application.enableAddAnotherItem('<%= t "Remove" %>')
     $('input[name*=places]').spinner({allowNull: true, min: 0, max: 10000})

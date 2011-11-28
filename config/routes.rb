@@ -10,6 +10,9 @@ Uni::Application.routes.draw do
           new do
             get :search
           end
+          member do
+            get :versions
+          end
         end
         resources :curriculums do 
           resources :curriculum_disciplines
