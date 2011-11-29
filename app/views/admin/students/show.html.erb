@@ -29,7 +29,7 @@
 </p>
 
 <h3><%= t 'Courses' %></h3>
-<% if @student.curriculums %>
+<% if @student.curriculums.size > 0 %>
 <ul>
 	<% for curriculum_student in @student.curriculum_students %>
 	<li><%= link_to curriculum_student.curriculum.course.name, [:admin, curriculum_student.curriculum.course, curriculum_student] %></li>

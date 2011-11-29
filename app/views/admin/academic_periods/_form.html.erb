@@ -2,11 +2,11 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name, nil, :class => :required %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :start %><br />
+    <%= f.label :start, nil, :class => :required %><br />
     <%= f.date_select :start %> <%= t 'until' %> <%= f.date_select :end %>
   </p>
   <p>

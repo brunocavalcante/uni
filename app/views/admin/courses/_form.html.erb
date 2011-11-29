@@ -2,17 +2,18 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
+    <%= f.label :code, nil, :class => :required %><br />
+    <%= f.text_field :code, :class => :input_small %>
   </p>
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name, nil, :class => :required %><br />
+    <%= f.text_field :name, :class => :input_xlarge %>
   </p>
   <p>
     <%= f.label :course_category_id %><br />
     <%= f.select :course_category_id, CourseCategory.all.collect {|c| [ c.name, c.id ] } %>
   </p>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

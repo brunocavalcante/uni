@@ -12,7 +12,7 @@
 	  <%= f.error_messages %>
 	
 		<p>
-	    <%= label_tag :student_id, (t 'Students') %><br />
+	    <%= label_tag :student_id, (t 'Students'), :class => :required %><br />
 	    <%= f.collection_select :student_id, @lecture_student.student ? [@lecture_student.student] : [], :student_id, :name, {}, {:multiple => true} %>
 	  </p>
 	  
@@ -24,6 +24,6 @@
 
 <script language="JavaScript">
   $(document).ready(function() {
-  	Application.autocomplete('lecture_student_student_id', '<%= admin_students_path %>.js', '<%= t "Remove" %>', true)
+    Application.autocomplete('lecture_student_student_id', '<%= admin_students_path %>.js', '<%= t "Remove" %>', true)
   });
 </script>

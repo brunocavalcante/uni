@@ -2,11 +2,11 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
+    <%= f.label :code, nil, :class => :required %><br />
+    <%= f.text_field :code, :class => :input_medium %>
   </p>
   <p>
-    <%= f.label :name %><br />
+    <%= f.label :name, nil, :class => :required %><br />
     <%= f.text_field :name %>
   </p>
   <% if @curriculum.id %>

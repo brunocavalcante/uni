@@ -377,15 +377,15 @@ table.grid tbody td {
 
 /* Notices and Alerts */
 #notice, #alert {
+  border: 1px solid;
+  border-color: #EEE #DDD #CCC;
   margin-top: 0;
-  border-width: 1px 0;
-  border-color: #DDD;
-  border-style: solid;
   padding: 0.5em 1.5em;
 }
 
 #notice {
-  background: #F6F4DA;
+  background: #FFC;
+  color: #666;
 }
 #alert {
   background: #FFCCCC;
@@ -500,12 +500,12 @@ aside#user {
   background-repeat: no-repeat;
   padding: 0.5em 0.5em 0.5em 36px;  
 }
-div.ui-autocomplete-loading {
-  background-image: url('/assets/ajax-loader.gif');
+article input.ui-autocomplete-loading {
+  background-color: lightyellow;
 }
 .ui-autocomplete-error {
   background-color: #CC0000;
-}
+}1
 
 /* Wall */
 .wall {
@@ -608,6 +608,22 @@ aside .student-schedule {
 }
 
 /* Chosen */
-.chzn-drop, .chzn-container, .chzn-choices .search-field {
+.chzn-container {
   min-width: 300px;
+}
+
+.chzn-drop {
+  min-width: 298px;
+}
+
+.chzn-choices .search-field input {
+  min-width: 200px;
+}
+
+/* Forms */
+label {
+  font-size: $font-small;
+}
+label.required {
+  font-weight: bold;
 }

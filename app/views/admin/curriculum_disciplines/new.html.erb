@@ -9,7 +9,7 @@
   
   <%= form_tag({:action => 'create'}) do %>
     <p>
-      <%= label_tag (t 'Disciplines') %><br />
+      <%= label_tag :curriculum_disciplines, (t 'Disciplines'), :class => :required %><br />
     	<%= collection_select :curriculum_disciplines, :discipline_ids, [], :id, :name, {}, {:multiple => true} %>
     </p>
   

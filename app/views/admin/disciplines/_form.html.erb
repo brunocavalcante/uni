@@ -2,18 +2,18 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :code %><br />
-    <%= f.text_field :code, :disabled => (@discipline.id) %>
+    <%= f.label :code, nil, :class => :required %><br />
+    <%= f.text_field :code, :disabled => (@discipline.id), :class => :input_medium %>
   </p>
   
   <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name, nil, :class => :required %><br />
+    <%= f.text_field :name, :class => :input_xlarge %>
   </p>
   
   <p>
     <%= f.label :credits %><br />
-    <%= f.text_field :credits %>
+    <%= f.text_field :credits, :class => :input_small %>
   </p>
   
   <p>

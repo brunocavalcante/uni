@@ -2,17 +2,17 @@
   <%= f.error_messages %>
   
   <p>
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
+    <%= f.label :code, nil, :class => :required %><br />
+    <%= f.text_field :code, :class => :input_medium %>
   </p>
   <%= f.fields_for :person do |p| %>
   <p>
-    <%= p.label :name %><br />
-    <%= p.text_field :name %>
+    <%= p.label :name, nil, :class => :required %><br />
+    <%= p.text_field :name, :class => :input_xlarge %>
   </p>
   <p>
     <%= p.label :email %><br />
-    <%= p.text_field :email %>
+    <%= p.text_field :email, :class => :input_xlarge %>
   </p>
   <p>
     <%= p.label :date_birth %><br />

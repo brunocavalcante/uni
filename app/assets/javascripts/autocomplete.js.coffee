@@ -12,7 +12,6 @@ Application.autocomplete = (field, sourceUrl, removeName, multiple) ->
     select: (event, ui) ->
       if $("##{field} option[value='#{ui.item.id}']").size() is 0
         autocompleteAddItem(ui.item.id, ui.item.label, field, removeName, multiple)
-    loading: (event) -> $(this).parent().addClass('ui-autocomplete-loading')
      
   $("##{field}_autocomplete").focus -> $(this).val('')
   $("##{field}_autocomplete").blur -> $(this).val('')
