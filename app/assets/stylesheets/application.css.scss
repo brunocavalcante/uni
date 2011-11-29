@@ -368,10 +368,10 @@ div.pagination {
   margin-top: 0.75em;
 }
 
-table.grid tbody td, table.grid thead th {
+table.grid tbody td, table.grid th {
   border: 1px solid $lighterBorderColor;
 }
-table.grid tbody td {
+table.grid tbody td, table.grid th {
   font-size: $font-smaller;
 }
 
@@ -505,7 +505,7 @@ article input.ui-autocomplete-loading {
 }
 .ui-autocomplete-error {
   background-color: #CC0000;
-}1
+}
 
 /* Wall */
 .wall {
@@ -605,19 +605,6 @@ aside .student-schedule {
   li ul li {
     margin-bottom: 1em;
   }
-}
-
-/* Chosen */
-.chzn-container {
-  min-width: 300px;
-}
-
-.chzn-drop {
-  min-width: 298px;
-}
-
-.chzn-choices .search-field input {
-  min-width: 200px;
 }
 
 /* Forms */

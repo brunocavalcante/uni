@@ -287,6 +287,7 @@ pt:
   Status: "Status"
   Suggestion: "Sugestão"
   TimeOn: "em"
+  TranscriptNoCurriculumModule: "Outras Disciplinas"
   until: "até"
   Upload: "Enviar"
   

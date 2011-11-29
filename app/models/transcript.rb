@@ -9,7 +9,7 @@ class Transcript < CurriculumStudent
     @transferred_disciplines = transferred_disciplines.by_name
                               
     @transcripts = []
-    @curriculum_disciplines.each {|c| @transcripts << {:discipline => c.discipline}}
+    @curriculum_disciplines.each {|c| @transcripts << {:curriculum_discipline => c}}
     
     @best_lecture_students = {}
     for lecture_student in @lecture_students
@@ -27,7 +27,7 @@ class Transcript < CurriculumStudent
     end
     
     for transcript in @transcripts
-      discipline_id = transcript[:discipline].id
+      discipline_id = transcript[:curriculum_discipline].discipline_id
       if @best_lecture_students[discipline_id]
         if @best_lecture_students[discipline_id].is_a? LectureStudent
           transcript[:lecture_student] = @best_lecture_students[discipline_id]
@@ -38,6 +38,7 @@ class Transcript < CurriculumStudent
       end 
     end
     
+    # Disciplines not on the curriculum
     if @best_lecture_students.size > 0
       for lecture_student in @best_lecture_students
         if lecture_student.is_a? LectureStudent
