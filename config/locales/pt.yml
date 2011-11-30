@@ -13,7 +13,7 @@ pt:
         curriculum_discipline:
           attributes:
             curriculum_id: 
-              active: "Não é possível alterar essa disciplina, pois a grade curricular está ativa."
+              finished: "Não é possível alterar essa disciplina, pois a grade curricular está concluída."
         curriculum_student:
           attributes:
             student_id:
@@ -304,14 +304,6 @@ pt:
   TranscriptNoCurriculumModule: "Outras Disciplinas"
   until: "até"
   Upload: "Enviar"
-  
-  errors:
-    page_not_found:
-      title: "Página não encontrada!"
-      description: "Desculpe, a página que você procura não foi encontrada ou não existe."
-    exception:
-      title: "Algo deu errado!"
-      description: "Desculpe, houve algum problema no tratamento da sua requisição. Por favor, tente novamente ou contate o administrador do sistema."
   
   url:
     absences: *absences

@@ -20,7 +20,7 @@ class CurriculumDiscipline < ActiveRecord::Base
   validate :validate_curriculum
   
   def validate_curriculum
-    errors.add(:curriculum_id, :active) if curriculum.active? 
+    errors.add(:curriculum_id, :finished) if curriculum.finished? 
   end
   
   def name
