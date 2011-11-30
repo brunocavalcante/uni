@@ -83,7 +83,7 @@ Discipline.create([{ :code => 'N011', :name => 'Cálculo Diferencial e Integral'
 
 # Users
 Person.create([{ :name => 'Administrator', :email => 'admin@uni.com', :password => '21232f297a57a5a743894a0e4a801fc3', :roles => [@administrator] }])
-Professor.create([{ :person => Person.create({ :name => 'Professor', :email => 'professor@uni.com', :password => '3f9cd3c7b11eb1bae99dddb3d05da3c5', :roles => [@professor] }), :scholarity => Scholarity.first }])
+Professor.create([{ :person => Person.create({ :name => 'Professor', :email => 'professor@uni.com', :password => '3f9cd3c7b11eb1bae99dddb3d05da3c5', :scholarity => Scholarity.first, :roles => [@professor] }) }])
 Student.create([{ :person => Person.create({ :name => 'Student', :email => 'student@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'student', :curriculums => [Curriculum.first] }])
 Student.create([{ :person => Person.create({ :name => 'Jules', :email => 'jules@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'jules', :curriculums => [Curriculum.first] }])
 Student.create([{ :person => Person.create({ :name => 'Seth', :email => 'seth@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'seth', :curriculums => [Curriculum.first] }])

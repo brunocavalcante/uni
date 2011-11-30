@@ -16,6 +16,11 @@
   </p>
   
   <p>
+    <b><%= t 'activerecord.attributes.curriculum_discipline.mandatory' %>:</b> 
+    <%= @curriculum_discipline.mandatory ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %>
+  </p>
+  
+  <p>
     <b><%= t 'activerecord.attributes.curriculum_discipline.curriculum_module_id' %>:</b> 
     <%= @curriculum_discipline.curriculum_module.name if @curriculum_discipline.curriculum_module %>
   </p>

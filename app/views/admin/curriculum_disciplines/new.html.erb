@@ -17,6 +17,11 @@
       <%= label_tag (t 'activerecord.attributes.curriculum_discipline.curriculum_module_id') %><br />
     	<%= collection_select :curriculum_disciplines, :curriculum_module_id, @curriculum.curriculum_modules, :id, :name, :include_blank => true %>
     </p>
+    
+    <p>
+  		<%= check_box_tag :mandatory %> 
+      <%= label_tag (t 'activerecord.attributes.curriculum_discipline.mandatory') %>
+    </p>
   
     <div class="actions">
       <%= submit_tag (t 'AddSelected') %>

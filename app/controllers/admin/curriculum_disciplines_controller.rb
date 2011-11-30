@@ -19,6 +19,7 @@ class Admin::CurriculumDisciplinesController < ApplicationController
       @curriculum_discipline = CurriculumDiscipline.new
       @curriculum_discipline.discipline_id = discipline_id
       @curriculum_discipline.curriculum_id = @curriculum.id
+      @curriculum_discipline.mandatory = (params[:mandatory] == '1')
       
       if params[:curriculum_disciplines][:curriculum_module_id] != ''
         @curriculum_discipline.curriculum_module_id = params[:curriculum_disciplines][:curriculum_module_id]

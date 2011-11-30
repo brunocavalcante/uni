@@ -58,6 +58,7 @@ en:
         curriculum_id: *curriculum
         discipline_id: *discipline
         curriculum_module_id: *curriculum_module
+        mandatory: "Mandatory"
         prerequisites: "Prerequisites"
       curriculum_module:
         name: *name

@@ -2,6 +2,10 @@
   <%= f.error_messages %>
 
 	<p>
+  	<%= f.check_box :mandatory %> <%= f.label :mandatory %>
+  </p>
+
+	<p>
     <%= f.label :prerequisites %><br />
     <%= f.collection_select :prerequisite_ids, 
     												@curriculum.disciplines, 
