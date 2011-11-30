@@ -3,6 +3,10 @@ fr:
   activerecord:
     errors:
       models:
+        curriculum:
+          attributes:
+            active:
+              cant_inactivate_still_have_students: "You cannot deactivate this curriculum, because it has active students."
         curriculum_discipline:
           attributes:
             curriculum_id: 
@@ -270,6 +274,10 @@ fr:
   
   # Course/Curriculums
   AddDisciplineToCurriculum: "Add Discipline to the Curriculum"
+  ActiveCurriculumWillBeAvailableForStudentRegistration: "Activate this curriculum when you finish setting up its disciplines and modules."
+  CantAddStudentBecauseNoCurriculums: "You can't add a student to this course, because it doesn't have it any curriculums."
+  ThisCurriculumIsActiveNotice: "This Curriculum is active. While it remains in this state, it won't be possible to add or edit its disciplines and modules."
+  ThisCurriculumIsInactiveNotice: "This Curriculum is inactive. Activate it when you finish setting up its disciplines and modules."
   
   # Academic Periods
   InformationOfAbsenceOfRegistrationPeriod: "If the registration period is not informed, the registration won't be open to the students."

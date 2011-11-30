@@ -13,6 +13,7 @@
         <th><%= t 'activerecord.attributes.curriculum.code' %></th>
         <th><%= t 'activerecord.attributes.curriculum.name' %></th>
         <th><%= t 'activerecord.attributes.curriculum.active' %></th>
+        <th><%= t 'activerecord.attributes.curriculum.finished' %></th>
       </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
         <td><%= curriculum.code %></td>
         <td><%= link_to curriculum.name, [:admin, @course, curriculum] %></td>
         <td><%= curriculum.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %></td>
+        <td><%= curriculum.finished ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %></td>
       </tr>
       <% end %>
     </tbody>

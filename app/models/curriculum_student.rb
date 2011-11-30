@@ -7,6 +7,7 @@ class CurriculumStudent < ActiveRecord::Base
   scope :all_with_curriculum, includes(:curriculum).order('curriculums.name ASC')
   scope :all_with_person_and_curriculum, includes([:curriculum, {:student => :person}]).order('people.name ASC')
   scope :from_course, lambda {|course_id| includes(:curriculum).where('curriculums.course_id = ?', course_id)}
+  scope :only_active, where('curriculum_students.active IS TRUE')
   
   validates :curriculum_id, :presence => true
   validates :student_id, :presence => true

@@ -3,6 +3,13 @@ pt:
   activerecord:
     errors:
       models:
+        curriculum:
+          attributes:
+            active:
+              cant_inactivate_still_have_students: "Não é possível desativar esta grade curricular, pois ela possui existem alunos ativos neste momento."
+              cant_activate_not_yet_finished: "Não é possível ativar esta grade curricular, pois ela ainda não está concluída"
+            finished:
+              cant_unfinish_has_students: "Não é possível alterar a conclusão desta grade curricular, pois ela já possui alunos."
         curriculum_discipline:
           attributes:
             curriculum_id: 
@@ -54,6 +61,7 @@ pt:
         name: *name
         active: &active "Ativo"
         course_id: *course
+        finished: "Concluída"
       curriculum_discipline:
         curriculum_id: *curriculum
         discipline_id: *discipline
@@ -270,6 +278,11 @@ pt:
   
   # Course/Curriculums
   AddDisciplineToCurriculum: "Adicionar Disciplina à Grade Curricular"
+  ActiveCurriculumWillBeAvailableForStudentRegistration: "Ative esta grade quando concluir seu cadastro de disciplinas e módulos, para que seja possível matricular alunos nela."
+  CantAddStudentBecauseNoCurriculums: "Não é possível adicionar um aluno neste curso, pois ele não tem nenhuma grade curricular concluída neste momento."
+  FinishCurriculumToEnableActivation: "Só será possível ativar esta grade curricular quando você indicar que ela está concluída."
+  ThisCurriculumIsActiveNotice: "Esta Grade Curricular está ativa. Enquanto ela estiver neste estado, não será possível adicionar ou editar suas disciplinas e módulos."
+  ThisCurriculumIsNotFinishedNotice: "Esta Grade Curricular não está concluída. Edita-a e marque \"concluída\" quando finalizar o cadastro de disciplinas e módulos."
   
   # Academic Periods
   InformationOfAbsenceOfRegistrationPeriod: "Se o período de matrícula não for informado, a matrícula não será aberta para os estudantes."

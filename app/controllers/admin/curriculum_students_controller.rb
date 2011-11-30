@@ -27,6 +27,12 @@ class Admin::CurriculumStudentsController < ApplicationController
     @curriculum_student = CurriculumStudent.new
     @curriculum_student.active = true
     
+    if @course.curriculums.only_finished.count == 0
+      flash[:notice] = I18n.t('CantAddStudentBecauseNoCurriculums')
+      redirect_to({:action => :index})
+      return false
+    end
+    
     respond_with @curriculum_student
   end
   

@@ -18,7 +18,10 @@ class Admin::CurriculumsController < ApplicationController
   # GET /curriculums/1.xml
   def show
     @curriculum = Curriculum.find(params[:id])
-    @curriculum_disciplines = @curriculum.curriculum_disciplines.by_module.paginate :page => params[:page]
+    @curriculum_disciplines = @curriculum.curriculum_disciplines.by_module
+
+    flash.now[:notice] = I18n.t('ThisCurriculumIsActiveNotice') if !flash[:notice] && @curriculum.active
+    flash.now[:notice] = I18n.t('ThisCurriculumIsNotFinishedNotice') if !flash[:notice] && !@curriculum.finished
 
     respond_with @curriculum
   end

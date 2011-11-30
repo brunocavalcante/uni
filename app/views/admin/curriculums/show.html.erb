@@ -6,7 +6,9 @@
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), {:action => 'index'}, :class => 'back' %></li>
       <li><%= link_to (t 'Edit'), {:action => 'edit', :id => @curriculum.id}, :class => 'edit' %></li>
+      <% if !@curriculum.active %>
       <li><%= link_to ((t 'Add') + ' ' + (t 'Disciplines')), new_admin_course_curriculum_curriculum_discipline_path(@course, @curriculum), :class => 'new' %></li>
+      <% end %>
       <li><%= link_to (t 'CurriculumModules'), admin_course_curriculum_curriculum_modules_path(@course, @curriculum), :class => 'show' %></li>
       <li><%= button_to (t 'Delete'), {:action => :show}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
     </ul>
@@ -57,6 +59,4 @@
       <% end %>
     </tbody>
   </table>
-  
-  <%= will_paginate @curriculum_disciplines %>
 </article>

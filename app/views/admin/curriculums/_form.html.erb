@@ -11,8 +11,13 @@
   </p>
   <% if @curriculum.id %>
   <p>
-    <%= f.label :active %><br />
-    <%= f.check_box :active %>
+    <%= f.check_box :finished %> <%= f.label :finished %><br />
+    <small><%= t 'FinishCurriculumToEnableActivation' %></small>
+  </p>
+  
+  <p>
+    <%= f.check_box :active %> <%= f.label :active %><br />
+    <small><%= t 'ActiveCurriculumWillBeAvailableForStudentRegistration' %></small>
   </p>
   <% end %>
   

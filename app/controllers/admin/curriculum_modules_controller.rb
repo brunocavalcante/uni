@@ -8,7 +8,7 @@ class Admin::CurriculumModulesController < ApplicationController
   end  
   
   def index
-    @curriculum_modules = @curriculum.curriculum_modules.paginate :page => params[:page]
+    @curriculum_modules = @curriculum.curriculum_modules.by_order.paginate :page => params[:page]
     
     respond_with @curriculum_modules
   end

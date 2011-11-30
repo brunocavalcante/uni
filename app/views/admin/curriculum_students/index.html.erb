@@ -24,15 +24,25 @@
         <th><%= t 'activerecord.attributes.student.code' %></th>
         <th><%= t 'activerecord.attributes.person.name' %></th>
         <th><%= t 'activerecord.attributes.curriculum_student.curriculum_id' %></th>
+        <th><%= t 'activerecord.attributes.curriculum_student.active' %></th>
       </tr>
     </thead>
 
     <tbody>
       <% @curriculum_students.each do |curriculum_student| %>
       <tr>
-        <td><%= curriculum_student.student.code %></td>
-        <td><%= link_to curriculum_student.student.person.name, admin_course_curriculum_student_path(@course, curriculum_student) %></td>
-        <td><%= link_to curriculum_student.curriculum.name, admin_course_curriculum_path(@course, curriculum_student.curriculum) %></td>
+        <td>
+        	<%= curriculum_student.student.code %>
+        </td>
+        <td>
+        	<%= link_to curriculum_student.student.person.name, admin_course_curriculum_student_path(@course, curriculum_student) %>
+        </td>
+        <td>
+        	<%= link_to curriculum_student.curriculum.name, admin_course_curriculum_path(@course, curriculum_student.curriculum) %>
+        </td>
+        <td>
+        	<%= curriculum_student.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %>
+        </td>
       </tr>
       <% end %>
     </tbody>

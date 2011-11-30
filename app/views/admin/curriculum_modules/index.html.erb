@@ -5,7 +5,9 @@
     <h2><%= @curriculum.name %>: <%= t 'CurriculumModules' %></h2>
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), admin_course_curriculum_path(@course, @curriculum), :class => 'back'  %></li>
+      <% if !@curriculum.active %>
       <li><%= link_to ((t 'Add') + ' ' + (t 'activerecord.models.curriculum_module')), {:action => :new}, :class => 'new'  %></li>
+      <% end %>
     </ul>
   </header>
   
