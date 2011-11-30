@@ -10,7 +10,10 @@
       <li><%= link_to ((t 'Add') + ' ' + (t 'Disciplines')), new_admin_course_curriculum_curriculum_discipline_path(@course, @curriculum), :class => 'new' %></li>
       <% end %>
       <li><%= link_to (t 'CurriculumModules'), admin_course_curriculum_curriculum_modules_path(@course, @curriculum), :class => 'show' %></li>
+      
+      <% if !@curriculum.active %>
       <li><%= button_to (t 'Delete'), {:action => :show}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete' %></li>
+      <% end %>
     </ul>
   </header>
 

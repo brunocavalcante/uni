@@ -3,7 +3,7 @@ class Curriculum < ActiveRecord::Base
   has_many :curriculum_disciplines, :dependent => :destroy
   has_many :disciplines, :through => :curriculum_disciplines
   
-  has_many :curriculum_students, :dependent => :destroy
+  has_many :curriculum_students, :dependent => :restrict
   
   has_many :curriculum_modules, :dependent => :destroy
   
