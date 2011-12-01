@@ -38,8 +38,9 @@
       <tr>
         <th><%= t 'activerecord.attributes.discipline.code' %></th>
         <th><%= t 'activerecord.attributes.discipline.name' %></th>
-        <th><%= t 'activerecord.attributes.discipline.credits' %></th>
+        <th><%= t 'activerecord.attributes.curriculum_discipline.prerequisites' %></th>
         <th><%= t 'activerecord.attributes.curriculum_discipline.mandatory' %></th>
+        <th><%= t 'activerecord.attributes.discipline.credits' %></th>
       </tr>
     </thead>
     <tbody>
@@ -48,16 +49,21 @@
       <% if curriculum_discipline.curriculum_module_id != current_module %>
       <% current_module = curriculum_discipline.curriculum_module_id %>
       <tr>
-      	<th colspan="4">
+      	<th colspan="5">
       		<%= curriculum_discipline.curriculum_module ? curriculum_discipline.curriculum_module.name : t('TranscriptNoCurriculumModule') %>
       	</th>
       </tr>
       <% end %>
       <tr>
         <td><%= curriculum_discipline.discipline.code %></td>
-        <td><%= link_to curriculum_discipline.discipline.name, admin_course_curriculum_curriculum_discipline_path(@course, @curriculum, curriculum_discipline) %></td>
-        <td><%= curriculum_discipline.discipline.credits %></td>
+        <td><%= link_to curriculum_discipline.name, [:admin, @course, @curriculum, curriculum_discipline] %></td>
+        <td>
+        	<% curriculum_discipline.prerequisites.each_with_index do |p, i| %>
+        	<% if i > 0 %>, <% end %><%= link_to p.discipline.code, [:admin, @course, @curriculum, p] %>
+        	<% end %>
+        </td>
         <td><%= curriculum_discipline.mandatory ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %></td>
+        <td><%= curriculum_discipline.discipline.credits %></td>
       </tr>
       <% end %>
     </tbody>

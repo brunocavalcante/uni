@@ -9,7 +9,7 @@
 	<p>
     <%= f.label :prerequisites %><br />
     <%= f.collection_select :prerequisite_ids, 
-    												@curriculum.disciplines, 
+    												@curriculum.curriculum_disciplines.where('curriculum_disciplines.id <> ?', @curriculum_discipline.id), 
     												:id, 
     												:name, 
     												{}, 

@@ -14,6 +14,9 @@ pt:
           attributes:
             curriculum_id: 
               finished: "Não é possível alterar essa disciplina, pois a grade curricular está concluída."
+            prerequisites:
+              circular_dependency: "A disciplina \"%{discipline_name}\" já depende desta disciplina."
+              depending_on_itself: "Esta disciplina está dependendo de si mesma."
         curriculum_student:
           attributes:
             student_id:

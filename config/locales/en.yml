@@ -14,6 +14,9 @@ en:
           attributes:
             curriculum_id: 
               finished: "You cannot update this discipline, because its curriculum is finished."
+            prerequisites:
+              circular_dependency: "There is a circular dependency among this discipline's prerequisites."
+              depending_on_itself: "This discipline is depending on itself."
         curriculum_student:
           attributes:
             student_id:
