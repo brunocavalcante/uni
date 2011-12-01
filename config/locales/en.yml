@@ -172,6 +172,7 @@ en:
   UserPasswordNotFound: "Username/Password not found"
   PasswordRecovery: "Password Recovery"
   SendMeMyPassword: "Send me my password"
+  AboutContent: "Uni is a free and open source web Academic Platform, built on Ruby on Rails, with the purpose of helping to manage an academic environment, such as a university."
   
   # Profiles
   Professor: *professor
