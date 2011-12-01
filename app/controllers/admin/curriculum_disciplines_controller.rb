@@ -46,6 +46,7 @@ class Admin::CurriculumDisciplinesController < ApplicationController
   def update
     @curriculum_discipline = CurriculumDiscipline.find(params[:id])
     @curriculum_discipline.update_attributes(params[:curriculum_discipline])
+    @curriculum_discipline.prerequisite_ids = nil unless params[:curriculum_discipline][:prerequisite_ids]
     
     respond_with @curriculum_discipline, :location => [:admin, @course, @curriculum]
   end
