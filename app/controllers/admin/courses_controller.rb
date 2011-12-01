@@ -62,7 +62,12 @@ class Admin::CoursesController < ApplicationController
   # DELETE /courses/1.xml
   def destroy
     @course = Course.find(params[:id])
-    @course.destroy
+    
+    begin
+      @course.destroy
+    rescue
+      @course.errors.add(:curriculums, :cant_delete_still_has_students)
+    end
 
     respond_with @course, :location => admin_courses_url
   end

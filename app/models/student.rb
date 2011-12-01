@@ -13,6 +13,14 @@ class Student < ActiveRecord::Base
   validates_uniqueness_of :code
   
   accepts_nested_attributes_for :person
+  
+  before_destroy :delete_person
+  
+  def delete_person
+    if !person.professor
+      person.destroy
+    end
+  end
     
   def name
     person.name

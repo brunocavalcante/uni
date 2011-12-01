@@ -57,7 +57,12 @@ class Admin::ProfessorsController < ApplicationController
   # DELETE /professors/1
   def destroy
     @professor = Professor.find(params[:id])
-    @professor.destroy
+    
+    begin
+      @professor.destroy
+    rescue
+      @professor.errors.add(:lecture_professors, :cant_destroy_still_has_lectures)
+    end
 
     respond_with @professor, :location => admin_professors_url
   end

@@ -1,3 +1,4 @@
+<% if wall.message %>
 <li>
 	<div class="photo">
 		<% if wall.message.person.photo.exists? %>
@@ -28,3 +29,4 @@
   	</div>
 	</div>
 </li>
+<% end %>

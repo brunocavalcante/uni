@@ -1,7 +1,7 @@
 class Professor < ActiveRecord::Base
   belongs_to :person, :dependent => :destroy
   
-  has_many :lecture_professors, :dependent => :destroy
+  has_many :lecture_professors, :dependent => :restrict
   has_many :lectures, :through => :lecture_professors
 
   accepts_nested_attributes_for :person
@@ -11,6 +11,12 @@ class Professor < ActiveRecord::Base
   scope :with_scholarity, includes({:person => :scholarity})
   
   validates_presence_of :email
+  
+  def delete_person
+    if !person.student
+      person.destroy
+    end
+  end
   
   def email
     person.email
