@@ -7,7 +7,8 @@
   </p>
   <% if @lecture.professors.size == 1 %>
   <p>
-    <b><%= t 'activerecord.models.Professor' %>:</b> <%= link_to @lecture.professors[0].person.name, user_path(@lecture.professors[0].person) %>
+    <b><%= t 'activerecord.models.Professor' %>:</b> 
+    <%= link_to @lecture.professors[0].person.name, user_path(@lecture.professors[0].person) %>
   </p>
   <% else %>
   <p>

@@ -15,7 +15,7 @@
     <b><%= t 'Professors' %>:</b> 
     <ul>
     	<% for professor in @lecture.professors %>
-    	<li><%= professor.person.name %></li>
+    	<li><%= link_to professor.person.name, user_path(professor.person) %></li>
     	<% end %>
     </ul>
   </p>
