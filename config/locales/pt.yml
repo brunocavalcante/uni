@@ -306,6 +306,7 @@ pt:
   Suggestion: "Sugestão"
   TimeOn: "em"
   TranscriptNoCurriculumModule: "Outras Disciplinas"
+  TranscriptOutsideCurriculum: "Disciplinas fora da Grade Curricular"
   until: "até"
   Upload: "Enviar"
   

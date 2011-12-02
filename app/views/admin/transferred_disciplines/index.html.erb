@@ -4,6 +4,7 @@
   <header>
     <h2><%= @curriculum_student.name %>: <%= t 'TransferredDisciplines' %></h2>
     <ul id="toolbar">
+    	<li><%= link_to (t 'Back'), admin_course_curriculum_student_path(@course, @curriculum_student), :class => :back %></li>
       <li><%= link_to ((t 'Add') + ' ' + (t 'activerecord.models.transferred_discipline')), new_admin_course_curriculum_student_transferred_discipline_path, :class => 'new'  %></li>
     </ul>
   </header>

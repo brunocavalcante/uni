@@ -40,9 +40,11 @@ class Transcript < CurriculumStudent
     
     # Disciplines not on the curriculum
     if @best_lecture_students.size > 0
-      for lecture_student in @best_lecture_students
+      for id, lecture_student in @best_lecture_students
         if lecture_student.is_a? LectureStudent
           @transcripts << {:discipline => lecture_student.lecture.discipline, :lecture_student => lecture_student}
+        elsif lecture_student.is_a? TransferredDiscipline
+          @transcripts << {:discipline => lecture_student.discipline, :transferred_discipline => lecture_student}
         end
       end
     end

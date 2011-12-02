@@ -1,6 +1,6 @@
 <h3><%= t 'Disciplines' %></h3>
 
-<table class="grid">
+<table class="grid" summary="<%= t 'Disciplines' %>">
   <thead>
     <tr>
       <th><%= t 'activerecord.models.discipline' %></th>
@@ -19,26 +19,31 @@
 		<% current_module = t[:curriculum_discipline].curriculum_module_id %>
   	<tr>
   		<th colspan="6">
-  			<%= t[:curriculum_discipline].curriculum_module ? t[:curriculum_discipline].curriculum_module.name : I18n.t('TranscriptNoCurriculumModule') %>
+  			<% if t[:curriculum_discipline].curriculum_module %>
+  			<%= t[:curriculum_discipline].curriculum_module.name %>
+  			<% else %>
+  			<%= I18n.t('TranscriptNoCurriculumModule') %>
+  			<% end %>
   		</th>
   	</tr>	
-  		<% end %>
+    <% elsif !t[:curriculum_discipline] && current_module != I18n.t('TranscriptOutsideCurriculum') %>
+		<% current_module = I18n.t('TranscriptOutsideCurriculum') %>
+  	<tr>
+  		<th colspan="6"><%= I18n.t('TranscriptOutsideCurriculum') %></th>
+  	</tr>	
+    <% end %>
   	<tr>
       <td><%= discipline.name %></td>
       <% if t[:lecture_student] %>
       <td>
-      	<span class="<%= situation_class t[:lecture_student] %>">
-      		<%= t[:lecture_student].situation_description %>
-      	</span>
+      	<span class="<%= situation_class t[:lecture_student] %>"><%= t[:lecture_student].situation_description %></span>
       </td>
       <td><%= t[:lecture_student].lecture.academic_period.name %></td>
       <td><%= t[:lecture_student].grade %></td>
       <td><%= t[:lecture_student].attendance.to_s + '%' if t[:lecture_student].attendance %></td>
       <% elsif t[:transferred_discipline] %>
       <td>
-      	<span class="approved">
-      		<%= t 'TransferredDisciplineSituation'%>
-      	</span>
+      	<span class="approved"><%= t 'TransferredDisciplineSituation'%></span>
       </td>
       <td></td>
       <td><%= t[:transferred_discipline].grade %></td>

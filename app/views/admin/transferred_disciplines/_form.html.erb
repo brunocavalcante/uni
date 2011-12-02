@@ -4,7 +4,7 @@
 	<% if @transferred_discipline.id == nil %>
 	<p>
     <%= f.label :discipline_id %><br/>
-    <%= f.select :discipline_id, options_from_collection_for_select(@curriculum.disciplines, "id", "name") %>
+    <%= f.select :discipline_id, [] %>
   </p>
   <% end %>
   
@@ -22,3 +22,9 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script language="Javascript">
+  $(document).ready(function() {
+  	Application.autocomplete('transferred_discipline_discipline_id', '<%= disciplines_path %>.js', '<%= t "Remove" %>', false)
+  })
+</script>
