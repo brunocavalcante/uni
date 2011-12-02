@@ -8,41 +8,49 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
-    <header>
+    <header id="main-header">
       <h1>
         <a href="/">Uni</a>
-        <span><%= t 'UniversityManagementSystem' %></span>
+        <!--<span><%= t 'UniversityManagementSystem' %></span> -->
       </h1>
+      <nav id="nav">
+	      <%= 
+	      if !session[:user] or !session[:role]
+	        render :partial => 'layouts/menu-guest'
+	      elsif session[:role] and session[:role].id == Role::ADMINISTRATOR
+	        render :partial => 'layouts/menu-admin'
+	      elsif session[:role] and session[:role].id == Role::PROFESSOR
+	        render :partial => 'layouts/menu-professor'
+	      elsif session[:role] and session[:role].id == Role::STUDENT
+	        render :partial => 'layouts/menu-student'
+	      end
+	      %>
+	    </nav>
+	    <% if session[:user] %>
       <section id="user">
-      	<% if session[:user] %>
-      	<div class="details">
-          <%= t "LoggedInAs" %> <%= link_to @user.name, user_index_url %><br/>
-          <%= t "Role" %>: <%= t session[:role].name %> | <%= link_to (t 'Logout'), logout_path, :class => 'logout' %>
-          
-        </div>
-        <div class="photo">
-        	<% if @user.photo.exists? %>
-		  		<%= image_tag @user.photo.url(:thumb), :class => 'thumb' %>
-		  		<% else %>
-		  		<%= image_tag 'no-picture-thumb.png', :class => 'thumb' %>
-		  		<% end %>
+      	<div class="whoami">
+	      	<div class="details">
+	         <%= link_to @user.name, user_index_url %>
+	        </div>
+	        <div class="photo">
+	        	<%= link_to user_index_url do %>
+		        	<% if @user.photo.exists? %>
+				  		<%= image_tag @user.photo.url(:thumb) %>
+				  		<% else %>
+				  		<%= image_tag 'no-picture-32_bw.png' %>
+				  		<% end %>
+				  	<% end %>
+			  	</div>
+			  </div>
+		  	<div class="menu">
+		  		<ul>
+		  			<li><%= link_to (t 'Profile'), user_index_url %></li>
+		  			<li><%= link_to (t 'Logout'), logout_path, :class => 'logout' %></li>
+		  		</ul>
 		  	</div>
-		  	<% end %>
       </section>
+      <% end %>
     </header>
-    <nav id="main-nav">
-      <%= 
-      if !session[:user] or !session[:role]
-        render :partial => 'layouts/menu-guest'
-      elsif session[:role] and session[:role].id == Role::ADMINISTRATOR
-        render :partial => 'layouts/menu-admin'
-      elsif session[:role] and session[:role].id == Role::PROFESSOR
-        render :partial => 'layouts/menu-professor'
-      elsif session[:role] and session[:role].id == Role::STUDENT
-        render :partial => 'layouts/menu-student'
-      end
-      %>
-    </nav>
     <section id="content">
     	<% if notice %>
     	<p id="notice"><%= notice %></p>

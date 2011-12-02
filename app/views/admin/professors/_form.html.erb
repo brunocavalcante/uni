@@ -20,6 +20,11 @@
   </p>
   
   <% end %>
+  
+  <p>
+    <%= f.check_box :active %> <%= f.label :active %><br />
+  </p>
+  
   <p>
     <%= label_tag (t 'ResetPassword') %>  
     <%= check_box_tag :reset_password %><br />

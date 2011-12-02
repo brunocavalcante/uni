@@ -9,6 +9,7 @@ class Professor < ActiveRecord::Base
   scope :where_name, lambda {|term| where('people.name ILIKE ?', "%#{term}%") if term != ''}
   scope :by_person, includes(:person).order('people.name ASC')
   scope :with_scholarity, includes({:person => :scholarity})
+  scope :where_active, lambda {|term| term == true ? where({:active => true}) : where('professors.active IS FALSE OR professors.active IS NULL')}
   
   validates_presence_of :email
   

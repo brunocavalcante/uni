@@ -9,7 +9,7 @@ class Person < ActiveRecord::Base
   has_one :professor
   has_one :student
   
-  has_attached_file :photo, :styles => { :small => "75x75#", :medium => "180x240#", :thumb => "48x48#" }
+  has_attached_file :photo, :styles => { :small => "75x75#", :medium => "180x240#", :thumb => "32x32#" }
   
   validates :name, :presence => true
   validates_uniqueness_of :email

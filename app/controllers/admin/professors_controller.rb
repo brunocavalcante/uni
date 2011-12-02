@@ -10,6 +10,7 @@ class Admin::ProfessorsController < ApplicationController
     if params[:scholarity_id] && params[:scholarity_id] != ''
       @professors = @professors.where('people.scholarity_id = ?', params[:scholarity_id])
     end
+    @professors = @professors.where_active(params[:active] == '1') if params[:active] && params[:active] != ''
     @professors = @professors.paginate :page => params[:page]
     
     respond_with @professors
@@ -60,8 +61,11 @@ class Admin::ProfessorsController < ApplicationController
     
     begin
       @professor.destroy
-    rescue
+    rescue ActiveRecord::DeleteRestrictionError
       @professor.errors.add(:lecture_professors, :cant_destroy_still_has_lectures)
+      flash[:alert] = I18n.t('activerecord.errors.models.professor.attributes.lecture_professors.cant_destroy_still_has_lectures')
+    rescue
+      @professor.errors.add(:lecture_professors)
     end
 
     respond_with @professor, :location => admin_professors_url

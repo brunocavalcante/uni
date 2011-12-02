@@ -21,6 +21,10 @@ en:
           attributes:
             student_id:
               already_in_another_curriculum: "is already active on another curriculum from this course."
+        professor:
+          attributes:
+            lecture_professors:
+              cant_destroy_still_has_lectures: "This professor cannot be deleted, because he/she has classes."
     models: 
       academic_period: &academic_period "Academic Period" 
       course: &course "Course"
@@ -123,6 +127,7 @@ en:
           name: *name
           email: *email
           scholarity_id: *scholarity
+        active: *active
       scholarity:
         name: *name
       student:

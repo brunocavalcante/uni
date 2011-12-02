@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111130191959) do
+ActiveRecord::Schema.define(:version => 20111202171519) do
 
   create_table "academic_periods", :force => true do |t|
     t.string   "name"
@@ -210,6 +210,7 @@ ActiveRecord::Schema.define(:version => 20111130191959) do
     t.integer  "person_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "active"
   end
 
   create_table "roles", :force => true do |t|

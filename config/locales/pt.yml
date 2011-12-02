@@ -21,6 +21,10 @@ pt:
           attributes:
             student_id:
               already_in_another_curriculum: "já está ativo em outra grade curricular neste mesmo curso."
+        professor:
+          attributes:
+            lecture_professors:
+              cant_destroy_still_has_lectures: "Este professor não pode ser excluído, pois ele possui turmas."
     models: 
       academic_period: &academic_period "Período Letivo" 
       course: &course "Curso"
@@ -123,6 +127,7 @@ pt:
           name: *name
           email: *email
           scholarity_id: *scholarity
+        active: *active
       scholarity:
         name: *name
       student:
@@ -293,6 +298,8 @@ pt:
   Registration: "Matrícula"
   
   # Other Translations
+  Active: *active
+  Inactive: &inactive "Inativo"
   AddSelected: "Adicionar Itens Selecionados"
   BooleanNo: "Não"
   BooleanYes: "Sim"

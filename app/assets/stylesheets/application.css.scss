@@ -12,7 +12,7 @@ $textColor: #333333;
 $linkColor: #000000;
 $defaultBorderColor: #DDDDDD;
 $lighterBorderColor: #EEEEEE;
-$defaultBoxBg: #F2F2F2;
+$defaultBoxBg: whiteSmoke;
 $shadowColor: #A2C0DF;
 $font-size: 100%;
 $font-small: 85%;
@@ -31,7 +31,7 @@ $font-smaller: 80%;
 }
 
 /* Clearfix */
-#toolbar:after {
+#toolbar:after, header:after, #user:after {
   content: ".";
   display: block;
   clear: both;
@@ -44,11 +44,11 @@ $font-smaller: 80%;
 body {
   color: $textColor;
   font-size: $font-size;
-  margin: 0;
+  margin: 64px 0 0;
   background: white url('/assets/html-bg.png') repeat-x;
 }
 body, input, select, button {
-  font-family: 'Ubuntu', 'Helvetica', sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 body a, body a:visited, body a:active {
@@ -73,45 +73,90 @@ h3 {
   padding-bottom: 0.2em;
 }
 
-/* Headers */
-header {
-  margin: 1.5% 2.5%;
-  position: relative;
+/* Main Header */
+#main-header {
+  @include background-gradient(#333, #222);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  margin: 0 0 1.5% 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  overflow: visible;
+  height: 64px;
   
   h1 {
-    background: url('/assets/logouni48.png') no-repeat 0 0;
-    padding: 0;
-    min-height: 50px;
-    position: relative;
-    margin: 0;
+    margin-left: 2.5%;
+    margin-top: 16px;
+    float: left;
+    width: 61px;
+    background-image: url('/assets/logouni4_white_32.png');
+    height: 32px;
     
     a {
-      text-decoration: none;
-      color: $linkColor;
       text-indent: -9999px;
       display: block;
     }
+  }
+  
+  a:hover {
+    color: white;
+  }
+  
+  #nav ul {
+    float: left;
+    margin: 0;
+    height: 64px;
+    padding-left: 1em;
     
-    span {
-      margin-left: 97px;
-      font-size: small;
-      font-weight: normal;
+    li {
       display: block;
-      position: absolute;
-      bottom: 0em;
+      float: left;
+      line-height: 64px;
+      
+      a {
+        display: block;
+        padding: 0 0.5em;
+      }
+      
+      a:hover {
+        background: #111;
+      }
     }
   }
+  
+  a {
+    color: #BFBFBF;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+  }
+  
+  #user:hover {
+    background: #111;
     
-  section {
-    position: absolute;
-    top: 0;
-    right: 0;
+    .details a {
+      color: white;
+    }
+    
+    .menu {
+      display: block;
+    }
   }
   
   #user {
+    float: right;
+    position: relative;
+    margin-right: 2.5%;
+    color: #999;
+    height: 48px;
+    padding: 16px 1em 0 1em;
+    
     .details {
+      line-height: 32px;
       float: left;
-      line-height: 27px;
       text-align: right;
     }
     
@@ -119,53 +164,49 @@ header {
       margin-left: 1em;
       float: right;
     }
+    
+    .menu {
+      clear: both;
+      position: absolute;
+      top: 64px;
+      right: 0;
+      z-index: 0;
+      display: none;
+      background: #121212;
+      -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+      -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+      -webkit-border-bottom-right-radius: 5px;
+      -webkit-border-bottom-left-radius: 5px;
+      -moz-border-radius-bottomright: 5px;
+      -moz-border-radius-bottomleft: 5px;
+      border-bottom-right-radius: 5px;
+      border-bottom-left-radius: 5px;
+      
+      ul {
+        list-style-type: none;
+        padding-left: 0;
+        margin: 1em 0 0;
+        min-width: 10em;
+        
+        li {
+          display: block;
+          padding: 0 1em 1em;
+        }
+      }
+    }
   }
+}
+
+/* Headers */
+header {
+  margin: 1.5% 2.5%;
+  position: relative;
 }
 
 img.thumb {
   border: 3px solid $defaultBoxBg;
   box-shadow: 1px 1px 1px $shadowColor;
-}
-
-/* Main Menu */
-#main-nav {
-  float: left;
-  width: 95%;
-  margin: 0 2.5%;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  -moz-box-shadow: 0 2px 4px #CCC;
-  box-shadow: 1px 1px 3px $shadowColor;
-  @include background-gradient(#575d62, #2c3135);
-  
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    position: relative;
-    float: left;
-    width: 96%;
-    
-    li {
-      float: left;
-      border-right: 1px solid #666;
-      
-      a {
-        display: block;
-        padding: 0.5em 1.75em;
-      }
-    }
-  }
-  
-  li.active, a {
-    color: white;
-    text-decoration: none;
-    text-shadow: 1px 1px 0px #000;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
 }
 
 /* Content */
@@ -274,8 +315,8 @@ footer {
   padding-top: 0.5em;
   border-top: 1px dotted $lighterBorderColor;
   float: left;
-  width: 96%;
-  margin: 0 2% 2%;
+  width: 95%;
+  margin: 0 2.5% 1.5%;
   font-size: small;
   
   a, a:active, a:visited, a:link {

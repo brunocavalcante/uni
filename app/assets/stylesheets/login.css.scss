@@ -7,13 +7,14 @@ article#login {
   width: 48%;
 }
 article#login h1 {
-  width: 16em;
+  width: 12.5em;
   font-size: 1.5em;
 }
 aside#login-splash {
   width: 48%;
   text-align: right;
   background: none;
+  min-width: 430px;
 }
 #login #username, #login #password {
   background-position: 8px 50%;

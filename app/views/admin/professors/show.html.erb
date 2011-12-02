@@ -28,6 +28,11 @@
   <%= l(@professor.person.date_birth, :format => :long) if @professor.person.date_birth %>
 </p>
 
+<p>
+  <b><%= t 'activerecord.attributes.professor.active' %>:</b>
+  <%= @professor.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %>
+</p>
+
 <h3><%= t 'CurrentClasses' %></h3>
 <% if @professor.lectures.current %>
 <ul>

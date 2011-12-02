@@ -11,6 +11,9 @@
     <%= select_tag :scholarity_id, 
 		  						 options_from_collection_for_select(Scholarity.all, :id, :name, params[:scholarity_id]), 
 		  						 :include_blank => true %>
+		<%= select_tag :active, 
+									 options_for_select(active_options, params[:active]),
+									 :include_blank => true %> 
     <%= submit_tag (t 'Search') %>
   </p>
 </form>
@@ -20,6 +23,7 @@
     <tr>
       <th><%= t 'activerecord.attributes.person.name' %></th>
       <th><%= t 'activerecord.attributes.person.scholarity_id' %></th>
+      <th><%= t 'activerecord.attributes.professor.active' %></th>
     </tr>
   </thead>
   <tbody>
@@ -27,6 +31,7 @@
     <tr>
       <td><%= link_to professor.name, [:admin, professor] %></td>
       <td><%= professor.person.scholarity.name if professor.person.scholarity %></td>
+      <td><%= professor.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo') %></td>
     </tr>
     <% end %>
   </tbody>
