@@ -30,17 +30,15 @@
       <section id="user">
       	<div class="whoami">
 	      	<div class="details">
-	         <%= link_to @user.name, user_index_url %>
+	         <%= link_to @user.name, '#' %>
 	        </div>
 	        <div class="photo">
-	        	<%= link_to user_index_url do %>
-		        	<% if @user.photo.exists? %>
-				  		<%= image_tag @user.photo.url(:thumb) %>
-				  		<% else %>
-				  		<%= image_tag 'no-picture-32_bw.png' %>
-				  		<% end %>
-				  	<% end %>
-			  	</div>
+        		<% if @user.photo.exists? %>
+			  		<%= image_tag @user.photo.url(:thumb) %>
+			  		<% else %>
+			  		<%= image_tag 'no-picture-32_bw.png' %>
+			  		<% end %>
+				  </div>
 			  </div>
 		  	<div class="menu">
 		  		<ul>
