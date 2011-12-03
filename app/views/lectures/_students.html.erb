@@ -8,7 +8,7 @@
     		<% if lecture_student.student.person.photo.exists? %>
 	  		<%= image_tag lecture_student.student.person.photo.url(:thumb) %>
 	  		<% else %>
-	  		<%= image_tag 'no-picture-thumb.png' %>
+	  		<%= image_tag 'no-picture-32_bw.png' %>
 	  		<% end %>
     	</td>
       <td><%= link_to lecture_student.name, user_path(lecture_student.student.person) %></td>
