@@ -1,33 +1,42 @@
 <%= form_for([:admin, @course, @discipline]) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :code, nil, :class => :required %><br />
-    <%= f.text_field :code, :disabled => (@discipline.id), :class => :input_medium %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :code, nil, :class => :required %>
+    <div class="input">
+    	<%= f.text_field :code, :disabled => (@discipline.id), :class => :span3 %></div>
+  </div>
   
-  <p>
-    <%= f.label :name, nil, :class => :required %><br />
-    <%= f.text_field :name, :class => :input_xlarge %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :name, nil, :class => :required %>
+    <div class="input">
+    	<%= f.text_field :name, :class => :span6 %>
+    </div>
+  </div>
   
-  <p>
-    <%= f.label :credits %><br />
-    <%= f.text_field :credits, :class => :input_small %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :credits %>
+    <div class="input">
+    	<%= f.text_field :credits, :class => :span3 %>
+    </div>
+  </div>
   
-  <p>
-    <%= f.label :equivalents %><br />
-    <%= f.collection_select :equivalent_ids, @discipline.equivalents.size > 0 ? @discipline.equivalents : [], :id, :name, {}, {:multiple => true} %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :equivalents %>
+    <div class="input">
+    	<%= f.collection_select :equivalent_ids, @discipline.equivalents.size > 0 ? @discipline.equivalents : [], :id, :name, {}, {:multiple => true} %>
+    </div>
+  </div>
 
-  <p>
-    <%= f.label :syllabus %><br />
-    <%= f.text_area :syllabus %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :syllabus %>
+    <div class="input">
+    	<%= f.text_area :syllabus, :rows => 10, :class => :span9 %>
+    </div>
+  </div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn primary' %>
   </div>
 <% end %>
 

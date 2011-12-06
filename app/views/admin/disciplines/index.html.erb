@@ -1,7 +1,7 @@
 <h1><%= @course.name %></h1>
 <%= render :partial => 'admin/courses/menu', :locals => { :course => @course } %>
-<article>
-  <header>
+<article class="content">
+  <header class="page-header">
     <h2><%= t 'Disciplines' %></h2>
     <ul id="toolbar">
       <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.discipline')), new_admin_course_discipline_path(@course), :class => 'new' %></li>
@@ -11,7 +11,7 @@
 	<form>
 	  <p>
 	    <%= text_field_tag :term, params[:term], :type => :search %> 
-	    <%= submit_tag (t 'Search') %>
+	    <%= submit_tag (t 'Search'), :class => 'btn' %>
 	  </p>
 	</form>
 

@@ -1,27 +1,38 @@
 <%= form_for([:admin, @course, @curriculum]) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :code, nil, :class => :required %><br />
-    <%= f.text_field :code, :class => :input_medium %>
-  </p>
-  <p>
-    <%= f.label :name, nil, :class => :required %><br />
-    <%= f.text_field :name %>
-  </p>
-  <% if @curriculum.id %>
-  <p>
-    <%= f.check_box :finished %> <%= f.label :finished %><br />
-    <small><%= t 'FinishCurriculumToEnableActivation' %></small>
-  </p>
+  <div class="clearfix">
+    <%= f.label :code, nil, :class => :required %>
+    <div class="input">
+    	<%= f.text_field :code, :class => :input_medium %>
+    </div>
+  </div>
   
-  <p>
-    <%= f.check_box :active %> <%= f.label :active %><br />
-    <small><%= t 'ActiveCurriculumWillBeAvailableForStudentRegistration' %></small>
-  </p>
+  <div class="clearfix">
+    <%= f.label :name, nil, :class => :required %>
+    <div class="input">
+    	<%= f.text_field :name %>
+    </div>
+  </div>
+  <% if @curriculum.id %>
+  <div class="clearfix">
+    <%= f.label :finished %>
+    <div class="input">
+    	<%= f.check_box :finished %> 
+    	<span class="help-block"><%= t 'FinishCurriculumToEnableActivation' %></span>
+    </div>
+  </div>
+  
+  <div class="clearfix">
+  	<%= f.label :active %>
+    <div class="input">
+    	<%= f.check_box :active %>
+    	<span class="help-block"><%= t 'ActiveCurriculumWillBeAvailableForStudentRegistration' %></span>
+    </div>
+  </div>
   <% end %>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn primary' %>
   </div>
 <% end %>

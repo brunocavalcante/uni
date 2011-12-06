@@ -1,7 +1,7 @@
 <h1><%= @course.name %></h1>
 <%= render :partial => 'admin/courses/menu', :locals => {:course => @course} %>
-<article>
-  <header>
+<article class="content">
+  <header class="page-header">
     <h2><%= @curriculum.name %>: <%= @curriculum_discipline.discipline.name %></h2>
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), admin_course_curriculum_path(@course, @curriculum), :class => 'back' %></li>

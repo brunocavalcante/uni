@@ -6,3 +6,4 @@
 
 $(document).ready ->
   Application.initFormHelpers()
+  $('.topbar').dropdown()

@@ -1,39 +1,52 @@
 <%= form_for([:admin, @student]) do |f| %>
   <%= f.error_messages %>
   
-  <p>
-    <%= f.label :code, nil, :class => :required %><br />
-    <%= f.text_field :code, :class => :input_medium %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :code, nil, :class => :required %>
+    <div class="input">
+    	<%= f.text_field :code, :class => :input_medium %>
+    </div>
+  </div>
   <%= f.fields_for :person do |p| %>
-  <p>
-    <%= p.label :name, nil, :class => :required %><br />
-    <%= p.text_field :name, :class => :input_xlarge %>
-  </p>
-  <p>
-    <%= p.label :email %><br />
-    <%= p.text_field :email, :class => :input_xlarge %>
-  </p>
-  <p>
-    <%= p.label :date_birth %><br />
-    <%= p.date_select :date_birth, :start_year => 1900, :include_blank => true %>
-  </p>
+  <div class="clearfix">
+    <%= p.label :name, nil, :class => :required %>
+    <div class="input">
+    	<%= p.text_field :name, :class => :input_xlarge %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= p.label :email %>
+    <div class="input">
+    	<%= p.text_field :email, :class => :input_xlarge %>
+    </div>
+  </div>
+  <div class="clearfix">
+    <%= p.label :date_birth %>
+    
+    <div class="input">
+    	<%= p.date_select :date_birth, :start_year => 1900, :include_blank => true %>
+    </div>
+  </div>
   
   <% if @student.person.photo.exists? %>
-  <p>
-    <%= label_tag (t 'DeleteCurrentPhoto') %>  
-    <%= check_box_tag :delete_photo %>
-  </p>
+  <div class="clearfix">
+    <%= label_tag (t 'DeleteCurrentPhoto') %>
+    <div class="input">  
+    	<%= check_box_tag :delete_photo %>
+    </div>
+  </div>
   <% end %>
   <% end %>
   
-  <p>
-    <%= label_tag (t 'ResetPassword') %>  
-    <%= check_box_tag :reset_password %><br />
-    <small><%= t 'PasswordWillBeTheStudentCode' %></small>
-  </p>
+  <div class="clearfix">
+    <%= label_tag :reset_password, (t 'ResetPassword') %> 
+    <div class="input">
+    	<%= check_box_tag :reset_password %><br />
+    	<span class="help-block"><%= t 'PasswordWillBeTheStudentCode' %></span>
+    </div>
+  </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn primary' %>
   </div>
 <% end %>

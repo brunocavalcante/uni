@@ -10,14 +10,14 @@
 
 <% if user.sites.exists? %>
   <h3>Sites</h3>
-  <% for site in user.sites %>
   <ul>
+  	<% for site in user.sites %>
     <li>
       <b><%= site.name %>:</b>
       <%= link_to site.url, site.full_url %>
     </li>
-  </ul>
   <% end %>
+  </ul>
 <% end%>
 
 <% if student %>

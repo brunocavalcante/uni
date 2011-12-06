@@ -1,18 +1,20 @@
-<header>
+<header class="page-header">
   <h1><%= @user.name %></h1>
   <ul id="toolbar">
     <li><%= link_to (t 'Edit'), {:action => 'edit'}, :class => 'edit'  %></li>
   </ul>
 </header>
 
-<aside id="user">
-  <% if @user.photo.exists? %>
-    <%= image_tag @user.photo.url(:medium) %>
-  <% else %>
-    <%= image_tag 'no-picture-normal.png' %>
-  <% end %>
-</aside>
-
-<article>
-  <%= render :partial => 'data', :locals => { :user => @user, :student => @student, :professor => @professor } %>
-</article>
+<div id="user">
+	<aside>
+	  <% if @user.photo.exists? %>
+	    <%= image_tag @user.photo.url(:medium) %>
+	  <% else %>
+	    <%= image_tag 'no-picture-normal.png' %>
+	  <% end %>
+	</aside>
+	
+	<article>
+	  <%= render :partial => 'data', :locals => { :user => @user, :student => @student, :professor => @professor } %>
+	</article>
+</div>

@@ -2,35 +2,51 @@
   <%= f.error_messages %>
 
   <%= f.fields_for :person do |p| %>
-  <p>
-    <%= p.label :name, nil, :class => :required %><br />
-    <%= p.text_field :name, :class => :input_xlarge %>
-  </p>
-  <p>
-    <%= p.label :email, nil, :class => :required %><br />
-    <%= p.text_field :email, :class => :input_xlarge %>
-  </p>
-  <p>
-    <%= p.label :scholarity_id %><br />
-    <%= p.select :scholarity_id, Scholarity.all.collect {|it| [it.name, it.id]}, :include_blank => true %>
-  </p>
-  <p>
-    <%= p.label :date_birth %><br />
-    <%= p.date_select :date_birth, :start_year => 1900, :end_year => Time.now.year, :include_blank => true %>
-  </p>
+  <div class="clearfix">
+    <%= p.label :name, nil, :class => :required %>
+    <div class="input">
+    	<%= p.text_field :name, :class => :input_xlarge %>
+    </div>
+  </div>
   
+  <div class="clearfix">
+    <%= p.label :email, nil, :class => :required %>
+    <div class="input">
+    	<%= p.text_field :email, :class => :input_xlarge %>
+    </div>
+  </div>
+  
+  <div class="clearfix">
+    <%= p.label :scholarity_id %>
+    <div class="input">
+    	<%= p.select :scholarity_id, Scholarity.all.collect {|it| [it.name, it.id]}, :include_blank => true %>
+    </div>
+  </div>
+  
+  <div class="clearfix">
+    <%= p.label :date_birth %>
+    <div class="input">
+    	<%= p.date_select :date_birth, :start_year => 1900, :end_year => Time.now.year, :include_blank => true %>
+    </div>
+  </div>
   <% end %>
   
-  <p>
-    <%= f.check_box :active %> <%= f.label :active %><br />
-  </p>
+  <div class="clearfix">
+  	<%= f.label :active %>
+  	<div class="input">
+    	<%= f.check_box :active %>
+    </div>
+  </div>
   
-  <p>
-    <%= label_tag (t 'ResetPassword') %>  
-    <%= check_box_tag :reset_password %><br />
-    <small><%= t 'PasswordWillBeTheProfessorEmail' %></small>
-  </p>
+  <div class="clearfix">
+    <%= label_tag (t 'ResetPassword') %>
+    <div class="input">  
+	    <%= check_box_tag :reset_password %>
+	    <span class="help-block"><%= t 'PasswordWillBeTheProfessorEmail' %></span>
+	  </div>
+  </div>
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn primary' %>
   </div>
 <% end %>

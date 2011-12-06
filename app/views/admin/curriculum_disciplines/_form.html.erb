@@ -2,27 +2,34 @@
   <%= f.error_messages %>
 
 	<% if !@curriculum.active %>
-	<p>
-  	<%= f.check_box :mandatory %> <%= f.label :mandatory %>
-  </p>
+	<div class="clearfix">
+		<%= f.label :mandatory %>
+		<div class="input">
+  		<%= f.check_box :mandatory %>
+  	</div>
+  </div>
 
-	<p>
-    <%= f.label :prerequisites %><br />
+	<div class="clearfix">
+    <%= f.label :prerequisites %>
+    <div class="input">
     <%= f.collection_select :prerequisite_ids, 
     												@curriculum.curriculum_disciplines.where('curriculum_disciplines.id <> ?', @curriculum_discipline.id), 
     												:id, 
     												:name, 
     												{}, 
-    												{:multiple => true} %>
-  </p>
+    												{:multiple => true, :class => :span6} %>
+		</div>
+ 	</div>
   <% end %>
   
   <p>
-    <%= f.label :curriculum_module_id %><br />
-    <%= f.collection_select :curriculum_module_id, @curriculum.curriculum_modules, :id, :name, :include_blank => true %>
+    <%= f.label :curriculum_module_id %>
+    <div class="input">
+    	<%= f.collection_select :curriculum_module_id, @curriculum.curriculum_modules, :id, :name, :include_blank => true %>
+    </div>
   </p>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn primary' %>
   </div>
 <% end %>

@@ -1,16 +1,20 @@
 <h1><%= t 'Parameters' %></h1>
 <%= render :partial => 'menu' %>
-<article>
-    <h2><%= t 'System' %></h2>
+<article class="content">
+		<header class="page-header">
+    	<h2><%= t 'System' %></h2>
+    </header>
     
     <%= form_tag( :action => 'update' ) do %>
-    <p>
-      <%= label_tag (t 'Locale') %><br />
-      <%= select_tag :locale, options_for_select(lang_options_for_select(), I18n.locale) %>
-    </p>
+    <div class="clearfix">
+      <%= label_tag (t 'Locale') %>
+      <div class="input">
+      	<%= select_tag :locale, options_for_select(lang_options_for_select(), I18n.locale) %>
+      </div>
+    </div>
+    
     <div class="actions">
-      <%= submit_tag %>
+      <%= submit_tag nil, :class => 'btn primary' %>
     </div>
     <% end %>
-    
 </article>

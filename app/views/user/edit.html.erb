@@ -1,4 +1,4 @@
-<header>
+<header class="page-header">
   <h1><%= t 'Editing' %> <%= @user.name %></h1>
   <ul id="toolbar">
     <li><%= link_to (t 'Back'), {:action => 'index'}, :class => 'back'  %></li>
@@ -9,61 +9,83 @@
 	
 	<%= f.error_messages %>
   
-  <p>
-    <%= label_tag (t 'activerecord.attributes.person.name') %><br />
-    <%= text_field(:user, :name) %>
-  </p>
-  <p>
-    <%= label_tag (t 'activerecord.attributes.person.email') %><br />
-    <%= text_field(:user, :email) %>
-  </p>
-  <h3><%= t 'Photo' %></h3>
-  <p>
-    <%= label_tag (t 'Upload') %><br />
-    <%= file_field(:user, :photo) %><br />
-    <small><%= t 'PhotoWillBeResizedTo180x240Px' %></small>
-  </p>
+  <div class="clearfix">
+    <%= label_tag (t 'activerecord.attributes.person.name') %>
+    <div class="input">
+    	<%= text_field(:user, :name) %>
+    </div>
+  </div>
+  
+  <div class="clearfix">
+    <%= label_tag (t 'activerecord.attributes.person.email') %>
+    <div class="input">
+    	<%= text_field(:user, :email) %>
+    </div>
+  </div>
+  
+  <div class="clearfix">
+  	<%= label_tag (t 'Photo') %>
+  	<div class="input">
+  		<%= file_field(:user, :photo) %>
+  		<span class="help-block"><%= t 'PhotoWillBeResizedTo180x240Px' %></span>
+  	</div>
+  </div>
   
   <% if @user.photo.exists? %>
-  <p>
-    <%= label_tag (t 'DeleteCurrentPhoto')%>  
-    <%= check_box_tag :delete_photo %>
-  </p>
+  <div class="clearfix">
+    <%= label_tag (t 'DeleteCurrentPhoto') %>
+    <div class="input">
+    	<%= check_box_tag :delete_photo %>
+    </div>
+  </div>
   <% end %>
 
-  <h3>Sites</h3>
-  <% for site in @user.sites %>
-    <p>
-      <%= label_tag (t 'Name') %>, <%= label_tag (t 'Url') %> <br />
-      <%= text_field_tag 'sites[][name]', site.name %> 
-      <%= text_field_tag 'sites[][url]', site.url, :size => '60' %> 
-      <%= submit_tag (t 'Remove'), {:type => 'button'} %>
-    </p>
-  <% end %>
+  <div class="clearfix">
+  	<%= label_tag 'Sites' %>
+  	<div class="input">
+  		<% for site in @user.sites %>
+		    <div class="clearfix">
+		      <%= text_field_tag 'sites[][name]', site.name %> 
+		      <%= text_field_tag 'sites[][url]', site.url, :size => '60' %> 
+		      <%= submit_tag (t 'Remove'), {:type => 'button'} %>
+		    </div>
+		  <% end %>
+		  
+		  <div class="clearfix">
+			  <%= text_field_tag 'sites[][name]', nil, :placeholder => I18n.t('Name') %> 
+		    <%= text_field_tag 'sites[][url]', nil, :size => '60', :placeholder => 'URL' %> 
+		    <%= submit_tag (t 'AddAnother'), {:class => 'add-another-item btn', :type => 'button'} %>
+		  </div>
+  	</div>
+  </div>
   
-  <p>
-    <%= label_tag (t 'Name') %>, <%= label_tag (t 'Url') %> <br />
-    <%= text_field_tag 'sites[][name]' %> 
-    <%= text_field_tag 'sites[][url]', nil, :size => '60' %> 
-    <%= submit_tag (t 'AddAnother'), {:class => 'add-another-item', :type => 'button'} %>
-  </p>
+  <fieldset>
+  	<legend><%= t 'ChangePassword' %></legend>
   
-  <h3><%= t 'ChangePassword' %></h3>
-  <p>
-  	<%= label_tag (t 'CurrentPassword') %><br />
-  	<%= password_field(:password, :current) %>
-  </p>
-  <p>
-  	<%= label_tag (t 'NewPassword') %><br />
-  	<%= password_field(:password, :new) %>
-  </p>
-  <p>
-  	<%= label_tag (t 'NewPassword') %> (<%= t 'Repeat'%>)<br />
-  	<%= password_field(:password, :repeat) %>
-  </p>
+	  <div class="clearfix">
+	  	<%= label_tag (t 'CurrentPassword') %>
+	  	<div class="input">
+	  		<%= password_field(:password, :current) %>
+	  	</div>
+	  </div>
+	  
+	  <div class="clearfix">
+	  	<%= label_tag (t 'NewPassword') %>
+	  	<div class="input">
+	  		<%= password_field(:password, :new) %>
+	  	</div>
+	  </div>
+	  
+	  <div class="clearfix">
+	  	<%= label_tag ((t 'NewPassword') + ' (' + (t 'Repeat') + ')') %>
+	  	<div class="input">
+	  		<%= password_field(:password, :repeat) %>
+	  	</div>
+	  </div>
+	</fieldset>
   
   <div class="actions">
-    <%= submit_tag %>
+    <%= submit_tag nil, :class => 'btn primary' %>
   </div>
 <% end %>
 

@@ -1,17 +1,21 @@
 <%= form_for([:admin, @course, @curriculum, @curriculum_module]) do |f| %>
   <%= f.error_messages %>
   
-  <p>
-  	<%= f.label :name, nil, :class => :required %><br/>
-  	<%= f.text_field :name %>
-  </p>
+  <div class="clearfix">
+  	<%= f.label :name, nil, :class => :required %>
+  	<div class="input">
+  		<%= f.text_field :name %>
+  	</div>
+  </div>
   
-  <p>
-  	<%= f.label :order %><br/>
-  	<%= f.text_field :order %>
-  </p>
+  <div class="clearfix">
+  	<%= f.label :order %>
+  	<div class="input">
+  		<%= f.text_field :order %>
+  	</div>
+  </div>
   
   <div class="actions">
-  	<%= f.submit %>
+  	<%= f.submit nil, :class => 'btn primary'%>
   </div>
 <% end %>

@@ -1,15 +1,17 @@
-<header>
+<header class="page-header">
   <h1><%= @person.name %></h1>
 </header>
 
-<aside id="user">
-  <% if @person.photo.exists? %>
-    <%= image_tag @person.photo.url(:medium) %>
-  <% else %>
-    <%= image_tag 'no-picture-normal.png' %>
-  <% end %>
-</aside>
-
-<article>
-  <%= render :partial => 'data', :locals => { :user => @person, :student => @student, :professor => @professor } %>
-</article>
+<div id="user">
+	<aside id="user">
+	  <% if @person.photo.exists? %>
+	    <%= image_tag @person.photo.url(:medium) %>
+	  <% else %>
+	    <%= image_tag 'no-picture-normal.png' %>
+	  <% end %>
+	</aside>
+	
+	<article>
+	  <%= render :partial => 'data', :locals => { :user => @person, :student => @student, :professor => @professor } %>
+	</article>
+</div>

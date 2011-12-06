@@ -10,15 +10,15 @@ module ApplicationHelper
 
         if elements[i] =~ /^\d+$/
           begin
-            breadcrumb += link_to_if(i != elements.size - 1, eval("#{elements[i - 1].singularize.camelize}.find(#{elements[i]}).name").gsub("_"," ").to_s, so_far)
+            breadcrumb += '<li>' + link_to_if(i != elements.size - 1, eval("#{elements[i - 1].singularize.camelize}.find(#{elements[i]}).name").gsub("_"," ").to_s, so_far) + '</li>'
           rescue
-          breadcrumb += elements[i]
+          breadcrumb += '<li>' + elements[i] + '</li>'
           end
         else
-          breadcrumb += link_to_if(i != elements.size - 1, (I18n.t 'url.' + elements[i].gsub("-", "_").gsub(/\?.*/, '')), so_far)
+          breadcrumb += '<li>' + link_to_if(i != elements.size - 1, (I18n.t 'url.' + elements[i].gsub("-", "_").gsub(/\?.*/, '')), so_far) + '</li>'
         end
 
-        breadcrumb += " &raquo; " if i != elements.size - 1
+        breadcrumb += " <span class='divider'>/</span> " if i != elements.size - 1
       end
       breadcrumb
     rescue

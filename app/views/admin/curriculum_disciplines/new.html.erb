@@ -1,27 +1,33 @@
 <h1><%= @course.name %></h1>
 <%= render :partial => 'admin/courses/menu', :locals => {:course => @course} %>
-<article>
-  <header>
+<article class="content">
+  <header class="page-header">
     <h2><%= t 'AddDisciplineToCurriculum' %></h2>
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), admin_course_curriculum_path(@course, @curriculum), :class => 'back' %></li>
   </header>
   
   <%= form_tag({:action => 'create'}) do %>
-    <p>
-      <%= label_tag :curriculum_disciplines, (t 'Disciplines'), :class => :required %><br />
-    	<%= collection_select :curriculum_disciplines, :discipline_ids, [], :id, :name, {}, {:multiple => true} %>
-    </p>
+    <div class="clearfix">
+      <%= label_tag :curriculum_disciplines, (t 'Disciplines'), :class => :required %>
+      <div class="input">
+    		<%= collection_select :curriculum_disciplines, :discipline_ids, [], :id, :name, {}, {:multiple => true} %>
+    	</div>
+    </div>
   
-  	<p>
-      <%= label_tag (t 'activerecord.attributes.curriculum_discipline.curriculum_module_id') %><br />
-    	<%= collection_select :curriculum_disciplines, :curriculum_module_id, @curriculum.curriculum_modules, :id, :name, :include_blank => true %>
-    </p>
+  	<div class="clearfix">
+      <%= label_tag (t 'activerecord.attributes.curriculum_discipline.curriculum_module_id') %>
+      <div class="input">
+    		<%= collection_select :curriculum_disciplines, :curriculum_module_id, @curriculum.curriculum_modules, :id, :name, :include_blank => true %>
+    	</div>
+   </div>
     
-    <p>
-  		<%= check_box_tag :mandatory %> 
-      <%= label_tag (t 'activerecord.attributes.curriculum_discipline.mandatory') %>
-    </p>
+    <div class="clearfix">
+    	<%= label_tag (t 'activerecord.attributes.curriculum_discipline.mandatory') %>
+    	<div class="input">
+  			<%= check_box_tag :mandatory %>
+  		</div> 
+    </div>
   
     <div class="actions">
       <%= submit_tag (t 'AddSelected') %>

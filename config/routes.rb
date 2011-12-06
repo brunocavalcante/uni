@@ -1,5 +1,11 @@
 Uni::Application.routes.draw do
   root :to => 'home#index'
+  resources :search do
+    collection do
+      post :all
+    end
+  end
+  
   namespace :admin do
     root :to => 'home#index'
     resources :home

@@ -1,20 +1,20 @@
 /* Login */
+
 article#login, aside#login-splash {
-  margin-top: 2%;
-  margin-bottom: 1%;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  float: left;
 }
 article#login {
   width: 48%;
-}
-article#login h1 {
-  width: 12.5em;
-  font-size: 1.5em;
+  margin-left: 1%;
 }
 aside#login-splash {
   width: 48%;
   text-align: right;
   background: none;
   min-width: 430px;
+  margin-right: 1%;
 }
 #login #username, #login #password {
   background-position: 8px 50%;
@@ -34,4 +34,15 @@ aside#login-splash {
 }
 #login #password {
   background-image: url('/assets/icons/lock.png');
+}
+
+#login fieldset legend {
+  padding-bottom: 9px;
+}
+
+#login form .actions {
+  border-top: none;
+  background: none;
+  padding-top: 0;
+  padding-bottom: 0;
 }

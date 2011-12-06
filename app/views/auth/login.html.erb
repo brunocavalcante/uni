@@ -1,27 +1,29 @@
-<aside id="login-splash">
-  <%= image_tag 'splash.png' %>
-</aside>
-  
-<article id="login">
-  <h1><%= t 'Welcome' %></h1>
-  
-  <%= form_tag(authenticate_url) do %>
-  <p>
-    <%= label_tag :username, (t 'EmailOrStudentId') %><br/>
-    <%= text_field_tag :username, nil, :autocomplete => 'off' %>
-  </p>
-  <p>
-    <%= label_tag :password, (t 'Password') %><br/>
-    <%= password_field_tag :password %>
-  </p>
-  <div class="actions">
-    <%= submit_tag (t 'LogIn') %>
-  </p>
-  <p>
-    <%= link_to (t 'ForgotYourPassword'), password_recovery_index_url %>
-  </p>
-  <% end %>
-</article>
+<div class="container">
+	<aside id="login-splash">
+	  <%= image_tag 'splash.png' %>
+	</aside>
+	  
+	<article id="login">
+    <%= form_tag(authenticate_url, :class => 'form-stacked') do %>
+		  <fieldset>
+	  		<legend><%= t 'Welcome' %></legend>
+			  <div class="clearfix">
+			    <%= label_tag :username, (t 'EmailOrStudentId') %>
+			    <%= text_field_tag :username, nil, :autocomplete => 'off' %>
+			  </div>
+			  <div class="clearfix">
+			    <%= label_tag :password, (t 'Password') %>
+			    <%= password_field_tag :password %>
+			  </div>
+			  <div class="actions">
+			  <p><%= submit_tag (t 'LogIn'), :class => 'btn primary' %></p>
+			  <p>
+			    <%= link_to (t 'ForgotYourPassword'), password_recovery_index_url %>
+			  </p>
+			</fieldset>
+		  <% end %>
+	</article>	
+</div>
 
 <script language="JavaScript">
   $(document).ready(function() {

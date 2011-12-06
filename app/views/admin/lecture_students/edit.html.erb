@@ -1,7 +1,7 @@
 <h1><%= @academic_period.name %></h1>
 <%= render :partial => 'admin/academic_periods/menu', :locals => { :academic_period => @academic_period } %>
-<article>
-	<header>
+<article class="content">
+	<header class="page-header">
 		<h2><%= @lecture.name %>: <%= @lecture_student.name %></h2>
 		<ul id="toolbar">
 			<li><%= link_to (t 'Back'), {:action => :show}, :class => 'back' %></li>

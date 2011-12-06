@@ -8,71 +8,73 @@
     <%= csrf_meta_tag %>
   </head>
   <body>
-    <header id="main-header">
-      <h1>
-        <a href="/">Uni</a>
-        <!--<span><%= t 'UniversityManagementSystem' %></span> -->
-      </h1>
-      <nav id="nav">
-	      <%= 
-	      if !session[:user] or !session[:role]
-	        render :partial => 'layouts/menu-guest'
-	      elsif session[:role] and session[:role].id == Role::ADMINISTRATOR
-	        render :partial => 'layouts/menu-admin'
-	      elsif session[:role] and session[:role].id == Role::PROFESSOR
-	        render :partial => 'layouts/menu-professor'
-	      elsif session[:role] and session[:role].id == Role::STUDENT
-	        render :partial => 'layouts/menu-student'
-	      end
-	      %>
-	    </nav>
-	    <% if session[:user] %>
-      <section id="user">
-      	<div class="whoami">
-	      	<div class="details">
-	         <%= link_to @user.name, '#' %>
-	        </div>
-	        <div class="photo">
-        		<% if @user.photo.exists? %>
-			  		<%= image_tag @user.photo.url(:thumb) %>
-			  		<% else %>
-			  		<%= image_tag 'no-picture-32_bw.png' %>
-			  		<% end %>
-				  </div>
+  	<div class="topbar">
+	    <header id="main-header" class="topbar-inner">
+	    	<div class="container-fluid">
+		      <a class="brand" href="/">Uni</a>
+	        <%= 
+		      if !session[:user] or !session[:role]
+		        render :partial => 'layouts/menu-guest'
+		      elsif session[:role] and session[:role].id == Role::ADMINISTRATOR
+		        render :partial => 'layouts/menu-admin'
+		      elsif session[:role] and session[:role].id == Role::PROFESSOR
+		        render :partial => 'layouts/menu-professor'
+		      elsif session[:role] and session[:role].id == Role::STUDENT
+		        render :partial => 'layouts/menu-student'
+		      end
+		      %>
+		      
+		      <%= form_tag(all_search_index_path, :class => 'pull-left') do %>
+		        <%= text_field_tag :globalSearch, nil, :placeholder => (t 'Search') %>
+		      <% end %>
+		      
+			    <% if session[:user] %>
+			    <ul id ="user" class="nav secondary-nav">
+			    	<li class="dropdown">
+			    		<%= link_to '#', :class => 'dropdown-toggle' do %>
+				      	<% if @user.photo.exists? %>
+						  		<%= image_tag @user.photo.url(:thumb) %>
+						  	<% else %>
+						  		<%= image_tag 'no-picture-32_bw.png' %>
+						  	<% end %>
+				        <%= @user.name %>
+			        <% end %>
+			        <ul class="dropdown-menu">
+						  	<li><%= link_to (t 'Profile'), user_index_url %></li>
+				  			<li><%= link_to (t 'Logout'), logout_path, :class => 'logout' %></li>
+				  		</ul>
+				  	</li>
+				  </ul>
 			  </div>
-		  	<div class="menu">
-		  		<ul>
-		  			<li><%= link_to (t 'Profile'), user_index_url %></li>
-		  			<li><%= link_to (t 'Logout'), logout_path, :class => 'logout' %></li>
-		  		</ul>
-		  	</div>
-      </section>
-      <% end %>
-    </header>
-    <section id="content">
-    	<% if notice %>
-    	<p id="notice"><%= notice %></p>
+	      <% end %>
+	    </header>
+	  </div>
+	  <div class="container-fluid">
+  		<% if notice %>
+    	<div class="alert-message warning"><%= notice %></div>
     	<% end %>
     	
     	<% if alert %>
-    	<p id="alert"><%= alert %></p>
+    	<div class="alert-message error"><%= alert %></div>
     	<% end %>
     	
       <% if session[:user] %>
-      <div id="breadcrumbs">
+      <ul class="breadcrumb">
         <%= get_bread_crumb(request.fullpath).html_safe %>
-      </div>
+      </ul>
       <% end %>
       <%= yield %>
-    </section>
-    <footer>
-      <b>Uni</b> &mdash; <%= t 'UniversityManagementSystem' %>
-      <p id="license">
-        <small>
-          <%= link_to 'Astux', 'http://www.astux.com.br' %> © 2011 &middot; 
-          <%= t 'ThisWorkIsLicensedUnderALicense' %> <%= link_to 'GNU General Public License 3', 'http://www.gnu.org/licenses/gpl-3.0.html' %>.
-        </small>
-      </p>
-    </footer>
+	 	</div>
+	 	<div class="container-fluid">
+	  	<footer>
+		  	<b>Uni</b> &mdash; <%= t 'UniversityManagementSystem' %>
+	      <p id="license">
+	        <small>
+	          <%= link_to 'Astux', 'http://www.astux.com.br' %> © 2011 &middot; 
+	          <%= t 'ThisWorkIsLicensedUnderALicense' %> <%= link_to 'GNU General Public License 3', 'http://www.gnu.org/licenses/gpl-3.0.html' %>.
+	        </small>
+	      </p>
+    	</footer>
+    </div>
   </body>
 </html>

@@ -1,64 +1,74 @@
 <%= form_for([:admin, @academic_period, @lecture]) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :code, nil, :class => :required %><br />
-    <%= f.text_field :code, :disabled => (@lecture.id), :class => :input_medium %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :code, nil, :class => :required %>
+    <div class="input">
+    	<%= f.text_field :code, :disabled => (@lecture.id), :class => :input_medium %>
+    </div>
+  </div>
   
-  <p>
-    <%= f.label :discipline_id, nil, :class => :required %><br />
-    <%= select_tag :course_id, 
-    							 options_from_collection_for_select(Course.all, :id, :name, @lecture.discipline ? @lecture.discipline.course_id : nil), 
-    							 :include_blank => true %> 
-    <% if @lecture.discipline %>
-    <%= select_tag :discipline_code, 
-    							 options_from_collection_for_select(@lecture.discipline.course.disciplines.latest_versions.all, 
-    							 																		:id, 
-    							 																		:name, 
-    							 																		@lecture.discipline_id), 
-    							 :include_blank => true %>
-		<% else %>
-		<%= select_tag :discipline_code, nil, :include_blank => true %>
-		<% end %>
-    <%= f.collection_select :discipline_id, @lecture.discipline ? @lecture.discipline.versions : [], :id, :version %> 
-  </p>
+  <div class="clearfix">
+    <%= f.label :discipline_id, nil, :class => :required %>
+    <div class="input">
+	    <%= select_tag :course_id, 
+	    							 options_from_collection_for_select(Course.all, :id, :name, @lecture.discipline ? @lecture.discipline.course_id : nil), 
+	    							 :include_blank => true %> 
+	    <% if @lecture.discipline %>
+	    <%= select_tag :discipline_code, 
+	    							 options_from_collection_for_select(@lecture.discipline.course.disciplines.latest_versions.all, 
+	    							 																		:id, 
+	    							 																		:name, 
+	    							 																		@lecture.discipline_id), 
+	    							 :include_blank => true, :class => :xlarge %>
+			<% else %>
+			<%= select_tag :discipline_code, nil, :include_blank => true %>
+			<% end %>
+	    <%= f.collection_select :discipline_id, (@lecture.discipline ? @lecture.discipline.versions : []), :id, :version %>
+	  </div> 
+  </div>
   
-  <p>
-    <%= f.label :professor_ids, (t 'Professors'), :class => :required %><br />
-    <%= f.collection_select :professor_ids, @lecture.professors, :id, :name, {}, {:multiple => true} %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :professor_ids, (t 'Professors'), :class => :required %>
+    <div class="input">
+    	<%= f.collection_select :professor_ids, @lecture.professors, :id, :name, {}, {:multiple => true} %>
+    </div>
+  </div>
   
-  <p>
-    <%= f.label :places %><br />
-    <%= f.text_field :places, :class => :input_small %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :places %>
+    <div class="input">
+    	<%= f.text_field :places, :class => :input_small %>
+    </div>
+  </div>
   
-  <h3><%= t 'TimeTable' %></h3>
-  <p>
-    <small><%= t 'TimeTableAdminNotice' %></small>
-  </p>
-  
-  <% if @lecture.lecture_time_slots.exists? %>
-  <% for time_slot in @lecture.lecture_time_slots %>
-  <p>
-    <%= select_tag 'weekday[]', options_for_select(get_day_names_map, time_slot.weekday) %>
-    <%= text_field_tag 'start_time[]', time_slot.start_time_string, :class => 'time' %> <%= t 'until'%>  
-    <%= text_field_tag 'end_time[]', time_slot.end_time_string, :class => 'time' %>
-    <%= submit_tag (t 'Remove'), {:class => 'remove-item', :type => 'button'} %>
-  </p>
-  <% end %>
-  <% end %>
-  
-  <p>
-    <%= select_tag 'weekday[]', options_for_select(get_day_names_map) %>
-    <%= text_field_tag 'start_time[]', nil, :class => 'time' %> <%= t 'until'%>  
-    <%= text_field_tag 'end_time[]', nil, :class => 'time' %>
-    <%= submit_tag (t 'AddAnother'), {:class => 'add-another-item', :type => 'button'} %>
-  </p>
+  <div class="clearfix">
+  	<%= label_tag t 'TimeTable' %>
+  	<div class="input">
+  		<% if @lecture.lecture_time_slots.exists? %>
+		  <% for time_slot in @lecture.lecture_time_slots %>
+		  <div class"clearfix">
+	    <%= select_tag 'weekday[]', options_for_select(get_day_names_map, time_slot.weekday) %>
+	    <%= text_field_tag 'start_time[]', time_slot.start_time_string, :class => 'time' %> <%= t 'until'%>  
+	    <%= text_field_tag 'end_time[]', time_slot.end_time_string, :class => 'time' %>
+	    <%= submit_tag (t 'Remove'), {:class => 'remove-item', :type => 'button'} %>
+	    </div>
+		  <% end %>
+		  <% end %>
+		  
+		  <div class="clearfix">
+	    <%= select_tag 'weekday[]', options_for_select(get_day_names_map), :class => 'small' %>
+	    <%= text_field_tag 'start_time[]', nil, :class => 'time small' %> <%= t 'until'%>  
+	    <%= text_field_tag 'end_time[]', nil, :class => 'time small' %>
+	    <%= submit_tag (t 'AddAnother'), {:class => 'add-another-item btn', :type => 'button'} %>
+	    </div>
+	    
+	    <span class="help-block"><%= t 'TimeTableAdminNotice' %></span>
+		</div>
+	</div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn primary' %>
   </div>
 <% end %>
 

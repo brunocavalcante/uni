@@ -1,7 +1,7 @@
 <h1><%= @course.name %></h1>
 <%= render :partial => 'admin/courses/menu', :locals => {:course => @course} %>
-<article>
-  <header>
+<article class="content">
+  <header class="page-header">
     <h2><%= t 'Curriculums' %></h2>
     <ul id="toolbar">
       <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.curriculum')), {:action => 'new'}, :class => 'new' %></li>

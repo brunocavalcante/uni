@@ -1,14 +1,19 @@
-<h1><%= t 'Welcome'%></h1>
+<div class="page-header">
+	<h1><%= t 'Welcome'%></h1>
+</div>
+
 <p>
 	<%= t 'ThisIsTheAdministrationArea'%>
 </p>
+
 <h3><%= t 'SystemInformation' %></h3>
-<p>
-	<b><%= t 'UniVersion' %>:</b> <%= @uni_version %>
-</p>
-<p>
-	<b><%= t 'RailsVersion' %>:</b> <%= @rails_version %>
-</p>
-<p>
-	<b><%= t 'RubyVersion' %>:</b> <%= @ruby_version %>
-</p>
+<dl>
+	<dt><%= t 'UniVersion' %></dt>
+	<dd> <%= @uni_version %></dd>
+	
+	<dt><%= t 'RailsVersion' %></dt>
+	<dd> <%= @rails_version %></dd>
+	
+	<dt><%= t 'RubyVersion' %></dt>
+	<dd> <%= @ruby_version %></dd>
+</dl>

@@ -1,7 +1,7 @@
 <h1><%= t 'Parameters' %></h1>
 <%= render :partial => 'admin/parameters/menu' %>
-<article>
-  <header>
+<article class="content">
+  <header class="page-header">
     <h2><%= t 'Scholarities' %></h2>
     <ul id="toolbar">
       <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.scholarity')), new_admin_scholarity_path, :class => 'new' %></li>

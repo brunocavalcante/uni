@@ -1,7 +1,7 @@
 <h1><%= @academic_period.name %></h1>
 <%= render :partial => 'admin/academic_periods/menu', :locals => { :academic_period => @academic_period } %>
-<article>
-  <header>
+<article class="content">
+  <header class="page-header">
     <h2><%= t 'Add' %> <%= t 'Students' %></h2>
     <ul id="toolbar">
       <li><%= link_to (t 'Back'), admin_academic_period_lecture_path(@academic_period, @lecture), :class => 'back' %></li>
@@ -11,13 +11,15 @@
 	<%= form_for([:admin, @academic_period, @lecture, @lecture_student]) do |f| %>
 	  <%= f.error_messages %>
 	
-		<p>
-	    <%= label_tag :student_id, (t 'Students'), :class => :required %><br />
-	    <%= f.collection_select :student_id, @lecture_student.student ? [@lecture_student.student] : [], :student_id, :name, {}, {:multiple => true} %>
+		<div class="clearfix">
+	    <%= label_tag :student_id, (t 'Students'), :class => :required %>
+	    <div class="input">
+	    	<%= f.collection_select :student_id, @lecture_student.student ? [@lecture_student.student] : [], :student_id, :name, {}, {:multiple => true} %>
+	    </div>
 	  </p>
 	  
 	  <div class="actions">
-	    <%= f.submit (t 'Add') + ' ' + (t 'Students') %>
+	    <%= f.submit (t 'Add') + ' ' + (t 'Students'), :class => 'btn primary' %>
 	  </div>
 	<% end %>
 </article>

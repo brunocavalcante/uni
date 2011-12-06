@@ -1,17 +1,17 @@
-<header>
+<header class="page-header">
   <h1><%= t 'Courses' %></h1>
-  <ul id="toolbar">
+  <ul id="toolbar" class="clearfix">
     <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.course')), new_admin_course_path, :class => 'new'  %></li>
   </ul>
 </header>
 
-<form id="search">
-	<p>
+<form>
+	<p class="search">
 		<%= text_field_tag :search, params[:search], :type => :search %> 
 		<%= select_tag :course_category_id, 
   							 options_from_collection_for_select(CourseCategory.all, :id, :name, params[:course_category_id]), 
   							 :include_blank => true %> 
-  	<%= submit_tag (t 'Search') %>
+  	<%= submit_tag (t 'Search'), :class => 'btn' %>
   </p>
 </form>	
 

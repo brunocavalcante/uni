@@ -36,14 +36,14 @@
       <td><%= discipline.name %></td>
       <% if t[:lecture_student] %>
       <td>
-      	<span class="<%= situation_class t[:lecture_student] %>"><%= t[:lecture_student].situation_description %></span>
+      	<span class="label <%= situation_class t[:lecture_student] %>"><%= t[:lecture_student].situation_description %></span>
       </td>
       <td><%= t[:lecture_student].lecture.academic_period.name %></td>
       <td><%= t[:lecture_student].grade %></td>
       <td><%= t[:lecture_student].attendance.to_s + '%' if t[:lecture_student].attendance %></td>
       <% elsif t[:transferred_discipline] %>
       <td>
-      	<span class="approved"><%= t 'TransferredDisciplineSituation'%></span>
+      	<span class="label success"><%= t 'TransferredDisciplineSituation'%></span>
       </td>
       <td></td>
       <td><%= t[:transferred_discipline].grade %></td>

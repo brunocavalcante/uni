@@ -1,7 +1,7 @@
 <h1><%= @academic_period.name %></h1>
 <%= render :partial => 'admin/academic_periods/menu', :locals => {:academic_period => @academic_period} %>
-<article>
-  <header>
+<article class="content">
+  <header class="page-header">
     <h2><%= t 'Lectures' %></h2>
     <ul id="toolbar">
       <li><%= link_to ((t 'New') + ' ' + (t 'activerecord.models.lecture')), {:action => 'new'}, :class => 'new' %></li>
@@ -9,13 +9,13 @@
   </header>
   
   <form>
-	  <p>
+	  <p class="search">
 	    <%= text_field_tag :term, params[:term], :type => :search %> 
 	    <%= select_tag :course_id, 
 		  							 options_from_collection_for_select(Course.all, :id, :name, params[:course_id]), 
 		  							 :include_blank => true %> 
 		  <%= select_tag :situation, options_for_select(lecture_index_situations_options, params[:situation]), :include_blank => true %> 
-		  <%= submit_tag (t 'Search') %>
+		  <%= submit_tag (t 'Search'), :class => 'btn' %>
 	  </p>
 	</form>
   

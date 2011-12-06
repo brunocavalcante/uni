@@ -1,20 +1,29 @@
 <%= form_for([:admin, @academic_period]) do |f| %>
   <%= f.error_messages %>
 
-  <p>
-    <%= f.label :name, nil, :class => :required %><br />
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.label :start, nil, :class => :required %><br />
-    <%= f.date_select :start %> <%= t 'until' %> <%= f.date_select :end %>
-  </p>
-  <p>
-    <%= f.label :registration_start %><br />
-    <%= f.date_select :registration_start, :include_blank => true %> <%= t 'until' %> 
-    <%= f.date_select :registration_end, :include_blank => true %><br/>
-    <small><%= t 'InformationOfAbsenceOfRegistrationPeriod' %></small>
-  </p>
+  <div class="clearfix">
+    <%= f.label :name, nil, :class => :required %>
+    <div class="input">
+    	<%= f.text_field :name %>
+    </div>
+  </div>
+  
+  <div class="clearfix">
+    <%= f.label :start, nil, :class => :required %>
+    <div class="input">
+    	<%= f.date_select :start %> <%= t 'until' %> <%= f.date_select :end %>
+    </div>
+  </div>
+  
+  <div class="clearfix">
+    <%= f.label :registration_start %>
+    <div class="input">
+	    <%= f.date_select :registration_start, :include_blank => true %> <%= t 'until' %> 
+	    <%= f.date_select :registration_end, :include_blank => true %>
+	    <span class="help-block"><%= t 'InformationOfAbsenceOfRegistrationPeriod' %></span>
+	  </div>
+  </div>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

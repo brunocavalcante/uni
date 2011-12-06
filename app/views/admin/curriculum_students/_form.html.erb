@@ -2,28 +2,36 @@
   <%= f.error_messages %>
 
 	<% if @curriculum_student.id == nil %>
-  <p>
-    <%= f.label :student_id, nil, :class => :required %><br/>
-    <%= f.collection_select :student_id, [], :student_id, :name %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :student_id, nil, :class => :required %>
+    <div class="input">
+    	<%= f.collection_select :student_id, [], :student_id, :name %>
+    </div>
+  </div>
   <% end %>
   
-  <p>
-    <%= f.label :curriculum_id, nil, :class => :required %><br/>
-    <%= f.select :curriculum_id, options_from_collection_for_select(@course.curriculums.only_finished.by_activeness, "id", "name") %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :curriculum_id, nil, :class => :required %>
+    <div class="input">
+    	<%= f.select :curriculum_id, options_from_collection_for_select(@course.curriculums.only_finished.by_activeness, "id", "name") %>
+    </div>
+  </div>
   
-  <p>
-    <%= f.label :created_at, nil, :class => :required %><br/>
-    <%= f.date_select :created_at %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :created_at, nil, :class => :required %>
+    <div class="input">
+    	<%= f.date_select :created_at %>
+    </div>
+  </div>
   
-  <p>
-    <%= f.label :active %><br/>
-    <%= f.check_box :active %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :active %>
+    <div class="input">
+    	<%= f.check_box :active %>
+    </div>
+  </div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn primary' %>
   </div>
 <% end %>
