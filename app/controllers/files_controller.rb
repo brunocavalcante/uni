@@ -15,7 +15,7 @@ class FilesController < ApplicationController
   end
   
   def load_files
-    @files = @lecture.lecture_files.with_person.by_date.paginate :page => params[:page]
+    @files = @lecture.lecture_files.with_person.by_date.paginate :page => params[:page], :per_page => 10
   end
   
   def create

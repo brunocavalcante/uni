@@ -13,6 +13,9 @@ class Admin::DisciplinesController < ApplicationController
     @disciplines = @disciplines.where_code_or_name(params[:term]) if params[:term]
     @disciplines = @disciplines.paginate :page => params[:page] 
     
+    WillPaginate::ViewHelpers.pagination_options[:class] = 'pagination'
+    WillPaginate::ViewHelpers.pagination_options[:separator] = '<li>'
+    
     respond_with @disciplines
   end
 

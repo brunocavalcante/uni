@@ -16,7 +16,7 @@ class WallController < ApplicationController
   end
   
   def load_walls
-    @walls = @lecture.walls.with_message.by_date.paginate :page => params[:page]
+    @walls = @lecture.walls.with_message.by_date.paginate :page => params[:page], :per_page => 10
   end
   
   def create
