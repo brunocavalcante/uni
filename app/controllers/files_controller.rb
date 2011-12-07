@@ -19,8 +19,6 @@ class FilesController < ApplicationController
   end
   
   def create
-    
-    
     @file = LectureFile.new(params[:lecture_file])
     @file.person = @user
     @file.lecture_id = params[:lecture_id]
