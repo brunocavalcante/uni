@@ -24,6 +24,13 @@ html body {
   padding-top: 60px;
 }
 
+a.brand {
+  background: url('/assets/logouni20_white.png') no-repeat 50% 40%;
+  width: 38px;
+  height: 20px;
+  text-indent: -9999px;
+}
+
 .topbar .dropdown img {
   width: 20px;
   height: 20px;
@@ -281,3 +288,49 @@ body .breadcrumb {
   border-bottom: 1px solid #EEE;
   padding: 0 0 3px 0;
 }
+
+/* Autocomplete */
+body .ui-autocomplete-wrapper .add-on {
+  background-image: url('/assets/search.png');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+article input.ui-autocomplete-loading {
+  background-color: lightyellow;
+}
+.ui-autocomplete-error {
+  background-color: #CC0000;
+}
+
+/* Errors */
+.errorExplanation {
+  background-color: #FDDFDE;
+  border-color: #FBC7C6;
+  color: #404040;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  padding: 14px;
+  border-width: 1px;
+  border-style: solid;
+  -webkit-border-radius: 4px;
+  margin-bottom: 18px;
+  clear: both;
+  
+  ul {
+    margin-bottom: 0;
+  }
+}
+
+body .field_with_errors {
+  display: inline;
+  
+  label {
+    color: #B94A48;
+  }
+  
+  input, textarea, select, .add-on {
+    color: #B94A48;
+    border-color: #EE5F5B;
+  }
+}
+
+

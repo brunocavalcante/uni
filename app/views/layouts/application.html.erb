@@ -24,11 +24,12 @@
 		      end
 		      %>
 		      
+		      <% if session[:user] %>
+		      
 		      <%= form_tag(all_search_index_path, :class => 'pull-left') do %>
 		        <%= text_field_tag :globalSearch, nil, :placeholder => (t 'Search') %>
 		      <% end %>
 		      
-			    <% if session[:user] %>
 			    <ul id ="user" class="nav secondary-nav">
 			    	<li class="dropdown">
 			    		<%= link_to '#', :class => 'dropdown-toggle' do %>

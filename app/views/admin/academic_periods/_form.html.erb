@@ -11,20 +11,20 @@
   <div class="clearfix">
     <%= f.label :start, nil, :class => :required %>
     <div class="input">
-    	<%= f.date_select :start %> <%= t 'until' %> <%= f.date_select :end %>
+    	<%= f.date_select :start, {}, {:class => :span2} %> <%= t 'until' %> <%= f.date_select :end, {}, {:class => :span2} %>
     </div>
   </div>
   
   <div class="clearfix">
     <%= f.label :registration_start %>
     <div class="input">
-	    <%= f.date_select :registration_start, :include_blank => true %> <%= t 'until' %> 
-	    <%= f.date_select :registration_end, :include_blank => true %>
+	    <%= f.date_select :registration_start, {:include_blank => true}, {:class => :span2} %> <%= t 'until' %> 
+	    <%= f.date_select :registration_end, {:include_blank => true}, {:class => :span2} %>
 	    <span class="help-block"><%= t 'InformationOfAbsenceOfRegistrationPeriod' %></span>
 	  </div>
   </div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn primary'%>
   </div>
 <% end %>

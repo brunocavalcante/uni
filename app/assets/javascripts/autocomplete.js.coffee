@@ -3,7 +3,7 @@ window.Application ||= {}
 Application.autocomplete = (field, sourceUrl, removeName, multiple) ->
   $("##{field} option:selected").each -> autocompleteAddItem($(this).val(), $(this).text(), field, removeName)
   $("##{field}").hide()
-  $("##{field}").after "<div class='ui-autocomplete-wrapper'><input type='text' id='#{field}_autocomplete' size='30' /></div>"
+  $("##{field}").after "<div class='ui-autocomplete-wrapper input-prepend'><span class='add-on'></span><input type='text' id='#{field}_autocomplete' size='30' class='prependedInput' /></div>"
   
   # Autocomplete
   $("##{field}_autocomplete").autocomplete
@@ -36,7 +36,7 @@ autocompleteAddItem = (id, label, field, removeName, multiple) ->
     $("##{field}").append("<option value='#{id}' selected='selected'>#{label}</option>")
 
   if $("##{field}_autocomplete_list").size() is 0
-    $("##{field}").before("<ul id='#{field}_autocomplete_list' />")  
+    $("##{field}").before("<ul id='#{field}_autocomplete_list' class='inputs-list' />")  
   
   $("##{field}_autocomplete_list").append(
     "<li>#{label} <a href='#' id='#{field}_autocomplete_remove'>(#{removeName})</a><input type='hidden' value='#{id}'/></li>"
