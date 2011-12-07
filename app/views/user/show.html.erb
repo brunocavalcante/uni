@@ -3,7 +3,7 @@
 </header>
 
 <div id="user">
-	<aside id="user">
+	<aside>
 	  <% if @person.photo.exists? %>
 	    <%= image_tag @person.photo.url(:medium) %>
 	  <% else %>
