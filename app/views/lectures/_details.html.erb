@@ -1,10 +1,15 @@
-<h2><%= t 'Details' %></h2>
+<header class="page-header">
+	<h2><%= t 'Details' %></h2>
+</header>
+
 <p>
   <b><%= t 'ClassCode' %>:</b> <%= @lecture.code %>
 </p>
+
 <p>
   <b><%= t 'activerecord.models.academic_period' %>:</b> <%= @lecture.academic_period.name %>
 </p>
+
 <% if @lecture.professors.size == 1 %>
   <p>
     <b><%= t 'activerecord.models.Professor' %>:</b> 

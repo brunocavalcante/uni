@@ -1,7 +1,9 @@
-<h1><%= @lecture.name %></h1>
+<% content_for :title do %><h1><%= @lecture.name %></h1><% end %>
 <%= render :partial => 'student/lectures/menu' %>
-<article>
-	<h2><%= t 'Lessons' %></h2>
+<article class="content">
+	<div class="page-header">
+		<h2><%= t 'Lessons' %></h2>
+	</div>
 	
 	<% if @lessons %>
 	<table>

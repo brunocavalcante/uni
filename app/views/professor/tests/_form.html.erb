@@ -1,17 +1,21 @@
 <%= form_for([:professor, @lecture, @test]) do |f| %>
   <%= f.error_messages %>
 
-	<p>
-		<%= f.label :name %><br/>
-		<%= f.text_field :name %>
-	</p>
+	<div class="clearfix">
+		<%= f.label :name %>
+		<div class="input">
+			<%= f.text_field :name %>
+		</div>
+	</div>
 
-	<p>
-		<%= f.label :date %><br/>
-		<%= f.datetime_select :date %>
-	</p>
+	<div class="clearfix">
+		<%= f.label :date %>
+		<div class="input">
+			<%= f.datetime_select :date, {}, {:class => :span2} %>
+		</div>
+	</div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn primary' %>
   </div>
 <% end %>

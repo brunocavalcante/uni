@@ -1,11 +1,11 @@
 <h1><%= t 'Welcome'%></h1>
 
-<aside class="aside-clean">
+<aside class="sidebar aside-clean">
 	<h3 class="no-top-margin"><%= t 'NextEvents' %></h3>
 	<%= render 'student/reports/schedule/next_events' %>
 </aside>
 
-<article>
+<article class="content">
 	<h3 class="no-top-margin"><%= t 'LatestUpdates' %></h3>
 	<%= render :partial => 'lectures/updates' %>
 </article>

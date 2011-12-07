@@ -1,7 +1,7 @@
-<h1><%= @lecture.name %></h1>
+<% content_for :title do %><h1><%= @lecture.name %></h1><% end %>
 <%= render :partial => 'professor/lectures/menu' %>
-<article>
-	<header>
+<article class="content">
+	<header class="page-header">
 		<h2><%= t 'Editing' %> <%= t 'activerecord.models.lesson' %></h2>
 		<ul id="toolbar">
 			<li><%= link_to (t 'Back'), professor_lecture_lesson_path(@lecture, @lesson), :class => 'back' %></li>

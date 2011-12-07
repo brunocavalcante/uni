@@ -1,4 +1,4 @@
-<h1><%= @course.name %></h1>
+<% content_for :title do %><h1><%= @course.name %></h1><% end %>
 <%= render :partial => 'admin/courses/menu', :locals => { :course => @course } %>
 <article class="content">
   <header class="page-header">
@@ -9,7 +9,7 @@
   </header>
 
 	<form>
-	  <p>
+	  <p class="search">
 	    <%= text_field_tag :term, params[:term], :type => :search %> 
 	    <%= submit_tag (t 'Search'), :class => 'btn' %>
 	  </p>

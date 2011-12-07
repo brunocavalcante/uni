@@ -1,8 +1,10 @@
 <aside class="sidebar">
-	<ul>
-    <li><%= link_to (t 'Home'), admin_course_path(course) %></li>
-    <li><%= link_to (t 'Disciplines'), admin_course_disciplines_path(course) %></li>
-    <li><%= link_to (t 'Curriculums'), admin_course_curriculums_path(course) %></li>
-    <li><%= link_to (t 'Students'), admin_course_curriculum_students_path(course) %></li>
-	</ul>
+	<div class="well">
+		<ul>
+	    <li><%= link_to (t 'Home'), admin_course_path(course) %></li>
+	    <li><%= link_to (t 'Disciplines'), admin_course_disciplines_path(course) %></li>
+	    <li><%= link_to (t 'Curriculums'), admin_course_curriculums_path(course) %></li>
+	    <li><%= link_to (t 'Students'), admin_course_curriculum_students_path(course) %></li>
+		</ul>
+	</div>
 </aside>

@@ -1,14 +1,16 @@
-<h1><%= t 'Reports' %></h1>
+<% content_for :title do %><h1><%= t 'Reports' %></h1><% end %>
 <%= render :partial => 'student/reports/menu' %>
-<article>
-  <h2><%= t 'Schedule' %></h2>
+<article class="content">
+	<header class="page-header">
+  	<h2><%= t 'Schedule' %></h2>
+  </header>
   
   <h3><%= t 'TimeTable' %></h3>
   
   <table class="grid">
     <thead>
       <tr>
-        <th><%= t 'activerecord.attributes.lecture.discipline' %></th>
+        <th><%= t 'activerecord.attributes.lecture.discipline_id' %></th>
         <th><%= t 'TimeTable' %></th>
       </tr>
     </thead>

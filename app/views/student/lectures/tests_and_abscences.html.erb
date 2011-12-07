@@ -1,6 +1,6 @@
-<h1><%= @lecture.name %></h1>
+<% content_for :title do %><h1><%= @lecture.name %></h1><% end %>
 <%= render :partial => 'menu' %>
-<article>
+<article class="content">
   <h2><%= t 'TestsAndAbscences' %></h2>
   
   <h3><%= t 'Tests' %></h3>

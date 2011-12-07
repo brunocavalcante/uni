@@ -1,4 +1,4 @@
-<h1><%= @academic_period.name %></h1>
+<% content_for :title do %><h1><%= @academic_period.name %></h1><% end %>
 <%= render :partial => 'admin/academic_periods/menu', :locals => { :academic_period => @academic_period } %>
 <article class="content">
   <header class="page-header">

@@ -2,7 +2,7 @@
 <ul class="student-schedule">
 	<% for date, events in @schedule %>
 	<li>
-		<h4><%= l Date.parse date %></h4>
+		<h5><%= l Date.parse date %></h5>
 		<ul>
 			<% for event in events %>
 			<li>

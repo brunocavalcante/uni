@@ -1,7 +1,7 @@
-<h1><%= @lecture.name %></h1>
+<% content_for :title do %><h1><%= @lecture.name %></h1><% end %>
 <%= render :partial => 'professor/lectures/menu' %>
-<article>
-	<header>
+<article class="content">
+	<header class="page-header">
 		<h2><%= @test.name %>: <%= t 'Test_Results' %></h2>
 		<ul id="toolbar">
 			<li><%= link_to (t 'Back'), professor_lecture_test_path(@lecture, @test), :class => 'back' %></li>
@@ -25,10 +25,10 @@
 		    <%= hidden_field_tag 'lecture_student_id[]', lecture_student.id %>
 		  </td>
 		  <td>
-		    <%= text_field_tag 'lecture_student_rating[]', @results[lecture_student.id][:rating] %>
+		    <%= text_field_tag 'lecture_student_rating[]', @results[lecture_student.id][:rating], :class => :span2 %>
 		  </td>
 		  <td>
-		    <%= datetime_select nil, nil, {:default => @results[lecture_student.id][:date], :prefix => 'lecture_student_date[]'} %>
+		    <%= datetime_select nil, nil, {:default => @results[lecture_student.id][:date], :prefix => 'lecture_student_date[]'}, {:class => :span3} %>
 		  </td>
 		</tr>
 		<% end %>
@@ -36,7 +36,7 @@
 	</table>
 	
 	<div class="actions">
-    <%= submit_tag %>
+    <%= submit_tag nil, :class => 'btn primary' %>
   </p>
 	<% end %>
 </article>

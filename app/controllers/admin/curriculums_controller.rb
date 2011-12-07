@@ -20,9 +20,6 @@ class Admin::CurriculumsController < ApplicationController
     @curriculum = Curriculum.find(params[:id])
     @curriculum_disciplines = @curriculum.curriculum_disciplines.by_module.with_prerequisites
 
-    flash.now[:notice] = I18n.t('ThisCurriculumIsActiveNotice') if !flash[:notice] && @curriculum.active
-    flash.now[:notice] = I18n.t('ThisCurriculumIsNotFinishedNotice') if !flash[:notice] && !@curriculum.finished
-
     respond_with @curriculum
   end
 

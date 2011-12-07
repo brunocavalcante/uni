@@ -1,7 +1,7 @@
-<h1><%= t 'Reports' %></h1>
+<% content_for :title do %><h1><%= t 'Reports' %></h1><% end %>
 <%= render :partial => 'student/reports/menu' %>
-<article>
-	<header>
+<article class="content">
+	<header class="page-header">
   	<h2><%= t 'Transcripts' %></h2>
   
 	  <% if @student.curriculum_students.size > 1 %>

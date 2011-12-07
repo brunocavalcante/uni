@@ -1,22 +1,28 @@
 <%= form_for(@file, :url => submit_url, :html => { :multipart => true }) do |f| %>
   <%= f.error_messages %>
 
-	<p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
+	<div class="clearfix">
+    <%= f.label :title %>
+    <div class="input">
+    	<%= f.text_field :title %>
+    </div>
+ 	</div>
   
-  <p>
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :rows => 10 %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :description %>
+    <div class="input">
+    	<%= f.text_area :description, :rows => 5 %>
+    </div>
+  </div>
 
-	<p>
-		<%= label_tag (t 'Upload') %><br />
-    <%= file_field :file, :upload %><br />
-  </p>
+	<div class="clearfix">
+		<%= label_tag (t 'Upload') %>
+		<div class="input">
+    	<%= file_field :file, :upload %>
+    </div>
+ 	</div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn primary' %>
   </div>
 <% end %>

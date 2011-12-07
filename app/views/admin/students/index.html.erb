@@ -15,16 +15,16 @@
 <table>
   <thead>
     <tr>
-      <th><%= t 'activerecord.attributes.student.code' %></th>
       <th><%= t 'activerecord.attributes.person.name' %></th>
+      <th><%= t 'activerecord.attributes.student.code' %></th>
     </tr>
   </thead>
 
   <tbody>
     <% @students.each do |student| %>
     <tr>
-      <td><%= student.code %></td>
       <td><%= link_to student.name, [:admin, student] %></td>
+      <td><%= student.code %></td>
     </tr>
     <% end %>
   </tbody>

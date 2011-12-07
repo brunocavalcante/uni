@@ -1,5 +1,5 @@
-<aside>
-  <nav>
+<aside class="sidebar">
+  <div class="well">
     <ul>
       <li class="home"><%= link_to (t 'Home'), professor_lecture_path(@lecture) %></li>
       <li class="details"><%= link_to (t 'Details'), details_professor_lecture_path(@lecture) %></li>
@@ -9,5 +9,5 @@
       <li class="lessons"><%= link_to (t 'Lessons'), professor_lecture_lessons_path(@lecture) %></li>
       <li class="tests"><%= link_to (t 'Tests'), professor_lecture_tests_path(@lecture) %></li>
     </ul>
-  </nav>
+  </div>
 </aside>

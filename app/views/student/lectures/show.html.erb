@@ -1,10 +1,14 @@
-<h1><%= @lecture.name %></h1>
+<% content_for :title do %><h1><%= @lecture.name %></h1><% end %>
 <%= render :partial => 'menu' %>
-<article>
-  <h2><%= t 'Home' %></h2>
+<article class="content">
+	<div class="page-header">
+  	<h2><%= t 'Home' %></h2>
+  </div>
+  
   <p>
     <b><%= t 'ClassCode' %>:</b> <%= @lecture.code %>
   </p>
+  
   <% if @lecture.professors.size == 1 %>
   <p>
     <b><%= t 'activerecord.models.Professor' %>:</b> 
