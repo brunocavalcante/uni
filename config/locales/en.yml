@@ -305,8 +305,9 @@ en:
   Editing: "Editing"
   Home: &home "Home"
   IsActive: "Active?"
+  NoResultsFound: "No results found."
   Pending: &pending "Pending"
-  Search: "Search"
+  Search: &search "Search"
   Status: "Status"
   Suggestion: "Suggestion"
   TimeOn: "on"
@@ -319,6 +320,7 @@ en:
     absences: *absences
     academic_periods: *academic_periods
     admin: "Administration"
+    all: "Everything"
     course_categories: *course_categories
     courses: *courses
     curriculums: *curriculums
@@ -339,6 +341,7 @@ en:
     professor: *professor
     professors: *professors
     reports: *reports
+    search: *search
     scholarities: *scholarities
     schedule: *schedule
     student: *student

@@ -1,9 +1,11 @@
-<div class="container">
+<% content_for :body_tags do %>id="login"<% end %>
+
+<div id="login" class="container">
 	<aside id="login-splash">
 	  <%= image_tag 'splash.png' %>
 	</aside>
 	  
-	<article id="login">
+	<article>
     <%= form_tag(authenticate_url, :class => 'form-stacked') do %>
 		  <fieldset>
 	  		<legend><%= t 'Welcome' %></legend>

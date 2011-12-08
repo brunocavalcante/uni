@@ -307,8 +307,9 @@ pt:
   Editing: "Editando"
   Home: &home "Página Inicial"
   IsActive: "Ativo?"
+  NoResultsFound: "Nenhum resultado encontrado."
   Pending: &pending "Pendentes"
-  Search: "Buscar"
+  Search: &search "Buscar"
   Status: "Status"
   Suggestion: "Sugestão"
   TimeOn: "em"
@@ -320,6 +321,7 @@ pt:
   url:
     absences: *absences
     academic_periods: *academic_periods
+    all: "Todos"
     admin: "Administração"
     course_categories: *course_categories
     courses: *courses
@@ -341,6 +343,7 @@ pt:
     professor: *professor
     professors: *professors
     reports: *reports
+    search: *search
     scholarities: *scholarities
     schedule: *schedule
     student: *student

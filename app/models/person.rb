@@ -14,11 +14,21 @@ class Person < ActiveRecord::Base
   validates :name, :presence => true
   validates_uniqueness_of :email
   
+  scope :by_name, order('people.name ASC')
+  scope :where_name, lambda {|term| where(['people.name ILIKE ?', "%#{term}%"]) if term != ''}
   scope :with_scholarity, includes(:scholarity)
   
   def as_json(options = {})
     options[:except] ||= :password
     
     super(options)
+  end
+  
+  def is_admin?
+    for role in roles
+      return true if role.id == Role::ADMINISTRATOR
+    end
+    
+    return false
   end
 end

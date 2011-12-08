@@ -13,28 +13,28 @@ class Transcript < CurriculumStudent
     
     @best_lecture_students = {}
     for lecture_student in @lecture_students
-      discipline_id = lecture_student.lecture.discipline_id
-      if !@best_lecture_students[discipline_id] || @best_lecture_students[discipline_id].lecture_situation.approved == false
-        @best_lecture_students[discipline_id] = lecture_student
+      discipline_code = lecture_student.lecture.discipline.code
+      if !@best_lecture_students[discipline_code] || @best_lecture_students[discipline_code].lecture_situation.approved == false
+        @best_lecture_students[discipline_code] = lecture_student
       end
     end
     
     for transferred_discipline in @transferred_disciplines
-      discipline_id = transferred_discipline.discipline_id
-      if !@best_lecture_students[discipline_id] || @best_lecture_students[discipline_id].lecture_situation.approved == false
-        @best_lecture_students[discipline_id] = transferred_discipline
+      discipline_code = transferred_discipline.discipline.code
+      if !@best_lecture_students[discipline_code] || @best_lecture_students[discipline_code].lecture_situation.approved == false
+        @best_lecture_students[discipline_code] = transferred_discipline
       end
     end
     
     for transcript in @transcripts
-      discipline_id = transcript[:curriculum_discipline].discipline_id
-      if @best_lecture_students[discipline_id]
-        if @best_lecture_students[discipline_id].is_a? LectureStudent
-          transcript[:lecture_student] = @best_lecture_students[discipline_id]
-        elsif @best_lecture_students[discipline_id].is_a? TransferredDiscipline
-          transcript[:transferred_discipline] = @best_lecture_students[discipline_id]
+      discipline_code = transcript[:curriculum_discipline].discipline.code
+      if @best_lecture_students[discipline_code]
+        if @best_lecture_students[discipline_code].is_a? LectureStudent
+          transcript[:lecture_student] = @best_lecture_students[discipline_code]
+        elsif @best_lecture_students[discipline_code].is_a? TransferredDiscipline
+          transcript[:transferred_discipline] = @best_lecture_students[discipline_code]
         end
-        @best_lecture_students.delete discipline_id
+        @best_lecture_students.delete discipline_code
       end 
     end
     

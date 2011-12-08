@@ -7,7 +7,7 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tag %>
   </head>
-  <body>
+  <body <%= yield :body_tags %>>
   	<div class="topbar">
 	    <header id="main-header" class="topbar-inner">
 	    	<div class="container-fluid">

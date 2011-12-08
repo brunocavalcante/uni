@@ -1,11 +1,11 @@
 /* Login */
 
-article#login, aside#login-splash {
+#login article, #login aside#login-splash {
   margin-top: 60px;
   margin-bottom: 60px;
   float: left;
 }
-article#login {
+#login article {
   width: 48%;
   margin-left: 1%;
 }
@@ -45,4 +45,8 @@ aside#login-splash {
   background: none;
   padding-top: 0;
   padding-bottom: 0;
+}
+
+#login {
+  background: url('/assets/gray-bg.png');
 }
