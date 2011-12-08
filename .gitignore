@@ -7,3 +7,6 @@ public/system/
 *~
 *.DS_*
 *.sass-cache
+vendor/plugins/
+db/migrate/*_install.rb
+db/migrate/*_uninstall.rb

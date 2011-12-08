@@ -28,6 +28,10 @@
     </div>
   </div>
   
+  <% for partialUrl in UniBroker.instance.personFormPartialUrls %>
+		<%= render :partial => partialUrl, :locals => {:p => p} %>
+	<% end %>
+  
   <% if @student.person.photo.exists? %>
   <div class="clearfix">
     <%= label_tag (t 'DeleteCurrentPhoto') %>
