@@ -22,6 +22,26 @@
 /* Body */
 html body {
   padding-top: 40px;
+  
+  h1 {
+    font-size: 2.75em;
+    font-weight: 300;
+    line-height: 1.5em;
+    border-bottom: 1px solid #DDD;
+  }
+}
+
+body .page-header {
+  h1 {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    font-size: 2.25em;
+    font-weight: 300;
+    line-height: 1.75em;
+    border-bottom: 1px solid #DDD;
+  }
 }
 
 a.brand {
@@ -58,13 +78,9 @@ body .page-header {
   margin: 0;
   padding: 0;
   background: whiteSmoke;
-  @include background-gradient(#FFFFFF, #F5F5F5);
-  border-width: 1px;
-  border-style: solid;
-  border-color: #DDD;
-  border-radius: 3px;
   width: 100%;
-  height: 30px;
+  height: 36px;
+  border-radius: 0 0 6px 6px;
   
   form {
     margin-bottom: 0;
@@ -74,7 +90,7 @@ body .page-header {
     float: left;
     display: block;
     margin-left: 1.5em;
-    padding: 6px 0;
+    padding: 9px 0;
   }
 }
 #toolbar a, #toolbar input, .item input.delete {
@@ -83,7 +99,7 @@ body .page-header {
   margin: 0;
   text-decoration: underline;
   border: none;
-  text-shadow: none;
+  text-shadow: 0 1px 0 white;
   font-size: 1em;
   font-weight: normal;
   border-radius: 0px;
@@ -128,7 +144,7 @@ aside ul {
   padding: 0;
   
   li {
-    border-top: 1px solid #EAEAEA;
+    border-top: 1px solid #DDD;
     background: url('/assets/icons/bullet_black.png') no-repeat 0 50%;
     
     a {
@@ -271,7 +287,7 @@ aside ul li.lessons {
     background-position: 0 50%;
   }
   .content form {
-    border-top: 1px solid #EAEAEA;
+    border-top: 1px solid #DDD;
     margin-top: 0.5em;
     padding-top: 0.5em;
   }
@@ -353,9 +369,10 @@ body .field_with_errors {
   margin-bottom: 18px;
   
   h1 {
-    padding-top: 18px;
-    border-top: 1px solid #EAEAEA;
+    padding-top: 15px;
+    border-top: 1px solid #DDD;
     text-shadow: 0 1px 0 white;
+    border-bottom: none;
   }
 }
 

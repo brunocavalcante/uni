@@ -1,6 +1,6 @@
 module MenuHelper
   def menu_class_start
-    return 'class=active' if current_controller == nil
+    return 'class=active' if ['admin', 'professor', 'student'].include?(first_url_parameter) && current_controller == nil
   end
   
   def menu_class_courses
@@ -23,12 +23,20 @@ module MenuHelper
     return 'class=active' if ['parameters', 'course_categories', 'scholarities'].include? current_controller
   end
   
+  def menu_class_lectures
+    return 'class=active' if current_controller == 'lectures'
+  end
+  
   def menu_class_registration
     return 'class=active' if current_controller == 'registration'
   end
   
   def menu_class_reports
     return 'class=active' if current_controller == 'reports'
+  end
+  
+  def first_url_parameter
+    request.fullpath.split('/')[1]
   end
   
   def current_controller
