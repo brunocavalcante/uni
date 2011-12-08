@@ -1,8 +1,8 @@
 <ul>
-  <li><%= link_to (t 'Start'), :controller => 'admin/home' %></li>
-  <li><%= link_to (t 'Courses'), :controller => 'admin/courses' %></li>
-  <li><%= link_to (t 'Professors'), :controller => 'admin/professors' %></li>
-  <li><%= link_to (t 'Students'), :controller => 'admin/students' %></li>
-  <li><%= link_to (t 'AcademicPeriods'), :controller => 'admin/academic_periods' %></li>
-  <li><%= link_to (t 'Parameters'), :controller => 'admin/parameters' %></li>
+  <li <%= menu_class_start %>><%= link_to (t 'Start'), :controller => 'admin/home' %></li>
+  <li <%= menu_class_courses %>><%= link_to (t 'Courses'), :controller => 'admin/courses' %></li>
+  <li <%= menu_class_professors %>><%= link_to (t 'Professors'), :controller => 'admin/professors' %></li>
+  <li <%= menu_class_students %>><%= link_to (t 'Students'), :controller => 'admin/students' %></li>
+  <li <%= menu_class_academic_periods %>><%= link_to (t 'AcademicPeriods'), :controller => 'admin/academic_periods' %></li>
+  <li <%= menu_class_parameters %>><%= link_to (t 'Parameters'), :controller => 'admin/parameters' %></li>
 </ul>
