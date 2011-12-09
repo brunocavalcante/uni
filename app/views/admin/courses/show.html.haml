@@ -1,0 +1,24 @@
+- content_for :title do
+  %h1= @course.name
+  
+= render :partial => 'menu', :locals => { :course => @course }
+
+%article.content
+  %header.page-header
+    %h2= t 'Start'
+    %ul#toolbar
+      %li= link_to (t 'Back'), admin_courses_path, :class => 'back'
+      %li= link_to (t 'Edit'), edit_admin_course_path(@course), :class => 'edit'
+      %li= button_to (t 'Delete'), [:admin, @course], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
+      
+  %p
+    %strong= (t 'activerecord.attributes.course.code') + ':'
+    = @course.code
+    
+  %p
+    %strong= (t 'activerecord.attributes.course.name') + ':'
+    = @course.name
+    
+  %p
+    %strong= (t 'activerecord.attributes.course.course_category_id') + ':'
+    = @course.course_category.name if @course.course_category

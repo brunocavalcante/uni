@@ -1,0 +1,25 @@
+%header.page-header
+  %h1= t 'Courses'
+  %ul#toolbar
+    %li= link_to ((t 'New') + ' ' + (t 'activerecord.models.course')), new_admin_course_path, :class => 'new'
+    
+%form
+  %p.search
+    = text_field_tag :search, params[:search], :type => :search
+    = select_course_category
+    = submit_tag (t 'Search'), :class => 'btn'
+
+%table
+  %thead
+    %tr
+      %th= t 'activerecord.attributes.course.code'
+      %th= t 'activerecord.attributes.course.name'
+      %th= t 'activerecord.attributes.course.course_category_id'
+  %tbody
+    - for course in @courses
+      %tr
+        %td= course.code
+        %td= link_to course.name, [:admin, course]
+        %td= course.course_category.name if course.course_category
+
+= will_paginate @courses

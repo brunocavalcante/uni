@@ -1,0 +1,25 @@
+- content_for :body_tags do 
+  id="login"
+
+#login.container
+  %aside#login-splash
+    = image_tag 'splash.png'
+    
+  %article
+    = form_tag(authenticate_url, :class => 'form-stacked') do 
+      %fieldset
+        %legend= t 'Welcome'
+        .clearfix
+          = label_tag :username, (t 'EmailOrStudentId')
+          = text_field_tag :username, nil, :autocomplete => :off
+        .clearfix
+          = label_tag :password, (t 'Password')
+          = password_field_tag :password
+        .actions
+          %p= submit_tag (t 'LogIn'), :class => 'btn primary'
+          %p= link_to (t 'ForgotYourPassword'), password_recovery_index_url
+
+:javascript
+  $(document).ready(function() {
+    $('#username').focus();
+  })

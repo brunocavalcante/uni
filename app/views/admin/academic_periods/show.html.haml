@@ -1,0 +1,29 @@
+- content_for :title do
+  %h1= @academic_period.name
+  
+= render :partial => 'menu', :locals => { :academic_period => @academic_period }
+
+%article.content
+  %header.page-header
+    %h2= t 'Home'
+    %ul#toolbar
+      %li= link_to (t 'Back'), admin_academic_periods_path, :class => 'back'
+      %li= link_to (t 'Edit'), edit_admin_academic_period_path(@academic_period), :class => 'edit'
+      %li= button_to (t 'Delete'), [:admin, @academic_period], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
+
+  %p
+    %strong= (t 'activerecord.attributes.academic_period.name') + ':'
+    = @academic_period.name
+    
+  %p
+    %strong= (t 'activerecord.attributes.academic_period.start') + ':'
+    = l @academic_period.start, :format => :long
+    = t 'until'
+    = l @academic_period.end, :format => :long
+   
+  - if @academic_period.registration_start and @academic_period.registration_end
+    %p
+      %strong= (t 'activerecord.attributes.academic_period.registration_start') + ':'
+      = l @academic_period.registration_start, :format => :long
+      = t 'until'
+      = l @academic_period.registration_end, :format => :long

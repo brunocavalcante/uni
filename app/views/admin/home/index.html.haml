@@ -1,0 +1,15 @@
+.page-header
+  %h1= t 'Welcome'
+  
+%p= t 'ThisIsTheAdministrationArea'
+
+%h3= t 'SystemInformation'
+%dl
+  %dt= t 'UniVersion'
+  %dd= @uni_version
+  
+  %dt= t 'RailsVersion'
+  %dd= @rails_version
+  
+  %dt= t 'RubyVersion'
+  %dd= @ruby_version

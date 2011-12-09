@@ -1,0 +1,20 @@
+= form_for([:admin, @course]) do |f|
+  = f.error_messages
+  
+  .clearfix
+    = f.label :code, nil, :class => 'required'
+    .input
+      = f.text_field :code, :class => 'input_small'
+  
+  .clearfix
+    = f.label :name, nil, :class => 'required'
+    .input
+      = f.text_field :name, :class => 'input_xlarge'
+
+  .clearfix
+    = f.label :course_category_id
+    .input
+      = f.select :course_category_id, CourseCategory.all.collect {|c| [ c.name, c.id ] }
+  
+  .actions
+    = f.submit nil, :class => 'btn primary'

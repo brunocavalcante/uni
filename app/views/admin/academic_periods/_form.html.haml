@@ -1,0 +1,25 @@
+= form_for([:admin, @academic_period]) do |f|
+  = f.error_messages
+  
+  .clearfix
+    = f.label :name, nil, :class => 'required'
+    .input
+      = f.text_field :name
+  
+  .clearfix
+    = f.label :start, nil, :class => 'required'
+    .input
+      = f.date_select :start, {}, {:class => 'span2'}
+      = t 'until'
+      = f.date_select :end, {}, {:class => 'span2'}
+      
+  .clearfix
+    = f.label :registration_start
+    .input
+      = f.date_select :registration_start, {:include_blank => true}, {:class => 'span2'}
+      = t 'until'
+      = f.date_select :registration_end, {}, {:class => 'span2'}
+      %span.help-block= t 'InformationOfAbsenceOfRegistrationPeriod'
+  
+  .actions
+    = f.submit nil, :class => 'btn primary'

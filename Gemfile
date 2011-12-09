@@ -30,6 +30,8 @@ gem 'coffee-script'
 
 gem 'responders'
 
+gem 'haml'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

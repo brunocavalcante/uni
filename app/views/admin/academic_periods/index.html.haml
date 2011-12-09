@@ -1,0 +1,18 @@
+%header.page-header
+  %h1= t 'AcademicPeriods'
+  %ul#toolbar
+    %li=  link_to (t 'New') + ' ' + (t 'activerecord.models.academic_period'), new_admin_academic_period_path, :class => 'new'
+
+
+%table
+  %thead
+    %tr
+      %th= t 'activerecord.attributes.academic_period.name'
+      %th= t 'activerecord.attributes.academic_period.start'
+  %tbody
+    - for academic_period in @academic_periods
+      %tr
+        %td= link_to academic_period.name, [:admin, academic_period]
+        %td= (l academic_period.start) + ' ' + (t 'until') + ' ' + (l academic_period.end)
+   
+= will_paginate @academic_periods
