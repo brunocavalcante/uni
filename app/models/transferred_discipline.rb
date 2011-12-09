@@ -10,4 +10,8 @@ class TransferredDiscipline < ActiveRecord::Base
   def name
     discipline.name
   end
+  
+  def discipline_code
+    discipline.code
+  end
 end

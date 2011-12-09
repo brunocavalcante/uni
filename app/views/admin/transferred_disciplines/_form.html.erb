@@ -2,24 +2,30 @@
   <%= f.error_messages %>
 
 	<% if @transferred_discipline.id == nil %>
-	<p>
-    <%= f.label :discipline_id %><br/>
-    <%= f.select :discipline_id, [] %>
-  </p>
+	<div class="clearfix">
+    <%= f.label :discipline_id %>
+    <div class="input">
+    	<%= f.select :discipline_id, [] %>
+    </div>
+  </div>
   <% end %>
   
-  <p>
-    <%= f.label :grade %><br/>
-    <%= f.text_field :grade %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :grade %>
+    <div class="input">
+    	<%= f.text_field :grade %>
+    </div>
+  </div>
   
-  <p>
-    <%= f.label :attendance %><br/>
-    <%= f.text_field :attendance %>
-  </p>
+  <div class="clearfix">
+    <%= f.label :attendance %>
+    <div class="input">
+    	<%= f.text_field :attendance %>
+    </div>
+  </div>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit nil, :class => 'btn primary' %>
   </div>
 <% end %>
 

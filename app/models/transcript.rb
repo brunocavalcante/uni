@@ -11,21 +11,16 @@ class Transcript < CurriculumStudent
     @transcripts = []
     @curriculum_disciplines.each {|c| @transcripts << {:curriculum_discipline => c}}
     
+    # This array saves the best performances per discipline for each lecture_student or transferred_discipline
     @best_lecture_students = {}
-    for lecture_student in @lecture_students
-      discipline_code = lecture_student.lecture.discipline.code
-      if !@best_lecture_students[discipline_code] || @best_lecture_students[discipline_code].lecture_situation.approved == false
-        @best_lecture_students[discipline_code] = lecture_student
+    for item in @lecture_students | @transferred_disciplines
+      discipline_code = item.discipline_code
+      if !@best_lecture_students[discipline_code] || (@best_lecture_students[discipline_code].is_reproved? && !item.is_reproved)
+        @best_lecture_students[discipline_code] = item
       end
     end
     
-    for transferred_discipline in @transferred_disciplines
-      discipline_code = transferred_discipline.discipline.code
-      if !@best_lecture_students[discipline_code] || @best_lecture_students[discipline_code].lecture_situation.approved == false
-        @best_lecture_students[discipline_code] = transferred_discipline
-      end
-    end
-    
+    # Adds the best performances to the transcript
     for transcript in @transcripts
       discipline_code = transcript[:curriculum_discipline].discipline.code
       if @best_lecture_students[discipline_code]
@@ -42,7 +37,16 @@ class Transcript < CurriculumStudent
     if @best_lecture_students.size > 0
       for id, lecture_student in @best_lecture_students
         if lecture_student.is_a? LectureStudent
-          @transcripts << {:discipline => lecture_student.lecture.discipline, :lecture_student => lecture_student}
+          equivalents_codes = lecture_student.lecture.discipline.equivalents_codes
+          # Check if this discipline has a equivalent in the curriculum
+          for t in @transcripts
+            if equivalents_codes.include?(t[:curriculum_discipline].discipline.code)
+              # Check if this lecture_student's performance is better than the original one, if it exists
+              if t[:lecture_student] == nil or (t[:lecture_student].is_failed? && !lecture_student.is_failed?)
+                t[:lecture_student] = lecture_student
+              end
+            end 
+          end
         elsif lecture_student.is_a? TransferredDiscipline
           @transcripts << {:discipline => lecture_student.discipline, :transferred_discipline => lecture_student}
         end

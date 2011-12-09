@@ -1,7 +1,7 @@
-<h1><%= @course.name %></h1>
+<% content_for :title do %><h1><%= @course.name %></h1><% end %>
 <%= render :partial => 'admin/courses/menu', :locals => { :course => @course } %>
-<article>
-  <header>
+<article class="content">
+  <header class="page-header">
     <h2><%= @curriculum_student.name %>: <%= t 'activerecord.models.transferred_discipline' %></h2>
     <ul id="toolbar">
     	<li><%= link_to (t 'Back'), admin_course_curriculum_student_transferred_disciplines_path(@course, @curriculum_student), :class => 'back' %></li>

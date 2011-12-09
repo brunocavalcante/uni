@@ -73,4 +73,16 @@ class LectureStudent < ActiveRecord::Base
     
     super(options)
   end
+  
+  def is_approved?
+    lecture_situation && lecture_situation.approved == true ? true : false
+  end
+  
+  def is_failed?
+    lecture_situation && lecture_situation.approved == false ? true : false
+  end
+  
+  def discipline_code
+    lecture.discipline.code
+  end
 end

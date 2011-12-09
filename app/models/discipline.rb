@@ -52,4 +52,13 @@ class Discipline < ActiveRecord::Base
   def full_name
     "#{code} - #{name} - #{course.name}" 
   end
+  
+  def equivalents_codes
+    equivalents_codes = []
+    for e in equivalents | equivalents_dependencies
+      equivalents_codes << e.code
+    end
+    
+    return equivalents_codes
+  end
 end
