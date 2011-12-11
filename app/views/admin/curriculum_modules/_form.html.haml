@@ -1,0 +1,15 @@
+= form_for([:admin, @course, @curriculum, @curriculum_module]) do |f|
+  = f.error_messages
+  
+  .clearfix
+    = f.label :name, nil, :class => :required
+    .input
+      = f.text_field :name
+      
+  .clearfix
+    = f.label :order
+    .input
+      = f.text_field :order
+      
+  .actions
+    = f.submit nil, :class => 'btn primary'

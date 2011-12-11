@@ -1,0 +1,12 @@
+- content_for :title do 
+  %h1= @course.name
+  
+= render :partial => 'admin/courses/menu', :locals => { :course => @course }
+
+%article.content
+  %header.page-header
+    %h2= @curriculum.name + ': ' + (t 'Editing') + ' ' + (t 'activerecord.models.curriculum_module')
+    %ul#toolbar
+      %li= link_to (t 'Back'), {:action => :show}, :class => 'back'
+      
+  = render 'form'

@@ -1,0 +1,13 @@
+- content_for :title do 
+  %h1= @course.name
+  
+= render :partial => 'admin/courses/menu', :locals => { :course => @course }
+
+%article.content
+  %header.page-header
+    %h2= (t 'Editing') + ' ' + (t 'activerecord.models.curriculum_discipline')
+    %ul#toolbar
+      %li= link_to (t 'Back'), {:action => :show}, :class => 'back'
+      %li= button_to (t 'Delete'), {:action => :show}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
+
+  = render 'form'

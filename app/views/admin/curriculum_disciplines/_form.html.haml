@@ -1,0 +1,21 @@
+= form_for([:admin, @course, @curriculum, @curriculum_discipline]) do |f|
+  = f.error_messages
+  
+  - if !@curriculum.active
+    .clearfix
+      = f.label :mandatory
+      .input
+        = f.check_box :mandatory
+
+    .clearfix
+      = f.label :prerequisites
+      .input
+        = f.collection_select :prerequisite_ids, @curriculum.curriculum_disciplines.where('curriculum_disciplines.id <> ?', @curriculum_discipline.id), :id, :name, {}, {:multiple => true, :class => :span6}
+
+  .clearfix
+    = f.label :curriculum_module_id
+    .input
+      = f.collection_select :curriculum_module_id, @curriculum.curriculum_modules, :id, :name, :include_blank => true
+  
+  .actions
+    = f.submit nil, :class => 'btn primary'

@@ -1,0 +1,21 @@
+- content_for :title do
+  %h1= t 'Parameters'
+  
+= render :partial => 'admin/parameters/menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'CourseCategories'
+    %ul#toolbar
+      %li= link_to ((t 'New') + ' ' + (t 'activerecord.models.course_category')), {:action => 'new'}, :class => 'new'
+      
+  %table
+    %thead
+      %tr
+        %th= t 'activerecord.attributes.course_category.name'
+    %tbody
+      - for course_category in @course_categories
+        %tr
+          %td= link_to course_category.name, [:admin, course_category]
+          
+  = will_paginate @course_categories

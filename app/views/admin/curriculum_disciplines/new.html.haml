@@ -1,0 +1,34 @@
+- content_for :title do 
+  %h1= @course.name
+  
+= render :partial => 'admin/courses/menu', :locals => { :course => @course }
+
+%article.content
+  %header.page-header
+    %h2= t 'AddDisciplineToCurriculum'
+    %ul#toolbar
+      %li= link_to (t 'Back'), admin_course_curriculum_path(@course, @curriculum), :class => 'back'
+  
+  = form_tag({:action => 'create'}) do 
+    .clearfix
+      = label_tag :curriculum_disciplines, (t 'Disciplines'), :class => 'required'
+      .input
+        = collection_select :curriculum_disciplines, :discipline_ids, [], :id, :name, {}, {:multiple => true}
+    
+    .clearfix
+      = label_tag (t 'activerecord.attributes.curriculum_discipline.curriculum_module_id')
+      .input
+        = collection_select :curriculum_disciplines, :curriculum_module_id, @curriculum.curriculum_modules, :id, :name, :include_blank => true
+        
+    .clearfix
+      = label_tag (t 'activerecord.attributes.curriculum_discipline.mandatory')
+      .input
+        = check_box_tag :mandatory
+    
+    .actions
+      = submit_tag (t 'AddSelected'), :class => 'btn primary'
+      
+:javascript
+  $(document).ready(function() {
+  	Application.autocomplete('curriculum_disciplines_discipline_ids', '#{disciplines_path}.js', "#{t 'Remove'}", true)
+  })

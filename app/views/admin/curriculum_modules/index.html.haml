@@ -1,0 +1,23 @@
+- content_for :title do 
+  %h1= @course.name
+  
+= render :partial => 'admin/courses/menu', :locals => { :course => @course }
+
+%article.content
+  %header.page-header
+    %h2= @curriculum.name + ': ' + (t 'CurriculumModules')
+    %ul#toolbar
+      %li= link_to (t 'Back'), admin_course_curriculum_path(@course, @curriculum), :class => 'back'
+      - if !@curriculum.active
+        %li= link_to ((t 'Add') + ' ' + (t 'activerecord.models.curriculum_module')), {:action => :new}, :class => 'new'
+
+  %table
+    %thead
+      %tr
+        %th= t 'activerecord.attributes.curriculum_module.order'
+        %th= t 'activerecord.attributes.curriculum_module.name'
+    %tbody
+      - @curriculum_modules.each do |curriculum_module|
+        %tr
+          %td= curriculum_module.order
+          %td= link_to curriculum_module.name, admin_course_curriculum_curriculum_module_path(@course, @curriculum, curriculum_module)
