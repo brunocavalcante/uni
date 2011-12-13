@@ -1,0 +1,33 @@
+- content_for :title do 
+  %h1= @course.name
+  
+= render :partial => 'admin/courses/menu', :locals => { :course => @course }
+
+%article.content
+  %header.page-header
+    %h2= t 'Students'
+    %ul#toolbar
+      %li= link_to ((t 'Add') + ' ' + (t 'activerecord.models.curriculum_student')), new_admin_course_curriculum_student_path, :class => 'new'
+      
+  %form
+    %p.search
+      = text_field_tag :search, params[:search], :type => :search
+      = select_tag :curriculum_id, options_from_collection_for_select(@course.curriculums, :id, :name, params[:curriculum_id]), :include_blank => true
+      = submit_tag (t 'Search'), :class => 'btn'
+  
+  %table
+    %thead
+      %tr
+        %th= t 'activerecord.attributes.student.code'
+        %th= t 'activerecord.attributes.person.name'
+        %th= t 'activerecord.attributes.curriculum_student.curriculum_id'
+        %th= t 'activerecord.attributes.curriculum_student.active'
+    %tbody
+      - @curriculum_students.each do |curriculum_student|
+        %tr
+          %td= curriculum_student.student.code
+          %td= link_to curriculum_student.student.person.name, admin_course_curriculum_student_path(@course, curriculum_student)
+          %td= link_to curriculum_student.curriculum.name, admin_course_curriculum_path(@course, curriculum_student.curriculum)
+          %td= curriculum_student.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo')
+  
+  = will_paginate @curriculum_students

@@ -1,0 +1,26 @@
+= form_for([:admin, @course, @curriculum_student]) do |f|
+  = f.error_messages
+  
+  - if @curriculum_student.id == nil
+    .clearfix
+      = f.label :student_id, nil, :class => :required
+      .input
+        = f.collection_select :student_id, [], :student_id, :name
+        
+  .clearfix
+    = f.label :curriculum_id, nil, :class => :required
+    .input
+      = f.select :curriculum_id, options_from_collection_for_select(@course.curriculums.only_finished.by_activeness, "id", "name")
+      
+  .clearfix
+    = f.label :created_at, nil, :class => :required
+    .input
+      = f.date_select :created_at
+      
+  .clearfix
+    = f.label :active
+    .input
+      = f.check_box :active
+    
+  .actions
+    = f.submit nil, :class => 'btn primary'

@@ -1,0 +1,32 @@
+- content_for :title do 
+  %h1= @course.name
+  
+= render :partial => 'admin/courses/menu', :locals => { :course => @course }
+
+%article.content
+  %header.page-header
+    %h2= @curriculum_student.name
+    %ul#toolbar
+      %li= link_to (t 'Back'), {:action => "index"}, :class => 'back'
+      %li= link_to (t 'Profile'), user_path(@curriculum_student.student.person), :class => 'person'
+      %li= link_to (t 'Edit'), edit_admin_course_curriculum_student_path(@course, @curriculum_student), :class => 'edit'
+      %li= link_to (t 'TransferredDisciplines'), admin_course_curriculum_student_transferred_disciplines_path(@course, @curriculum_student), :class => 'show'
+      %li= button_to (t 'Remove'), {:action => "show"}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
+  
+  %p
+    %strong= (t 'activerecord.attributes.person.name') + ':'
+    = @curriculum_student.name
+    
+  %p
+    %strong= (t 'activerecord.models.curriculum') + ':'
+    = link_to @curriculum_student.curriculum.name, [:admin, @course, @curriculum_student.curriculum]
+    
+  %p
+    %strong= (t 'activerecord.attributes.curriculum_student.created_at') + ':'
+    = l @curriculum_student.created_at, :format => :long
+    
+  %p
+    %strong= (t 'activerecord.attributes.curriculum_student.active') + ':'
+    = @curriculum_student.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo')
+    
+  = render 'student/reports/transcripts/transcript'

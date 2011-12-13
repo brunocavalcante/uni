@@ -1,0 +1,20 @@
+= form_for([:admin, @academic_period, @lecture, @lecture_student]) do |f|
+  = f.error_messages
+
+  .clearfix
+    = f.label :grade
+    .input
+      = f.text_field :grade
+  
+  .clearfix
+    = f.label :attendance
+    .input
+      = f.text_field :attendance
+  
+  .clearfix
+    = f.label :lecture_situation_id
+    .input
+      = f.select :lecture_situation_id, LectureSituation.all.collect {|p| [ (t p.name), p.id ]}, {:include_blank => ''}
+  
+  .actions
+    = f.submit nil, :class => 'btn primary'

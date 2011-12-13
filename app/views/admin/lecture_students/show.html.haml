@@ -1,0 +1,33 @@
+- content_for :title do 
+  %h1= @academic_period.name
+  
+= render :partial => 'admin/academic_periods/menu', :locals => { :academic_period => @academic_period }
+
+%article.content
+  %header.page-header
+    %h2= @lecture.name + ': ' + @lecture_student.name
+    %ul#toolbar
+      %li= link_to (t 'Back'), [:admin, @academic_period, @lecture], :class => 'back'
+      %li= link_to (t 'Edit'), {:action => :edit}, :class => 'edit'
+      %li= link_to (t 'Profile'), user_path(@lecture_student.student.person), :class => 'person'
+      %li= button_to (t 'Delete'), {:action => :show}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
+      
+  %p
+    %strong= (t 'activerecord.attributes.lecture_student.lecture_situation_id') + ': '
+    = @lecture_student.lecture_situation_id ? (t @lecture_student.lecture_situation.name) : (t 'InProgress')
+    
+  - if @lecture_student.lecture_situation_id
+    %p
+      %strong= (t 'activerecord.attributes.lecture_student.grade') + ': '
+      = @lecture_student.grade
+      
+    %p
+      %strong= (t 'activerecord.attributes.lecture_student.attendance') + ': '
+      = @lecture_student.attendance + '%'
+  
+  - if @tests_and_results
+    %h3= t 'Tests'
+    = render :partial => 'lectures/tests'
+    
+  %h3= t 'Absences'
+  = render :partial => 'lectures/absences'

@@ -1,0 +1,17 @@
+- content_for :title do 
+  %h1= @course.name
+  
+= render :partial => 'admin/courses/menu', :locals => { :course => @course }
+
+%article.content
+  %header.page-header
+    %h2= (t 'Add') + ' ' + (t 'activerecord.models.curriculum_student')
+    %ul#toolbar
+      %li= link_to (t 'Back'), {:action => "index"}, :class => 'back'
+      
+  = render 'form'
+  
+:javascript
+  $(document).ready(function() {
+    Application.autocomplete('curriculum_student_student_id', "#{admin_students_path}.js", "#{t 'Remove'}", false)
+  });

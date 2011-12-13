@@ -1,0 +1,43 @@
+- content_for :title do 
+  %h1= @course.name
+  
+= render :partial => 'admin/courses/menu', :locals => {:course => @course}
+
+%article.content
+  %header.page-header
+    %h2= @discipline.name
+    %ul#toolbar
+      %li= link_to (t 'Back'), {:action => :index}, :class => 'back'
+      %li= link_to (t 'Edit'), edit_admin_course_discipline_path(@course, @discipline), :class => 'edit'
+      %li= button_to (t 'Delete'), {:action => :show}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
+      
+  %p
+    %strong= (t 'activerecord.attributes.discipline.code') + ': '
+    = @discipline.code
+    
+  %p
+    %strong= (t 'activerecord.attributes.discipline.name') + ': '
+    = @discipline.name
+    
+  %p
+    %strong= (t 'activerecord.attributes.discipline.credits') + ': '
+    = @discipline.credits
+    
+  %p
+    %strong= (t 'activerecord.attributes.discipline.version') + ': '
+    = @discipline.version
+    
+  - if @discipline.syllabus != nil && @discipline.syllabus != ''
+    %h3= t 'activerecord.attributes.discipline.syllabus'
+    = raw @discipline.syllabus
+  
+  - if @discipline.equivalents.size > 0
+    %h3= t 'activerecord.attributes.discipline.equivalents'
+    %ul
+      - @discipline.equivalents.each do |discipline|
+        %li= link_to discipline.name, [:admin, @course, discipline]
+  
+  %h3= t 'activerecord.attributes.discipline.versions'
+  %ul
+    - @discipline.versions.each do |discipline|
+      %li= link_to discipline.version_fullname, [:admin, @course, discipline]

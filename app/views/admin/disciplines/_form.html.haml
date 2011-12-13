@@ -1,0 +1,35 @@
+= form_for([:admin, @course, @discipline]) do |f|
+  = f.error_messages
+
+  .clearfix
+    = f.label :code, nil, :class => :required
+    .input
+      = f.text_field :code, :disabled => (@discipline.id), :class => :span3
+  
+  .clearfix
+    = f.label :name, nil, :class => :required
+    .input
+      = f.text_field :name, :class => :span6
+  
+  .clearfix
+    = f.label :credits
+    .input
+      = f.text_field :credits, :class => :span3
+  
+  .clearfix
+    = f.label :equivalents
+    .input
+      = f.collection_select :equivalent_ids, @discipline.equivalents.size > 0 ? @discipline.equivalents : [], :id, :name, {}, {:multiple => true}
+  
+  .clearfix
+    = f.label :syllabus
+    .input
+      = f.text_area :syllabus, :rows => 10, :class => :span9
+  
+  .actions
+    = f.submit nil, :class => 'btn primary'
+  
+:javascript
+  $(document).ready(function() {
+    Application.autocomplete('discipline_equivalent_ids', "#{disciplines_path}.js", "#{t 'Remove'}", true)
+  });

@@ -1,0 +1,26 @@
+- content_for :title do 
+  %h1= @academic_period.name
+  
+= render :partial => 'admin/academic_periods/menu', :locals => { :academic_period => @academic_period }
+
+%article.content
+  %header.page-header
+    %h2= (t 'Add') + ' ' + (t 'Students')
+    %ul#toolbar
+      %li= link_to (t 'Back'), admin_academic_period_lecture_path(@academic_period, @lecture), :class => 'back'
+      
+  = form_for([:admin, @academic_period, @lecture, @lecture_student]) do |f|
+    = f.error_messages
+    
+    .clearfix
+      = label_tag :student_id, (t 'Students'), :class => :required
+      .input
+        = f.collection_select :student_id, @lecture_student.student ? [@lecture_student.student] : [], :student_id, :name, {}, {:multiple => true}
+        
+    .actions
+      = f.submit ((t 'Add') + ' ' + (t 'Students')), :class => 'btn primary'
+      
+:javascript
+  $(document).ready(function() {
+    Application.autocomplete('lecture_student_student_id', "#{admin_students_path}.js", "#{t 'Remove'}", true)
+  });

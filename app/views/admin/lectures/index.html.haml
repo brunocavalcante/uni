@@ -1,0 +1,18 @@
+- content_for :title do 
+  %h1= @academic_period.name
+  
+= render :partial => 'admin/academic_periods/menu', :locals => {:academic_period => @academic_period}
+
+%article.content
+  %header.page-header
+    %h2= t 'Lectures'
+    %ul#toolbar
+      %li= link_to ((t 'New') + ' ' + (t 'activerecord.models.lecture')), {:action => 'new'}, :class => 'new'
+      
+  %form
+    %p.search
+      = text_field_tag :term, params[:term], :type => :search
+      = select_tag :course_id, options_from_collection_for_select(Course.all, :id, :name, params[:course_id]), :include_blank => true
+      = submit_tag (t 'Search'), :class => 'btn'
+      
+  = render 'grid'

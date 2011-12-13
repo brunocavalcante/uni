@@ -1,0 +1,12 @@
+- content_for :title do 
+  %h1= @academic_period.name
+  
+= render :partial => 'admin/academic_periods/menu', :locals => { :academic_period => @academic_period }
+
+%article.content
+  %header.page-header
+    %h2= @lecture.name + ': ' + @lecture_student.name
+    %ul#toolbar
+      %li= link_to (t 'Back'), {:action => :show}, :class => 'back'
+      
+  = render 'form'

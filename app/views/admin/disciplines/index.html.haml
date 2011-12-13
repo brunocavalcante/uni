@@ -1,0 +1,32 @@
+- content_for :title do 
+  %h1= @course.name
+  
+= render :partial => 'admin/courses/menu', :locals => {:course => @course}
+
+%article.content
+  %header.page-header
+    %h2= t 'Disciplines'
+    %ul#toolbar
+      %li= link_to ((t 'New') + ' ' + (t 'activerecord.models.discipline')), new_admin_course_discipline_path(@course), :class => 'new'
+      
+  %form
+    %p.search
+      = text_field_tag :term, params[:term], :type => :search
+      = submit_tag (t 'Search'), :class => 'btn'
+      
+  %table
+    %thead
+      %tr
+        %th= t 'activerecord.attributes.discipline.code'
+        %th= t 'activerecord.attributes.discipline.name'
+        %th= t 'activerecord.attributes.discipline.credits'
+        %th= t 'activerecord.attributes.discipline.version'
+    %tbody
+      - @disciplines.each do |discipline|
+        %tr
+          %td= discipline.code
+          %td= link_to discipline.name, [:admin, @course, discipline]
+          %td= discipline.credits
+          %td= discipline.version
+  
+  = will_paginate @disciplines

@@ -1,0 +1,28 @@
+= form_for([:admin, @course, @curriculum]) do |f|
+  = f.error_messages
+  
+  .clearfix
+    = f.label :code, nil, :class => :required
+    .input
+      = f.text_field :code, :class => :input_medium
+      
+  .clearfix
+    = f.label :name, nil, :class => :required
+    .input
+      = f.text_field :name
+      
+  - if @curriculum.id
+    .clearfix
+      = f.label :finished
+      .input
+        = f.check_box :finished
+        %span.help-block= t 'FinishCurriculumToEnableActivation'
+        
+    .clearfix
+      = f.label :active
+      .input
+        = f.check_box :active
+        %span.help-block= t 'ActiveCurriculumWillBeAvailableForStudentRegistration'
+        
+  .actions
+    = f.submit nil, :class => 'btn primary'

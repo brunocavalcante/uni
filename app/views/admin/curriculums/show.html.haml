@@ -1,0 +1,61 @@
+- content_for :title do 
+  %h1= @course.name
+  
+= render :partial => 'admin/courses/menu', :locals => {:course => @course}
+
+%article.content
+  %header.page-header
+    %h2= (t 'activerecord.models.curriculum') + ': ' + @curriculum.name
+    %ul#toolbar
+      %li= link_to (t 'Back'), {:action => 'index'}, :class => 'back'
+      %li= link_to (t 'Edit'), {:action => 'edit', :id => @curriculum.id}, :class => 'edit'
+      - if !@curriculum.active?
+        %li= link_to ((t 'Add') + ' ' + (t 'Disciplines')), new_admin_course_curriculum_curriculum_discipline_path(@course, @curriculum), :class => 'new'
+      %li= link_to (t 'CurriculumModules'), admin_course_curriculum_curriculum_modules_path(@course, @curriculum), :class => 'show'
+      - if !@curriculum.active?
+        %li= button_to (t 'Delete'), {:action => :show}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
+        
+  - if @curriculum.active?
+    %div{:class => 'alert-message block-message warning'}= t 'ThisCurriculumIsActiveNotice'
+    
+  - if !@curriculum.finished?
+    %div{:class => 'alert-message block-message warning'}= t 'ThisCurriculumIsNotFinishedNotice'
+    
+  %p
+    %strong= (t 'activerecord.attributes.curriculum.code') + ': '
+    = @curriculum.code
+    
+  %p
+    %strong= (t 'activerecord.attributes.curriculum.name') + ': '
+    = @curriculum.name
+    
+  %p
+    %strong= (t 'activerecord.attributes.curriculum.active') + ': '
+    = @curriculum.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo')
+    
+  %h3= t 'Disciplines'
+  %table
+    %thead
+      %tr
+        %th= t 'activerecord.attributes.discipline.code'
+        %th= t 'activerecord.attributes.discipline.name'
+        %th= t 'activerecord.attributes.curriculum_discipline.prerequisites'
+        %th= t 'activerecord.attributes.curriculum_discipline.mandatory'
+        %th= t 'activerecord.attributes.discipline.credits'
+    %tbody
+      - current_module = nil
+      - @curriculum_disciplines.each do |curriculum_discipline|
+        - if curriculum_discipline.curriculum_module_id != current_module
+          - current_module = curriculum_discipline.curriculum_module_id
+          %tr
+            %th{:colspan => 5}
+              = curriculum_discipline.curriculum_module ? curriculum_discipline.curriculum_module.name : t('TranscriptNoCurriculumModule')
+        %tr
+          %td= curriculum_discipline.discipline.code
+          %td= link_to curriculum_discipline.name, [:admin, @course, @curriculum, curriculum_discipline]
+          %td
+            - curriculum_discipline.prerequisites.each_with_index do |p, i|
+              = ',' if i > 0
+              = link_to p.discipline.code, [:admin, @course, @curriculum, p]
+          %td= curriculum_discipline.mandatory ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo')
+          %td= curriculum_discipline.discipline.credits

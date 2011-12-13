@@ -1,0 +1,17 @@
+- content_for :title do 
+  %h1= t 'Parameters'
+  
+= render :partial => 'menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'System'
+    
+  = form_tag( :action => 'update' ) do 
+    .clearfix
+      = label_tag :locale, (t 'Locale')
+      .input
+        = select_tag :locale, options_for_select(lang_options_for_select(), I18n.locale)
+        
+    .actions
+      = submit_tag nil, :class => 'btn primary'

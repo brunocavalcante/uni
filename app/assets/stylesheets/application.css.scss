@@ -7,18 +7,6 @@
  *= require_tree . 
 */
 
-/* Mixins */
-@mixin background-gradient($colorA, $colorB) {
-  background-color: $colorA;
-  background-image: -moz-linear-gradient(top, $colorA, $colorB); /* FF3.6 */
-  background-image: -ms-linear-gradient(top, $colorA, $colorB); /* IE10 */
-  background-image: -o-linear-gradient(top, $colorA, $colorB); /* Opera 11.10+ */
-  background-image: -webkit-gradient(linear, left top, left bottom, from($colorA), to($colorB)); /* Saf4+, Chrome */
-  background-image: -webkit-linear-gradient(top, $colorA, $colorB); /* Chrome 10+, Saf5.1+ */
-  background-image: linear-gradient(top, $colorA, $colorB);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr=#{$colorA}, EndColorStr=#{$colorB}); /* IE6–IE9 */
-}
-
 /* Body */
 html body {
   padding-top: 40px;
@@ -68,7 +56,6 @@ body .container-fluid > .content {
 
 body .container-fluid > .sidebar {
   top: auto;
-  left: 20px;
 }
 
 body .page-header {
