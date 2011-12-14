@@ -1,0 +1,26 @@
+- content_for :title do
+  %h1= @lecture.name
+  
+= render :partial => 'professor/lectures/menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'Home'
+  
+  %p
+    %strong= (t 'ClassCode' ) + ': '
+    = @lecture.code
+  
+  %p
+    %strong= (t 'Status' ) + ': '
+    = @lecture.end_date ? (t 'Finished') : (t 'InProgress')
+  
+  - if @lecture.professors.size > 1
+    %p
+      %strong= (t 'Professors' ) + ': ' 
+      %ul
+        - for professor in @lecture.professors
+          %li= link_to professor.person.name, user_path(professor.person)
+  
+  %h3= t 'LatestUpdates'
+  = render :partial => 'lectures/updates'
