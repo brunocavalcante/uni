@@ -1,0 +1,31 @@
+= form_for([:admin, @student]) do |f|
+  = f.error_messages 
+  
+  .clearfix
+    = f.label :code, nil, :class => :required 
+    .input
+      = f.text_field :code, :class => :input_medium
+  
+  = f.fields_for :person do |p| 
+    = render :partial => 'admin/people/form', :locals => {:p => p}
+  
+  - if @student.person.photo.exists? 
+    .clearfix
+      .input
+        %ul.inputs-list
+          %li
+            %label
+              = check_box_tag :delete_photo
+              %span= t 'DeleteCurrentPhoto'
+  - if @student.id
+    .clearfix
+      .input
+        %ul.inputs-list
+          %li
+            %label
+              = check_box_tag :reset_password
+              %span= t 'ResetPassword'
+        %span.help-block= t 'PasswordWillBeTheStudentCode'
+  
+  .actions
+    = f.submit nil, :class => 'btn primary'

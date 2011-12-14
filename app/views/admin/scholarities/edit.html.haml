@@ -1,0 +1,12 @@
+- content_for :title do 
+  %h1= t 'Parameters'
+  
+= render :partial => 'admin/parameters/menu'
+
+%article.content
+  %header.page-header
+    %h2= (t 'Editing') + ' ' + (t 'activerecord.models.scholarity')
+    %ul#toolbar
+      %li= link_to (t 'Back'), {:action => 'show', :id => @scholarity.id}, :class => 'back'
+    
+  = render 'form'

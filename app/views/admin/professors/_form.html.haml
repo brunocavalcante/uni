@@ -1,0 +1,25 @@
+= form_for([:admin, @professor]) do |f|
+  = f.error_messages
+
+  = f.fields_for :person do |p|
+    = render :partial => 'admin/people/form', :locals => {:p => p}
+  
+  .clearfix
+    .input
+      %ul.inputs-list
+        %li
+          %label{:for => 'professor_active'}
+            = f.check_box :active
+            %span= t 'activerecord.attributes.professor.active'
+  
+  .clearfix
+    .input
+      %ul.inputs-list
+        %li
+          %label
+            = check_box_tag :reset_password
+            %span= (t 'ResetPassword')
+      %span.help-block= t 'PasswordWillBeTheProfessorEmail'
+  
+  .actions
+    = f.submit nil, :class => 'btn primary'

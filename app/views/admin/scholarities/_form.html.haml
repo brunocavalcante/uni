@@ -1,0 +1,10 @@
+= form_for([:admin, @scholarity]) do |f|
+  = f.error_messages 
+
+  .clearfix
+    = f.label :name, nil, :class => :required 
+    .input
+      = f.text_field :name 
+  
+  .actions
+    = f.submit nil, :class => 'btn primary' 

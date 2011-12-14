@@ -1,0 +1,6 @@
+%header.page-header
+  %h1= (t 'Editing') + ' ' + (t 'activerecord.models.professor')
+  %ul#toolbar
+    %li= link_to (t 'Back'), [:admin, @professor], :class => ' back'
+
+= render 'form'

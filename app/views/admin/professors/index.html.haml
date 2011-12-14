@@ -1,0 +1,26 @@
+%header.page-header
+  %h1= t 'Professors'
+  %ul#toolbar
+    %li= link_to ((t 'New') + ' ' + (t 'activerecord.models.professor')), new_admin_professor_path, :class => 'new'
+
+%form
+  %p.search
+    = text_field_tag :term, params[:term], :type => :search 
+    = select_tag :scholarity_id, options_from_collection_for_select(Scholarity.all, :id, :name, params[:scholarity_id]), :include_blank => true 
+    = select_tag :active, options_for_select(active_options, params[:active]), :include_blank => true  
+    = submit_tag (t 'Search'), :class => 'btn'
+
+%table
+  %thead
+    %tr
+      %th= t 'activerecord.attributes.person.name'
+      %th= t 'activerecord.attributes.person.scholarity_id'
+      %th= t 'activerecord.attributes.professor.active'
+  %tbody
+    - @professors.each do |professor|
+      %tr
+        %td= link_to professor.name, [:admin, professor]
+        %td= professor.person.scholarity.name if professor.person.scholarity
+        %td= professor.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo')
+
+= will_paginate @professors

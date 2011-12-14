@@ -1,0 +1,25 @@
+- content_for :title do
+  %h1= @course.name
+  
+= render :partial => 'admin/courses/menu', :locals => { :course => @course }
+
+%article.content
+  %header.page-header
+    %h2= (@curriculum_student.name) + ': ' + (t 'activerecord.models.transferred_discipline')
+    %ul#toolbar
+      %li= link_to (t 'Back'), admin_course_curriculum_student_transferred_disciplines_path(@course, @curriculum_student), :class => 'back'
+      %li= link_to (t 'Edit'), {:action => "edit"}, :class => 'edit'
+      %li= button_to (t 'Remove'), {:action => "show"}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
+
+  %p
+    %strong= (t 'activerecord.attributes.discipline.name' ) + ': ' 
+    = @transferred_discipline.name
+  
+  %p
+    %strong= (t 'activerecord.attributes.transferred_discipline.grade' ) + ': ' 
+    = @transferred_discipline.grade
+  
+  %p
+    %strong= (t 'activerecord.attributes.transferred_discipline.attendance' ) + ': ' 
+    = "#{@transferred_discipline.attendance}" + '%'
+  

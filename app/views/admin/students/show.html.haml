@@ -1,0 +1,31 @@
+%header.page-header
+  %h1= t 'activerecord.models.student'
+  %ul#toolbar
+    %li= link_to (t 'Back'), admin_students_path, :class => 'back'
+    %li= link_to (t 'Profile'), user_path(@student.person), :class => 'person'
+    %li= link_to (t 'Edit'), edit_admin_student_path(@student), :class => 'edit'
+    %li= button_to (t 'Delete'), [:admin, @student], :confirm => ( t 'AreYouSure'), :method => :delete, :class => 'delete'
+
+%p
+  %strong= (t 'activerecord.attributes.student.code' ) + ': '
+  = @student.code
+
+%p
+  %strong= (t 'activerecord.attributes.person.name' ) + ': '
+  = @student.person.name
+
+%p
+  %strong= (t 'activerecord.attributes.person.email' ) + ': '
+  = @student.person.email
+
+%p
+  %strong= (t 'activerecord.attributes.person.date_birth' ) + ': '
+  = l(@student.person.date_birth, :format => :long) if @student.person.date_birth
+
+%h3= t 'Courses'
+- if @student.curriculums.size > 0
+  %ul
+    - for curriculum_student in @student.curriculum_students
+      %li= link_to curriculum_student.curriculum.course.name, [:admin, curriculum_student.curriculum.course, curriculum_student]
+- else
+  %p= t 'ThisStudentIsNotRegisteredInAnyCourse'

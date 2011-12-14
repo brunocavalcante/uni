@@ -1,0 +1,22 @@
+%header.page-header
+  %h1= t 'Students'
+  %ul#toolbar
+    %li= link_to ((t 'New') + ' ' + (t 'activerecord.models.student')), new_admin_student_path, :class => 'new'
+
+%form
+  %p.search
+    = text_field_tag :term, params[:term], :type => :search
+    = submit_tag (t 'Search'), :class => 'btn'
+
+%table
+  %thead
+    %tr
+      %th= t 'activerecord.attributes.person.name'
+      %th= t 'activerecord.attributes.student.code'
+  %tbody
+    - @students.each do |student|
+      %tr
+        %td= link_to student.name, [:admin, student]
+        %td= student.code
+
+= will_paginate @students

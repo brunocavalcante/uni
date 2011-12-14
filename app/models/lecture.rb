@@ -50,4 +50,8 @@ class Lecture < ActiveRecord::Base
     
     super(options)
   end
+  
+  def fullname
+    code + ' - ' + name
+  end
 end

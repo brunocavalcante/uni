@@ -1,0 +1,16 @@
+- content_for :title do 
+  %h1= t 'Parameters'
+  
+= render :partial => 'admin/parameters/menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'activerecord.models.scholarity'
+    %ul#toolbar
+      %li= link_to (t 'Back'), {:action => 'index'}, :class => 'back'
+      %li= link_to (t 'Edit'), {:action => 'edit', :id => @scholarity.id}, :class => 'edit'
+      %li= button_to (t 'Delete'), [:admin, @scholarity], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
+      
+  %p
+    %strong= (t 'activerecord.attributes.scholarity.name') + ': '
+    = @scholarity.name

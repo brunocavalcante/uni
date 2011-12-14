@@ -220,8 +220,8 @@ pt:
   Repeat: "Repita"
   PleaseRepeatNewPassword: "Por favor, repita a nova senha corretamente."
   ResetPassword: "Redefinir a Senha?"
-  PasswordWillBeTheProfessorEmail: "A nova senha será o email do professor."
-  PasswordWillBeTheStudentCode: "A nova senha será a matrícula do aluno."
+  PasswordWillBeTheProfessorEmail: "A senha será igual ao email do professor."
+  PasswordWillBeTheStudentCode: "A senha será igual à matrícula do aluno."
   
   # Situations
   Finished: "Encerrada"

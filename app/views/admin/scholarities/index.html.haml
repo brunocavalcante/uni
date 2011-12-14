@@ -1,0 +1,21 @@
+- content_for :title do 
+  %h1= t 'Parameters'
+  
+= render :partial => 'admin/parameters/menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'Scholarities'
+    %ul#toolbar
+      %li= link_to ((t 'New') + ' ' + (t 'activerecord.models.scholarity')), new_admin_scholarity_path, :class => 'new'
+  
+  %table
+    %thead
+      %tr
+        %th= t 'activerecord.attributes.scholarity.name'
+    %tbody
+      - @scholarities.each do |scholarity|
+        %tr
+          %td= link_to scholarity.name, [:admin, scholarity]
+  
+  = will_paginate @scholarities
