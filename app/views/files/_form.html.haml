@@ -1,0 +1,20 @@
+= form_for(@file, :url => submit_url, :html => { :multipart => true }) do |f|
+  = f.error_messages
+
+  .clearfix
+    = f.label :title
+    .input
+      = f.text_field :title
+  
+  .clearfix
+    = f.label :description
+    .input
+      = f.text_area :description, :rows => 5
+
+  .clearfix
+    = label_tag (t 'Upload')
+    .input
+      = file_field :file, :upload
+
+  .actions
+    = f.submit nil, :class => 'btn primary'

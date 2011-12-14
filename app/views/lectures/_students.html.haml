@@ -1,0 +1,19 @@
+%header.page-header
+  %h2= t 'Students'
+  
+%table.people
+  %thead
+    %tr
+      %th= t 'Photo'
+      %th= t 'Name'
+  %tbody
+    - for lecture_student in @lecture_students do
+      %tr
+        %td.photo
+          - if lecture_student.student.person.photo.exists?
+            = image_tag lecture_student.student.person.photo.url(:thumb)
+          - else
+            = image_tag 'no-picture-32_bw.png'
+        %td.name= link_to lecture_student.name, user_path(lecture_student.student.person)
+
+= will_paginate @lecture_students

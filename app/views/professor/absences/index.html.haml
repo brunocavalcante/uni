@@ -1,0 +1,33 @@
+- content_for :title do
+  %h1= @lecture.name
+  
+= render :partial => 'professor/lectures/menu'
+
+%article.content
+  %header.page-header
+    %h2= (@lesson.name) + ': ' + (t 'Absences')
+    %ul#toolbar
+      %li= link_to (t 'Back'), professor_lecture_lesson_path(@lecture, @lesson), :class => 'back'
+  
+  = form_tag({:action => :create}) do
+    %table
+      %thead
+        %tr
+          %th= t 'activerecord.attributes.lesson_absence.lecture_student_id'
+          %th= t 'activerecord.attributes.lesson_absence.ammount'
+      %tbody
+        - for lecture_student in @lecture_students
+          %tr
+            %td
+              = lecture_student.name
+              = hidden_field_tag 'lecture_student_id[]', lecture_student.id
+            %td
+              = text_field_tag 'lecture_student_ammount[]', @absences[lecture_student.id]
+    
+    .actions
+      = submit_tag nil, :class => 'btn primary'
+
+:javascript
+  $(document).ready(function() {
+    $('input[name*=ammount]').spinner({min: 0, max: "#{@lesson.maximum_absences}")
+  })

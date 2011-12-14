@@ -1,0 +1,46 @@
+%header.page-header
+  %h2= t 'Details'
+
+%p
+  %strong= (t 'ClassCode' ) + ': ' 
+  = @lecture.code
+
+%p
+  %strong= (t 'activerecord.models.academic_period' ) + ': ' 
+  = @lecture.academic_period.name
+
+- if @lecture.professors.size == 1
+  %p
+    %strong= (t 'activerecord.models.Professor' ) + ': ' 
+    = link_to @lecture.professors[0].person.name, user_path(@lecture.professors[0].person)
+- else
+  %p
+    %strong= (t 'Professors' ) + ': ' 
+    %ul
+      - for professor in @lecture.professors
+        %li= link_to professor.person.name, user_path(professor.person)
+
+- if @lecture.lecture_time_slots.exists?
+  %h3= t 'TimeTable'
+  %ul
+    - for time_slot in @lecture.lecture_time_slots
+      %li
+        = (t 'date.day_names')[time_slot.weekday]
+        = time_slot.start_time_string + ' - ' + time_slot.end_time_string
+
+%h3= t 'activerecord.models.discipline'
+%p
+  %strong= (t 'activerecord.attributes.discipline.code' ) + ': ' 
+  = @lecture.discipline.code
+
+%p
+  %strong= (t 'activerecord.attributes.discipline.name' ) + ': ' 
+  = @lecture.name
+
+%p
+  %strong= (t 'activerecord.attributes.discipline.version' ) + ': ' 
+  = @lecture.discipline.version_fullname
+
+%p
+  %strong= (t 'activerecord.attributes.discipline.course_id' ) + ': ' 
+  = @lecture.discipline.course.code

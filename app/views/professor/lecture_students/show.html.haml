@@ -1,0 +1,32 @@
+- content_for :title do
+  %h1= @lecture.name
+  
+= render :partial => 'professor/lectures/menu'
+
+%article.content
+  %header.page-header
+    %h2= @lecture_student.name
+    %ul#toolbar
+      %li= link_to (t 'Back'), {:action => :index}, :class => 'back'
+      %li= link_to (t 'Edit'), {:action => :edit}, :class => 'edit'
+      %li= link_to (t 'Profile'), user_path(@lecture_student.student.person), :class => 'person'
+      
+  %p
+    %strong= (t 'activerecord.attributes.lecture_student.lecture_situation_id' ) + ': ' 
+    = @lecture_student.lecture_situation_id ? (t @lecture_student.lecture_situation.name) : (t 'InProgress')
+  
+  - if @lecture_student.lecture_situation_id
+    %p
+      %strong= (t 'activerecord.attributes.lecture_student.grade' ) + ': ' 
+      = @lecture_student.grade
+    
+    %p
+      %strong= (t 'activerecord.attributes.lecture_student.attendance' ) + ': ' 
+      = "#{@lecture_student.attendance}%"
+  
+  - if @tests_and_results
+    %h3= t 'Tests'
+    = render :partial => 'lectures/tests'
+  
+  %h3= t 'Absences'
+  = render :partial => 'lectures/absences'

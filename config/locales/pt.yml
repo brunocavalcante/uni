@@ -316,6 +316,7 @@ pt:
   TranscriptNoCurriculumModule: "Outras Disciplinas"
   TranscriptOutsideCurriculum: "Disciplinas fora da Grade Curricular"
   until: "até"
+  Uni: "Uni"
   Upload: "Enviar"
   
   url:

@@ -1,0 +1,6 @@
+%ul.nav
+  %li{:class => menu_class_start}= link_to (t 'Start'), student_root_url
+  %li{:class => menu_class_lectures}= link_to (t 'Lectures'), student_lectures_url
+  - if AcademicPeriod.new.has_open_registration_period?
+    %li{:class => menu_class_registration}= link_to (t 'Registration')
+  %li{:class => menu_class_reports}= link_to (t 'Reports'), student_reports_home_index_path

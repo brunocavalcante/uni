@@ -1,0 +1,12 @@
+%header.page-header
+  %h2= t 'Files'
+
+= render :partial => 'form', :locals => {:submit_url => submit_url}
+
+- if @files
+  %h3= t 'Files'
+  %ul.wall
+    - for file in @files
+      = render :partial => 'file', :locals => {:file => file}
+    
+  = will_paginate @files

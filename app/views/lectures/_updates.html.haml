@@ -1,0 +1,9 @@
+- if @updates.size > 0
+  %ul.wall
+    - for update in @updates
+      - if update.is_a?(Wall)
+        = render :partial => 'wall/wall', :locals => {:wall => update}
+      - else
+        = render :partial => 'files/file', :locals => {:file => update}
+- else
+  %p= t 'NoUpdatesAvailable'

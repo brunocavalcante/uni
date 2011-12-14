@@ -1,0 +1,22 @@
+= form_for([:professor, @lecture, @lecture_student]) do |f|
+  = f.error_messages
+
+  .clearfix
+    = f.label :grade
+    .input
+      = f.text_field :grade
+  
+  .clearfix
+    = f.label :attendance, I18n.t('activerecord.attributes.lecture_student.attendance') + ' (%)' 
+    .input
+      = f.text_field :attendance
+      %span.help-block
+        = (t 'Suggestion') + ": #{@suggested_attendance}%"
+  
+  .clearfix
+    = f.label :lecture_situation_id
+    .input
+      = f.select :lecture_situation_id, LectureSituation.all.collect {|p| [ (t p.name), p.id ]}, {:include_blank => ''}
+  
+  .actions
+    = f.submit nil, :class => 'btn primary'
