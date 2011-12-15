@@ -1,0 +1,75 @@
+%header.page-header
+  %h1
+    = t 'Editing'
+    = @user.name
+  %ul#toolbar
+    %li= link_to (t 'Back'), {:action => 'index'}, :class => 'back'
+
+= form_for(@user, :url => {:action => "update"}, :method => "post", :html => { :multipart => true }) do |f|
+  
+  = f.error_messages
+  
+  .clearfix
+    = label_tag (t 'activerecord.attributes.person.name')
+    .input
+      = text_field(:user, :name)
+  
+  .clearfix
+    = label_tag (t 'activerecord.attributes.person.email')
+    .input
+      = text_field(:user, :email)
+  
+  .clearfix
+    = label_tag (t 'Photo')
+    .input
+      = file_field(:user, :photo)
+      %span.help-block= t 'PhotoWillBeResizedTo180x240Px'
+  
+  - if @user.photo.exists?
+    .clearfix
+      .input
+        %ul.inputs-list
+          %li
+            %label
+              = check_box_tag :delete_photo
+              %span= t 'DeleteCurrentPhoto'
+  
+  .clearfix
+    = label_tag 'Sites'
+    .input
+      - for site in @user.sites
+        .clearfix
+          = text_field_tag 'sites[][name]', site.name 
+          = text_field_tag 'sites[][url]', site.url, :size => '60' 
+          = submit_tag (t 'Remove'), {:class => 'btn', :type => 'button'}
+        
+      .clearfix
+        = text_field_tag 'sites[][name]', nil, :placeholder => I18n.t('Name') 
+        = text_field_tag 'sites[][url]', nil, :size => '60', :placeholder => 'URL' 
+        = submit_tag (t 'AddAnother'), {:class => 'add-another-item btn', :type => 'button'}
+  
+  %fieldset
+    %legend= t 'ChangePassword'
+  
+    .clearfix
+      = label_tag (t 'CurrentPassword')
+      .input
+        = password_field(:password, :current)
+    
+    .clearfix
+      = label_tag (t 'NewPassword')
+      .input
+        = password_field(:password, :new)
+    
+    .clearfix
+      = label_tag ((t 'NewPassword') + ' (' + (t 'Repeat') + ')')
+      .input
+        = password_field(:password, :repeat)
+  
+  .actions
+    = submit_tag nil, :class => 'btn primary'
+
+:javascript
+  $(document).ready(function() {
+    Application.enableAddAnotherItem("#{t 'Remove'}")
+  });

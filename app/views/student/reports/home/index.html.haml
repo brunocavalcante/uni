@@ -1,0 +1,10 @@
+- content_for :title do
+  %h1= t 'Reports'
+  
+= render :partial => 'student/reports/menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'Home'
+    
+  %p= t 'PleaseChooseReportFromTheMenu'

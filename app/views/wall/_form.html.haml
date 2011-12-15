@@ -1,0 +1,16 @@
+= form_for(@wall, :url => submit_url) do |f|
+  = f.error_messages
+
+  = f.fields_for :message do |m|
+    .clearfix
+      = m.label :subject
+      .input
+        = m.text_field :subject
+    
+    .clearfix
+      = m.label :content
+      .input
+        = m.text_area :content, :rows => 5
+  
+  .actions
+    = f.submit nil, :class => 'btn primary'

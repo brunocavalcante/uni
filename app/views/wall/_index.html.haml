@@ -1,0 +1,12 @@
+%header.page-header
+  %h2= t 'Wall'
+
+= render :partial => 'form', :locals => {:submit_url => submit_url}
+
+- if @walls
+  %h3= t 'WallPublications'
+  %ul.wall
+    - for wall in @walls
+      = render :partial => 'wall', :locals => {:wall => wall}
+    
+  = will_paginate @walls

@@ -1,0 +1,28 @@
+- content_for :title do
+  %h1= t 'Reports'
+  
+= render :partial => 'student/reports/menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'Schedule'
+
+  %h3= t 'TimeTable'
+  
+  %table.bordered-table
+    %thead
+      %tr
+        %th= t 'activerecord.attributes.lecture.discipline_id'
+        %th= t 'TimeTable'
+    %tbody
+      - for lecture in @lectures
+        %tr
+          %td= lecture.discipline.name
+          %td
+            - lecture.lecture_time_slots.each_with_index do |t, i|
+              = ', ' if i > 0
+              = (t 'date.day_names')[t.weekday] 
+              = t.start_time_string + ' - ' + t.end_time_string
+          
+  %h3= t 'NextEvents'
+  = render 'next_events'

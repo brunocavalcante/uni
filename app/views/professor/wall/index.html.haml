@@ -1,5 +1,7 @@
-<% content_for :title do %><h1><%= @lecture.name %></h1><% end %>
-<%= render :partial => 'professor/lectures/menu' %>
-<article class="content">
-  <%= render :partial => 'wall/index', :locals => {:submit_url => professor_lecture_wall_index_path(@lecture)} %>
-</article>
+- content_for :title do
+  %h1= @lecture.name
+  
+= render :partial => 'professor/lectures/menu'
+
+%article.content
+  = render :partial => 'wall/index', :locals => {:submit_url => professor_lecture_wall_index_path(@lecture)}

@@ -1,0 +1,23 @@
+- content_for :title do
+  %h1= @lecture.name
+  
+= render :partial => 'student/lectures/menu'
+
+%article.content
+  %header.page-header
+    %h2= @lesson.name
+    %ul#toolbar
+      %li= link_to (t 'Back'), student_lecture_lessons_path(@lecture), :class => 'back'
+      
+  %h3= t 'GeneralInformation'
+  
+  %p
+    %strong= (t 'activerecord.attributes.lesson.date') + ': '
+    = l @lesson.date, :format => :long
+  
+  - if @lesson.maximum_absences == 0
+    %p= t 'ThisLessonDoesNotRequireYourPresence'
+  
+  - if @lesson.description != ''
+    %h3= t 'activerecord.attributes.lesson.description'
+    = raw(@lesson.description)

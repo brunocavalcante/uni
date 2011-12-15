@@ -271,7 +271,7 @@ en:
   ClassCode: "Class Code"
   FinishDiscipline: "Finish Discipline"
   GeneralInformation: "General Information"
-  TestsAndAbscences: &tests_and_absences "Tests and Absences"
+  TestsAndAbsences: &tests_and_absences "Tests and Absences"
   TimeTableAdminNotice: "If the timetable is informed, the system will not allow a student to register for two classes that share the same timetable."
   Wall: &wall "Wall"
   WallPublications: "Wall Publications"
@@ -298,6 +298,8 @@ en:
   Registration: "Registration"
   
   # Other Translations
+  Active: *active
+  Inactive: &inactive "Inativo"
   AddSelected: "Add Selected Items"
   BooleanNo: "No"
   BooleanYes: "Yes"
@@ -314,6 +316,7 @@ en:
   TranscriptNoCurriculumModule: "Other Disciplines"
   TranscriptOutsideCurriculum: "Disciplines outside the Curriculum"
   until: "until"
+  Uni: "Uni"
   Upload: "Upload"
   
   url:

@@ -1,0 +1,25 @@
+- if wall.message
+  %li
+    .photo
+      - if wall.message.person.photo.exists?
+        = image_tag wall.message.person.photo.url(:small)
+      - else
+        = image_tag 'no-picture-small.png'
+    .item
+      %p.title
+        - if !@lecture
+          [
+          = link_to wall.lecture.name, {:controller => :lectures, :action => :show, :id => wall.lecture_id}
+          ] 
+        
+        = link_to wall.message.person.name, user_path(wall.message.person) 
+        = t 'TimeOn'
+        = l wall.created_at, :format => :short
+      .content
+        - if wall.message.subject != ''
+          %h4= wall.message.subject
+        
+        = simple_format(wall.message.content)
+        
+        - if @user.id == wall.message.person.id || @professor
+          = button_to (t 'DeleteThisPublication'), {:controller => :wall, :action => :show, :lecture_id => wall.lecture_id, :id => wall.id}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'

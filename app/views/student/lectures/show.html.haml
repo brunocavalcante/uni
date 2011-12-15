@@ -1,0 +1,39 @@
+- content_for :title do
+  %h1= @lecture.name
+  
+= render :partial => 'student/lectures/menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'Home'
+  
+  %p
+    %strong= (t 'ClassCode') + ': '
+    = @lecture.code
+  
+  - if @lecture.professors.size == 1
+    %p
+      %strong= (t 'activerecord.models.Professor') + ': ' 
+      = link_to @lecture.professors[0].person.name, user_path(@lecture.professors[0].person)
+  - else
+    %p
+      %strong= (t 'Professors') + ': ' 
+      %ul
+        - for professor in @lecture.professors
+          %li= link_to professor.person.name, user_path(professor.person)
+  
+  - if @lecture_student.lecture_situation_id
+    %p
+      %strong= (t 'activerecord.attributes.lecture_student.lecture_situation_id') + ': ' 
+      = t @lecture_student.lecture_situation.name
+    
+    %p
+      %strong= (t 'activerecord.attributes.lecture_student.grade') + ': ' 
+      = @lecture_student.grade
+    
+    %p
+      %strong= (t 'activerecord.attributes.lecture_student.attendance') + ': ' 
+      = "#{@lecture_student.attendance}%"
+  
+  %h3= t 'LatestUpdates'
+  = render :partial => 'lectures/updates'

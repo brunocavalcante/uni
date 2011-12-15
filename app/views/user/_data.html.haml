@@ -1,0 +1,38 @@
+%p
+  %strong= (t 'activerecord.attributes.person.name') + ': '
+  = user.name
+
+%p
+  %strong= (t 'activerecord.attributes.person.email') + ': '
+  = user.email
+
+- if user.sites.exists?
+  %h3= 'Sites'
+  %ul
+    - for site in user.sites
+      %li
+        %strong= (site.name) + ': '
+        = link_to site.url, site.full_url
+
+- if student
+  %h3= t 'CurrentCourses'
+  - if student.curriculums.exists?
+    %ul
+      - for curriculum in student.curriculums
+        %li= curriculum.course.name
+  - else
+    %p= t 'ThisStudentIsNotRegisteredInAnyCourse'
+
+- if student
+  %h3= t 'CurrentClasses'
+  - if student.lectures.current
+    %ul
+      - for lecture in student.lectures.current
+        %li= lecture.discipline.name
+
+- if professor
+  %h3= t 'CurrentClasses'
+  - if professor.lectures.current
+    %ul
+      - for lecture in professor.lectures.current
+        %li= lecture.discipline.name

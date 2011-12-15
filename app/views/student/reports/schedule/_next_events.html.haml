@@ -1,0 +1,20 @@
+- if @schedule && @schedule.size > 0
+  %ul.student-schedule
+    - for date, events in @schedule
+      %li
+        %h5= l Date.parse date
+        %ul
+          - for event in events
+            %li
+              = event.date.strftime("%H:%M") + ' - ' 
+              - if event.is_a? Lesson
+                = (t 'activerecord.models.lesson') + ': ' 
+                = link_to event.name, student_lecture_lesson_path(event.lecture, event), :class => 'title' 
+                %span.group='[' + (link_to event.lecture.name, student_lecture_path(event.lecture)) + ']'
+              
+              - if event.is_a? Test
+                = (t 'activerecord.models.test') + ': ' 
+                %span.title= event.name 
+                %span.group= '[' + (link_to event.lecture.name, student_lecture_path(event.lecture)) + ']'
+- else
+  %p= t 'NoNextEventsAvailable'

@@ -1,0 +1,15 @@
+%header.page-header
+  %h1= t 'Lectures'
+
+%table
+  %thead
+    %tr
+      %th= t 'activerecord.attributes.lecture.code'
+      %th= t 'activerecord.attributes.discipline.name'
+      %th= t 'activerecord.attributes.discipline.course_id'
+  %tbody
+    - for lecture in @lectures do
+      %tr
+        %td= lecture.code
+        %td= link_to lecture.name, {:action => 'show', :id => lecture.id}
+        %td= lecture.discipline.course.name

@@ -1,0 +1,14 @@
+- content_for :title do
+  %h1= @lecture.name
+  
+= render :partial => 'student/lectures/menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'TestsAndAbsences'
+    
+  %h3= t 'Tests'
+  = render :partial => 'lectures/tests'
+  
+  %h3= t 'Absences'
+  = render :partial => 'lectures/absences'

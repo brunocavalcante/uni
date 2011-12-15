@@ -1,0 +1,10 @@
+%header.page-header
+  %h1= t 'Welcome'
+
+%aside{:class => "sidebar aside-clean"}
+  %h3= t 'NextEvents'
+  = render 'student/reports/schedule/next_events'
+
+%article.content
+  %h3= t 'LatestUpdates'
+  = render :partial => 'lectures/updates'

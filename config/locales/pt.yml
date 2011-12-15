@@ -271,7 +271,7 @@ pt:
   ClassCode: "Código da Turma"
   FinishDiscipline: "Concluir Disciplina"
   GeneralInformation: "Dados Gerais"
-  TestsAndAbscences: &tests_and_absences "Notas e Faltas"
+  TestsAndAbsences: &tests_and_absences "Notas e Faltas"
   TimeTableAdminNotice: "Se o quadro de horários for informado, o sistema não irá permitir que um aluno se matricule em duas turmas que compartilham um mesmo horário."
   Wall: &wall "Mural"
   WallPublications: "Publicações no Mural"
