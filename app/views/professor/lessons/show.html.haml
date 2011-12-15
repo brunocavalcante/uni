@@ -1,0 +1,30 @@
+- content_for :title do
+  %h1= @lecture.name
+  
+= render :partial => 'professor/lectures/menu'
+
+%article.content
+  %header.page-header
+    %h2= @lesson.name
+    %ul#toolbar
+      %li= link_to (t 'Back'), professor_lecture_lessons_path(@lecture), :class => 'back'
+      %li= link_to (t 'Edit'), edit_professor_lecture_lesson_path(@lecture, @lesson), :class => 'edit'
+      %li= link_to (t 'Absences'), professor_lecture_lesson_absences_path(@lecture, @lesson), :class => 'absences'
+      %li= button_to (t 'Delete'), [:professor, @lecture, @lesson], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
+  
+  %p
+    %strong= (t 'activerecord.attributes.lesson.date') + ': ' 
+    = l @lesson.date, :format => :long
+  
+  %p
+    %strong= (t 'activerecord.attributes.lesson.maximum_absences') + ': ' 
+    = @lesson.maximum_absences
+  
+  %p
+    %strong= (t 'activerecord.attributes.lesson.title') + ': ' 
+    = @lesson.title
+  
+  %p
+    %strong= (t 'activerecord.attributes.lesson.description') + ': '
+    %br
+    = raw(@lesson.description)

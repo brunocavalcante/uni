@@ -1,0 +1,15 @@
+= form_for([:professor, @lecture, @test]) do |f|
+  = f.error_messages
+
+  .clearfix
+    = f.label :name
+    .input
+      = f.text_field :name
+  
+  .clearfix
+    = f.label :date
+    .input
+      = f.datetime_select :date, {}, {:class => :span2}
+  
+  .actions
+    = f.submit nil, :class => 'btn primary'

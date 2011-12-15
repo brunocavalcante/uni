@@ -1,0 +1,30 @@
+%header.page-header
+  %h1= (t 'Search') + ': ' + @query
+
+%h3= t 'Students'
+- if @students.size > 0
+  %table
+    %thead
+      %tr
+        %th= t 'activerecord.attributes.person.name'
+        %th= t 'activerecord.attributes.student.code'
+    %tbody
+      - for student in @students
+        %tr
+          %td= link_to student.name, @user.is_admin? ? admin_student_path(student) : user_path(student.person)
+          %td= student.code
+- else
+  %p= t 'NoResultsFound'
+
+%h3= t 'Professors'
+- if @professors.size > 0
+  %table
+    %thead
+      %tr
+        %th= t 'activerecord.attributes.person.name'
+    %tbody
+      - for professor in @professors
+        %tr
+          %td= link_to professor.name, @user.is_admin? ? admin_professor_path(professor) : user_path(professor.person)
+- else
+  %p= t 'NoResultsFound'

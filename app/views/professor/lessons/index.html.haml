@@ -1,0 +1,24 @@
+- content_for :title do
+  %h1= @lecture.name
+  
+= render :partial => 'professor/lectures/menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'Lessons'
+    %ul#toolbar
+      %li= link_to (t 'New') + ' ' + (t 'activerecord.models.lesson'), new_professor_lecture_lesson_path(@lecture), :class => 'new'
+
+  - if @lessons
+    %table
+      %thead
+        %tr
+          %th= t 'activerecord.attributes.lesson.title'
+          %th= t 'activerecord.attributes.lesson.date'
+      %tbody
+        - for lesson in @lessons
+          %tr
+            %td= link_to lesson.name, [:professor, @lecture, lesson]
+            %td= l lesson.date, :format => :long
+    
+    = will_paginate @lessons

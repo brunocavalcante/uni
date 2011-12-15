@@ -1,0 +1,26 @@
+= form_for([:professor, @lecture, @lesson]) do |f|
+  = f.error_messages
+
+  .clearfix
+    = f.label :date
+    .input
+      = f.datetime_select :date, {}, {:class => :span2}
+  
+  .clearfix
+    = f.label :title
+    .input
+      = f.text_field :title
+  
+  .clearfix
+    = f.label :description
+    .input
+      = f.text_area :description, :rows => 10, :class => :span9
+  
+  .clearfix
+    = f.label :maximum_absences
+    .input
+      = f.text_field :maximum_absences, :value => @lesson.maximum_absences ? @lesson.maximum_absences : 0
+      %span.help-block= t 'MaximumAbsencesExplanation'
+  
+  .actions
+    = f.submit nil, :class => 'btn primary'

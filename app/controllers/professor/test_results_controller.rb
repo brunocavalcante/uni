@@ -19,7 +19,7 @@ class Professor::TestResultsController < ApplicationController
                                           
     @results = {}
     
-    @lecture_students.each do |lecture_student| 
+    @lecture_students.each do |lecture_student|
       @results[lecture_student.id] = {}
       @results[lecture_student.id][:rating] = nil
       @results[lecture_student.id][:date] = nil
@@ -34,7 +34,11 @@ class Professor::TestResultsController < ApplicationController
   def create
     @test_results = []
     
-    (0..params[:lecture_student_id].size - 1).each do |i| 
+    (0..params[:lecture_student_id].size - 1).each do |i|
+      if params[:lecture_student_rating][i] == ''
+        next
+      end
+      
       @test_result = TestResult.new
       @test_result.lecture_student_id = params[:lecture_student_id][i]
       @test_result.rating = params[:lecture_student_rating][i]

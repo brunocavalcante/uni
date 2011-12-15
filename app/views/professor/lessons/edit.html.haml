@@ -1,0 +1,13 @@
+- content_for :title do
+  %h1= @lecture.name
+  
+= render :partial => 'professor/lectures/menu'
+
+%article.content
+  %header.page-header
+    %h2= (t 'Editing') + ' ' + (t 'activerecord.models.lesson')
+    %ul#toolbar
+      %li= link_to (t 'Back'), professor_lecture_lesson_path(@lecture, @lesson), :class => 'back'
+      %li= link_to (t 'Show'), professor_lecture_lesson_path(@lecture, @lesson), :class => 'show'
+
+  = render 'form'
