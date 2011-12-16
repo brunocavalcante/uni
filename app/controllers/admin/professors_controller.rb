@@ -39,8 +39,6 @@ class Admin::ProfessorsController < ApplicationController
   # POST /professors
   def create
     @professor = Professor.new(params[:professor])
-    @professor.person.password = Digest::MD5.hexdigest(@professor.person.email)
-    @professor.person.roles = [Role.find_by_name('Professor')]
     @professor.save
     
     respond_with @professor, :location => [:admin, @professor]

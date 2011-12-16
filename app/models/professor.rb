@@ -12,18 +12,11 @@ class Professor < ActiveRecord::Base
   scope :where_active, lambda {|term| term == true ? where({:active => true}) : where('professors.active IS FALSE OR professors.active IS NULL')}
   
   validates_presence_of :email
-  
-  after_initialize :init
 
-  def init
-    self.active = true if self.active == nil
-  end
-  
-  def delete_person
-    if !person.student
-      person.destroy
-    end
-  end
+  before_create :set_password
+  before_create :set_roles
+  before_destroy :delete_person
+  after_initialize :init
   
   def email
     person.email
@@ -44,4 +37,24 @@ class Professor < ActiveRecord::Base
     
     super(options)
   end
+  
+  private
+    def set_password
+      person.password = Digest::MD5.hexdigest(person.email)
+      person.save
+    end
+    
+    def set_roles
+      self.person.roles = [Role.find_by_name('Professor')]
+    end
+    
+    def init
+      self.active = true if self.active == nil
+    end
+    
+    def delete_person
+      if !person.student
+        person.destroy
+      end
+    end
 end

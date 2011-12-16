@@ -1,0 +1,21 @@
+- content_for :title do 
+  %h1= t 'Parameters'
+  
+= render :partial => 'admin/parameters/menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'Administrators'
+    %ul#toolbar
+      %li= link_to "#{t 'New'} #{t 'Administrator'}", new_admin_administrator_path, :class => 'new'
+    
+  %table
+    %thead
+      %tr
+        %th= t 'activerecord.attributes.person.name'
+    %tbody
+      - for administrator in @administrators
+        %tr
+          %td= link_to administrator.name, admin_administrator_path(administrator)
+          
+  = will_paginate @administrators

@@ -14,13 +14,9 @@ class Student < ActiveRecord::Base
   
   accepts_nested_attributes_for :person
   
+  before_create :set_password
+  before_create :set_roles
   before_destroy :delete_person
-  
-  def delete_person
-    if !person.professor
-      person.destroy
-    end
-  end
     
   def name
     person.name
@@ -66,4 +62,20 @@ class Student < ActiveRecord::Base
     
     return @schedule 
   end
+  
+  private
+    def set_password
+      person.password = Digest::MD5.hexdigest(self.code)
+      person.save
+    end
+    
+    def set_roles
+      self.person.roles = [Role.find_by_name('Student')]
+    end
+    
+    def delete_person
+      if !person.professor
+        person.destroy
+      end
+    end
 end

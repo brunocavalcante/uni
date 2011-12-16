@@ -111,13 +111,13 @@ Discipline.all.each_with_index { |discipline, i| CurriculumDiscipline.create({ :
 @curriculum.save!
 
 # Users
-Professor.create({ :person => Person.create({ :name => 'Professor', :email => 'professor@uni.com', :password => '3f9cd3c7b11eb1bae99dddb3d05da3c5', :scholarity => Scholarity.first, :roles => [@professor] }) })
-Student.create({ :person => Person.create({ :name => 'Student', :email => 'student@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'student' })
-Student.create({ :person => Person.create({ :name => 'Jules', :email => 'jules@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'jules' })
-Student.create({ :person => Person.create({ :name => 'Seth', :email => 'seth@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'seth' })
-Student.create({ :person => Person.create({ :name => 'Becca', :email => 'becca@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'becca' })
-Student.create({ :person => Person.create({ :name => 'Evan', :email => 'evan@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'evan' })
-Student.create({ :person => Person.create({ :name => 'McLovin', :email => 'mclovin@uni.com', :password => 'cd73502828457d15655bbd7a63fb0bc8', :roles => [@student] }), :code => 'mclovin' })
+Professor.create({ :person => Person.create({ :name => 'Professor', :email => 'professor@uni.com', :scholarity => Scholarity.first, :roles => [@professor] }) })
+Student.create({ :person => Person.create({ :name => 'Student', :email => 'student@uni.com', :roles => [@student] }), :code => 'student' })
+Student.create({ :person => Person.create({ :name => 'Jules', :email => 'jules@uni.com', :roles => [@student] }), :code => 'jules' })
+Student.create({ :person => Person.create({ :name => 'Seth', :email => 'seth@uni.com', :roles => [@student] }), :code => 'seth' })
+Student.create({ :person => Person.create({ :name => 'Becca', :email => 'becca@uni.com', :roles => [@student] }), :code => 'becca' })
+Student.create({ :person => Person.create({ :name => 'Evan', :email => 'evan@uni.com', :roles => [@student] }), :code => 'evan' })
+Student.create({ :person => Person.create({ :name => 'McLovin', :email => 'mclovin@uni.com', :roles => [@student] }), :code => 'mclovin' })
 Student.all.each { |student| CurriculumStudent.create( {:student => student, :active => true, :curriculum => @curriculum} ) }
 
 # Academic Periods

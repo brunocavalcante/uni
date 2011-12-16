@@ -17,6 +17,7 @@ class Person < ActiveRecord::Base
   scope :by_name, order('people.name ASC')
   scope :where_name, lambda {|term| where(['people.name ILIKE ?', "%#{term}%"]) if term != ''}
   scope :with_scholarity, includes(:scholarity)
+  scope :administrators, includes(:roles).where('person_roles.role_id = ?', Role::ADMINISTRATOR)
   
   def as_json(options = {})
     options[:except] ||= :password
@@ -30,5 +31,10 @@ class Person < ActiveRecord::Base
     end
     
     return false
+  end
+  
+  def setup_administrator
+    self.roles = [Role.find(Role::ADMINISTRATOR)]
+    self.password = Digest::MD5.hexdigest(self.email)
   end
 end

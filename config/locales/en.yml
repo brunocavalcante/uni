@@ -299,6 +299,7 @@ en:
   
   # Other Translations
   Active: *active
+  Administrators: &administrators "Administrators"
   Inactive: &inactive "Inactive"
   AddSelected: "Add Selected Items"
   BooleanNo: "No"
@@ -323,6 +324,7 @@ en:
     absences: *absences
     academic_periods: *academic_periods
     admin: "Administration"
+    administrators: *administrators
     all: "Everything"
     course_categories: *course_categories
     courses: *courses

@@ -1,0 +1,15 @@
+= form_for(@administrator, :url => @administrator.id ? admin_administrator_path(@administrator) : admin_administrators_path) do |f|
+  = f.error_messages
+  
+  .clearfix
+    = f.label :name, nil, :class => :required
+    .input
+      = f.text_field :name, :class => :input_xlarge
+  
+  .clearfix
+    = f.label :email, nil, :class => :required
+    .input
+      = f.text_field :email, :class => :input_xlarge
+
+  .actions
+    = submit_tag nil, :class => 'btn primary'

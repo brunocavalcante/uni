@@ -1,0 +1,21 @@
+- content_for :title do 
+  %h1= t 'Parameters'
+  
+= render :partial => 'admin/parameters/menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'Administrator'
+    %ul#toolbar
+      %li= link_to (t 'Back'), admin_administrators_path, :class => 'back'
+      - if @administrator.id != @user.id && @administrator.id != 1
+        %li= link_to (t 'Edit'), {:action => 'edit'}, :class => 'edit'
+        %li= button_to (t 'Delete'), {:action => 'show'}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
+      
+  %p
+    %strong="#{t 'activerecord.attributes.person.name'}: "
+    = @administrator.name
+    
+  %p
+    %strong="#{t 'activerecord.attributes.person.email'}: "
+    = @administrator.email

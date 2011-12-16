@@ -299,6 +299,7 @@ pt:
   
   # Other Translations
   Active: *active
+  Administrators: &administrators "Administradores"
   Inactive: &inactive "Inativo"
   AddSelected: "Adicionar Itens Selecionados"
   BooleanNo: "Não"
@@ -322,8 +323,9 @@ pt:
   url:
     absences: *absences
     academic_periods: *academic_periods
-    all: "Todos"
     admin: "Administração"
+    administrators: *administrators
+    all: "Todos"
     course_categories: *course_categories
     courses: *courses
     curriculums: *curriculums

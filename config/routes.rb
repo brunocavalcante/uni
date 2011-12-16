@@ -38,10 +38,10 @@ Uni::Application.routes.draw do
     resources :parameters do 
       collection do
         post :update, :as => :update
-      end  
+        resources :administrators
+      end
     end
     resources :reports
-    resources :contracts
   end
   
   resources :user do 
