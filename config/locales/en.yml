@@ -96,11 +96,11 @@ en:
         code: *code
         places: "Places"
         discipline_id: *discipline
-        professor_ids: &professors "Professores"
+        professor_ids: &professors "Professors"
       lecture_file:
         title: &title "Title"
         description: &description "Description"
-        name: "Arquivo"
+        name: "File"
       lecture_student:
         lecture_situation_id: "Final Situation"
         grade: "Final Grade"
@@ -299,7 +299,7 @@ en:
   
   # Other Translations
   Active: *active
-  Inactive: &inactive "Inativo"
+  Inactive: &inactive "Inactive"
   AddSelected: "Add Selected Items"
   BooleanNo: "No"
   BooleanYes: "Yes"
@@ -351,7 +351,7 @@ en:
     students: *students
     test_results: *test_results
     tests: *tests
-    tests_and_abscences: *tests_and_absences
+    tests_and_absences: *tests_and_absences
     timetable: *timetable
     transcripts: *transcripts
     transferred_disciplines: *transferred_disciplines
