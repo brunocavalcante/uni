@@ -13,6 +13,12 @@ class Professor < ActiveRecord::Base
   
   validates_presence_of :email
   
+  after_initialize :init
+
+  def init
+    self.active = true if self.active == nil
+  end
+  
   def delete_person
     if !person.student
       person.destroy

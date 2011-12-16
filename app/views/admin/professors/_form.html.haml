@@ -12,14 +12,15 @@
             = f.check_box :active
             %span= t 'activerecord.attributes.professor.active'
   
-  .clearfix
-    .input
-      %ul.inputs-list
-        %li
-          %label
-            = check_box_tag :reset_password
-            %span= (t 'ResetPassword')
-      %span.help-block= t 'PasswordWillBeTheProfessorEmail'
+  - if @professor.id
+    .clearfix
+      .input
+        %ul.inputs-list
+          %li
+            %label
+              = check_box_tag :reset_password
+              %span= (t 'ResetPassword')
+        %span.help-block= t 'PasswordWillBeTheProfessorEmail'
   
   .actions
     = f.submit nil, :class => 'btn primary'

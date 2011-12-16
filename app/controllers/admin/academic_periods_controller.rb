@@ -3,7 +3,7 @@ class Admin::AcademicPeriodsController < ApplicationController
   
   # GET /academic_periods
   def index
-    @academic_periods = AcademicPeriod.paginate :page => params[:page]
+    @academic_periods = AcademicPeriod.by_start_date.paginate :page => params[:page]
     
     respond_with @academic_periods
   end
