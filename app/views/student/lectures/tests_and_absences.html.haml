@@ -8,7 +8,7 @@
     %h2= t 'TestsAndAbsences'
     
   %h3= t 'Tests'
-  = render :partial => 'lectures/tests'
+  = render :partial => 'lectures/tests', :locals => {:tests_and_results => @tests_and_results}
   
   %h3= t 'Absences'
-  = render :partial => 'lectures/absences'
+  = render :partial => 'lectures/absences', :locals => {:month_absences => @month_absences}

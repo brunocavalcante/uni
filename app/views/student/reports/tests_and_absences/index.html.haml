@@ -1,0 +1,19 @@
+- content_for :title do
+  %h1= t 'Reports'
+  
+= render :partial => 'student/reports/menu'
+
+%article.content
+  %header.page-header
+    %h2= t 'TestsAndAbsences'
+    
+  - for l in @lecture_students
+    %h3= l.lecture.name
+    %ul
+      - if @tests_and_results[l.id].size > 0
+        %li
+          %h5= t 'Tests'
+          = render :partial => 'lectures/tests', :locals => {:tests_and_results => @tests_and_results[l.id]}
+      %li
+        %h5= t 'Absences'
+        = render :partial => 'lectures/absences', :locals => {:month_absences => @month_absences[l.id]} 

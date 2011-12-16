@@ -25,7 +25,7 @@ class Student::LecturesController < LecturesController
     respond_with @lectures
   end
   
-  def tests_and_abscences
+  def tests_and_absences
     @month_absences = @lecture_student.month_absences
     @tests_and_results = @lecture_student.tests_and_results
     

@@ -18,7 +18,7 @@
     .input
       = f.date_select :registration_start, {:include_blank => true}, {:class => 'span2'}
       = t 'until'
-      = f.date_select :registration_end, {}, {:class => 'span2'}
+      = f.date_select :registration_end, {:include_blank => true}, {:class => 'span2'}
       %span.help-block= t 'InformationOfAbsenceOfRegistrationPeriod'
   
   .actions

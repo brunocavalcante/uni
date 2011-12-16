@@ -1,10 +1,10 @@
-%table.bordered-table
+%table.bordered-table.condensed-table
   %thead
     %tr
-      - for key, value in @tests_and_results
+      - for key, value in tests_and_results
         %th
           = value[:test].name
   %tbody
     %tr
-      - for key, value in @tests_and_results
+      - for key, value in tests_and_results
         %td= value[:result].rating if value[:result]

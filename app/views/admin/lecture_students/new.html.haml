@@ -18,7 +18,7 @@
         = f.collection_select :student_id, @lecture_student.student ? [@lecture_student.student] : [], :student_id, :name, {}, {:multiple => true}
         
     .actions
-      = f.submit ((t 'Add') + ' ' + (t 'Students')), :class => 'btn primary'
+      = f.submit "#{t 'Add'} #{t 'Students'}", :class => 'btn primary'
       
 :javascript
   $(document).ready(function() {

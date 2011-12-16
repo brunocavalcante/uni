@@ -351,7 +351,7 @@ pt:
     students: *students
     test_results: *test_results
     tests: *tests
-    tests_and_abscences: *tests_and_absences
+    tests_and_absences: *tests_and_absences
     timetable: *timetable
     transcripts: *transcripts
     transferred_disciplines: *transferred_disciplines

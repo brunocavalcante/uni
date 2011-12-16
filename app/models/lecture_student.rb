@@ -28,7 +28,12 @@ class LectureStudent < ActiveRecord::Base
                                          :order => ['lessons.date ASC']
                                                           
     @month_absences = {}
-    (lecture.academic_period.start.month .. lecture.academic_period.end.month).each {|i| @month_absences[i] = nil}
+    if lecture.academic_period.start.year != lecture.academic_period.end.year
+      (lecture.academic_period.start.month .. 12).each {|i| @month_absences[i] = nil}
+      (1 .. lecture.academic_period.end.month).each {|i| @month_absences[i] = nil}
+    else
+      (lecture.academic_period.start.month .. lecture.academic_period.end.month).each {|i| @month_absences[i] = nil}
+    end
     
     for lesson_absence in @lesson_absences
       if @month_absences[lesson_absence.lesson.date.month] == nil

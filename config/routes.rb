@@ -83,10 +83,11 @@ Uni::Application.routes.draw do
       resources :home
       resources :transcripts
       resources :schedule
+      resources :tests_and_absences
     end
     resources :lectures do
       member do 
-        get 'tests-and-abscences', :action => :tests_and_abscences, :as => 'tests_and_abscences'
+        get 'tests-and-absences', :action => :tests_and_absences, :as => 'tests_and_absences'
         get :details
       end
       resources :lecture_students

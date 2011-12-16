@@ -1,11 +1,11 @@
-%table.bordered-table
+%table.bordered-table.condensed-table
   %thead
     %tr
-      - for month, ammount in @month_absences
+      - for month, ammount in month_absences
         %th= (t 'date.abbr_month_names')[month]
       %th
   %tbody
     %tr
-      - for month, ammount in @month_absences
+      - for month, ammount in month_absences
         %td= ammount
-      %td= @month_absences.delete_if {|k, v| v == nil}.inject(0) {|sum, hash| sum + hash.last} 
+      %td= month_absences.delete_if {|k, v| v == nil}.inject(0) {|sum, hash| sum + hash.last} 

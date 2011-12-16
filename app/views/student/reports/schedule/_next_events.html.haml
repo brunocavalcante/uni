@@ -10,11 +10,17 @@
               - if event.is_a? Lesson
                 = (t 'activerecord.models.lesson') + ': ' 
                 = link_to event.name, student_lecture_lesson_path(event.lecture, event), :class => 'title' 
-                %span.group='[' + (link_to event.lecture.name, student_lecture_path(event.lecture)) + ']'
+                %span.group
+                  [
+                  = link_to event.lecture.name, student_lecture_path(event.lecture)
+                  ]
               
               - if event.is_a? Test
                 = (t 'activerecord.models.test') + ': ' 
                 %span.title= event.name 
-                %span.group= '[' + (link_to event.lecture.name, student_lecture_path(event.lecture)) + ']'
+                %span.group
+                  [
+                  = link_to event.lecture.name, student_lecture_path(event.lecture)
+                  ]
 - else
   %p= t 'NoNextEventsAvailable'
