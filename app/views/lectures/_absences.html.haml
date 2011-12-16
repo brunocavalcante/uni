@@ -2,7 +2,8 @@
   %thead
     %tr
       - for month, ammount in month_absences
-        %th= (t 'date.abbr_month_names')[month]
+        %th
+          = (t 'date.abbr_month_names')[month]
       %th
   %tbody
     %tr

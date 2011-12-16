@@ -15,7 +15,7 @@ class Transcript < CurriculumStudent
     @best_lecture_students = {}
     for item in @lecture_students | @transferred_disciplines
       discipline_code = item.discipline_code
-      if !@best_lecture_students[discipline_code] || (@best_lecture_students[discipline_code].is_reproved? && !item.is_reproved)
+      if !@best_lecture_students[discipline_code] || (@best_lecture_students[discipline_code].is_failed? && !item.is_failed)
         @best_lecture_students[discipline_code] = item
       end
     end
