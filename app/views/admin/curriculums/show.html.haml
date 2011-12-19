@@ -33,6 +33,14 @@
     %strong= (t 'activerecord.attributes.curriculum.active') + ': '
     = @curriculum.active ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo')
     
+  %p
+    %strong= (t 'MandatoryWorkload') + ': '
+    = @curriculum.mandatory_workload
+    
+  %p
+    %strong= (t 'OptionalWorkload') + ': '
+    = @curriculum.optional_workload
+    
   %h3= t 'Disciplines'
   %table
     %thead
@@ -42,6 +50,7 @@
         %th= t 'activerecord.attributes.curriculum_discipline.prerequisites'
         %th= t 'activerecord.attributes.curriculum_discipline.mandatory'
         %th= t 'activerecord.attributes.discipline.credits'
+        %th= t 'activerecord.attributes.discipline.workload'
     %tbody
       - current_module = nil
       - @curriculum_disciplines.each do |curriculum_discipline|
@@ -59,3 +68,4 @@
               = link_to p.discipline.code, [:admin, @course, @curriculum, p]
           %td= curriculum_discipline.mandatory ? (I18n.t 'BooleanYes') : (I18n.t 'BooleanNo')
           %td= curriculum_discipline.discipline.credits
+          %td= curriculum_discipline.discipline.workload

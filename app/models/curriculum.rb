@@ -28,4 +28,18 @@ class Curriculum < ActiveRecord::Base
   def validate_finished
     errors.add(:finished, :cant_unfinish_has_students) if !finished && curriculum_students.count > 0
   end
+  
+  def mandatory_workload
+    workload = 0
+    curriculum_disciplines.with_discipline.mandatory.each {|cd| workload += cd.discipline.workload if cd.discipline.workload}
+      
+    return workload
+  end
+  
+  def optional_workload
+    workload = 0
+    curriculum_disciplines.with_discipline.optional.each {|cd| workload += cd.discipline.workload if cd.discipline.workload}
+      
+    return workload
+  end
 end

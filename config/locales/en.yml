@@ -92,6 +92,7 @@ en:
         syllabus: "Syllabus"
         equivalents: "Equivalents"
         versions: "Versions"
+        workload: "Workload"
       lecture:
         code: *code
         places: "Places"
@@ -308,7 +309,9 @@ en:
   Editing: "Editing"
   Home: &home "Home"
   IsActive: "Active?"
+  MandatoryWorkload: "Mandatory Workload"
   NoResultsFound: "No results found."
+  OptionalWorkload: "Non-mandatory Workload"
   Pending: &pending "Pending"
   Search: &search "Search"
   Status: "Status"

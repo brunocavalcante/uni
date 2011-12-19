@@ -11,7 +11,21 @@ class UniBroker
   
   def personFormPartialUrls
     @partialUrls = []
-    @plugins.each {|plugin| @partialUrls << plugin.personFormPartialUrl if plugin.personFormPartialUrl}
+    @plugins.each {|plugin| @partialUrls << plugin.personFormPartialUrl if plugin.respond_to?('personFormPartialUrl')}
+    
+    return @partialUrls
+  end
+  
+  def personShowPartialUrls
+    @partialUrls = []
+    @plugins.each {|plugin| @partialUrls << plugin.personShowPartialUrl if plugin.respond_to?('personShowPartialUrl')}
+    
+    return @partialUrls
+  end
+  
+  def parametersMenuPartialUrls
+    @partialUrls = []
+    @plugins.each {|plugin| @partialUrls << plugin.parametersMenuPartialUrl if plugin.respond_to?('parametersMenuPartialUrl')}
     
     return @partialUrls
   end

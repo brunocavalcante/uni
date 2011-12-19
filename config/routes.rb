@@ -12,21 +12,21 @@ Uni::Application.routes.draw do
     resources :scholarities
     resources :course_categories
     resources :courses do
-        resources :disciplines do 
-          new do
-            get :search
-          end
-          member do
-            get :versions
-          end
+      resources :disciplines do 
+        new do
+          get :search
         end
-        resources :curriculums do 
-          resources :curriculum_disciplines
-          resources :curriculum_modules
+        member do
+          get :versions
         end
-        resources :curriculum_students do 
-          resources :transferred_disciplines
-        end
+      end
+      resources :curriculums do 
+        resources :curriculum_disciplines
+        resources :curriculum_modules
+      end
+      resources :curriculum_students do 
+        resources :transferred_disciplines
+      end
     end
     resources :professors
     resources :students

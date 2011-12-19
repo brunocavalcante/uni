@@ -1,0 +1,14 @@
+%p
+  %strong= (t 'activerecord.attributes.person.name' ) + ': '
+  = person.name
+
+%p
+  %strong= (t 'activerecord.attributes.person.email' ) + ': '
+  = person.email
+
+%p
+  %strong= (t 'activerecord.attributes.person.date_birth' ) + ': '
+  = l(person.date_birth, :format => :long) if person.date_birth
+  
+- for partialUrl in UniBroker.instance.personShowPartialUrls
+  = render :partial => partialUrl, :locals => {:person => person}

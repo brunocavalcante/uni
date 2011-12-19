@@ -20,6 +20,7 @@
         %th= t 'activerecord.attributes.discipline.code'
         %th= t 'activerecord.attributes.discipline.name'
         %th= t 'activerecord.attributes.discipline.credits'
+        %th= t 'activerecord.attributes.discipline.workload'
         %th= t 'activerecord.attributes.discipline.version'
     %tbody
       - @disciplines.each do |discipline|
@@ -27,6 +28,7 @@
           %td= discipline.code
           %td= link_to discipline.name, [:admin, @course, discipline]
           %td= discipline.credits
+          %td= discipline.workload
           %td= discipline.version
   
   = will_paginate @disciplines

@@ -14,7 +14,12 @@
   .clearfix
     = f.label :credits
     .input
-      = f.text_field :credits, :class => :span3
+      = f.text_field :credits, :class => :span2
+      
+  .clearfix
+    = f.label :workload
+    .input
+      = f.text_field :workload, :class => :span2
   
   .clearfix
     = f.label :equivalents
@@ -31,5 +36,6 @@
   
 :javascript
   $(document).ready(function() {
+    $('input[name*=workload]').spinner({allowNull: true, min: 0, max: 10000})
     Application.autocomplete('discipline_equivalent_ids', "#{disciplines_path}.js", "#{t 'Remove'}", true)
   });

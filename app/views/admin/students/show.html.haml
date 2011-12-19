@@ -10,17 +10,7 @@
   %strong= (t 'activerecord.attributes.student.code' ) + ': '
   = @student.code
 
-%p
-  %strong= (t 'activerecord.attributes.person.name' ) + ': '
-  = @student.person.name
-
-%p
-  %strong= (t 'activerecord.attributes.person.email' ) + ': '
-  = @student.person.email
-
-%p
-  %strong= (t 'activerecord.attributes.person.date_birth' ) + ': '
-  = l(@student.person.date_birth, :format => :long) if @student.person.date_birth
+= render :partial => 'admin/people/show', :locals => {:person => @student.person}
 
 %h3= t 'Courses'
 - if @student.curriculums.size > 0

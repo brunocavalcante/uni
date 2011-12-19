@@ -6,21 +6,7 @@
     %li= link_to (t 'Edit'), edit_admin_professor_path(@professor), :class => 'edit'
     %li= button_to (t 'Delete'), [:admin, @professor], :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
 
-%p
-  %strong= (t 'activerecord.attributes.person.name' ) + ': '
-  = @professor.person.name 
-
-%p
-  %strong= (t 'activerecord.attributes.person.email' ) + ': '
-  = @professor.person.email 
-
-%p
-  %strong= (t 'activerecord.attributes.person.scholarity_id' ) + ': '
-  = @professor.person.scholarity.name if @professor.person.scholarity 
-
-%p
-  %strong= (t 'activerecord.attributes.person.date_birth' ) + ': '
-  = l(@professor.person.date_birth, :format => :long) if @professor.person.date_birth 
+= render :partial => 'admin/people/show', :locals => {:person => @professor.person}
 
 %p
   %strong= (t 'activerecord.attributes.professor.active' ) + ': '

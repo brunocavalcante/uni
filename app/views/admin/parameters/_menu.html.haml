@@ -5,3 +5,5 @@
       %li= link_to (t 'Administrators'), admin_administrators_path
       %li= link_to (t 'CourseCategories'), admin_course_categories_path
       %li= link_to (t 'Scholarities'), admin_scholarities_path
+      - for partialUrl in UniBroker.instance.parametersMenuPartialUrls
+        = render :partial => partialUrl

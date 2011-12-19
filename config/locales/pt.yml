@@ -92,6 +92,7 @@ pt:
         syllabus: "Ementa"
         equivalents: "Equivalências"
         versions: "Versões"
+        workload: "Carga Horária"
       lecture:
         code: *code
         places: "Vagas"
@@ -308,7 +309,9 @@ pt:
   Editing: "Editando"
   Home: &home "Página Inicial"
   IsActive: "Ativo?"
+  MandatoryWorkload: "Carga Horária Obrigatória"
   NoResultsFound: "Nenhum resultado encontrado."
+  OptionalWorkload: "Carga Horária Não-Obrigatória"
   Pending: &pending "Pendentes"
   Search: &search "Buscar"
   Status: "Status"

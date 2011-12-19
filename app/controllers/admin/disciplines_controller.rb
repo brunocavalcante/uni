@@ -62,7 +62,7 @@ class Admin::DisciplinesController < ApplicationController
     
     @changed = false
 
-    for field_to_check in ['syllabus', 'credits', 'name']
+    for field_to_check in ['syllabus', 'credits', 'workload', 'name']
       @changed = true if @new_discipline.get(field_to_check) != @discipline.get(field_to_check)
     end
 

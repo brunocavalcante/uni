@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111202171519) do
+ActiveRecord::Schema.define(:version => 20111219212138) do
 
   create_table "academic_periods", :force => true do |t|
     t.string   "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20111202171519) do
     t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "partner_institution_id"
   end
 
   create_table "curriculum_discipline_prerequisites", :force => true do |t|
@@ -95,6 +96,7 @@ ActiveRecord::Schema.define(:version => 20111202171519) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "syllabus"
+    t.integer  "workload"
   end
 
   create_table "lecture_files", :force => true do |t|
@@ -185,6 +187,20 @@ ActiveRecord::Schema.define(:version => 20111202171519) do
     t.datetime "updated_at"
   end
 
+  create_table "partner_institutions", :force => true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "website"
+    t.string   "address"
+    t.string   "district"
+    t.string   "zipcode"
+    t.string   "city"
+    t.string   "state"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "people", :force => true do |t|
     t.string   "name"
     t.string   "email"
@@ -197,6 +213,19 @@ ActiveRecord::Schema.define(:version => 20111202171519) do
     t.datetime "photo_updated_at"
     t.integer  "scholarity_id"
     t.date     "date_birth"
+    t.string   "cpf"
+    t.string   "rg"
+    t.string   "telefone_celular"
+    t.string   "telefone_trabalho"
+    t.string   "telefone_casa"
+    t.string   "contato_urgencia_nome"
+    t.string   "contato_urgencia_telefone"
+    t.string   "endereco"
+    t.string   "bairro"
+    t.string   "cep"
+    t.string   "cidade"
+    t.string   "uf"
+    t.string   "estado_civil"
   end
 
   create_table "person_roles", :force => true do |t|

@@ -16,6 +16,9 @@ class CurriculumDiscipline < ActiveRecord::Base
   # Scopes
   scope :by_module, includes([:discipline, :curriculum_module]).order('curriculum_modules.order ASC, disciplines.name ASC')
   scope :with_prerequisites, includes(:prerequisites)
+  scope :with_discipline, includes(:discipline)
+  scope :mandatory, where('mandatory IS TRUE')
+  scope :optional, where('mandatory IS FALSE')
   
   # Validations
   validate :validate_curriculum

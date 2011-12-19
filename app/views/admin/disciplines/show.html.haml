@@ -24,6 +24,10 @@
     = @discipline.credits
     
   %p
+    %strong= (t 'activerecord.attributes.discipline.workload') + ': '
+    = @discipline.workload
+    
+  %p
     %strong= (t 'activerecord.attributes.discipline.version') + ': '
     = @discipline.version
     
