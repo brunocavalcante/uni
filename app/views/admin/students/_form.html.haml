@@ -2,9 +2,9 @@
   = f.error_messages 
   
   .clearfix
-    = f.label :code, nil, :class => :required 
+    = f.label :code, nil, :class => :required
     .input
-      = f.text_field :code, :class => :input_medium
+      = f.text_field :code, :class => :input_medium, :required => 'required'
   
   = f.fields_for :person do |p| 
     = render :partial => 'admin/people/form', :locals => {:p => p}

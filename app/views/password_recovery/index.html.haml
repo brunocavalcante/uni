@@ -5,6 +5,6 @@
   .clearfix
     = label_tag 'usuario', (t 'EmailOrStudentId')
     .input
-      = text_field_tag 'username', nil, :autocomplete => 'off'
+      = text_field_tag 'username', nil, :autocomplete => 'off', :required => 'required'
   .actions
     = submit_tag (t 'SendMeMyPassword'), :class => 'btn primary'

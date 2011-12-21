@@ -5,12 +5,12 @@
     .clearfix
       = m.label :subject
       .input
-        = m.text_field :subject
+        = m.text_field :subject, :class => 'span6'
     
     .clearfix
       = m.label :content
       .input
-        = m.text_area :content, :rows => 5
+        = m.text_area :content, :rows => 5, :class => 'span6', :required => 'required'
   
   .actions
     = f.submit nil, :class => 'btn primary'

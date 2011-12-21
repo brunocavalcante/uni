@@ -4,7 +4,7 @@
   .clearfix
     = f.label :name, nil, :class => :required 
     .input
-      = f.text_field :name 
+      = f.text_field :name, :required => 'required'
   
   .actions
     = f.submit nil, :class => 'btn primary' 

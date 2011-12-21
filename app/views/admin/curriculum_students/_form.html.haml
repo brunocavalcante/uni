@@ -15,7 +15,7 @@
   .clearfix
     = f.label :created_at, nil, :class => :required
     .input
-      = f.date_select :created_at
+      = f.date_select :created_at, :required => 'required'
       
   .clearfix
     = f.label :active

@@ -4,12 +4,12 @@
   .clearfix
     = f.label :name, nil, :class => :required
     .input
-      = f.text_field :name, :class => :input_xlarge
+      = f.text_field :name, :class => :input_xlarge, :required => 'required'
   
   .clearfix
     = f.label :email, nil, :class => :required
     .input
-      = f.text_field :email, :class => :input_xlarge
+      = f.text_field :email, :class => :input_xlarge, :required => 'required'
 
   .actions
     = submit_tag nil, :class => 'btn primary'

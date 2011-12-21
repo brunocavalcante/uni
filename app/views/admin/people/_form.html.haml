@@ -1,10 +1,10 @@
 .clearfix
   = p.label :name, nil, :class => :required
   .input
-    = p.text_field :name, :class => 'span6'
+    = p.text_field :name, :class => 'span6', :required => 'required'
 
 .clearfix
-  = p.label :email, nil, :class => :required
+  = p.label :email, nil
   .input
     = p.text_field :email, :class => 'span6'
 

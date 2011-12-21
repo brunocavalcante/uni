@@ -4,14 +4,14 @@
   .clearfix
     = f.label :name, nil, :class => 'required'
     .input
-      = f.text_field :name
+      = f.text_field :name, :required => 'required'
   
   .clearfix
     = f.label :start, nil, :class => 'required'
     .input
-      = f.date_select :start, {}, {:class => 'span2'}
+      = f.date_select :start, {}, {:class => 'span2', :required => 'required'}
       = t 'until'
-      = f.date_select :end, {}, {:class => 'span2'}
+      = f.date_select :end, {}, {:class => 'span2', :required => 'required'}
       
   .clearfix
     = f.label :registration_start

@@ -12,7 +12,7 @@
   .clearfix
     = label_tag (t 'activerecord.attributes.person.name')
     .input
-      = text_field(:user, :name)
+      = text_field(:user, :name, :required => 'required') 
   
   .clearfix
     = label_tag (t 'activerecord.attributes.person.email')
