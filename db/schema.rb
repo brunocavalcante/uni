@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111219212138) do
+ActiveRecord::Schema.define(:version => 20111221163645) do
 
   create_table "academic_periods", :force => true do |t|
     t.string   "name"

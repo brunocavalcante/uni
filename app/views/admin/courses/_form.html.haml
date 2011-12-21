@@ -16,5 +16,8 @@
     .input
       = f.select :course_category_id, CourseCategory.all.collect {|c| [ c.name, c.id ] }
   
+  - for partialUrl in UniBroker.instance.courseFormPartialUrls
+    = render :partial => partialUrl, :locals => {:f => f}
+  
   .actions
     = f.submit nil, :class => 'btn primary'

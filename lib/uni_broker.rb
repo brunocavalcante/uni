@@ -9,6 +9,13 @@ class UniBroker
     @plugins << plugin
   end
   
+  def courseFormPartialUrls
+    @partialUrls = []
+    @plugins.each {|plugin| @partialUrls << plugin.courseFormPartialUrl if plugin.respond_to?('courseFormPartialUrl')}
+    
+    return @partialUrls
+  end
+  
   def personFormPartialUrls
     @partialUrls = []
     @plugins.each {|plugin| @partialUrls << plugin.personFormPartialUrl if plugin.respond_to?('personFormPartialUrl')}
