@@ -11,6 +11,8 @@
       %li= link_to (t 'Profile'), user_path(@curriculum_student.student.person), :class => 'person'
       %li= link_to (t 'Edit'), edit_admin_course_curriculum_student_path(@course, @curriculum_student), :class => 'edit'
       %li= link_to (t 'TransferredDisciplines'), admin_course_curriculum_student_transferred_disciplines_path(@course, @curriculum_student), :class => 'show'
+      - for partialUrl in UniBroker.instance.curriculumStudentMenuPartialUrls
+        = render :partial => partialUrl
       %li= button_to (t 'Remove'), {:action => "show"}, :confirm => (t 'AreYouSure'), :method => :delete, :class => 'delete'
   
   %p

@@ -1,0 +1,10 @@
+!!! 5
+%html
+  %head
+    %title= (t 'Uni') + ' - ' + (t 'UniversityManagementSystem')
+    = favicon_link_tag
+    = stylesheet_link_tag "print", :media => 'screen, print'
+    = csrf_meta_tag
+  
+  %body.print{:id => (yield :body_id)}
+    = yield

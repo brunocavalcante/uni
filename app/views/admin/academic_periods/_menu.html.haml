@@ -3,3 +3,5 @@
     %ul
       %li= link_to (t 'Home'), admin_academic_period_path(academic_period)
       %li= link_to (t 'Lectures'), admin_academic_period_lectures_path(academic_period)
+      - for partialUrl in UniBroker.instance.academicPeriodsMenuPartialUrls
+        = render :partial => partialUrl, :locals => {:academic_period => academic_period}

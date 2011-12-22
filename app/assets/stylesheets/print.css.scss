@@ -1,0 +1,49 @@
+body.print {
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.fullsize {
+  width: 100%;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+th {
+  text-align: left;
+}
+
+table.bordered {
+  border-spacing: 0;
+  border-collapse: collapse;
+
+  td, th {
+    border: 1px solid #BBB;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+hr.signature {
+  width: 400px;
+  color: black;
+  margin-bottom: 0;
+  border-color: black;
+  border-bottom: 0px;
+}
+
+p.signature {
+  margin-top: 0.2em;
+}
+
+.pagebreak {
+  page-break-before: always;
+}

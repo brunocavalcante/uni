@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111221163645) do
+ActiveRecord::Schema.define(:version => 20111222200010) do
+
+  create_table "academic_period_curriculum_lectures", :force => true do |t|
+    t.integer  "academic_period_curriculum_id"
+    t.integer  "lecture_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "academic_period_curriculums", :force => true do |t|
+    t.integer  "academic_period_id"
+    t.integer  "curriculum_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "academic_periods", :force => true do |t|
     t.string   "name"
@@ -29,6 +43,13 @@ ActiveRecord::Schema.define(:version => 20111221163645) do
     t.datetime "updated_at"
   end
 
+  create_table "course_contracts", :force => true do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "courses", :force => true do |t|
     t.string   "name"
     t.integer  "course_category_id"
@@ -36,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20111221163645) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "partner_institution_id"
+    t.integer  "course_contract_id"
   end
 
   create_table "curriculum_discipline_prerequisites", :force => true do |t|
