@@ -5,6 +5,12 @@
     = favicon_link_tag
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
+    
+    - for plugin in UniBroker.instance.plugins
+      - if plugin.respond_to?('name')
+        = stylesheet_link_tag    plugin.name
+        = javascript_include_tag plugin.name
+    
     = csrf_meta_tag
   
   %body{:id => (yield :body_id)}

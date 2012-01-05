@@ -54,4 +54,8 @@ class UniBroker
   def clear
     @plugins = []
   end
+  
+  def plugins
+    @plugins
+  end
 end
