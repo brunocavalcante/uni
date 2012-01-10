@@ -63,6 +63,12 @@ class Student < ActiveRecord::Base
     return @schedule 
   end
   
+  def get_next_code
+    @today = Time.new
+    #[YEAR][MONTH][SECOND][SEQUENTIAL]
+    return "#{@today.year}#{@today.strftime('%m')}#{@today.strftime('%S')}#{Student.count + 1}"
+  end
+  
   private
     def set_password
       person.password = Digest::MD5.hexdigest(self.code)

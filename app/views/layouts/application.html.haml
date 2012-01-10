@@ -1,7 +1,10 @@
 !!! 5
 %html
   %head
-    %title= (t 'Uni') + ' - ' + (t 'UniversityManagementSystem')
+    %title
+      = Parameter.institution_name
+      = '-'
+      = t 'UniversityManagementSystem'
     = favicon_link_tag
     = stylesheet_link_tag    "application"
     = javascript_include_tag "application"
@@ -17,7 +20,7 @@
     .topbar
       %header#main-header.topbar-inner
         .container-fluid
-          %a.brand{:href => '/'}= t 'Uni'
+          %a.brand{:href => '/'}= Parameter.institution_name
           - if !session[:user] or !session[:role]
             = render :partial => 'layouts/menu-guest'
           - elsif session[:role] and session[:role].id == Role::ADMINISTRATOR
@@ -61,7 +64,7 @@
      
     .container-fluid
       %footer
-        %strong= t 'Uni'
+        %strong= Parameter.institution_name
         &mdash; 
         = t 'UniversityManagementSystem'
         %p#license

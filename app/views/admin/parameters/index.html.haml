@@ -13,5 +13,22 @@
       .input
         = select_tag :locale, options_for_select(lang_options_for_select(), I18n.locale)
         
-    .actions
-      = submit_tag nil, :class => 'btn primary'
+    .clearfix
+      .input
+        %ul.inputs-list
+          %li
+            %label
+              = check_box_tag :auto_generate_student_code, nil, @auto_generate_student_code.value == 't'
+              %span= t 'AutoGenerateStudentCode'
+        
+    %fieldset
+      %legend= t 'Institution'
+      
+      .clearfix
+        = label_tag :institution_name, (t 'Name')
+        .input
+          = text_field_tag :institution_name, @institution_name.value
+          
+          
+      .actions
+        = submit_tag nil, :class => 'btn primary'

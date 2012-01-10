@@ -32,6 +32,10 @@ class Admin::StudentsController < ApplicationController
     @student = Student.new
     @student.person = Person.new
     
+    if Parameter.auto_generate_student_code
+      @student.code = @student.get_next_code
+    end
+    
     respond_with @student
   end
 

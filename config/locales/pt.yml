@@ -285,6 +285,8 @@ pt:
   Locale: "Idioma"
   Parameters: &parameters "Parâmetros"
   System: "Sistema"
+  AutoGenerateStudentCode: "Gerar número de matrícula automaticamente"
+  Institution: "Instituição"
   
   # Course/Curriculums
   AddDisciplineToCurriculum: "Adicionar Disciplina à Grade Curricular"
