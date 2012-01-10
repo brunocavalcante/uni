@@ -7,3 +7,9 @@
   = t 'PasswordWillBeTheStudentCode'
 
 = render 'form'
+
+:javascript
+  if ($('#student_code').val() != '') {
+    $('#student_code').attr('readonly', 'readonly');
+    $('#student_person_attributes_name').focus()
+  }
