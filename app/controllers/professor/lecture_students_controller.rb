@@ -29,6 +29,7 @@ class Professor::LectureStudentsController < ApplicationController
   def show
     @lecture_student = LectureStudent.find params[:id]
     @month_absences = @lecture_student.month_absences
+    @tests_and_results = @lecture_student.tests_and_results
     
     respond_with @lecture_student
   end

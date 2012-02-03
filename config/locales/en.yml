@@ -182,6 +182,7 @@ en:
   PasswordRecovery: "Password Recovery"
   SendMeMyPassword: "Send me my password"
   AboutContent: "Uni is a free and open source web Academic Platform, built on Ruby on Rails, with the purpose of helping to manage an academic environment, such as a university."
+  InitialUsers: "Initial Users:"
   
   # Profiles
   Professor: *professor
@@ -282,6 +283,8 @@ en:
   AcademicPeriodCloseToConclusionPendingStudentsNotice: "Attention: the academic period of one or more of your classes is close to ending, and there are still students with pending approval/disapproval."
   
   # Parameters
+  AutoGenerateStudentCode: "Auto generate student code"
+  Institution: "Institution"
   Locale: "Locale"
   Parameters: &parameters "Parameters"
   System: "System"

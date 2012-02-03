@@ -16,8 +16,12 @@
       = t 'TimeOn'
       = l file.created_at, :format => :short
     
-    .content
+    .content.clearfix
       %p= link_to file.title_or_name, {:controller => 'files', :action => :download, :lecture_id => file.lecture_id, :id => file.id}, :class => 'file'
+      - if file.is_image
+        %p.image
+          = link_to ({:controller => 'files', :action => :download, :lecture_id => file.lecture_id, :id => file.id}) do
+            %img{:src => url_for({:controller => 'files', :action => :download, :lecture_id => file.lecture_id, :id => file.id})}
       
       = file.description
       

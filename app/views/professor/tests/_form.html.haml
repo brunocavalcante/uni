@@ -9,7 +9,7 @@
   .clearfix
     = f.label :date
     .input
-      = f.datetime_select :date, {}, {:class => :span2}
+      = f.datetime_select :date, {:minute_step => 5}, {:class => :span2}
   
   .actions
     = f.submit nil, :class => 'btn primary'

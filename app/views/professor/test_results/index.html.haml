@@ -25,7 +25,7 @@
             %td
               = text_field_tag 'lecture_student_rating[]', @results[lecture_student.id][:rating], :class => :span2
             %td
-              = datetime_select nil, nil, {:default => @results[lecture_student.id][:date], :prefix => 'lecture_student_date[]'}, {:class => :span3}
+              = datetime_select nil, nil, {:default => @results[lecture_student.id][:date], :prefix => 'lecture_student_date[]', :minute_step => 5}, {:class => :span3}
       
     .actions
       = submit_tag nil, :class => 'btn primary'

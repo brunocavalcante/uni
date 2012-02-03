@@ -1,6 +1,7 @@
-.student-schedule {
+body .student-schedule {
   list-style-type: none;
   padding-left: 0;
+  margin-left: 0;
   
   h4 {
     border-bottom: 1px solid #EEE;
@@ -8,10 +9,28 @@
   }
   
   ul {
-    list-style-type: disc;
+    list-style-type: none;
+    margin-left: 0;
     
     li {
       margin-bottom: 0.5em;
+      padding-left: 24px;
+      background-repeat: no-repeat;
+      background-position: 0 3px;
     }
+  }
+  
+  h5 {
+    line-height: 14px;
+    margin: 16px 0 8px;
+  }
+  
+  li:first-child h5 {
+    margin-top: 0;
+  }
+  
+  .title {
+    font-weight: bold;
+    color: #0069D6;
   }
 }

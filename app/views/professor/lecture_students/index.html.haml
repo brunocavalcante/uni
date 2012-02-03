@@ -6,22 +6,22 @@
 %article.content
   %header.page-header
     %h2= t 'Students'
-	
-	%form
-		%p.search
-			= text_field_tag :search, params[:search], :type => :search 
-			= select_tag :lecture_situation_id, options_for_select(lecture_situations_options, params[:lecture_situation_id]), :include_blank => true 
-	  	= submit_tag (t 'Search'), :class => 'btn'
-	
-	%table
-	  %thead
-	  	%tr
-	  		%th= t 'activerecord.attributes.person.name'
-	  		%th= t 'activerecord.attributes.lecture_student.lecture_situation_id'
-	  %tbody
-	    - for lecture_student in @lecture_students do
-  	    %tr
-  	    	%td= link_to lecture_student.name, [:professor, @lecture, lecture_student]
-  	      %td= t lecture_student.lecture_situation.name if lecture_student.lecture_situation
-	
-	= will_paginate @lecture_students
+  
+  %form
+    %p.search
+      = text_field_tag :search, params[:search], :type => :search 
+      = select_tag :lecture_situation_id, options_for_select(lecture_situations_options, params[:lecture_situation_id]), :include_blank => true 
+      = submit_tag (t 'Search'), :class => 'btn'
+  
+  %table
+    %thead
+      %tr
+        %th= t 'activerecord.attributes.person.name'
+        %th= t 'activerecord.attributes.lecture_student.lecture_situation_id'
+    %tbody
+      - for lecture_student in @lecture_students do
+        %tr
+          %td= link_to lecture_student.name, [:professor, @lecture, lecture_student]
+          %td= t lecture_student.lecture_situation.name if lecture_student.lecture_situation
+  
+  = will_paginate @lecture_students

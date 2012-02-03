@@ -244,6 +244,22 @@ aside ul li.lessons {
   
   .item {
     margin-left: 93px;
+    clear: both;
+    
+    .content {
+      clear: both;
+      
+      p.image {
+        float: left;
+        clear: both;
+        margin-right: 10px;
+        
+        img {
+          max-width: 128px;
+          max-height: 128px;
+        }
+      }
+    }
   }
   
   .item .content p {
@@ -255,7 +271,7 @@ aside ul li.lessons {
   }
   
   .item h4 {
-    margin: 0 0 0.5em;
+    margin: 0 0 0.75em;
   }
 
   .content {
@@ -265,6 +281,11 @@ aside ul li.lessons {
     
     form {
       margin-bottom: 0;
+      clear: both;
+    }
+    
+    h4 {
+      line-height: 16px;
     }
   }
 
@@ -279,7 +300,7 @@ aside ul li.lessons {
   }
   .content form {
     border-top: 1px solid #DDD;
-    margin-top: 0.5em;
+    margin-top: 0.75em;
     padding-top: 0.5em;
   }
 }
@@ -412,4 +433,22 @@ body .pagination {
     background-color: transparent;
     color: #BFBFBF;
   }
+}
+
+/* Clearfix */
+.clearfix:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+ 
+html[xmlns] .clearfix {
+  display: block;
+}
+ 
+* html .clearfix {
+  height: 1%;
 }

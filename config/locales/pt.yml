@@ -182,6 +182,7 @@ pt:
   PasswordRecovery: "Recuperação de Senha"
   SendMeMyPassword: "Envie-me a minha senha"
   AboutContent: "A Uni é uma plataforma web livre para sistemas de gestão acadêmica, construída com Ruby on Rails, com o objetivo de melhorar a gestão de um ambiente acadêmico, como uma universidade."
+  InitialUsers: "Usuários Iniciais:"
   
   # Profiles
   Professor: *professor

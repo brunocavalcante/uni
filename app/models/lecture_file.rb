@@ -19,4 +19,8 @@ class LectureFile < ActiveRecord::Base
     
     return content_type
   end
+  
+  def is_image
+    name.to_s.include?(".gif") or name.to_s.include?(".png") or name.to_s.include?(".jpg")
+  end
 end
