@@ -4,15 +4,15 @@
   .clearfix
     = f.label :title
     .input
-      = f.text_field :title
+      = f.text_field :title, :class => 'span6'
   
   .clearfix
     = f.label :description
     .input
-      = f.text_area :description, :rows => 5
+      = f.text_area :description, :rows => 5, :class => 'span6'
 
   .clearfix
-    = label_tag (t 'Upload')
+    = f.label :file
     .input
       = file_field :file, :upload
 

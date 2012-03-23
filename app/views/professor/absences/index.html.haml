@@ -10,7 +10,7 @@
       %li= link_to (t 'Back'), professor_lecture_lesson_path(@lecture, @lesson), :class => 'back'
   
   = form_tag({:action => :create}) do
-    %table
+    %table.with-input
       %thead
         %tr
           %th= t 'activerecord.attributes.lesson_absence.lecture_student_id'
@@ -22,7 +22,7 @@
               = lecture_student.name
               = hidden_field_tag 'lecture_student_id[]', lecture_student.id
             %td
-              = text_field_tag 'lecture_student_ammount[]', @absences[lecture_student.id]
+              = text_field_tag 'lecture_student_ammount[]', @absences[lecture_student.id], :class => 'span2'
     
     .actions
       = submit_tag nil, :class => 'btn primary'

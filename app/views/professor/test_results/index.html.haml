@@ -10,7 +10,7 @@
       %li= link_to (t 'Back'), professor_lecture_test_path(@lecture, @test), :class => 'back'
 
   = form_tag({:action => :create}) do
-    %table
+    %table.with-input
       %thead
         %tr
           %th= t 'activerecord.attributes.test_result.lecture_student_id'

@@ -102,6 +102,7 @@ pt:
         title: &title "Título"
         description: &description "Descrição"
         name: "Arquivo"
+        file: "Arquivo"
       lecture_student:
         lecture_situation_id: "Situação Final"
         grade: "Nota Final"

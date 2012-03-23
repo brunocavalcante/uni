@@ -48,10 +48,13 @@
                   %li.divider
                   %li= link_to (t 'Logout'), logout_path, :class => 'logout'
 
+    - if session[:user] && get_bread_crumb(request.fullpath)
+      .context-breadcrumb
+        .container-fluid
+          %ul.breadcrumb= get_bread_crumb(request.fullpath).html_safe
+
     .context-header
       .container-fluid
-        - if session[:user]
-          %ul.breadcrumb= get_bread_crumb(request.fullpath).html_safe
         = yield :title
     .container-fluid
       - if notice

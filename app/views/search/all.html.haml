@@ -1,4 +1,4 @@
-%header.page-header
+- content_for :title do
   %h1= (t 'Search') + ': ' + @query
 
 %h3= t 'Students'
@@ -27,4 +27,4 @@
         %tr
           %td= link_to professor.name, @user.is_admin? ? admin_professor_path(professor) : user_path(professor.person)
 - else
-  %p= t 'NoResultsFound'
+  %p.alert-message.block-message.warning= t 'NoResultsFound'
