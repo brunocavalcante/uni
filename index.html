@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
+
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
+
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Uni by brunocavalcante</title>
+  </head>
+
+  <body>
+    <a id="forkme_banner" href="https://github.com/brunocavalcante/uni">Fork Me on GitHub</a>
+    <div class="shell">
+
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Uni</h1>
+            <h2>Open Source Platform for University Management Systems</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
+
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/brunocavalcante/uni/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/brunocavalcante/uni/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
+
+      <span class="banner-fix"></span>
+
+      <section id="main_content">
+        <p>Uni is a Open Source Platform for Academic Management Systems, with the following features:</p>
+
+<ul>
+<li>Administration: Courses, Disciplines, Students and Academic Periods Management</li>
+<li>Registration: Creation of Classes per Academic Period</li>
+<li>Professor: Classes Management (grades, absences, files, messages for the students)</li>
+<li>Student: Access to your current classes</li>
+<li>Reports: Statistical reports per course, student, professor and discipline</li>
+<li>Social: Student/Professor profile, with contact information and links, current courses and classes</li>
+<li>Library: Management of the university’s catalog of books and related, and their locations by the students/professors</li>
+</ul><h3>Instalation</h3>
+
+<pre><code>$ bundle install
+$ rake db:migrate:reset
+$ rake db:seed
+</code></pre>
+
+<h3>Initial Users</h3>
+
+<p>User, Password</p>
+
+<ul>
+<li>admin@uni.com, admin</li>
+<li>professor@uni.com, professor</li>
+<li>student@uni.com, student</li>
+</ul>
+      </section>
+
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/brunocavalcante">brunocavalcante</a> can be found on <a href="https://github.com/brunocavalcante/uni">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
+      </footer>
+
+    </div>
+
+    
+  </body>
+</html>
