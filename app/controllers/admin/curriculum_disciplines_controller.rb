@@ -15,6 +15,9 @@ class Admin::CurriculumDisciplinesController < ApplicationController
   end
   
   def create
+    # Removes ""'s from the discipline list
+    params[:curriculum_disciplines][:discipline_ids].delete_if{|x| x == ""}
+
     params[:curriculum_disciplines][:discipline_ids].each do |discipline_id|
       @curriculum_discipline = CurriculumDiscipline.new
       @curriculum_discipline.discipline_id = discipline_id
