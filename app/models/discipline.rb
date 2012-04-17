@@ -16,7 +16,7 @@ class Discipline < ActiveRecord::Base
     :foreign_key => 'discipline_id', :class_name => 'DisciplineEquivalent', :dependent => :destroy                             
   has_many :equivalents, :through => :discipline_equivalents, :source => :equivalent_discipline
 
-  default_scope :order => 'name ASC'
+  scope :ordered_by_name, order('name ASC')
   
   scope :latest_versions, where('version = (SELECT MAX(version) 
                                             FROM disciplines d2 
