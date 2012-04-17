@@ -57,7 +57,7 @@
         - if curriculum_discipline.curriculum_module_id != current_module
           - current_module = curriculum_discipline.curriculum_module_id
           %tr
-            %th{:colspan => 5}
+            %th{:colspan => 6}
               = curriculum_discipline.curriculum_module ? curriculum_discipline.curriculum_module.name : t('TranscriptNoCurriculumModule')
         %tr
           %td= curriculum_discipline.discipline.code
