@@ -41,7 +41,7 @@
         .clearfix
           = text_field_tag 'sites[][name]', site.name 
           = text_field_tag 'sites[][url]', site.url, :size => '60' 
-          = submit_tag (t 'Remove'), {:class => 'btn', :type => 'button'}
+          = submit_tag (t 'Remove'), {:class => 'remove-item btn', :type => 'button'}
         
       .clearfix
         = text_field_tag 'sites[][name]', nil, :placeholder => I18n.t('Name') 
