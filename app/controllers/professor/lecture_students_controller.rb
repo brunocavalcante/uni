@@ -41,7 +41,8 @@ class Professor::LectureStudentsController < ApplicationController
     @maximum_absences = @lecture.lessons.inject(0) {|sum, lesson| sum + lesson.maximum_absences}
     @absences = @lecture_student.lesson_absences.inject(0) {|sum, absence| sum + absence.ammount}
     
-    @suggested_attendance = ((@maximum_absences - @absences) * 100) / @maximum_absences
+    @suggested_attendance = @maximum_absences == 0 ? 0 : ((@maximum_absences - @absences) * 100) / @maximum_absences
+
   end
   
   def update
