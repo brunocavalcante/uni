@@ -2,14 +2,16 @@ pt:
   added: &added
     create:
       notice: '%{resource_name} adicionado com sucesso.'
-    update: *update
+    update: &update
+      notice: '%{resource_name} atualizado com sucesso.'
     destroy: &added_destroy
       notice: '%{resource_name} removido com sucesso.'
       alert: '%{resource_name} nâo pôde ser removido.'
   added_feminine: &added_feminine
     create:
       notice: '%{resource_name} adicionada com sucesso.'
-    update: *feminine_update
+    update: &feminine_update
+      notice: '%{resource_name} atualizada com sucesso.'
     destroy: &added_feminine_destroy
       notice: '%{resource_name} removida com sucesso.'
       alert: '%{resource_name} nâo pôde ser removida.'

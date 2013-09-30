@@ -2,7 +2,8 @@ en:
   added: &added
     create:
       notice: '%{resource_name} successfully added.'
-    update: *update
+    update: 
+      notice: '%{resource_name} was successfully updated.'
     destroy: 
       notice: '%{resource_name} successfully removed.'
       alert: '%{resource_name} could not be removed.'
