@@ -2,3 +2,9 @@
 
 require ::File.expand_path('../config/environment',  __FILE__)
 run Uni::Application
+
+use Rack::ReverseProxy do
+  reverse_proxy(/^\/video(\/.*)$/,
+    'https://www.youtube.com/embed/uGtTE6ijJaA',
+    opts = {:preserve_host => true})
+end
