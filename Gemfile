@@ -32,6 +32,8 @@ gem 'responders'
 
 gem 'haml'
 
+gem "rack-reverse-proxy", :require => "rack/reverse_proxy"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
